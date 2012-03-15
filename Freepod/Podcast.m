@@ -15,6 +15,8 @@
 	return self;
 }
 
+	// Setters
+
 -(void) setIdPodcast:(int)newIdPodcast {
 	self->idPodcast = newIdPodcast;
 }
@@ -47,35 +49,37 @@
 	self->logoBanner = newLogoBanner;
 }
 
--(NSInteger) getIdPodcast {
+	// Getters
+
+-(NSInteger) idPodcast {
 	return self->idPodcast;
 }
 
--(NSString*) getNom {
+-(NSString*) nom {
 	return self->nom;
 }
 
--(NSString*) getDescription {
+-(NSString*) description {
 	return self->description;
 }
 
--(NSString*) getExplicite {
+-(NSString*) explicite {
 	return self->explicite;
 }
 
--(NSString*) getUrlSite {
+-(NSString*) urlSite {
 	return self->urlSite;
 }
 
--(NSString*) getUrlFreepod {
+-(NSString*) urlFreepod {
 	return self->urlFreepod;
 }
 
--(NSString*) getLogoNormal {
+-(NSString*) logoNormal {
 	return self->logoNormal;
 }
 
--(NSString*) getLogoBanner {
+-(NSString*) logoBanner {
 	return self->logoBanner;
 }
 

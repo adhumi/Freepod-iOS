@@ -29,6 +29,7 @@
 		A6EDC9811511344B003083CA /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EDC9731511344B003083CA /* SBJsonTokeniser.m */; };
 		A6EDC9821511344B003083CA /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EDC9751511344B003083CA /* SBJsonUTF8Stream.m */; };
 		A6EDC9831511344B003083CA /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EDC9771511344B003083CA /* SBJsonWriter.m */; };
+		A6EDC98A1511E2B2003083CA /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = A6EDC9891511E2B2003083CA /* Episode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,8 @@
 		A6EDC9751511344B003083CA /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
 		A6EDC9761511344B003083CA /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		A6EDC9771511344B003083CA /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		A6EDC9881511E2B2003083CA /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
+		A6EDC9891511E2B2003083CA /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				A6EDC9421511319F003083CA /* Supporting Files */,
 				A6EDC95B15113234003083CA /* Podcast.h */,
 				A6EDC95C15113234003083CA /* Podcast.m */,
+				A6EDC9881511E2B2003083CA /* Episode.h */,
+				A6EDC9891511E2B2003083CA /* Episode.m */,
 			);
 			path = Freepod;
 			sourceTree = "<group>";
@@ -256,6 +261,7 @@
 				A6EDC9811511344B003083CA /* SBJsonTokeniser.m in Sources */,
 				A6EDC9821511344B003083CA /* SBJsonUTF8Stream.m in Sources */,
 				A6EDC9831511344B003083CA /* SBJsonWriter.m in Sources */,
+				A6EDC98A1511E2B2003083CA /* Episode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +383,7 @@
 				A6EDC95A1511319F003083CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

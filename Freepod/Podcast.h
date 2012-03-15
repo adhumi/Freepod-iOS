@@ -36,13 +36,13 @@
 -(void) setLogoNormal:(NSString*)newLogoNormal;
 -(void) setLogoBanner:(NSString*)newLogoBanner;
 
--(NSInteger) getIdPodcast;
--(NSString*) getNom;
--(NSString*) getDescription;
--(NSString*) getExplicite;
--(NSString*) getUrlSite;
--(NSString*) getUrlFreepod;
--(NSString*) getLogoNormal;
--(NSString*) getLogoBanner;
+-(NSInteger) idPodcast;
+-(NSString*) nom;
+-(NSString*) description;
+-(NSString*) explicite;
+-(NSString*) urlSite;
+-(NSString*) urlFreepod;
+-(NSString*) logoNormal;
+-(NSString*) logoBanner;
 
 @end
