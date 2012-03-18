@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A625D0F0151612200018FDD6 /* ico_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = A625D0EF151612200018FDD6 /* ico_ios.png */; };
+		A625D0F2151612240018FDD6 /* ico_ios_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = A625D0F1151612240018FDD6 /* ico_ios_retina.png */; };
+		A625D0F4151612780018FDD6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A625D0F3151612780018FDD6 /* Default@2x.png */; };
+		A625D0F61516127D0018FDD6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A625D0F51516127D0018FDD6 /* Default.png */; };
 		A6EDC93C1511319F003083CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6EDC93B1511319F003083CA /* UIKit.framework */; };
 		A6EDC93E1511319F003083CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6EDC93D1511319F003083CA /* Foundation.framework */; };
 		A6EDC9401511319F003083CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6EDC93F1511319F003083CA /* CoreGraphics.framework */; };
@@ -33,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A625D0EF151612200018FDD6 /* ico_ios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_ios.png; sourceTree = "<group>"; };
+		A625D0F1151612240018FDD6 /* ico_ios_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_ios_retina.png; sourceTree = "<group>"; };
+		A625D0F3151612780018FDD6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A625D0F51516127D0018FDD6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A6EDC9371511319F003083CA /* Freepod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freepod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6EDC93B1511319F003083CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A6EDC93D1511319F003083CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,6 +103,10 @@
 		A6EDC92C1511319F003083CA = {
 			isa = PBXGroup;
 			children = (
+				A625D0F51516127D0018FDD6 /* Default.png */,
+				A625D0F3151612780018FDD6 /* Default@2x.png */,
+				A625D0F1151612240018FDD6 /* ico_ios_retina.png */,
+				A625D0EF151612200018FDD6 /* ico_ios.png */,
 				A6EDC9411511319F003083CA /* Freepod */,
 				A6EDC93A1511319F003083CA /* Frameworks */,
 				A6EDC9381511319F003083CA /* Products */,
@@ -235,6 +247,10 @@
 				A6EDC9461511319F003083CA /* InfoPlist.strings in Resources */,
 				A6EDC9521511319F003083CA /* ViewController_iPhone.xib in Resources */,
 				A6EDC9551511319F003083CA /* ViewController_iPad.xib in Resources */,
+				A625D0F0151612200018FDD6 /* ico_ios.png in Resources */,
+				A625D0F2151612240018FDD6 /* ico_ios_retina.png in Resources */,
+				A625D0F4151612780018FDD6 /* Default@2x.png in Resources */,
+				A625D0F61516127D0018FDD6 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +364,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Freepod/Freepod-Prefix.pch";
 				INFOPLIST_FILE = "Freepod/Freepod-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -359,7 +377,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Freepod/Freepod-Prefix.pch";
 				INFOPLIST_FILE = "Freepod/Freepod-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "SBJson.h"
+#import "AppDelegate.h"
 #import "Podcast.h"
 
 @implementation ViewController
+
+@synthesize myTableView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -25,29 +27,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
-	self.navigationItem.title = @"Freepod";
-	
-	SBJsonParser* parser = [[SBJsonParser alloc] init];
-	NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://webserv.freepod.net/get.php?podcasts"]];
-	NSData* response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-	NSString* jsonString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-		//NSLog(@"%@", jsonString);
-	NSArray* podcasts = [parser objectWithString:jsonString error:nil];
-	
-	for (NSDictionary* podcast in  podcasts) {
-		Podcast *newPodcast = [[Podcast alloc] init];
-		
-		[newPodcast setIdPodcast:[[podcast objectForKey:@"id"] intValue]];
-		[newPodcast setNom:[podcast objectForKey:@"nom"]];
-		[newPodcast setDescription:[podcast objectForKey:@"description"]];
-		[newPodcast setExplicite:[podcast objectForKey:@"explicite"]];
-		[newPodcast setUrlSite:[podcast objectForKey:@"url_site"]];
-		[newPodcast setUrlFreepod:[podcast objectForKey:@"url_freepod"]];
-		[newPodcast setLogoNormal:[podcast objectForKey:@"logo_normal"]];
-		[newPodcast setLogoBanner:[podcast objectForKey:@"logo_banner"]];
-		
-		[podcastsList addObject:newPodcast];
-	}
+	self.view.backgroundColor = [UIColor whiteColor];
+	self.myTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+	self.myTableView.dataSource = self;
+	[self.view addSubview:self.myTableView];
 }
 
 - (void)viewDidUnload
@@ -60,6 +43,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+	
+	
+	
+	
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -85,6 +72,42 @@
 	} else {
 	    return YES;
 	}
+}
+
+- (NSInteger) numberOfSectionsInTableView:(UITableView*)tableView {
+	NSInteger result = 0;
+	if ([tableView isEqual:self.myTableView]) {
+		result = 1;
+	}
+	return result;
+}
+
+- (NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
+	NSInteger result = 0;
+	AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	
+	if ([tableView isEqual:self.myTableView]) {
+		result = [appDelegate->podcastsList count];
+	}
+	return result;
+}
+
+- (UITableViewCell*) tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	UITableViewCell *result = nil;
+	
+	AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+	
+	if ([tableView isEqual:self.myTableView]) {
+		static NSString *TableViewCellIdentifier = @"MyCells";
+		result = [tableView dequeueReusableCellWithIdentifier:TableViewCellIdentifier];
+		
+		if (result == nil) {
+			result = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableViewCellIdentifier];
+		}
+		
+		result.textLabel.text = [NSString stringWithString:[[appDelegate->podcastsList objectAtIndex:indexPath.row] nom]];
+	}
+	return result;
 }
 
 @end

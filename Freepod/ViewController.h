@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController {
-	NSMutableArray *podcastsList;
-}
+@interface ViewController : UIViewController <UITableViewDataSource>;
+
+@property (nonatomic, strong) UITableView *myTableView;
 
 @end

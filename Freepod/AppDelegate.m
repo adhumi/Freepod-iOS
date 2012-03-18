@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 
 #import "ViewController.h"
+#import "SBJson.h"
+#import "Podcast.h"
 
 @implementation AppDelegate
 
@@ -26,6 +28,33 @@
 	}
 	self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+	
+	// Récupération de la liste des podcasts
+	NSLog(@"Récupération JSON \"Liste des podcasts\"");
+	podcastsList = [[NSMutableArray alloc] init];
+	
+	SBJsonParser* parser = [[SBJsonParser alloc] init];
+	NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://webserv.freepod.net/get.php?podcasts"]];
+	NSData* response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	NSString* jsonString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+	//NSLog(@"%@", jsonString);
+	NSArray* podcasts = [parser objectWithString:jsonString error:nil];
+	
+	for (NSDictionary* podcast in  podcasts) {
+		Podcast *newPodcast = [[Podcast alloc] init];
+		
+		[newPodcast setIdPodcast:[[podcast objectForKey:@"id"] intValue]];
+		[newPodcast setNom:[podcast objectForKey:@"nom"]];
+		[newPodcast setDescription:[podcast objectForKey:@"description"]];
+		[newPodcast setExplicite:[podcast objectForKey:@"explicite"]];
+		[newPodcast setUrlSite:[podcast objectForKey:@"url_site"]];
+		[newPodcast setUrlFreepod:[podcast objectForKey:@"url_freepod"]];
+		[newPodcast setLogoNormal:[podcast objectForKey:@"logo_normal"]];
+		[newPodcast setLogoBanner:[podcast objectForKey:@"logo_banner"]];
+		
+		[podcastsList addObject:newPodcast];
+		NSLog(@"Parsing de %@",[podcast objectForKey:@"nom"]);
+	}
     return YES;
 }
 
