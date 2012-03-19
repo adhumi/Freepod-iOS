@@ -15,7 +15,7 @@
 	return self;
 }
 
-	// Setters
+// Setters
 
 -(void) setIdPodcast:(int)newIdPodcast {
 	self->idPodcast = newIdPodcast;
@@ -49,7 +49,7 @@
 	self->logoBanner = newLogoBanner;
 }
 
-	// Getters
+// Getters
 
 -(NSInteger) idPodcast {
 	return self->idPodcast;
@@ -81,6 +81,12 @@
 
 -(NSString*) logoBanner {
 	return self->logoBanner;
+}
+
+// Methodes
+
+-(void) addEpisode:(id)newEpisode {
+	[episodes addObject:newEpisode];
 }
 
 @end

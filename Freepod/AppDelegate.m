@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "SBJson.h"
 #import "Podcast.h"
+#import "Episode.h"
 
 @implementation AppDelegate
 
@@ -42,6 +43,7 @@
 	
 	for (NSDictionary* podcast in  podcasts) {
 		Podcast *newPodcast = [[Podcast alloc] init];
+		NSLog(@"### Parsing de %@",[podcast objectForKey:@"nom"]);
 		
 		[newPodcast setIdPodcast:[[podcast objectForKey:@"id"] intValue]];
 		[newPodcast setNom:[podcast objectForKey:@"nom"]];
@@ -52,9 +54,36 @@
 		[newPodcast setLogoNormal:[podcast objectForKey:@"logo_normal"]];
 		[newPodcast setLogoBanner:[podcast objectForKey:@"logo_banner"]];
 		
+		// Récupération de la liste des épisodes
+		request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://webserv.freepod.net/get.php?episodes=%@", [podcast objectForKey:@"id"]]]];
+		response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+		jsonString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+		NSArray* episodes = [parser objectWithString:jsonString error:nil];
+		
+		for (NSDictionary* episode in episodes) {
+			Episode *newEpisode = [[Episode alloc] init];
+			NSLog(@"%@",[episode objectForKey:@"title"]);
+			
+			[newEpisode setIdEpisode:[[episode objectForKey:@"id"] intValue]];
+			[newEpisode setIdPodcast:[[episode objectForKey:@"id_podcast"] intValue]];
+			[newEpisode setTitle:[episode objectForKey:@"title"]];
+			[newEpisode setURL:[episode objectForKey:@"url"]];
+			[newEpisode setType:[episode objectForKey:@"type"]];
+			[newEpisode setDescription:[episode objectForKey:@"description"]];
+			[newEpisode setAuthor:[episode objectForKey:@"author"]];
+			[newEpisode setExplicite:[episode objectForKey:@"explicite"]];
+			[newEpisode setDuration:[episode objectForKey:@"duration"]];
+			[newEpisode setImage:[episode objectForKey:@"newImage"]];
+			[newEpisode setKeywords:[episode objectForKey:@"keywords"]];
+			
+			[newPodcast addEpisode:newEpisode];
+		}
+		
 		[podcastsList addObject:newPodcast];
-		NSLog(@"Parsing de %@",[podcast objectForKey:@"nom"]);
 	}
+	
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque animated:NO];
+	
     return YES;
 }
 

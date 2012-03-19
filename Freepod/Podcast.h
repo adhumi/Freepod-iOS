@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface Podcast : NSObject {
-		// NSInteger
+	// NSInteger
 	NSInteger idPodcast;
 	
-		//NSString
+	//NSString
 	NSString *nom;
 	NSString *description;
 	NSString *explicite;
@@ -21,8 +21,11 @@
 	NSString *logoNormal;
 	NSString *logoBanner;
 	
-		//NSDate
+	//NSDate
 	NSDate *lastUpdate;
+	
+	//NSMutableArray
+	NSMutableArray *episodes;
 }
 
 -(id) init;
@@ -44,5 +47,7 @@
 -(NSString*) urlFreepod;
 -(NSString*) logoNormal;
 -(NSString*) logoBanner;
+
+-(void) addEpisode:(id)newEpisode;
 
 @end
