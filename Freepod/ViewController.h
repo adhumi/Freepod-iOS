@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITableViewDataSource>;
-
-@property (nonatomic, strong) UITableView *myTableView;
+@interface ViewController : UIViewController;
 
 @end

@@ -7,12 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "AppDelegate.h"
-#import "Podcast.h"
+#import "WelcomeTableViewViewController.h"
 
 @implementation ViewController
 
-@synthesize myTableView;
 
 - (void)didReceiveMemoryWarning
 {
@@ -27,10 +25,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
-	self.view.backgroundColor = [UIColor whiteColor];
-	self.myTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-	self.myTableView.dataSource = self;
-	[self.view addSubview:self.myTableView];
+	WelcomeTableViewViewController *tableView = [[WelcomeTableViewViewController alloc] init];
+	
+	[tableView.view addSubview:tableView.myTableView];
 }
 
 - (void)viewDidUnload
@@ -68,42 +65,6 @@
 	} else {
 	    return YES;
 	}
-}
-
-- (NSInteger) numberOfSectionsInTableView:(UITableView*)tableView {
-	NSInteger result = 0;
-	if ([tableView isEqual:self.myTableView]) {
-		result = 1;
-	}
-	return result;
-}
-
-- (NSInteger) tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
-	NSInteger result = 0;
-	AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-	
-	if ([tableView isEqual:self.myTableView]) {
-		result = [appDelegate->podcastsList count];
-	}
-	return result;
-}
-
-- (UITableViewCell*) tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *result = nil;
-	
-	AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-	
-	if ([tableView isEqual:self.myTableView]) {
-		static NSString *TableViewCellIdentifier = @"MyCells";
-		result = [tableView dequeueReusableCellWithIdentifier:TableViewCellIdentifier];
-		
-		if (result == nil) {
-			result = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TableViewCellIdentifier];
-		}
-		
-		result.textLabel.text = [NSString stringWithString:[[appDelegate->podcastsList objectAtIndex:indexPath.row] nom]];
-	}
-	return result;
 }
 
 @end
