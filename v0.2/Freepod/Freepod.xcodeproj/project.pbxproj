@@ -23,7 +23,6 @@
 		A66EFD9B1542F5DC00B4F046 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A66EFD8F1542F5DC00B4F046 /* SBJsonWriter.m */; };
 		A66EFDA21542F75600B4F046 /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = A66EFDA11542F75600B4F046 /* Podcast.m */; };
 		A66EFDA51542F82800B4F046 /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = A66EFDA41542F82800B4F046 /* Episode.m */; };
-		A66EFDA8154300B900B4F046 /* PodcastsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A66EFDA7154300B900B4F046 /* PodcastsTableViewController.m */; };
 		A6FD7D701541ED06001B670F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FD7D6F1541ED06001B670F /* UIKit.framework */; };
 		A6FD7D721541ED06001B670F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FD7D711541ED06001B670F /* Foundation.framework */; };
 		A6FD7D741541ED06001B670F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FD7D731541ED06001B670F /* CoreGraphics.framework */; };
@@ -79,8 +78,6 @@
 		A66EFDA11542F75600B4F046 /* Podcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Podcast.m; path = ../Podcast.m; sourceTree = "<group>"; };
 		A66EFDA31542F82800B4F046 /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
 		A66EFDA41542F82800B4F046 /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
-		A66EFDA6154300B900B4F046 /* PodcastsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodcastsTableViewController.h; sourceTree = "<group>"; };
-		A66EFDA7154300B900B4F046 /* PodcastsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodcastsTableViewController.m; sourceTree = "<group>"; };
 		A6FD7D6B1541ED06001B670F /* Freepod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freepod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6FD7D6F1541ED06001B670F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A6FD7D711541ED06001B670F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -212,8 +209,6 @@
 				A66EFD2B1542EE2900B4F046 /* ThirdViewController.m */,
 				A66EFD2C1542EE2900B4F046 /* ThirdViewController.xib */,
 				A6FD7D761541ED06001B670F /* Supporting Files */,
-				A66EFDA6154300B900B4F046 /* PodcastsTableViewController.h */,
-				A66EFDA7154300B900B4F046 /* PodcastsTableViewController.m */,
 			);
 			path = Freepod;
 			sourceTree = "<group>";
@@ -323,7 +318,6 @@
 				A66EFD9B1542F5DC00B4F046 /* SBJsonWriter.m in Sources */,
 				A66EFDA21542F75600B4F046 /* Podcast.m in Sources */,
 				A66EFDA51542F82800B4F046 /* Episode.m in Sources */,
-				A66EFDA8154300B900B4F046 /* PodcastsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

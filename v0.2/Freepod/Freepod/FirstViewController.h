@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface FirstViewController : UIViewController
-
+	IBOutlet UITableView *tableView;
 @end
