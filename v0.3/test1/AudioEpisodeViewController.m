@@ -18,7 +18,8 @@
 @synthesize episode = _episode;
 @synthesize jacquette = _jacquette;
 @synthesize nom = _nom;
-@synthesize playPause = _playPause;
+@synthesize play = _play;
+@synthesize pause = _pause;
 @synthesize audioPlayer = _audioPlayer;
 @synthesize avancement = _avancement;
 @synthesize timer = _timer;
@@ -49,13 +50,16 @@
 	_nom.text = [_episode title];
     [super viewDidLoad];
 	
-	avancement.maximumValue = [_episode getDurationInSeconds];
+	self.avancement.maximumValue = [_episode getDurationInSeconds];
 	
 	int minutesDef = [_episode getDurationInSeconds] / 60;
 	int secondsDef = [_episode getDurationInSeconds] - (minutesDef * 60);
 	tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesDef,secondsDef];
 	
-	audioPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:[_episode urlSource]]];
+	NSURL *urlFile = [NSURL URLWithString:[_episode urlSource]];
+	audioPlayer = [AVPlayer playerWithURL:urlFile];
+
+	// TODO : AJOUTER UNE ALERTE SI LE FICHIER N'EST PAS ACCESSIBLE
 }
 
 - (void)viewDidUnload
@@ -80,13 +84,22 @@
 	
 	timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
 	
-	audioPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:[_episode urlSource]]];
 	[audioPlayer play];
+	[self.play setHidden:YES];
+	[self.pause setHidden:NO];
 }
 
 - (IBAction)pauseEpisode:(id)sender {
 	[audioPlayer pause];
 	[timer invalidate];
+	[self.play setHidden:NO];
+	[self.pause setHidden:YES];
+}
+
+- (IBAction)goToTime:(id)sender {
+	CMTime t = CMTimeMakeWithSeconds(self.avancement.value, 1);
+	NSLog(@"TATATATA :::: %f", self.avancement.value);
+	[self.audioPlayer seekToTime:t]; 
 }
 
 - (void)updateSlider {
@@ -95,18 +108,13 @@
 	int minutesDef = seconds / 60;
 	int secondsDef = seconds - (minutesDef * 60);
 	NSLog(@"Temps écoulé : %.2f", seconds); 
-	[avancement setValue:seconds animated:YES];
+	[self.avancement setValue:seconds animated:YES];
 	tpsEcoule.text = [NSString stringWithFormat:@"%02d:%02d",minutesDef,secondsDef];
 	
 	int secRest = [_episode getDurationInSeconds] - seconds;
 	int minutesRest = secRest / 60;
 	int secondsRest = secRest - (minutesRest * 60);
 	tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesRest,secondsRest];
-}
-
-- (IBAction)sliderChanged:(UISlider *)sender {
-	CMTime t = CMTimeMake(self.avancement.value, 1);
-	[self.audioPlayer seekToTime:t]; 
 }
 
 //// Stop the timer when the music is finished (Need to implement the AVAudioPlayerDelegate in the Controller header)

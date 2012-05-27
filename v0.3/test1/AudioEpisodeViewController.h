@@ -12,7 +12,8 @@
 @interface AudioEpisodeViewController : UIViewController {
 	IBOutlet UIImageView *jacquette;
 	IBOutlet UILabel *nom;
-	IBOutlet UIButton *playPause;
+	IBOutlet UIButton *play;
+	IBOutlet UIButton *pause;
 	IBOutlet UISlider *avancement;
 	IBOutlet UILabel *tpsEcoule;
 	IBOutlet UILabel *tpsRestant;
@@ -25,7 +26,8 @@
 
 @property (nonatomic, retain) IBOutlet UIImageView *jacquette;
 @property (nonatomic, retain) IBOutlet UILabel *nom;
-@property (nonatomic, retain) IBOutlet UIButton *playPause;
+@property (nonatomic, retain) IBOutlet UIButton *play;
+@property (nonatomic, retain) IBOutlet UIButton *pause;
 @property (nonatomic, retain) IBOutlet UISlider *avancement;
 @property (nonatomic, retain) IBOutlet UILabel *tpsEcoule;
 @property (nonatomic, retain) IBOutlet UILabel *tpsRestant;
@@ -34,5 +36,6 @@
 
 - (IBAction)playEpisode:(id)sender;
 - (IBAction)pauseEpisode:(id)sender;
+- (IBAction)goToTime:(id)sender;
 
 @end
