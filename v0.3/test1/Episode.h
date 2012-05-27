@@ -46,7 +46,7 @@
 -(NSInteger) idEpisode;
 -(NSInteger) idPodcast;
 -(NSString*) title;
--(NSString*) url;
+-(NSString*) urlSource;
 -(NSString*) type;
 -(NSString*) getdescription;
 -(NSString*) description;
@@ -58,5 +58,6 @@
 -(NSDate*) pubDate;
 
 -(id) getJacquette:(NSInteger) width;
+- (int) getDurationInSeconds;
 
 @end

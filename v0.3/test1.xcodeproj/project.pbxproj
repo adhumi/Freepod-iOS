@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A603C2C71572BB7A0067B1CD /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A603C2C61572BB7A0067B1CD /* CoreMedia.framework */; };
 		A607B370156AD9240033D45A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B36F156AD9240033D45A /* UIKit.framework */; };
 		A607B372156AD9240033D45A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B371156AD9240033D45A /* Foundation.framework */; };
 		A607B374156AD9240033D45A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B373156AD9240033D45A /* CoreGraphics.framework */; };
@@ -39,9 +40,11 @@
 		A6A2E0311571854F00EE3A0E /* AudioEpisodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A2E02F1571854F00EE3A0E /* AudioEpisodeViewController.m */; };
 		A6A2E0321571854F00EE3A0E /* AudioEpisodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */; };
 		A6A2E0361571904A00EE3A0E /* jacquette_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A2E0351571904A00EE3A0E /* jacquette_default.png */; };
+		A6A2E0381572A7E900EE3A0E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A2E0371572A7E900EE3A0E /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A603C2C61572BB7A0067B1CD /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A607B36B156AD9240033D45A /* test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A607B36F156AD9240033D45A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A607B371156AD9240033D45A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -96,6 +99,7 @@
 		A6A2E02F1571854F00EE3A0E /* AudioEpisodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioEpisodeViewController.m; sourceTree = "<group>"; };
 		A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioEpisodeViewController.xib; sourceTree = "<group>"; };
 		A6A2E0351571904A00EE3A0E /* jacquette_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jacquette_default.png; sourceTree = "<group>"; };
+		A6A2E0371572A7E900EE3A0E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A603C2C71572BB7A0067B1CD /* CoreMedia.framework in Frameworks */,
+				A6A2E0381572A7E900EE3A0E /* AVFoundation.framework in Frameworks */,
 				A607B370156AD9240033D45A /* UIKit.framework in Frameworks */,
 				A607B372156AD9240033D45A /* Foundation.framework in Frameworks */,
 				A607B374156AD9240033D45A /* CoreGraphics.framework in Frameworks */,
@@ -115,6 +121,7 @@
 		A607B360156AD9240033D45A = {
 			isa = PBXGroup;
 			children = (
+				A603C2C61572BB7A0067B1CD /* CoreMedia.framework */,
 				A6858C2F1570FDB3003CC243 /* ico_ios_retina.png */,
 				A6858C2D1570FDB0003CC243 /* ico_ios.png */,
 				A6858C2B1570FDAC003CC243 /* Default@2x.png */,
@@ -136,6 +143,7 @@
 		A607B36E156AD9240033D45A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A6A2E0371572A7E900EE3A0E /* AVFoundation.framework */,
 				A607B36F156AD9240033D45A /* UIKit.framework */,
 				A607B371156AD9240033D45A /* Foundation.framework */,
 				A607B373156AD9240033D45A /* CoreGraphics.framework */,

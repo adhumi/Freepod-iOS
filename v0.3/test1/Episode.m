@@ -79,7 +79,7 @@
 	return self->title;
 }
 
--(NSString*) url {
+-(NSString*) urlSource {
 	return self->url;
 }
 
@@ -128,6 +128,20 @@
 	NSURL *urlJacquette = [NSURL URLWithString:urlImage];
 	NSData *data = [NSData dataWithContentsOfURL:urlJacquette];
 	return [[UIImage alloc] initWithData:data];
+}
+
+- (int) getDurationInSeconds {
+	NSArray *split = [self->duration componentsSeparatedByString:@":"];
+	int nbSec = 0;
+
+	if ([split count] == 3) {
+		NSLog(@"TOTOTOTOTOTTOTOTOTOTOTOTTOO");
+		nbSec += [[[NSString alloc] initWithString:[split objectAtIndex:0]] intValue] * 60 * 60;
+		nbSec += [[[NSString alloc] initWithString:[split objectAtIndex:1]] intValue] * 60;
+		nbSec += [[[NSString alloc] initWithString:[split objectAtIndex:2]] intValue];
+	}
+	
+	return nbSec;
 }
 
 @end
