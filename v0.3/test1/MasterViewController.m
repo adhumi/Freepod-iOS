@@ -136,7 +136,8 @@
 	
 	Podcast *object = [_objects objectAtIndex:indexPath.row];
 	cell.textLabel.text = [object description];
-	cell.imageView.image = [object getJacquette:80];
+	cell.imageView.image = [object getJacquette:160];
+	cell.selectionStyle = UITableViewCellSelectionStyleGray;
     return cell;
 }
 

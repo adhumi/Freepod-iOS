@@ -12,6 +12,8 @@
 #import "Podcast.h"
 #import "Episode.h"
 
+#import "AudioEpisodeViewController.h"
+
 @interface DetailViewController () {
     NSMutableArray *_objects;
 }
@@ -103,10 +105,9 @@
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 	
 	//Banniere en haut de la NSTableView
-	UIView *containerView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 107)];
 	UIImageView *headerLabel = [[UIImageView alloc] initWithImage:[podcast getBanner:320]];
-	[containerView addSubview:headerLabel];
-	self.tableView.tableHeaderView = containerView;
+	headerLabel.contentMode = UIViewContentModeScaleAspectFill;
+	self.tableView.tableHeaderView = headerLabel;
 	
 	self.tableView.rowHeight = 60;
 	
@@ -161,20 +162,19 @@
 	
 	Episode *object = [_objects objectAtIndex:indexPath.row];
 	cell.textLabel.text = [object description];
-	cell.imageView.image = [object getJacquette:60];
+	cell.imageView.image = [object getJacquette:120];
+	cell.selectionStyle = UITableViewCellSelectionStyleGray;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Episode *episode = [_objects objectAtIndex:indexPath.row];
+    AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
 	
-	UIAlertView *message = [[UIAlertView alloc] initWithTitle:[episode title]
-													  message:[episode getdescription]
-													 delegate:nil
-											cancelButtonTitle:@"OK"
-											otherButtonTitles:nil];
-	[message show];
+	Episode *episode = [_objects objectAtIndex:indexPath.row];
+	
+	audioViewController.episode = episode;
+    [self.navigationController pushViewController:audioViewController animated:YES];
 }
 
 

@@ -36,6 +36,9 @@
 		A6858C2C1570FDAC003CC243 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2B1570FDAC003CC243 /* Default@2x.png */; };
 		A6858C2E1570FDB0003CC243 /* ico_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2D1570FDB0003CC243 /* ico_ios.png */; };
 		A6858C301570FDB3003CC243 /* ico_ios_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2F1570FDB3003CC243 /* ico_ios_retina.png */; };
+		A6A2E0311571854F00EE3A0E /* AudioEpisodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A2E02F1571854F00EE3A0E /* AudioEpisodeViewController.m */; };
+		A6A2E0321571854F00EE3A0E /* AudioEpisodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */; };
+		A6A2E0361571904A00EE3A0E /* jacquette_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A2E0351571904A00EE3A0E /* jacquette_default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +92,10 @@
 		A6858C2B1570FDAC003CC243 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A6858C2D1570FDB0003CC243 /* ico_ios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_ios.png; sourceTree = "<group>"; };
 		A6858C2F1570FDB3003CC243 /* ico_ios_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_ios_retina.png; sourceTree = "<group>"; };
+		A6A2E02E1571854F00EE3A0E /* AudioEpisodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioEpisodeViewController.h; sourceTree = "<group>"; };
+		A6A2E02F1571854F00EE3A0E /* AudioEpisodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioEpisodeViewController.m; sourceTree = "<group>"; };
+		A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioEpisodeViewController.xib; sourceTree = "<group>"; };
+		A6A2E0351571904A00EE3A0E /* jacquette_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jacquette_default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +146,7 @@
 		A607B375156AD9240033D45A /* test1 */ = {
 			isa = PBXGroup;
 			children = (
+				A6A2E0351571904A00EE3A0E /* jacquette_default.png */,
 				A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */,
 				A607B426156D74DE0033D45A /* SBJson */,
 				A607B37E156AD9240033D45A /* AppDelegate.h */,
@@ -147,8 +155,11 @@
 				A607B382156AD9240033D45A /* MasterViewController.m */,
 				A607B384156AD9240033D45A /* DetailViewController.h */,
 				A607B385156AD9240033D45A /* DetailViewController.m */,
+				A6A2E02E1571854F00EE3A0E /* AudioEpisodeViewController.h */,
+				A6A2E02F1571854F00EE3A0E /* AudioEpisodeViewController.m */,
 				A607B387156AD9240033D45A /* MasterViewController_iPhone.xib */,
 				A607B38D156AD9240033D45A /* DetailViewController_iPhone.xib */,
+				A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */,
 				A607B376156AD9240033D45A /* Supporting Files */,
 				A607B427156D752D0033D45A /* Podcast.h */,
 				A607B428156D752D0033D45A /* Podcast.m */,
@@ -260,6 +271,8 @@
 				A6858C2C1570FDAC003CC243 /* Default@2x.png in Resources */,
 				A6858C2E1570FDB0003CC243 /* ico_ios.png in Resources */,
 				A6858C301570FDB3003CC243 /* ico_ios_retina.png in Resources */,
+				A6A2E0321571854F00EE3A0E /* AudioEpisodeViewController.xib in Resources */,
+				A6A2E0361571904A00EE3A0E /* jacquette_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +301,7 @@
 				A607B383156AD9240033D45A /* MasterViewController.m in Sources */,
 				A607B386156AD9240033D45A /* DetailViewController.m in Sources */,
 				A607B429156D752D0033D45A /* Podcast.m in Sources */,
+				A6A2E0311571854F00EE3A0E /* AudioEpisodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
