@@ -9,14 +9,17 @@
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
-
 #import "DetailViewController.h"
+#import "Episode.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize navigationController = _navigationController;
 @synthesize splitViewController = _splitViewController;
+
+AVPlayer *audioPlayer;
+Episode *readingEpisode;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -30,6 +33,31 @@
 	self.window.rootViewController = self.navigationController;
 	[self.window makeKeyAndVisible];
     return YES;
+	
+//	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    // Override point for customization after application launch.
+//	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque];
+//	
+//	tabBarController = [[UITabBarController alloc] init]; 
+//	
+//	
+//	// Vue principale (Liste des podcasts)
+//	MasterViewController *masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController_iPhone" bundle:nil];
+//	self.navigationControllerMaster = [[UINavigationController alloc] initWithRootViewController:masterViewController];
+//	self.navigationControllerMaster.title = @"Podcasts";
+//	self.navigationControllerMaster.tabBarItem.image = [UIImage imageNamed:@"icon-podcast.png"];
+//	
+//	// Vue secondaire (Liste des épisodes récents)
+//	EpisodesRecentsViewController *episodesRecentsViewController = [[EpisodesRecentsViewController alloc] initWithNibName:@"EpisodesRecentsViewController" bundle:nil];
+//	self.navigationControllerRecent = [[UINavigationController alloc] initWithRootViewController:episodesRecentsViewController];
+//	self.navigationControllerRecent.title = @"Récents";
+//	self.navigationControllerRecent.tabBarItem.image = [UIImage imageNamed:@"icon-recent.png"];
+//	
+//	tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationControllerMaster, self.navigationControllerRecent, nil];
+//	
+//	self.window.rootViewController = tabBarController;
+//	[self.window makeKeyAndVisible];
+//    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

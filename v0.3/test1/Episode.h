@@ -48,7 +48,7 @@
 -(NSString*) title;
 -(NSString*) urlSource;
 -(NSString*) type;
--(NSString*) getdescription;
+-(NSString*) getDescription;
 -(NSString*) description;
 -(NSString*) author;
 -(NSString*) explicite;

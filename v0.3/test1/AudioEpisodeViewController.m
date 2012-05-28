@@ -23,6 +23,12 @@
 @synthesize audioPlayer = _audioPlayer;
 @synthesize avancement = _avancement;
 @synthesize timer = _timer;
+@synthesize tpsEcoule = _tpsEcoule;
+@synthesize tpsRestant = _tpsRestant;
+@synthesize descriptionLabel = _descriptionLabel;
+@synthesize descriptionScrollView = _descriptionScrollView;
+
+extern AVPlayer *audioPlayer;
 
 - (void)setEpisode:(id)newDetailItem
 {
@@ -54,7 +60,9 @@
 	
 	int minutesDef = [_episode getDurationInSeconds] / 60;
 	int secondsDef = [_episode getDurationInSeconds] - (minutesDef * 60);
-	tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesDef,secondsDef];
+	self.tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesDef,secondsDef];
+	
+	self.descriptionLabel.text = [_episode getDescription];
 	
 	NSURL *urlFile = [NSURL URLWithString:[_episode urlSource]];
 	audioPlayer = [AVPlayer playerWithURL:urlFile];
@@ -68,6 +76,8 @@
 	avancement = nil;
 	tpsEcoule = nil;
 	tpsRestant = nil;
+	descriptionLabel = nil;
+	descriptionScrollView = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -98,8 +108,16 @@
 
 - (IBAction)goToTime:(id)sender {
 	CMTime t = CMTimeMakeWithSeconds(self.avancement.value, 1);
-	NSLog(@"TATATATA :::: %f", self.avancement.value);
 	[self.audioPlayer seekToTime:t]; 
+}
+
+- (IBAction)getDetails:(id)sender {
+	if (self.descriptionScrollView.hidden) {
+		[self.descriptionScrollView setHidden:NO];
+	} else {
+		[self.descriptionScrollView setHidden:YES];
+	}
+	
 }
 
 - (void)updateSlider {
@@ -109,12 +127,12 @@
 	int secondsDef = seconds - (minutesDef * 60);
 	NSLog(@"Temps écoulé : %.2f", seconds); 
 	[self.avancement setValue:seconds animated:YES];
-	tpsEcoule.text = [NSString stringWithFormat:@"%02d:%02d",minutesDef,secondsDef];
+	self.tpsEcoule.text = [NSString stringWithFormat:@"%02d:%02d",minutesDef,secondsDef];
 	
 	int secRest = [_episode getDurationInSeconds] - seconds;
 	int minutesRest = secRest / 60;
 	int secondsRest = secRest - (minutesRest * 60);
-	tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesRest,secondsRest];
+	self.tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesRest,secondsRest];
 }
 
 //// Stop the timer when the music is finished (Need to implement the AVAudioPlayerDelegate in the Controller header)

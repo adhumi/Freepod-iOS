@@ -14,7 +14,8 @@
 #import "Podcast.h"
 #import "Episode.h"
 
-#import "PodcastTableViewCell.h"
+#import "AudioEpisodeViewController.h"
+#import "EpisodesRecentsViewController.h"
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
@@ -22,6 +23,9 @@
 @end
 
 @implementation MasterViewController
+
+extern AVPlayer *audioPlayer;
+extern Episode *readingEpisode;
 
 //@synthesize detailViewController = _detailViewController;
 
@@ -40,8 +44,9 @@
 	// Do any additional setup after loading the view, typically from a nib.
 	//self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-	//UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-	//self.navigationItem.rightBarButtonItem = addButton;
+	//UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Player" style:UIBarButtonItemStylePlain target:self action:@selector(displayPlayer:)];
+									  //initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+									  //self.navigationItem.rightBarButtonItem = addButton;
 	//self.navigationItem.title = @"Freepod";
 	
 	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.22 green:0.38 blue:0.47 alpha:1];
@@ -84,29 +89,38 @@
 		[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 	}
 	
+	if (!_objects) {
+		_objects = [[NSMutableArray alloc] init];
+	}
+	[_objects insertObject:[[EpisodesRecentsViewController alloc] init] atIndex:0];
+	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+	
 	self.tableView.rowHeight = 80;
 }
 
 - (void)viewDidUnload
 {
-	NSLog(@"Appel : viewDidUnload");
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return NO;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)insertNewObject:(id)sender
+- (void)displayPlayer:(id)sender
 {
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    NSLog(@"LOLILOL");
+	AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
+	
+	audioViewController.episode = readingEpisode;
+		
+	audioViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+	[self presentModalViewController:audioViewController animated:YES];
+	
+	//   [self.navigationController pushViewController:audioViewController animated:YES];
 }
 
 #pragma mark - Table View
@@ -134,9 +148,14 @@
 		
     }
 	
-	Podcast *object = [_objects objectAtIndex:indexPath.row];
-	cell.textLabel.text = [object description];
-	cell.imageView.image = [object getJacquette:160];
+	if ([[_objects objectAtIndex:indexPath.row] class] == [Podcast class]) {
+		Podcast *object = [_objects objectAtIndex:indexPath.row];
+		cell.textLabel.text = [object description];
+		cell.imageView.image = [object getJacquette:160];
+	} else { 
+		cell.textLabel.text = @"Emissions récentes";
+		cell.imageView.image = [[UIImage alloc] init];
+	}
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
     return cell;
 }
@@ -157,6 +176,15 @@
     }
 }
 
+- (CGFloat) tableView: (UITableView *) tableView heightForRowAtIndexPath: (NSIndexPath *) indexPath
+{
+	if ([[_objects objectAtIndex:indexPath.row] class] == [Podcast class]) {
+		return 80;
+	} else { 
+		return 50;
+	}
+}
+
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -175,13 +203,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DetailViewController *detailViewController = [[DetailViewController alloc]initWithNibName:@"DetailViewController_iPhone" bundle:nil];
-	
-	Podcast *podcast = [_objects objectAtIndex:indexPath.row];
-	
-	detailViewController.detailItem = podcast;
-    [self.navigationController pushViewController:detailViewController animated:YES];
-
+    if ([[_objects objectAtIndex:indexPath.row] class] == [Podcast class]) {
+		DetailViewController *detailViewController = [[DetailViewController alloc]initWithNibName:@"DetailViewController_iPhone" bundle:nil];
+		
+		Podcast *podcast = [_objects objectAtIndex:indexPath.row];
+		
+		detailViewController.detailItem = podcast;
+		[self.navigationController pushViewController:detailViewController animated:YES];
+	} else { 
+		EpisodesRecentsViewController *detailViewController = [[EpisodesRecentsViewController alloc]initWithNibName:@"DetailViewController_iPhone" bundle:nil];
+		
+		[self.navigationController pushViewController:detailViewController animated:YES];
+	}
 }
 
 @end

@@ -87,7 +87,7 @@
 	return self->type;
 }
 
--(NSString*) getdescription {
+-(NSString*) getDescription {
 	return self->description;
 }
 
@@ -135,7 +135,6 @@
 	int nbSec = 0;
 
 	if ([split count] == 3) {
-		NSLog(@"TOTOTOTOTOTTOTOTOTOTOTOTTOO");
 		nbSec += [[[NSString alloc] initWithString:[split objectAtIndex:0]] intValue] * 60 * 60;
 		nbSec += [[[NSString alloc] initWithString:[split objectAtIndex:1]] intValue] * 60;
 		nbSec += [[[NSString alloc] initWithString:[split objectAtIndex:2]] intValue];

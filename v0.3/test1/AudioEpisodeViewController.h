@@ -17,7 +17,8 @@
 	IBOutlet UISlider *avancement;
 	IBOutlet UILabel *tpsEcoule;
 	IBOutlet UILabel *tpsRestant;
-	AVPlayer *audioPlayer;
+	IBOutlet UILabel *descriptionLabel;
+	IBOutlet UIScrollView *descriptionScrollView;
 	NSTimer *timer;
 }
 
@@ -31,11 +32,14 @@
 @property (nonatomic, retain) IBOutlet UISlider *avancement;
 @property (nonatomic, retain) IBOutlet UILabel *tpsEcoule;
 @property (nonatomic, retain) IBOutlet UILabel *tpsRestant;
+@property (nonatomic, retain) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, retain) IBOutlet UIScrollView *descriptionScrollView;
 
 @property (strong, nonatomic) id episode;
 
 - (IBAction)playEpisode:(id)sender;
 - (IBAction)pauseEpisode:(id)sender;
 - (IBAction)goToTime:(id)sender;
+- (IBAction)getDetails:(id)sender;
 
 @end

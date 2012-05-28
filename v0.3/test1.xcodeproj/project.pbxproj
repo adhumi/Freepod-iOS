@@ -10,6 +10,10 @@
 		A603C2C71572BB7A0067B1CD /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A603C2C61572BB7A0067B1CD /* CoreMedia.framework */; };
 		A603C2CB1572DADA0067B1CD /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2C91572DADA0067B1CD /* pause.png */; };
 		A603C2CC1572DADA0067B1CD /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2CA1572DADA0067B1CD /* play.png */; };
+		A603C2DC157314B00067B1CD /* EpisodesRecentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C2DA157314B00067B1CD /* EpisodesRecentsViewController.m */; };
+		A603C2DD157314B00067B1CD /* EpisodesRecentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603C2DB157314B00067B1CD /* EpisodesRecentsViewController.xib */; };
+		A603C2DF157315500067B1CD /* icon-recent.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2DE157315500067B1CD /* icon-recent.png */; };
+		A603C2E1157315600067B1CD /* icon-podcast.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2E01573155F0067B1CD /* icon-podcast.png */; };
 		A607B370156AD9240033D45A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B36F156AD9240033D45A /* UIKit.framework */; };
 		A607B372156AD9240033D45A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B371156AD9240033D45A /* Foundation.framework */; };
 		A607B374156AD9240033D45A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B373156AD9240033D45A /* CoreGraphics.framework */; };
@@ -49,6 +53,11 @@
 		A603C2C61572BB7A0067B1CD /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A603C2C91572DADA0067B1CD /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		A603C2CA1572DADA0067B1CD /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		A603C2D9157314B00067B1CD /* EpisodesRecentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodesRecentsViewController.h; sourceTree = "<group>"; };
+		A603C2DA157314B00067B1CD /* EpisodesRecentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodesRecentsViewController.m; sourceTree = "<group>"; };
+		A603C2DB157314B00067B1CD /* EpisodesRecentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodesRecentsViewController.xib; sourceTree = "<group>"; };
+		A603C2DE157315500067B1CD /* icon-recent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-recent.png"; sourceTree = "<group>"; };
+		A603C2E01573155F0067B1CD /* icon-podcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-podcast.png"; sourceTree = "<group>"; };
 		A607B36B156AD9240033D45A /* test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A607B36F156AD9240033D45A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A607B371156AD9240033D45A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +167,8 @@
 		A607B375156AD9240033D45A /* test1 */ = {
 			isa = PBXGroup;
 			children = (
+				A603C2E01573155F0067B1CD /* icon-podcast.png */,
+				A603C2DE157315500067B1CD /* icon-recent.png */,
 				A603C2C91572DADA0067B1CD /* pause.png */,
 				A603C2CA1572DADA0067B1CD /* play.png */,
 				A6A2E0351571904A00EE3A0E /* jacquette_default.png */,
@@ -171,9 +182,12 @@
 				A607B385156AD9240033D45A /* DetailViewController.m */,
 				A6A2E02E1571854F00EE3A0E /* AudioEpisodeViewController.h */,
 				A6A2E02F1571854F00EE3A0E /* AudioEpisodeViewController.m */,
+				A603C2D9157314B00067B1CD /* EpisodesRecentsViewController.h */,
+				A603C2DA157314B00067B1CD /* EpisodesRecentsViewController.m */,
 				A607B387156AD9240033D45A /* MasterViewController_iPhone.xib */,
 				A607B38D156AD9240033D45A /* DetailViewController_iPhone.xib */,
 				A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */,
+				A603C2DB157314B00067B1CD /* EpisodesRecentsViewController.xib */,
 				A607B376156AD9240033D45A /* Supporting Files */,
 				A607B427156D752D0033D45A /* Podcast.h */,
 				A607B428156D752D0033D45A /* Podcast.m */,
@@ -289,6 +303,9 @@
 				A6A2E0361571904A00EE3A0E /* jacquette_default.png in Resources */,
 				A603C2CB1572DADA0067B1CD /* pause.png in Resources */,
 				A603C2CC1572DADA0067B1CD /* play.png in Resources */,
+				A603C2DD157314B00067B1CD /* EpisodesRecentsViewController.xib in Resources */,
+				A603C2DF157315500067B1CD /* icon-recent.png in Resources */,
+				A603C2E1157315600067B1CD /* icon-podcast.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +335,7 @@
 				A607B386156AD9240033D45A /* DetailViewController.m in Sources */,
 				A607B429156D752D0033D45A /* Podcast.m in Sources */,
 				A6A2E0311571854F00EE3A0E /* AudioEpisodeViewController.m in Sources */,
+				A603C2DC157314B00067B1CD /* EpisodesRecentsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +422,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "test1/test1-Prefix.pch";
 				INFOPLIST_FILE = "test1/test1-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -416,6 +435,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "test1/test1-Prefix.pch";
 				INFOPLIST_FILE = "test1/test1-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

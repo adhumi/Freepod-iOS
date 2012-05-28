@@ -103,6 +103,7 @@
 }
 
 -(id) getJacquette:(NSInteger) width {
+	NSLog(@"http://webserv.freepod.net/get-img-podcast.php?id=%d&nom=logo_normal&width=%d", self->idPodcast, width);
 	NSString *urlImage = [NSString stringWithFormat:@"http://webserv.freepod.net/get-img-podcast.php?id=%d&nom=logo_normal&width=%d", self->idPodcast, width];
 	NSURL *url = [NSURL URLWithString:urlImage];
 	NSData *data = [NSData dataWithContentsOfURL:url];
@@ -110,6 +111,7 @@
 }
 
 -(id) getBanner:(NSInteger) width {
+	NSLog(@"http://webserv.freepod.net/get-img-podcast.php?id=%d&nom=logo_banner&width=%d", self->idPodcast, width);
 	NSString *urlImage = [NSString stringWithFormat:@"http://webserv.freepod.net/get-img-podcast.php?id=%d&nom=logo_banner&width=%d", self->idPodcast, width];
 	NSURL *url = [NSURL URLWithString:urlImage];
 	NSData *data = [NSData dataWithContentsOfURL:url];

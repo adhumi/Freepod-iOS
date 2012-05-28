@@ -28,7 +28,6 @@
 
 - (void)setDetailItem:(id)newDetailItem
 {
-	NSLog(@"Appel : setDetailItem");
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
 		
@@ -71,11 +70,10 @@
 {
     // Update the user interface for the detail item.
 	if (self.detailItem) {
-	    self.detailDescriptionLabel.text = [self.detailItem description];
-		self.navigationItem.title = [self.detailItem description];
+		//self.navigationItem.title = [self.detailItem description];
 		UIImageView *tmpImgView = (UIImageView*) [self.navigationController.navigationBar viewWithTag:42];
 		if(tmpImgView) {
-			tmpImgView.hidden = true;
+			//tmpImgView.hidden = true;
 		}
 	}
 }
@@ -98,7 +96,6 @@
 	NSEnumerator *enumerator = [[podcast getAllEpisodes] objectEnumerator];
 	Episode *episode;
 	while (episode = [enumerator nextObject]) {
-		NSLog(@"NSTableView %@", [episode title]);
 		[_objects insertObject:episode atIndex:0];
 	}
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -119,21 +116,20 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 	self.detailDescriptionLabel = nil;
-	NSLog(@"TATA");
 	UIImageView *tmpImgView = (UIImageView*) [self.navigationController.navigationBar viewWithTag:42];
 	tmpImgView.hidden = false;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-		self.title = NSLocalizedString(@"Detail", @"Detail");
+		//self.title = NSLocalizedString(@"Detail", @"Detail");
     }
     return self;
 }
