@@ -58,6 +58,10 @@
 		A603C2DB157314B00067B1CD /* EpisodesRecentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodesRecentsViewController.xib; sourceTree = "<group>"; };
 		A603C2DE157315500067B1CD /* icon-recent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-recent.png"; sourceTree = "<group>"; };
 		A603C2E01573155F0067B1CD /* icon-podcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-podcast.png"; sourceTree = "<group>"; };
+		A603C30C1573CC4D0067B1CD /* MHImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MHImageCache.h; path = ../../../iOS/MHLazyTableImages/Sources/MHImageCache.h; sourceTree = "<group>"; };
+		A603C30D1573CC4E0067B1CD /* MHImageCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MHImageCache.m; path = ../../../iOS/MHLazyTableImages/Sources/MHImageCache.m; sourceTree = "<group>"; };
+		A603C30E1573CC4E0067B1CD /* MHLazyTableImages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MHLazyTableImages.h; path = ../../../iOS/MHLazyTableImages/Sources/MHLazyTableImages.h; sourceTree = "<group>"; };
+		A603C30F1573CC4E0067B1CD /* MHLazyTableImages.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MHLazyTableImages.m; path = ../../../iOS/MHLazyTableImages/Sources/MHLazyTableImages.m; sourceTree = "<group>"; };
 		A607B36B156AD9240033D45A /* test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A607B36F156AD9240033D45A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A607B371156AD9240033D45A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,6 +135,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A603C3101573CC560067B1CD /* MHLazyTableImages */ = {
+			isa = PBXGroup;
+			children = (
+				A603C30C1573CC4D0067B1CD /* MHImageCache.h */,
+				A603C30D1573CC4E0067B1CD /* MHImageCache.m */,
+				A603C30E1573CC4E0067B1CD /* MHLazyTableImages.h */,
+				A603C30F1573CC4E0067B1CD /* MHLazyTableImages.m */,
+			);
+			name = MHLazyTableImages;
+			sourceTree = "<group>";
+		};
 		A607B360156AD9240033D45A = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +182,7 @@
 		A607B375156AD9240033D45A /* test1 */ = {
 			isa = PBXGroup;
 			children = (
+				A603C3101573CC560067B1CD /* MHLazyTableImages */,
 				A603C2E01573155F0067B1CD /* icon-podcast.png */,
 				A603C2DE157315500067B1CD /* icon-recent.png */,
 				A603C2C91572DADA0067B1CD /* pause.png */,

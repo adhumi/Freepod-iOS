@@ -1,0 +1,302 @@
+\documentclass[11pt, french]{report}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{vmargin}
+\usepackage{listings}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[toc,acronym]{glossaries}
+\makeglossaries
+
+\setpapersize{A4}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%			DEBUT MISE EN FORME DE LA PAGE DE GARDE
+
+\makeatletter
+\def\clap#1{\hbox to 0pt{\hss #1\hss}}%
+\def\ligne#1{%
+\hbox to \hsize{%
+\vbox{\centering #1}}}%
+\def\haut#1#2#3{%
+\hbox to \hsize{%
+\rlap{\vtop{\raggedright #1}}%
+\hss
+\clap{\vtop{\centering #2}}%
+\hss
+\llap{\vtop{\raggedleft #3}}}}%
+\def\bas#1#2#3{%
+\hbox to \hsize{%
+\rlap{\vbox{\raggedright #1}}%
+\hss
+\clap{\vbox{\centering #2}}%
+\hss
+\llap{\vbox{\raggedleft #3}}}}%
+
+\def\maketitle{%
+	\thispagestyle{empty}\vbox to \vsize{%
+	\haut{}{\@blurb}{}
+	\vfill
+	\vspace{1cm}
+	\begin{flushleft}
+	\Huge \@title
+	\end{flushleft}
+	\par
+	\hrule height 2pt
+	\par
+	\begin{flushright}
+	\Large \@author
+	\par
+	\end{flushright}
+	\vspace{1cm}
+	\vfill
+	\@logo
+	\vfill
+	\bas{}{Le \@date\\
+	\vspace{1cm}
+	\textbf{Tuteur :}\\
+	Jean-Loup Guillaume \textit{(Université Pierre et Marie Curie)}	
+	}{}	
+	}%
+	\cleardoublepage}
+
+\def\date#1{\def\@date{#1}}
+\def\author#1{\def\@author{#1}}
+\def\title#1{\def\@title{#1}}
+\def\location#1{\def\@location{#1}}
+\def\blurb#1{\def\@blurb{#1}}
+\def\logo#1{\def\@logo{#1}}
+\author{}
+\title{}
+\location{}\blurb{}
+\makeatother
+\title{Projet tutoré\\ \textbf{Application Freepod pour iOS}}
+\author{Adrien \textsc{Humilière}}
+\location{Paris}
+\blurb{%
+\textbf{Université Pierre et Marie Curie (UPMC)}\\
+Année universitaire 2011/2012\\
+Licence de Sciences et Technologies, mention Informatique\\
+Développeur d'Applications Nouvelles Technologies}% 
+\logo{
+	\begin{center}
+		\includegraphics[width=10cm]{logo_freepod.png}\\
+	\end{center}
+}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%			FIN MISE EN FORME DE LA PAGE DE GARDE
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%			SOMMAIRE
+
+\tableofcontents
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%			Glossaire
+     								
+\chapter*{Glossaire}
+\addcontentsline{toc}{chapter}{Glossaire}
+
+\paragraph{Podcast}
+
+Le terme Podcast (né de la contraction des mots iPod et broadcast) désigne une méthode de diffusion de contenus multimédias (audio ou vidéo) sur Internet. Les fichiers sont diffusés par le biais de flux RSS 2.0. Ils peuvent ensuite être récupérés sur un appareil au moyen d’un aggrégateur.
+La plupart des radios et certaines chaines de télévision diffusent leurs émissions en podcast. Existent également des émissions indépendantes, produites pour être diffusées sous forme de podcast (on parle ici de podcast indépendant).
+
+\paragraph{Podcasteur}
+
+Communément utilisé pour désigner une personne animant ou réalisant un podcast indépendant.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%			INTRODUCTION
+     								
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%			Freepod et ses applications
+
+\chapter{Freepod et ses applications}
+\section{Présentation de Freepod et objectifs des applications mobiles}
+
+Freepod est une association regroupant une quinzaine de podcasts indépendants sur différents thèmes (jeux-vidéo, hacking, culture japonaise, théâtre, politique, actualité technologique, etc.). Elle a été fondée en août 2011 et continue son chemin depuis, en intégrant de nouveaux podcasts et en leur proposant de nouveaux outils. L’auteur de ce rapport est co-fondateur et secrétaire de l’association.
+
+L’objectif principal de Freepod est de mutualiser les moyens des podcasteurs pour diviser les coûts et simplifier la diffusion des émissions.
+Pour cela, elle s’est dotée d’un site internet qui référence l’ensemble des émissions produites par les différents podcasts (depuis 2007) et permet de les écouter (pour les podcasts audio) ou de les visionner (pour les podcasts vidéo).
+
+La nature du podcast et l'essor depuis quelques années de l’informatique mobile rendent indispensable le développement de solutions permettant d’écouter ou de visionner simplement des émissions en situation de mobilité. C’est pour cette raison que Freepod cherche aujourd’hui à se doter d’applications natives pour les principales plates-formes mobiles. 
+Deux étudiants de notre promotion de L3 DANT sont impliqués dans le développement de ces applications : Michel Knoertzer pour la plate-forme Windows Phone 7 et moi-même pour la plate-forme iOS et le Web Service commun à toutes les plates-formes. Une déclinaison pour la plate-forme Android est également prévue.
+
+\section{Fonctionnalités attendues}
+
+Un cahier des charges (fourni en annexe) a été défini entre l’association et les développeurs, pour fixer les fonctionnalités attendues de l’application, même si elles ne sont pas toutes considérées comme indispensables dans un premier temps.
+
+\paragraph{Écoute des podcasts audio et vidéo}
+
+L’écoute et le visionnage devront pouvoir se faire en streaming sur une connexion WiFi ou 3G. Idéalement, l’application permet à l’utilisateur de télécharger une émission (par exemple sur un réseau) pour pouvoir l’écouter ou la visionner plus tard (sans ou avec une mauvaise couverture data).
+
+\paragraph{Écoute des enregistrements en direct}
+
+Freepod propose à ses auditeurs de suivre l’enregistrement des émissions en direct par internet. L’application devra permettre de suivre un flux audio de ces enregistrements en direct.
+
+\paragraph{Notification des utilisateurs}
+
+L’application devra notifier l’utilisateur quand une nouvelle émission est disponible sur l’application ou quand l’enregistrement d’une émission en direct commence.
+
+\paragraph{Discussion en direct}
+
+La discussion en direct est une plus value importante des enregistrements en direct. Elle permet aux auditeurs d'interagir entre eux et avec les animateurs. L’application devra proposer un système permettant de discuter en direct avec les autres utilisateurs, quelle que soit leur plate-forme (mobile ou web).
+
+\subsubsection{Autres fonctionnalités possibles}
+
+Les podcasts permettent une forte interaction entre les auditeurs et les animateurs. Elle passe notamment par les réactions aux émissions. L’application pourrait afficher pour chaque émission les commentaires laissés, voir proposer la publication de nouveaux commentaires.
+Pour aider à la propagation des émissions, l’application pourrait inclure un système de partage de liens sur les réseaux sociaux (Twitter, Facebook, Google+).
+Un onglet pourrait proposer une liste de tweets concernant l’association (via le hashtag #freepod).
+Pour simplifier la consultation des contenus “texte”, l’application pourrait également proposer une version web mobile du forum, ainsi que le contenu du blog et les photos les plus récentes.
+
+\section{Architecture du projet (Web Service et applications)}
+Ce projet est décomposé en deux parties distinctes. D’une part, le développement d’un Web Service basé sur les technologies LAMP (pour Linux, Apache, MySQL, PHP), qui permettra aux applications de différentes plates-formes de récupérer les données des podcasts.
+
+\subsection{Le web-service}
+
+Principe
+Fonctionnement
+
+
+\subsection{Application iOS}
+
+Diagramme de classe
+IHM
+Fonctionnement 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%			Le SDK iOS et Objective-C
+
+\chapter{Le SDK iOS et Objective-C}
+
+iOS est le système d’exploitation mobile développé par Apple pour fonctionner sur iPhone, iPad et iPod Touch. Il est dérivé de Mac OS X (basé sur UNIX). Apple propose aux développeurs enregistrés un SDK (Software Development Kit) qui permet de développer des applications pour iOS avec le langage Objective-C.
+
+Dans cette partie, nous allons présenter Objective-C, puis le SDK iOS, le framework CocoaTouch et les outils de développement fournis par Apple, qui fournissent un environnement de travail complet. 
+Présentation du langage
+
+\section{Historique}
+
+
+\section{Spécificités du langage}
+
+
+\section{Le SDK iOS}
+
+\subsection{iOS Developer Library}
+
+
+\subsection{La distribution des applications sur l’AppStore}
+
+
+\section{Environnement de travail}
+
+\subsection{xCode 4}
+
+et c’est tout
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%			Développement, limites du projet et évolutions futures
+
+\chapter{Développement, limites du projet et évolutions futures}
+
+\section{Le développement de l’application}
+
+
+
+
+
+
+
+\section{Limites}
+
+
+
+
+
+
+
+\section{Evolutions futures}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%			CONCLUSION
+
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%			DEBUT DES ANNEXES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\part*{Annexes}
+\addcontentsline{toc}{part}{Annexes}
+
+\appendix
+
+\chapter{Applications Freepod - Cahier des charges}
+
+Freepod est une association qui regroupe une douzaine de podcasts indépendants. Elle propose un portail web pour que ces podcasts se fassent connaître et pour regrouper la communauté sur un même lieu.
+
+L’association cherche a proposer des applications pour faciliter l’écoute et le visionage de ses émissions sur des plateformes mobiles.\\
+
+L’application devra donc contenir les fonctionnalités suivantes, par ordre de priorité :
+
+\paragraph{Écoute des podcasts audio et vidéo}
+L’écoute et le visionage devront pouvoir se faire en streaming sur une connexion wifi ou 3G. Idéalement, l’application permet à l’utilisateur de télécharger une émission pour pouvoir l’écouter plus tard.
+
+\paragraph{Écoute des enregistrements en direct}
+Freepod propose à ses auditeurs de suivre l’enregistrement des émissions en direct par internet. L’application devra permettre de suivre ce flux audio en direct.
+
+\paragraph{Notification des utilisateurs}
+L’application devra notifier l’utilisateur quand une nouvelle émission est disponible à l’écoute ou quand l’enregistrement d’une émission en direct commence.
+
+\paragraph{Discussion en direct}
+La discussion en direct est une plus value importante des enregistrements en direct. Elle permet aux auditeurs d'interagir entre eux et avec les animateurs. L’application devra proposer un système permettant de discuter en direct avec les autres utilisateurs, quelle que soit leur plateforme.\\
+
+D’autres fonctionnalités pourront être ajoutées mais ne sont pas considérées comme indispensable par Freepod :
+\begin{itemize}
+\item Affichage pour chaque émission des commentaires aussi présents sur le site internet de Freepod. Publication de nouveaux commentaires depuis l’application.
+\item Partage de liens vers les émissions sur les réseaux sociaux (Twitter, Facebook et Google+).
+\item Affichage des tweets concernants Freepod.
+\item Consultation du forum de Freepod.
+\item Affichage du contenu du blog.
+\item Affichage des photos concernant Freepod disponibles sur Flickr.
+\item Lien vers la boutique de l’association.
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%			BIBLIOGRAPHIE
+
+\bibliographystyle{abbrv}
+\nocite{*}
+\addcontentsline{toc}{chapter}{Bibliographie}
+\bibliography{biblio}
+
+\end{document}
