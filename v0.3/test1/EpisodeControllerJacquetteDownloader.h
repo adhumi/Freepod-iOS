@@ -22,11 +22,11 @@
     NSURLConnection *imageConnection;
 }
 
-@property (nonatomic, retain) Episode *episode;
-@property (nonatomic, retain) NSIndexPath *indexPathInTableView;
+@property (nonatomic, strong) Episode *episode;
+@property (nonatomic, strong) NSIndexPath *indexPathInTableView;
 @property (nonatomic, assign) id <EpisodeControllerJacquetteDownloaderDelegate> delegate;
-@property (nonatomic, retain) NSMutableData *activeDownload;
-@property (nonatomic, retain) NSURLConnection *imageConnection;
+@property (nonatomic, strong) NSMutableData *activeDownload;
+@property (nonatomic, strong) NSURLConnection *imageConnection;
 
 - (void)startDownload:(int)width;
 - (void)cancelDownload;
@@ -35,6 +35,6 @@
 
 @protocol EpisodeControllerJacquetteDownloaderDelegate 
 
-- (void)jacquetteDidLoad:(NSIndexPath *)indexPath;
+- (void)jacquetteEpisodeDidLoad:(NSIndexPath *)indexPath;
 
 @end

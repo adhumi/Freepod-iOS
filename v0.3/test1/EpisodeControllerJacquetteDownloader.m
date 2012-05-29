@@ -28,7 +28,7 @@
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:
                              [NSURLRequest requestWithURL:
                               [NSURL URLWithString:[NSString stringWithFormat:@"http://webserv.freepod.net/get-img-episode.php?id=%d&nom=image&width=%d", [episode idEpisode], width]]] delegate:self];
-    self.imageConnection = conn;
+	self.imageConnection = conn;
 }
 
 - (void)cancelDownload
@@ -58,17 +58,23 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     // Set appIcon and clear temporary data/image
-    UIImage *image = [[UIImage alloc] initWithData:self.activeDownload];
+    UIImage *image = [[UIImage alloc] initWithData:activeDownload];
+    NSLog(@"TITI %@", image);
+	if (image == nil) {
+		image = [UIImage imageNamed:@"jacquette_default_64.png"];
+		NSLog(@"TUTU %@", image);
+	}
+	
+    episode.jacquette = image;
     
-    self.episode.jacquette = image;
-    
-    self.activeDownload = nil;
+    activeDownload = nil;
     
     // Release the connection now that it's finished
-    self.imageConnection = nil;
+    imageConnection = nil;
 	
     // call our delegate and tell it that our icon is ready for display
-    [_delegate jacquetteDidLoad:self.indexPathInTableView];
+	NSLog(@"Send to delegate");
+    [_delegate jacquetteEpisodeDidLoad:self.indexPathInTableView];
 }
 
 @end

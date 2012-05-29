@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
 
-- (void)jacquetteDidLoad:(NSIndexPath *)indexPath;
+- (void)jacquetteEpisodeDidLoad:(NSIndexPath *)indexPath;
 
 @property (strong, nonatomic) id detailItem;
 

@@ -15,6 +15,8 @@
 @implementation LiveViewController
 @synthesize onOffAir;
 
+extern AVPlayer *audioPlayer;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,6 +30,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+	
+	NSString *radioURL = @"http://radio.podradio.fr:8000/adsl.m3u";
+	audioPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:radioURL]];
+	
+	if (audioPlayer.status != AVPlayerStatusFailed) {
+		onOffAir.image = [UIImage imageNamed:@"on_air.png"];
+	}
 }
 
 - (void)viewDidUnload
@@ -44,4 +53,11 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)goLive:(id)sender {
+	if (audioPlayer.rate > 0.5) {
+		[audioPlayer pause];
+	} else {
+		[audioPlayer play];
+	}
+}
 @end

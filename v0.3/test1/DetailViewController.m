@@ -207,7 +207,7 @@ extern Episode *readingEpisode;
 	[self presentModalViewController:audioViewController animated:YES];
 }
 
-- (void)jacquetteDidLoad:(NSIndexPath *)indexPath
+- (void)jacquetteEpisodeDidLoad:(NSIndexPath *)indexPath
 {
     EpisodeControllerJacquetteDownloader *jacquetteDownloader = [imageDownloadsInProgress objectForKey:indexPath];
     if (jacquetteDownloader != nil) {
@@ -234,27 +234,29 @@ extern Episode *readingEpisode;
 }
 
 - (void)startJacquetteDownload:(Episode *)episode forIndexPath:(NSIndexPath *)indexPath andWith:(int) width{
-    EpisodeControllerJacquetteDownloader *jacquetteDownloader = [imageDownloadsInProgress objectForKey:indexPath];
+    if ([_objects count] > indexPath.row) {
+	EpisodeControllerJacquetteDownloader *jacquetteDownloader = [imageDownloadsInProgress objectForKey:indexPath];
+		NSLog(@"Téléchargement en cours : %@", episode);
     if (jacquetteDownloader == nil) {
-		NSLog(@"TOTO");
         jacquetteDownloader = [[EpisodeControllerJacquetteDownloader alloc] init];
         jacquetteDownloader.episode = episode;
         jacquetteDownloader.indexPathInTableView = indexPath;
         jacquetteDownloader.delegate = self;
         [imageDownloadsInProgress setObject:jacquetteDownloader forKey:indexPath];
         [jacquetteDownloader startDownload:width];
-		NSLog(@"%@", jacquetteDownloader);
-		NSLog(@"%@", [imageDownloadsInProgress objectForKey:indexPath]);
     }
+	}
 }
 
 - (void)loadImagesForOnscreenRows {
 	if ([_objects count] > 0) {
 		NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
 		for (NSIndexPath *indexPath in visiblePaths) {
+			if ([_objects count] > indexPath.row) {
 			Episode *episode = [_objects objectAtIndex:indexPath.row];
 			if (!episode.jacquette) {
 				[self startJacquetteDownload:episode forIndexPath:indexPath andWith:128];
+			}
 			}
 		}
 	}

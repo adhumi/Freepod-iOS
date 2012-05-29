@@ -250,12 +250,14 @@ extern Episode *readingEpisode;
     if (!decelerate)
 	{
         [self loadImagesForOnscreenRows];
-    }
+		NSLog(@"TOTO");
+	}
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self loadImagesForOnscreenRows];
+	NSLog(@"TATA");
 }
 
 - (void)startJacquetteDownload:(Podcast *)podcast forIndexPath:(NSIndexPath *)indexPath andWith:(int) width{

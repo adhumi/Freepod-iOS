@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface LiveViewController : UIViewController {
 	IBOutlet UIImageView *onOffAir;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *onOffAir;
+
+- (IBAction)goLive:(id)sender;
 
 @end
