@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "EpisodeControllerJacquetteDownloader.h"
+#import "AsynchronousUIImage.h"
 
-@interface DetailViewController : UITableViewController <EpisodeControllerJacquetteDownloaderDelegate> {
+@interface DetailViewController : UITableViewController <EpisodeControllerJacquetteDownloaderDelegate, AsynchronousUIImageDelegate> {
 	NSMutableDictionary *imageDownloadsInProgress;
+	UIImageView *banner;
 }
 
 @property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
+@property (nonatomic, retain) UIImageView *banner;
 
 - (void)jacquetteEpisodeDidLoad:(NSIndexPath *)indexPath;
 

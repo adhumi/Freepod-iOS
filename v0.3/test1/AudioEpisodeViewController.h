@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "AsynchronousUIImage.h"
 
-@interface AudioEpisodeViewController : UIViewController {
+@interface AudioEpisodeViewController : UIViewController <AsynchronousUIImageDelegate> {
 	IBOutlet UIImageView *jacquette;
 	IBOutlet UILabel *nom;
 	IBOutlet UIButton *play;

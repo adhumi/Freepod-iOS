@@ -14,6 +14,7 @@
 
 @implementation LiveViewController
 @synthesize onOffAir;
+@synthesize navBar;
 
 extern AVPlayer *audioPlayer;
 
@@ -31,6 +32,12 @@ extern AVPlayer *audioPlayer;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
+	navBar.tintColor = [UIColor colorWithRed:0.22 green:0.38 blue:0.47 alpha:1];
+	UIImageView *logo=[[UIImageView alloc]initWithFrame:CGRectMake(74, 0, 172, 44)];
+	logo.image=[UIImage imageNamed:@"logo_freepod_navbar_crop.png"];
+	logo.tag = 42;
+	[navBar addSubview:logo];
+	
 	NSString *radioURL = @"http://radio.podradio.fr:8000/adsl.m3u";
 	audioPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:radioURL]];
 	
@@ -43,6 +50,8 @@ extern AVPlayer *audioPlayer;
 {
     [self setOnOffAir:nil];
     onOffAir = nil;
+    navBar = nil;
+    [self setNavBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

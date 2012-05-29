@@ -73,11 +73,13 @@ extern Episode *readingEpisode;
 	}
 	
 	_episode = readingEpisode;
+		
 	
-	UIImage *tmpJacquette = [_episode getJacquette:640];
-	if (tmpJacquette != nil) {
-		[_jacquette setImage:tmpJacquette];
-	}
+	AsynchronousUIImage *image = [[AsynchronousUIImage alloc] init];
+	[image loadImageFromURL: [NSString stringWithFormat:@"http://webserv.freepod.net/get-img-episode.php?id=%d&nom=image&width=%d", [_episode idEpisode], 640] ];
+	image.tag = 2;
+	image.delegate = self;
+	
 	
 	self.avancement.maximumValue = [_episode getDurationInSeconds];
 	
@@ -167,7 +169,6 @@ extern Episode *readingEpisode;
 	} else {
 		[self.descriptionScrollView setHidden:YES];
 	}
-	
 }
 
 - (IBAction)goBack:(id)sender {
@@ -192,13 +193,20 @@ extern Episode *readingEpisode;
 	}
 }
 
+-(void) imageDidLoad:(AsynchronousUIImage *)anImage {
+	if (anImage.tag == 2) {
+		NSLog(@"TO TO TO TO TO : %@", anImage);
+		_jacquette.image = (UIImage*) anImage;
+	}
+}
+
 //// Stop the timer when the music is finished (Need to implement the AVAudioPlayerDelegate in the Controller header)
-//- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-//	// Music completed
-//	if (flag) {
-//		[sliderTimer invalidate];
-//	}
-//}
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
+	// Music completed
+	if (flag) {
+		[timer invalidate];
+	}
+}
 
 
 @end

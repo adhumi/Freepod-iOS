@@ -11,8 +11,10 @@
 
 @interface LiveViewController : UIViewController {
 	IBOutlet UIImageView *onOffAir;
+	IBOutlet UINavigationBar *navBar;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *onOffAir;
+@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 
 - (IBAction)goLive:(id)sender;
 

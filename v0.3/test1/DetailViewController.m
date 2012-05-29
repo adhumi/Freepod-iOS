@@ -25,6 +25,7 @@
 
 @synthesize detailItem = _detailItem;
 @synthesize imageDownloadsInProgress;
+@synthesize banner;
 
 #pragma mark - Managing the detail item
 
@@ -110,10 +111,18 @@ extern Episode *readingEpisode;
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 	
 	//Banniere en haut de la NSTableView
-	UIImageView *headerLabel = [[UIImageView alloc] initWithImage:[podcast getBanner:320]];
-	headerLabel.contentMode = UIViewContentModeScaleAspectFill;
-	self.tableView.tableHeaderView = headerLabel;
+	banner = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 150)];
+	banner.image = [UIImage imageNamed:@"banner_default.png"];
+	banner.contentMode = UIViewContentModeScaleAspectFill;
+	self.tableView.tableHeaderView = banner;
 	
+	if (! [[podcast logoBanner] isEqualToString:@""]) {
+		AsynchronousUIImage *image = [[AsynchronousUIImage alloc] init];
+		[image loadImageFromURL: [NSString stringWithFormat:@"http://webserv.freepod.net/get-img-podcast.php?id=%d&nom=logo_banner&width=%d", [podcast idPodcast], 640] ];
+		image.tag = 1;
+		image.delegate = self;
+	}
+		
 	self.tableView.rowHeight = 64;
 	
 	[self configureView];
@@ -260,6 +269,13 @@ extern Episode *readingEpisode;
 			}
 		}
 	}
+}
+
+-(void) imageDidLoad:(AsynchronousUIImage *)anImage {
+	if (anImage.tag == 1) {
+		banner.image = (UIImage*) anImage;
+	}
+	[self.tableView reloadData];
 }
 
 @end

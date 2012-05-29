@@ -53,6 +53,8 @@
 		A607B451156D78C30033D45A /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B445156D76970033D45A /* SBJsonWriter.m */; };
 		A607B459156DAEA00033D45A /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B458156DAE860033D45A /* Episode.m */; };
 		A607B465156FEDCC0033D45A /* logo_freepod_navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */; };
+		A68090411575834D002FBE14 /* AsynchronousUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A68090401575834D002FBE14 /* AsynchronousUIImage.m */; };
+		A680904815758DA3002FBE14 /* banner_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A680904715758DA3002FBE14 /* banner_default.png */; };
 		A6858C291570FDA8003CC243 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C281570FDA8003CC243 /* Default.png */; };
 		A6858C2C1570FDAC003CC243 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2B1570FDAC003CC243 /* Default@2x.png */; };
 		A6858C2E1570FDB0003CC243 /* ico_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2D1570FDB0003CC243 /* ico_ios.png */; };
@@ -137,6 +139,9 @@
 		A607B457156DAE860033D45A /* Episode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
 		A607B458156DAE860033D45A /* Episode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 		A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_freepod_navbar.png; sourceTree = "<group>"; };
+		A680903F1575834D002FBE14 /* AsynchronousUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsynchronousUIImage.h; sourceTree = "<group>"; };
+		A68090401575834D002FBE14 /* AsynchronousUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsynchronousUIImage.m; sourceTree = "<group>"; };
+		A680904715758DA3002FBE14 /* banner_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_default.png; sourceTree = "<group>"; };
 		A6858C281570FDA8003CC243 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A6858C2B1570FDAC003CC243 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A6858C2D1570FDB0003CC243 /* ico_ios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_ios.png; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 		A603C31A1574B6350067B1CD /* img */ = {
 			isa = PBXGroup;
 			children = (
+				A680904715758DA3002FBE14 /* banner_default.png */,
 				A603C34915751F9F0067B1CD /* icon_live.png */,
 				A603C34515751EC20067B1CD /* off_air.png */,
 				A603C34615751EC20067B1CD /* on_air.png */,
@@ -267,6 +273,8 @@
 				A603C32F1574E7750067B1CD /* JacquetteDownloader.m */,
 				A603C33B157503F00067B1CD /* EpisodeControllerJacquetteDownloader.h */,
 				A603C33C157503F00067B1CD /* EpisodeControllerJacquetteDownloader.m */,
+				A680903F1575834D002FBE14 /* AsynchronousUIImage.h */,
+				A68090401575834D002FBE14 /* AsynchronousUIImage.m */,
 				A603C31A1574B6350067B1CD /* img */,
 				A607B376156AD9240033D45A /* Supporting Files */,
 			);
@@ -391,6 +399,7 @@
 				A603C34715751EC20067B1CD /* off_air.png in Resources */,
 				A603C34815751EC20067B1CD /* on_air.png in Resources */,
 				A603C34A15751F9F0067B1CD /* icon_live.png in Resources */,
+				A680904815758DA3002FBE14 /* banner_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +435,7 @@
 				A603C3381574FBE10067B1CD /* PodcastCell.m in Sources */,
 				A603C33D157503F10067B1CD /* EpisodeControllerJacquetteDownloader.m in Sources */,
 				A603C34315751B540067B1CD /* LiveViewController.m in Sources */,
+				A68090411575834D002FBE14 /* AsynchronousUIImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

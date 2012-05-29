@@ -39,7 +39,17 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Player" style:UIBarButtonItemStylePlain target:self action:@selector(displayPlayer:)];
+	self.navigationItem.rightBarButtonItem = addButton;
 	
+	
+	//self.navigationItem.title = @"Freepod";
+	
+	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.22 green:0.38 blue:0.47 alpha:1];
+	UIImageView *logo=[[UIImageView alloc]initWithFrame:CGRectMake(74, 0, 172, 44)];
+	logo.image=[UIImage imageNamed:@"logo_freepod_navbar_crop.png"];
+	logo.tag = 42;
+	[self.navigationController.navigationBar addSubview:logo];
 	
 	// Récupération de la liste des épisodes
 	SBJsonParser* parser = [[SBJsonParser alloc] init];
