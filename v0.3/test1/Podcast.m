@@ -134,4 +134,10 @@
 	self->episodes = [[NSMutableArray alloc] init];
 }
 
+-(NSString*) formattedLastUpadate {
+	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+	[dateFormat setDateFormat:@"d MMMM yyyy"];	//@"EE, d LLLL yyyy HH:mm:ss Z"];
+	return [dateFormat stringFromDate:self->lastUpdate]; 
+}
+
 @end

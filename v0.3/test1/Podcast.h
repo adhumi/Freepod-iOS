@@ -44,6 +44,7 @@
 -(void) setUrlFreepod:(NSString*)newUrlFreepod;
 -(void) setLogoNormal:(NSString*)newLogoNormal;
 -(void) setLogoBanner:(NSString*)newLogoBanner;
+-(void) setLastUpdateFromString:(NSString*)newDate;
 
 -(NSInteger) idPodcast;
 -(NSString*) nom;
@@ -59,5 +60,6 @@
 -(id) getJacquette:(int) width;
 -(id) getBanner:(NSInteger) width;
 -(void) initEpisodes;
+-(NSString*) formattedLastUpadate;
 
 @end

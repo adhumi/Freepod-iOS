@@ -49,12 +49,12 @@ Episode *readingEpisode;
 	self.navigationController.tabBarItem.image = [UIImage imageNamed:@"icon-podcast.png"];
 	
 	// Vue secondaire (Liste des épisodes récents)
-	//EpisodesRecentsViewController *episodesRecentsViewController = [[EpisodesRecentsViewController alloc] initWithNibName:@"EpisodesRecentsViewController" bundle:nil];
-	//self.navigationControllerRecent = [[UINavigationController alloc] initWithRootViewController:episodesRecentsViewController];
-	//self.navigationControllerRecent.title = @"Récents";
-	//self.navigationControllerRecent.tabBarItem.image = [UIImage imageNamed:@"icon-recent.png"];
+	EpisodesRecentsViewController *episodesRecentsViewController = [[EpisodesRecentsViewController alloc] initWithNibName:@"EpisodesRecentsViewController" bundle:nil];
+	self.navigationControllerRecent = [[UINavigationController alloc] initWithRootViewController:episodesRecentsViewController];
+	self.navigationControllerRecent.title = @"Récents";
+	self.navigationControllerRecent.tabBarItem.image = [UIImage imageNamed:@"icon-recent.png"];
 	
-	tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, nil];
+	tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, self.navigationControllerRecent, nil];
 	
 	self.window.rootViewController = tabBarController;
 	[self.window makeKeyAndVisible];
