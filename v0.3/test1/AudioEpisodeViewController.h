@@ -19,6 +19,8 @@
 	IBOutlet UILabel *tpsRestant;
 	IBOutlet UILabel *descriptionLabel;
 	IBOutlet UIScrollView *descriptionScrollView;
+	IBOutlet UILabel *date;
+	IBOutlet UINavigationBar *navBar;
 	NSTimer *timer;
 }
 
@@ -34,12 +36,17 @@
 @property (nonatomic, retain) IBOutlet UILabel *tpsRestant;
 @property (nonatomic, retain) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, retain) IBOutlet UIScrollView *descriptionScrollView;
+@property (nonatomic, retain) IBOutlet UILabel *date;
+@property (nonatomic, retain) IBOutlet UINavigationBar *navBar;
 
 @property (strong, nonatomic) id episode;
+
+@property (strong, nonatomic) id precedentView;
 
 - (IBAction)playEpisode:(id)sender;
 - (IBAction)pauseEpisode:(id)sender;
 - (IBAction)goToTime:(id)sender;
 - (IBAction)getDetails:(id)sender;
+- (IBAction)goBack:(id)sender;
 
 @end

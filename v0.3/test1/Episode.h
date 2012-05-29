@@ -42,6 +42,7 @@
 -(void) setImage:(NSString*)newImage;
 -(void) setKeywords:(NSString*)newKeywords;
 -(void) setDate:(NSDate*)newDate;
+-(void) setLastUpdateFromString:(NSString*)newDate;
 
 -(NSInteger) idEpisode;
 -(NSInteger) idPodcast;
@@ -56,6 +57,8 @@
 -(NSString*) image;
 -(NSString*) keywords;
 -(NSDate*) pubDate;
+-(NSString*) formattedPubDate;
+
 
 -(id) getJacquette:(NSInteger) width;
 - (int) getDurationInSeconds;

@@ -8,6 +8,7 @@
 
 #import "AudioEpisodeViewController.h"
 #import "Episode.h"
+#import "MasterViewController.h"
 
 @interface AudioEpisodeViewController ()
 
@@ -16,6 +17,8 @@
 @implementation AudioEpisodeViewController
 
 @synthesize episode = _episode;
+@synthesize precedentView = _precedentView;
+
 @synthesize jacquette = _jacquette;
 @synthesize nom = _nom;
 @synthesize play = _play;
@@ -27,13 +30,22 @@
 @synthesize tpsRestant = _tpsRestant;
 @synthesize descriptionLabel = _descriptionLabel;
 @synthesize descriptionScrollView = _descriptionScrollView;
+@synthesize date = _date;
+@synthesize navBar = _navBar;
 
 extern AVPlayer *audioPlayer;
+extern Episode *readingEpisode;
 
 - (void)setEpisode:(id)newDetailItem
 {
     if (_episode != newDetailItem) {
         _episode = newDetailItem;
+	}
+}
+
+- (void)setPrecedentView:(id)newPrecedentView {
+	if (_precedentView != newPrecedentView) {
+        _precedentView = newPrecedentView;
 	}
 }
 
@@ -48,13 +60,24 @@ extern AVPlayer *audioPlayer;
 
 - (void)viewDidLoad
 {
+	
+	
+    [super viewDidLoad];
+	
+	
+	
+	if (_episode != readingEpisode) {
+		NSURL *urlFile = [NSURL URLWithString:[_episode urlSource]];
+		audioPlayer = [AVPlayer playerWithURL:urlFile];
+		readingEpisode = _episode;
+	}
+	
+	_episode = readingEpisode;
+	
 	UIImage *tmpJacquette = [_episode getJacquette:640];
 	if (tmpJacquette != nil) {
 		[_jacquette setImage:tmpJacquette];
 	}
-	
-	_nom.text = [_episode title];
-    [super viewDidLoad];
 	
 	self.avancement.maximumValue = [_episode getDurationInSeconds];
 	
@@ -64,9 +87,32 @@ extern AVPlayer *audioPlayer;
 	
 	self.descriptionLabel.text = [_episode getDescription];
 	
-	NSURL *urlFile = [NSURL URLWithString:[_episode urlSource]];
-	audioPlayer = [AVPlayer playerWithURL:urlFile];
-
+	self.date.text = [_episode formattedPubDate];
+	_nom.text = [_episode title];
+	
+	if (audioPlayer.rate > 0.5) {
+		timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+		
+		CMTime duration = audioPlayer.currentTime; 
+		float seconds = CMTimeGetSeconds(duration); 
+		int minutesDef = lroundf(seconds) / 60;
+		int secondsDef = seconds - (minutesDef * 60);
+		[self.avancement setValue:seconds animated:YES];
+		self.tpsEcoule.text = [NSString stringWithFormat:@"%02d:%02d",minutesDef,secondsDef];
+		
+		int secRest = [_episode getDurationInSeconds] - seconds;
+		int minutesRest = secRest / 60;
+		int secondsRest = secRest - (minutesRest * 60);
+		self.tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesRest,secondsRest];
+		
+		[self.play setHidden:YES];
+		[self.pause setHidden:NO];
+	}
+	
+	UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBack:)];
+    [recognizer setDirection:(UISwipeGestureRecognizerDirectionDown)];
+    [self.navBar addGestureRecognizer:recognizer];
+	
 	// TODO : AJOUTER UNE ALERTE SI LE FICHIER N'EST PAS ACCESSIBLE
 }
 
@@ -78,6 +124,9 @@ extern AVPlayer *audioPlayer;
 	tpsRestant = nil;
 	descriptionLabel = nil;
 	descriptionScrollView = nil;
+	date = nil;
+	navBar = nil;
+	[timer invalidate];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -120,12 +169,15 @@ extern AVPlayer *audioPlayer;
 	
 }
 
+- (IBAction)goBack:(id)sender {
+	[self dismissModalViewControllerAnimated:YES];
+}
+
 - (void)updateSlider {
 	CMTime duration = audioPlayer.currentTime; 
 	float seconds = CMTimeGetSeconds(duration); 
-	int minutesDef = seconds / 60;
+	int minutesDef = lroundf(seconds) / 60;
 	int secondsDef = seconds - (minutesDef * 60);
-	NSLog(@"Temps écoulé : %.2f", seconds); 
 	[self.avancement setValue:seconds animated:YES];
 	self.tpsEcoule.text = [NSString stringWithFormat:@"%02d:%02d",minutesDef,secondsDef];
 	

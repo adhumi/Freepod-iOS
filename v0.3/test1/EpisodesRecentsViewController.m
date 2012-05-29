@@ -63,6 +63,7 @@
 		[newEpisode setDuration:[episode objectForKey:@"duration"]];
 		[newEpisode setImage:[episode objectForKey:@"newImage"]];
 		[newEpisode setKeywords:[episode objectForKey:@"keywords"]];
+		[newEpisode setLastUpdateFromString:[episode objectForKey:@"pubDate"]];
 		
 		if (!_objects) {
 			_objects = [[NSMutableArray alloc] init];

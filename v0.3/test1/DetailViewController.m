@@ -57,6 +57,7 @@
 			[newEpisode setDuration:[episode objectForKey:@"duration"]];
 			[newEpisode setImage:[episode objectForKey:@"newImage"]];
 			[newEpisode setKeywords:[episode objectForKey:@"keywords"]];
+			[newEpisode setLastUpdateFromString:[episode objectForKey:@"pubDate"]];
 			
 			[podcast addEpisode:newEpisode];
 		}
@@ -160,6 +161,7 @@
 	cell.textLabel.text = [object description];
 	cell.imageView.image = [object getJacquette:120];
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
+	cell.accessoryType = UITableViewCellAccessoryNone;
     return cell;
 }
 
@@ -170,7 +172,9 @@
 	Episode *episode = [_objects objectAtIndex:indexPath.row];
 	
 	audioViewController.episode = episode;
-    [self.navigationController pushViewController:audioViewController animated:YES];
+	
+	audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+	[self presentModalViewController:audioViewController animated:YES];
 }
 
 

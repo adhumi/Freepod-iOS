@@ -65,6 +65,15 @@
 	self->pubDate = newDate;
 }
 
+-(void) setLastUpdateFromString:(NSString*)newDate {
+	// "Tue, 25 May 2010 12:53:58 +0000";
+	// Format Web Service : 2012-05-28 01:06:34
+	
+	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+	[dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];	//@"EE, d LLLL yyyy HH:mm:ss Z"];
+	self->pubDate = [dateFormat dateFromString:newDate]; 
+}
+
 // Getters
 
 -(NSInteger) idEpisode {
@@ -113,6 +122,12 @@
 
 -(NSDate*) pubDate {
 	return self->pubDate;
+}
+
+-(NSString*) formattedPubDate {
+	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+	[dateFormat setDateFormat:@"d MMMM yyyy"];	//@"EE, d LLLL yyyy HH:mm:ss Z"];
+	return [dateFormat stringFromDate:self->pubDate]; 
 }
 
 

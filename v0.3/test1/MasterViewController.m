@@ -44,14 +44,15 @@ extern Episode *readingEpisode;
 	// Do any additional setup after loading the view, typically from a nib.
 	//self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-	//UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Player" style:UIBarButtonItemStylePlain target:self action:@selector(displayPlayer:)];
-									  //initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-									  //self.navigationItem.rightBarButtonItem = addButton;
+	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Player" style:UIBarButtonItemStylePlain target:self action:@selector(displayPlayer:)];
+	self.navigationItem.rightBarButtonItem = addButton;
+
+	
 	//self.navigationItem.title = @"Freepod";
 	
 	self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.22 green:0.38 blue:0.47 alpha:1];
-	UIImageView *logo=[[UIImageView alloc]initWithFrame:CGRectMake(98, 0, 125, 44)];
-	logo.image=[UIImage imageNamed:@"logo_freepod_navbar.png"];
+	UIImageView *logo=[[UIImageView alloc]initWithFrame:CGRectMake(74, 0, 172, 44)];
+	logo.image=[UIImage imageNamed:@"logo_freepod_navbar_crop.png"];
 	logo.tag = 42;
 	[self.navigationController.navigationBar addSubview:logo];
 	
@@ -110,17 +111,16 @@ extern Episode *readingEpisode;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+// AFFICHE LE PLAYER
 - (void)displayPlayer:(id)sender
 {
-    NSLog(@"LOLILOL");
 	AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
 	
 	audioViewController.episode = readingEpisode;
-		
-	audioViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-	[self presentModalViewController:audioViewController animated:YES];
+	audioViewController.precedentView = self.view;
 	
-	//   [self.navigationController pushViewController:audioViewController animated:YES];
+	audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+	[self presentModalViewController:audioViewController animated:YES];
 }
 
 #pragma mark - Table View
