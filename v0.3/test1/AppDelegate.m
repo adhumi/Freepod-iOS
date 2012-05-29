@@ -12,6 +12,7 @@
 #import "DetailViewController.h"
 #import "Episode.h"
 #import "EpisodesRecentsViewController.h"
+#import "LiveViewController.h"
 
 @implementation AppDelegate
 
@@ -29,6 +30,9 @@ Episode *readingEpisode;
     // Override point for customization after application launch.
 	[[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackOpaque];
 
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
+	
 //	MasterViewController *masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController_iPhone" bundle:nil];
 //	self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
 //	
@@ -54,7 +58,12 @@ Episode *readingEpisode;
 	self.navigationControllerRecent.title = @"Récents";
 	self.navigationControllerRecent.tabBarItem.image = [UIImage imageNamed:@"icon-recent.png"];
 	
-	tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, self.navigationControllerRecent, nil];
+	// Vue secondaire (Live)
+	LiveViewController *liveViewController = [[LiveViewController alloc] initWithNibName:@"LiveViewController" bundle:nil];
+	liveViewController.title = @"Live";
+	liveViewController.tabBarItem.image = [UIImage imageNamed:@"icon_live.png"];
+	
+	tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, self.navigationControllerRecent, liveViewController, nil];
 	
 	self.window.rootViewController = tabBarController;
 	[self.window makeKeyAndVisible];

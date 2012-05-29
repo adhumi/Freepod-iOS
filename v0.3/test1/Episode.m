@@ -10,6 +10,8 @@
 
 @implementation Episode
 
+@synthesize jacquette;
+
 - (id)init {
     self = [super init];
     return self;
@@ -66,11 +68,10 @@
 }
 
 -(void) setLastUpdateFromString:(NSString*)newDate {
-	// "Tue, 25 May 2010 12:53:58 +0000";
 	// Format Web Service : 2012-05-28 01:06:34
 	
 	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-	[dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];	//@"EE, d LLLL yyyy HH:mm:ss Z"];
+	[dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 	self->pubDate = [dateFormat dateFromString:newDate]; 
 }
 

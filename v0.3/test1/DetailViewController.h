@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EpisodeControllerJacquetteDownloader.h"
 
-@interface DetailViewController : UITableViewController 
+@interface DetailViewController : UITableViewController <EpisodeControllerJacquetteDownloaderDelegate> {
+	NSMutableDictionary *imageDownloadsInProgress;
+}
+
+@property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
+
+- (void)jacquetteDidLoad:(NSIndexPath *)indexPath;
 
 @property (strong, nonatomic) id detailItem;
 

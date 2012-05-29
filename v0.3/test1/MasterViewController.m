@@ -104,6 +104,8 @@ extern Episode *readingEpisode;
 //	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 //	
 	self.tableView.rowHeight = 80;
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)viewDidUnload
@@ -214,7 +216,8 @@ extern Episode *readingEpisode;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[_objects objectAtIndex:indexPath.row] class] == [Podcast class]) {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	if ([[_objects objectAtIndex:indexPath.row] class] == [Podcast class]) {
 		DetailViewController *detailViewController = [[DetailViewController alloc]initWithNibName:@"DetailViewController_iPhone" bundle:nil];
 		
 		Podcast *podcast = [_objects objectAtIndex:indexPath.row];
@@ -226,16 +229,17 @@ extern Episode *readingEpisode;
 		
 		[self.navigationController pushViewController:detailViewController animated:YES];
 	}
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)jacquetteDidLoad:(NSIndexPath *)indexPath
 {
     JacquetteDownloader *jacquetteDownloader = [imageDownloadsInProgress objectForKey:indexPath];
     if (jacquetteDownloader != nil) {
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:jacquetteDownloader.indexPathInTableView];
+        PodcastCell *cell = (PodcastCell*) [self.tableView cellForRowAtIndexPath:jacquetteDownloader.indexPathInTableView];
         
         // Display the newly loaded image
-        cell.imageView.image = jacquetteDownloader.podcast.jacquette208;
+        cell.jacquette.image = jacquetteDownloader.podcast.jacquette208;
     }
 	
 	[self.tableView reloadData];

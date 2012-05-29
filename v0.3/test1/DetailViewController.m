@@ -13,7 +13,7 @@
 #import "Episode.h"
 
 #import "AudioEpisodeViewController.h"
-
+#import "EpisodeControllerJacquetteDownloader.h"
 #import "EpisodeCell.h"
 
 @interface DetailViewController () {
@@ -24,6 +24,7 @@
 @implementation DetailViewController
 
 @synthesize detailItem = _detailItem;
+@synthesize imageDownloadsInProgress;
 
 #pragma mark - Managing the detail item
 
@@ -164,18 +165,27 @@ extern Episode *readingEpisode;
 	Episode *object = [_objects objectAtIndex:indexPath.row];
 	cell.nom.text = [object description];
 	cell.date.text = [object formattedPubDate];
-	UIImage *tmpJacquette = [object getJacquette:128];
-	if (tmpJacquette != nil) {
-		cell.jacquette.image = tmpJacquette;
+	if (!object.jacquette) {
+		if (self.tableView.dragging == NO && self.tableView.decelerating == NO) {
+			[self startJacquetteDownload:object forIndexPath:indexPath andWith:128];
+		}
+		// if a download is deferred or in progress, return a placeholder image
+		cell.jacquette.image = [UIImage imageNamed:@"jacquette_default_64.png"];                
 	}
+	else
+	{
+		cell.jacquette.image = object.jacquette;
+	}
+	
 	cell.duration.text = [object duration];
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    return cell;
+	    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
 	
 	Episode *episode = [_objects objectAtIndex:indexPath.row];
 	
@@ -195,6 +205,59 @@ extern Episode *readingEpisode;
 	
 	audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 	[self presentModalViewController:audioViewController animated:YES];
+}
+
+- (void)jacquetteDidLoad:(NSIndexPath *)indexPath
+{
+    EpisodeControllerJacquetteDownloader *jacquetteDownloader = [imageDownloadsInProgress objectForKey:indexPath];
+    if (jacquetteDownloader != nil) {
+        EpisodeCell *cell = (EpisodeCell*) [self.tableView cellForRowAtIndexPath:jacquetteDownloader.indexPathInTableView];
+        
+        // Display the newly loaded image
+        cell.jacquette.image  = jacquetteDownloader.episode.jacquette;
+	}
+	
+	[self.tableView reloadData];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+	{
+        [self loadImagesForOnscreenRows];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOnscreenRows];
+}
+
+- (void)startJacquetteDownload:(Episode *)episode forIndexPath:(NSIndexPath *)indexPath andWith:(int) width{
+    EpisodeControllerJacquetteDownloader *jacquetteDownloader = [imageDownloadsInProgress objectForKey:indexPath];
+    if (jacquetteDownloader == nil) {
+		NSLog(@"TOTO");
+        jacquetteDownloader = [[EpisodeControllerJacquetteDownloader alloc] init];
+        jacquetteDownloader.episode = episode;
+        jacquetteDownloader.indexPathInTableView = indexPath;
+        jacquetteDownloader.delegate = self;
+        [imageDownloadsInProgress setObject:jacquetteDownloader forKey:indexPath];
+        [jacquetteDownloader startDownload:width];
+		NSLog(@"%@", jacquetteDownloader);
+		NSLog(@"%@", [imageDownloadsInProgress objectForKey:indexPath]);
+    }
+}
+
+- (void)loadImagesForOnscreenRows {
+	if ([_objects count] > 0) {
+		NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+		for (NSIndexPath *indexPath in visiblePaths) {
+			Episode *episode = [_objects objectAtIndex:indexPath.row];
+			if (!episode.jacquette) {
+				[self startJacquetteDownload:episode forIndexPath:indexPath andWith:128];
+			}
+		}
+	}
 }
 
 @end

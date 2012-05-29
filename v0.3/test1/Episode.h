@@ -26,7 +26,12 @@
 	
 	//NSDate
 	NSDate *pubDate;
+	
+	//Jacquette DetailView
+	UIImage *jacquette;
 }
+
+@property(nonatomic, retain) UIImage *jacquette;
 
 -(id) init;
 

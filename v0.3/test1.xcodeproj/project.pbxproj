@@ -22,6 +22,12 @@
 		A603C3351574FB800067B1CD /* PodcastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603C3341574FB7F0067B1CD /* PodcastCell.xib */; };
 		A603C3381574FBE10067B1CD /* PodcastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C3371574FBE10067B1CD /* PodcastCell.m */; };
 		A603C33A1574FDAF0067B1CD /* jacquette_default_160.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C3391574FDAF0067B1CD /* jacquette_default_160.png */; };
+		A603C33D157503F10067B1CD /* EpisodeControllerJacquetteDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C33C157503F00067B1CD /* EpisodeControllerJacquetteDownloader.m */; };
+		A603C34315751B540067B1CD /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C34115751B530067B1CD /* LiveViewController.m */; };
+		A603C34415751B540067B1CD /* LiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603C34215751B530067B1CD /* LiveViewController.xib */; };
+		A603C34715751EC20067B1CD /* off_air.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C34515751EC20067B1CD /* off_air.png */; };
+		A603C34815751EC20067B1CD /* on_air.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C34615751EC20067B1CD /* on_air.png */; };
+		A603C34A15751F9F0067B1CD /* icon_live.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C34915751F9F0067B1CD /* icon_live.png */; };
 		A607B370156AD9240033D45A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B36F156AD9240033D45A /* UIKit.framework */; };
 		A607B372156AD9240033D45A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B371156AD9240033D45A /* Foundation.framework */; };
 		A607B374156AD9240033D45A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B373156AD9240033D45A /* CoreGraphics.framework */; };
@@ -77,6 +83,14 @@
 		A603C3361574FBE10067B1CD /* PodcastCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodcastCell.h; sourceTree = "<group>"; };
 		A603C3371574FBE10067B1CD /* PodcastCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodcastCell.m; sourceTree = "<group>"; };
 		A603C3391574FDAF0067B1CD /* jacquette_default_160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jacquette_default_160.png; sourceTree = "<group>"; };
+		A603C33B157503F00067B1CD /* EpisodeControllerJacquetteDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeControllerJacquetteDownloader.h; sourceTree = "<group>"; };
+		A603C33C157503F00067B1CD /* EpisodeControllerJacquetteDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeControllerJacquetteDownloader.m; sourceTree = "<group>"; };
+		A603C34015751B530067B1CD /* LiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveViewController.h; sourceTree = "<group>"; };
+		A603C34115751B530067B1CD /* LiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveViewController.m; sourceTree = "<group>"; };
+		A603C34215751B530067B1CD /* LiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveViewController.xib; sourceTree = "<group>"; };
+		A603C34515751EC20067B1CD /* off_air.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off_air.png; sourceTree = "<group>"; };
+		A603C34615751EC20067B1CD /* on_air.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on_air.png; sourceTree = "<group>"; };
+		A603C34915751F9F0067B1CD /* icon_live.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_live.png; sourceTree = "<group>"; };
 		A607B36B156AD9240033D45A /* test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A607B36F156AD9240033D45A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A607B371156AD9240033D45A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -153,6 +167,9 @@
 		A603C31A1574B6350067B1CD /* img */ = {
 			isa = PBXGroup;
 			children = (
+				A603C34915751F9F0067B1CD /* icon_live.png */,
+				A603C34515751EC20067B1CD /* off_air.png */,
+				A603C34615751EC20067B1CD /* on_air.png */,
 				A603C3391574FDAF0067B1CD /* jacquette_default_160.png */,
 				A603C32C1574DE550067B1CD /* jacquette_default_64.png */,
 				A603C2E01573155F0067B1CD /* icon-podcast.png */,
@@ -164,6 +181,30 @@
 				A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */,
 			);
 			name = img;
+			sourceTree = "<group>";
+		};
+		A603C33E15751B1B0067B1CD /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				A603C3221574C4D20067B1CD /* EpisodeCell.h */,
+				A603C3231574C4D20067B1CD /* EpisodeCell.m */,
+				A603C3251574C4E70067B1CD /* EpisodeCell.xib */,
+				A603C3361574FBE10067B1CD /* PodcastCell.h */,
+				A603C3371574FBE10067B1CD /* PodcastCell.m */,
+				A603C3341574FB7F0067B1CD /* PodcastCell.xib */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		A603C33F15751B2D0067B1CD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A607B427156D752D0033D45A /* Podcast.h */,
+				A607B428156D752D0033D45A /* Podcast.m */,
+				A607B457156DAE860033D45A /* Episode.h */,
+				A607B458156DAE860033D45A /* Episode.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		A607B360156AD9240033D45A = {
@@ -217,18 +258,15 @@
 				A607B38D156AD9240033D45A /* DetailViewController_iPhone.xib */,
 				A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */,
 				A603C2DB157314B00067B1CD /* EpisodesRecentsViewController.xib */,
-				A603C3221574C4D20067B1CD /* EpisodeCell.h */,
-				A603C3231574C4D20067B1CD /* EpisodeCell.m */,
-				A603C3251574C4E70067B1CD /* EpisodeCell.xib */,
-				A603C3341574FB7F0067B1CD /* PodcastCell.xib */,
-				A603C3361574FBE10067B1CD /* PodcastCell.h */,
-				A603C3371574FBE10067B1CD /* PodcastCell.m */,
-				A607B427156D752D0033D45A /* Podcast.h */,
-				A607B428156D752D0033D45A /* Podcast.m */,
-				A607B457156DAE860033D45A /* Episode.h */,
-				A607B458156DAE860033D45A /* Episode.m */,
+				A603C34015751B530067B1CD /* LiveViewController.h */,
+				A603C34115751B530067B1CD /* LiveViewController.m */,
+				A603C34215751B530067B1CD /* LiveViewController.xib */,
+				A603C33E15751B1B0067B1CD /* TableViewCells */,
+				A603C33F15751B2D0067B1CD /* Classes */,
 				A603C32E1574E7740067B1CD /* JacquetteDownloader.h */,
 				A603C32F1574E7750067B1CD /* JacquetteDownloader.m */,
+				A603C33B157503F00067B1CD /* EpisodeControllerJacquetteDownloader.h */,
+				A603C33C157503F00067B1CD /* EpisodeControllerJacquetteDownloader.m */,
 				A603C31A1574B6350067B1CD /* img */,
 				A607B376156AD9240033D45A /* Supporting Files */,
 			);
@@ -349,6 +387,10 @@
 				A603C32D1574DE550067B1CD /* jacquette_default_64.png in Resources */,
 				A603C3351574FB800067B1CD /* PodcastCell.xib in Resources */,
 				A603C33A1574FDAF0067B1CD /* jacquette_default_160.png in Resources */,
+				A603C34415751B540067B1CD /* LiveViewController.xib in Resources */,
+				A603C34715751EC20067B1CD /* off_air.png in Resources */,
+				A603C34815751EC20067B1CD /* on_air.png in Resources */,
+				A603C34A15751F9F0067B1CD /* icon_live.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +424,8 @@
 				A603C3241574C4D30067B1CD /* EpisodeCell.m in Sources */,
 				A603C3301574E7750067B1CD /* JacquetteDownloader.m in Sources */,
 				A603C3381574FBE10067B1CD /* PodcastCell.m in Sources */,
+				A603C33D157503F10067B1CD /* EpisodeControllerJacquetteDownloader.m in Sources */,
+				A603C34315751B540067B1CD /* LiveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

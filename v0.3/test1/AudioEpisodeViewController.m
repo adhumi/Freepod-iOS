@@ -113,6 +113,7 @@ extern Episode *readingEpisode;
     [recognizer setDirection:(UISwipeGestureRecognizerDirectionDown)];
     [self.navBar addGestureRecognizer:recognizer];
 	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	// TODO : AJOUTER UNE ALERTE SI LE FICHIER N'EST PAS ACCESSIBLE
 }
 

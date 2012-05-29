@@ -1,31 +1,30 @@
 //
-//  JacquetteDownloader.h
+//  EpisodeControllerJacquetteDownloader.h
 //  test1
 //
 //  Created by Adrien Humilière on 29/05/12.
 //  Copyright (c) 2012 home. All rights reserved.
 //
 
-
 #import <Foundation/Foundation.h>
+#import "Episode.h"
 
-@class Podcast;
-@class MasterViewController;
+@class Episode;
+@class DetailViewController;
 
-@protocol JacquetteDownloaderDelegate;
+@protocol EpisodeControllerJacquetteDownloaderDelegate;
 
-@interface JacquetteDownloader : NSObject {
-    Podcast *podcast;
+@interface EpisodeControllerJacquetteDownloader : NSObject {
+    Episode *episode;
     NSIndexPath *indexPathInTableView;
-    id <JacquetteDownloaderDelegate> delegate;
+    id <EpisodeControllerJacquetteDownloaderDelegate> delegate;
     NSMutableData *activeDownload;
     NSURLConnection *imageConnection;
 }
 
-@property (nonatomic, retain) Podcast *podcast;
+@property (nonatomic, retain) Episode *episode;
 @property (nonatomic, retain) NSIndexPath *indexPathInTableView;
-@property (nonatomic, assign) id <JacquetteDownloaderDelegate> delegate;
-
+@property (nonatomic, assign) id <EpisodeControllerJacquetteDownloaderDelegate> delegate;
 @property (nonatomic, retain) NSMutableData *activeDownload;
 @property (nonatomic, retain) NSURLConnection *imageConnection;
 
@@ -34,7 +33,7 @@
 
 @end
 
-@protocol JacquetteDownloaderDelegate 
+@protocol EpisodeControllerJacquetteDownloaderDelegate 
 
 - (void)jacquetteDidLoad:(NSIndexPath *)indexPath;
 
