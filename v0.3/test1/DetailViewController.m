@@ -27,6 +27,8 @@
 
 #pragma mark - Managing the detail item
 
+extern Episode *readingEpisode;
+
 - (void)setDetailItem:(id)newDetailItem
 {
     if (_detailItem != newDetailItem) {
@@ -84,6 +86,9 @@
 {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	
+	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Player" style:UIBarButtonItemStylePlain target:self action:@selector(displayPlayer:)];
+	self.navigationItem.rightBarButtonItem = addButton;
 	
 	Podcast *podcast = _detailItem;
 	
@@ -159,7 +164,10 @@
 	Episode *object = [_objects objectAtIndex:indexPath.row];
 	cell.nom.text = [object description];
 	cell.date.text = [object formattedPubDate];
-	cell.jacquette.image = [object getJacquette:120];
+	UIImage *tmpJacquette = [object getJacquette:128];
+	if (tmpJacquette != nil) {
+		cell.jacquette.image = tmpJacquette;
+	}
 	cell.duration.text = [object duration];
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
     return cell;
@@ -177,6 +185,16 @@
 	[self presentModalViewController:audioViewController animated:YES];
 }
 
-
+// AFFICHE LE PLAYER
+- (void)displayPlayer:(id)sender
+{
+	AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
+	
+	audioViewController.episode = readingEpisode;
+	audioViewController.precedentView = self.view;
+	
+	audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+	[self presentModalViewController:audioViewController animated:YES];
+}
 
 @end

@@ -182,9 +182,13 @@ extern Episode *readingEpisode;
 	self.tpsEcoule.text = [NSString stringWithFormat:@"%02d:%02d",minutesDef,secondsDef];
 	
 	int secRest = [_episode getDurationInSeconds] - seconds;
-	int minutesRest = secRest / 60;
-	int secondsRest = secRest - (minutesRest * 60);
-	self.tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesRest,secondsRest];
+	if (secRest <= 0 || secRest == NAN || seconds == NAN) {
+		self.tpsRestant.text = @"";
+	} else {
+		int minutesRest = secRest / 60;
+		int secondsRest = secRest - (minutesRest * 60);
+		self.tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesRest,secondsRest];
+	}
 }
 
 //// Stop the timer when the music is finished (Need to implement the AVAudioPlayerDelegate in the Controller header)

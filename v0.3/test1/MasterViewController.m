@@ -17,12 +17,16 @@
 #import "AudioEpisodeViewController.h"
 #import "EpisodesRecentsViewController.h"
 
+#import "JacquetteDownloader.h"
+
 @interface MasterViewController () {
     NSMutableArray *_objects;
 }
 @end
 
 @implementation MasterViewController
+
+@synthesize imageDownloadsInProgress;
 
 extern AVPlayer *audioPlayer;
 extern Episode *readingEpisode;
@@ -151,13 +155,51 @@ extern Episode *readingEpisode;
 	if ([[_objects objectAtIndex:indexPath.row] class] == [Podcast class]) {
 		Podcast *object = [_objects objectAtIndex:indexPath.row];
 		cell.textLabel.text = [object description];
-		cell.imageView.image = [object getJacquette:160];
+		//cell.imageView.image = [object getJacquette:160];
+		if (!object.jacquette208) {
+            if (self.tableView.dragging == NO && self.tableView.decelerating == NO) {
+                [self startJacquetteDownload:object forIndexPath:indexPath andWith:208];
+            }
+            // if a download is deferred or in progress, return a placeholder image
+            cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];                
+        }
+        else
+        {
+			cell.imageView.image = object.jacquette208;
+        }
 	} else { 
 		cell.textLabel.text = @"Emissions récentes";
 		cell.imageView.image = [[UIImage alloc] init];
 	}
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
     return cell;
+}
+
+- (void)startJacquetteDownload:(Podcast *)podcast forIndexPath:(NSIndexPath *)indexPath andWith:(int) width{
+    JacquetteDownloader *jacquetteDownloader = [imageDownloadsInProgress objectForKey:indexPath];
+    if (jacquetteDownloader == nil) 
+    {
+        jacquetteDownloader = [[JacquetteDownloader alloc] init];
+        jacquetteDownloader.podcast = podcast;
+        jacquetteDownloader.indexPathInTableView = indexPath;
+        jacquetteDownloader.delegate = self;
+        [imageDownloadsInProgress setObject:jacquetteDownloader forKey:indexPath];
+        [jacquetteDownloader startDownload:width];
+    }
+}
+
+- (void)loadImagesForOnscreenRows {
+	if ([_objects count] > 0) {
+		NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+		for (NSIndexPath *indexPath in visiblePaths) {
+			if ([[_objects objectAtIndex:indexPath.row] class] == [Podcast class]) {
+				Podcast *podcast = [_objects objectAtIndex:indexPath.row];
+				if (!podcast.jacquette208) {
+					[self startJacquetteDownload:podcast forIndexPath:indexPath andWith:208];
+				}
+			}
+		}
+	}
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -215,6 +257,32 @@ extern Episode *readingEpisode;
 		
 		[self.navigationController pushViewController:detailViewController animated:YES];
 	}
+}
+
+- (void)jacquetteDidLoad:(NSIndexPath *)indexPath
+{
+    JacquetteDownloader *jacquetteDownloader = [imageDownloadsInProgress objectForKey:indexPath];
+    if (jacquetteDownloader != nil) {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:jacquetteDownloader.indexPathInTableView];
+        
+        // Display the newly loaded image
+        cell.imageView.image = jacquetteDownloader.podcast.jacquette208;
+    }
+	
+	[self.tableView reloadData];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+	{
+        [self loadImagesForOnscreenRows];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOnscreenRows];
 }
 
 @end

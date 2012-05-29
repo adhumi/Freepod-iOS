@@ -52,7 +52,7 @@
 				<int key="IBUISeparatorStyle">1</int>
 				<object class="NSColor" key="IBUISeparatorColor">
 					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MC4yMjM1Mjk0MTE4IDAuMzgwMzkyMTU2OSAwLjQ3MDU4ODIzNTMgMC4xNQA</bytes>
+					<bytes key="NSRGB">MC4yMjM1Mjk0MTE4IDAuMzgwMzkyMTU2OSAwLjQ3MDU4ODIzNTMgMC4xMwA</bytes>
 				</object>
 				<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 				<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>

@@ -9,9 +9,12 @@
 #import "Podcast.h"
 #import "Episode.h"
 
+
+
 @implementation Podcast
 
 @synthesize idPodcast;
+@synthesize jacquette208;
 
 
 -(id) init {

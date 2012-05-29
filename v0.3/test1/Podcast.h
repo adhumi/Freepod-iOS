@@ -26,10 +26,14 @@
 	
 	//NSDate
 	NSDate *lastUpdate;
+	
+	//Jacquette MasterView
+	UIImage *jacquette208;
 }
 	
 @property(readwrite, assign) int idPodcast;
-	
+@property(nonatomic, retain) UIImage *jacquette208;
+
 -(id) init;
 
 -(void) setIdPodcast:(int)newIdPodcast;

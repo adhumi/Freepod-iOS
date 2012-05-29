@@ -153,6 +153,9 @@
 		nbSec += [[[NSString alloc] initWithString:[split objectAtIndex:0]] intValue] * 60 * 60;
 		nbSec += [[[NSString alloc] initWithString:[split objectAtIndex:1]] intValue] * 60;
 		nbSec += [[[NSString alloc] initWithString:[split objectAtIndex:2]] intValue];
+	} else if ([split count] == 2) {
+		nbSec += [[[NSString alloc] initWithString:[split objectAtIndex:0]] intValue] * 60;
+		nbSec += [[[NSString alloc] initWithString:[split objectAtIndex:1]] intValue];
 	}
 	
 	return nbSec;

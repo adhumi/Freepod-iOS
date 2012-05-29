@@ -8,11 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "JacquetteDownloader.h"
 
 @class DetailViewController;
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController <JacquetteDownloaderDelegate> {
+	NSMutableDictionary *imageDownloadsInProgress;
+}
 
-//@property (strong, nonatomic) DetailViewController *detailViewController;
+@property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
+
+- (void)jacquetteDidLoad:(NSIndexPath *)indexPath;
 
 @end
