@@ -14,6 +14,8 @@
 
 #import "AudioEpisodeViewController.h"
 
+#import "EpisodeCell.h"
+
 @interface DetailViewController () {
     NSMutableArray *_objects;
 }
@@ -22,7 +24,6 @@
 @implementation DetailViewController
 
 @synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
 
 #pragma mark - Managing the detail item
 
@@ -107,7 +108,7 @@
 	headerLabel.contentMode = UIViewContentModeScaleAspectFill;
 	self.tableView.tableHeaderView = headerLabel;
 	
-	self.tableView.rowHeight = 60;
+	self.tableView.rowHeight = 64;
 	
 	[self configureView];
 }
@@ -116,7 +117,6 @@
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-	self.detailDescriptionLabel = nil;
 	UIImageView *tmpImgView = (UIImageView*) [self.navigationController.navigationBar viewWithTag:42];
 	tmpImgView.hidden = false;
 }
@@ -149,19 +149,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    EpisodeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	
 	if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		
+		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EpisodeCell" owner:self options:nil];
+		cell = (EpisodeCell *)[nib objectAtIndex:0];
     }
 	
 	Episode *object = [_objects objectAtIndex:indexPath.row];
-	cell.textLabel.text = [object description];
-	cell.imageView.image = [object getJacquette:120];
+	cell.nom.text = [object description];
+	cell.date.text = [object formattedPubDate];
+	cell.jacquette.image = [object getJacquette:120];
+	cell.duration.text = [object duration];
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
-	cell.accessoryType = UITableViewCellAccessoryNone;
     return cell;
 }
 

@@ -15,6 +15,8 @@
 		A603C2DF157315500067B1CD /* icon-recent.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2DE157315500067B1CD /* icon-recent.png */; };
 		A603C2E1157315600067B1CD /* icon-podcast.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2E01573155F0067B1CD /* icon-podcast.png */; };
 		A603C31715740BE70067B1CD /* logo_freepod_navbar_crop.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C31615740BE60067B1CD /* logo_freepod_navbar_crop.png */; };
+		A603C3241574C4D30067B1CD /* EpisodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C3231574C4D20067B1CD /* EpisodeCell.m */; };
+		A603C3261574C4E70067B1CD /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603C3251574C4E70067B1CD /* EpisodeCell.xib */; };
 		A607B370156AD9240033D45A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B36F156AD9240033D45A /* UIKit.framework */; };
 		A607B372156AD9240033D45A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B371156AD9240033D45A /* Foundation.framework */; };
 		A607B374156AD9240033D45A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B373156AD9240033D45A /* CoreGraphics.framework */; };
@@ -60,6 +62,9 @@
 		A603C2DE157315500067B1CD /* icon-recent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-recent.png"; sourceTree = "<group>"; };
 		A603C2E01573155F0067B1CD /* icon-podcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-podcast.png"; sourceTree = "<group>"; };
 		A603C31615740BE60067B1CD /* logo_freepod_navbar_crop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_freepod_navbar_crop.png; sourceTree = "<group>"; };
+		A603C3221574C4D20067B1CD /* EpisodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeCell.h; sourceTree = "<group>"; };
+		A603C3231574C4D20067B1CD /* EpisodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeCell.m; sourceTree = "<group>"; };
+		A603C3251574C4E70067B1CD /* EpisodeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodeCell.xib; sourceTree = "<group>"; };
 		A607B36B156AD9240033D45A /* test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A607B36F156AD9240033D45A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A607B371156AD9240033D45A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -133,6 +138,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A603C31A1574B6350067B1CD /* img */ = {
+			isa = PBXGroup;
+			children = (
+				A603C2E01573155F0067B1CD /* icon-podcast.png */,
+				A603C2DE157315500067B1CD /* icon-recent.png */,
+				A6A2E0351571904A00EE3A0E /* jacquette_default.png */,
+				A603C31615740BE60067B1CD /* logo_freepod_navbar_crop.png */,
+				A603C2C91572DADA0067B1CD /* pause.png */,
+				A603C2CA1572DADA0067B1CD /* play.png */,
+				A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
 		A607B360156AD9240033D45A = {
 			isa = PBXGroup;
 			children = (
@@ -169,13 +188,6 @@
 		A607B375156AD9240033D45A /* test1 */ = {
 			isa = PBXGroup;
 			children = (
-				A603C31615740BE60067B1CD /* logo_freepod_navbar_crop.png */,
-				A603C2E01573155F0067B1CD /* icon-podcast.png */,
-				A603C2DE157315500067B1CD /* icon-recent.png */,
-				A603C2C91572DADA0067B1CD /* pause.png */,
-				A603C2CA1572DADA0067B1CD /* play.png */,
-				A6A2E0351571904A00EE3A0E /* jacquette_default.png */,
-				A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */,
 				A607B426156D74DE0033D45A /* SBJson */,
 				A607B37E156AD9240033D45A /* AppDelegate.h */,
 				A607B37F156AD9240033D45A /* AppDelegate.m */,
@@ -191,11 +203,15 @@
 				A607B38D156AD9240033D45A /* DetailViewController_iPhone.xib */,
 				A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */,
 				A603C2DB157314B00067B1CD /* EpisodesRecentsViewController.xib */,
-				A607B376156AD9240033D45A /* Supporting Files */,
+				A603C3221574C4D20067B1CD /* EpisodeCell.h */,
+				A603C3231574C4D20067B1CD /* EpisodeCell.m */,
+				A603C3251574C4E70067B1CD /* EpisodeCell.xib */,
 				A607B427156D752D0033D45A /* Podcast.h */,
 				A607B428156D752D0033D45A /* Podcast.m */,
 				A607B457156DAE860033D45A /* Episode.h */,
 				A607B458156DAE860033D45A /* Episode.m */,
+				A603C31A1574B6350067B1CD /* img */,
+				A607B376156AD9240033D45A /* Supporting Files */,
 			);
 			path = test1;
 			sourceTree = "<group>";
@@ -310,6 +326,7 @@
 				A603C2DF157315500067B1CD /* icon-recent.png in Resources */,
 				A603C2E1157315600067B1CD /* icon-podcast.png in Resources */,
 				A603C31715740BE70067B1CD /* logo_freepod_navbar_crop.png in Resources */,
+				A603C3261574C4E70067B1CD /* EpisodeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +357,7 @@
 				A607B429156D752D0033D45A /* Podcast.m in Sources */,
 				A6A2E0311571854F00EE3A0E /* AudioEpisodeViewController.m in Sources */,
 				A603C2DC157314B00067B1CD /* EpisodesRecentsViewController.m in Sources */,
+				A603C3241574C4D30067B1CD /* EpisodeCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
