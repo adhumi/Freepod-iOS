@@ -161,22 +161,37 @@ La discussion en direct est une plus value importante des enregistrements en dir
 
 Les podcasts permettent une forte interaction entre les auditeurs et les animateurs. Elle passe notamment par les réactions aux émissions. L’application pourrait afficher pour chaque émission les commentaires laissés, voir proposer la publication de nouveaux commentaires.
 Pour aider à la propagation des émissions, l’application pourrait inclure un système de partage de liens sur les réseaux sociaux (Twitter, Facebook, Google+).
-Un onglet pourrait proposer une liste de tweets concernant l’association (via le hashtag #freepod).
+Un onglet pourrait proposer une liste de tweets concernant l’association (via le hashtag \#freepod).
 Pour simplifier la consultation des contenus “texte”, l’application pourrait également proposer une version web mobile du forum, ainsi que le contenu du blog et les photos les plus récentes.
 
-\section{Architecture du projet (Web Service et applications)}
-Ce projet est décomposé en deux parties distinctes. D’une part, le développement d’un Web Service basé sur les technologies LAMP (pour Linux, Apache, MySQL, PHP), qui permettra aux applications de différentes plates-formes de récupérer les données des podcasts.
+\section{Architecture du projet (Web Service et application)}
+Ce projet est décomposé en deux parties distinctes. 
+
+D’une part, le développement d’un Web Service basé sur les technologies LAMP (pour Linux, Apache, MySQL, PHP), qui permettra aux applications de différentes plates-formes de récupérer les données des podcasts. 
+
+D'autre part, le développement d'une application pour iPhone, répondant aux différentes fonctionnalités du cahier des charges.
 
 \subsection{Le web-service}
 
-Principe
-Fonctionnement
+Basiquement, un Web Service est un outil informatique permettant l'échange de données entre des applications situées sur des plateformes hétérogènes. Le Web Service propose une série de requêtes qui peuvent être exécutées par un client et, soit renvoie des données (dans un format exploitable), soit procède à des actions en interne.
+
+\subsubsection{Principe}
+
+Nous avons fait ici le choix de concevoir un Web Service sur lequel les applications pourront se connecter pour récupérer les données. 
+
+Ce Web Service aura pour mission de récolter les informations dans les flux RSS des podcasts et de les stocker dans une base de données avant de les redistribuer aux applications. Il est rendu particulièrement indispensable par la difficulté de traitement de ces flux RSS. Peu de normalisation à ce niveau et chaque podcasteur a ses pratiques pour l'écriture du fichier XML et pour un même élément, 2, voir 3, écritures différentes peuvent exister. Mieux vaut donc effectuer ce traitement une seule fois pour toutes les plateformes plutôt que de le répéter dans chaque application.
+
+Il permettra également de répondre à certains besoins de Freepod pour partager son contenu avec des sites partenaires.
+
+\subsubsection{Fonctionnement}
 
 
 \subsection{Application iOS}
 
 Diagramme de classe
+
 IHM
+
 Fonctionnement 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -289,6 +304,13 @@ D’autres fonctionnalités pourront être ajoutées mais ne sont pas considér�
 \item Affichage des photos concernant Freepod disponibles sur Flickr.
 \item Lien vers la boutique de l’association.
 \end{itemize}
+
+\chapter{Mode d'emploi du l'interface web d'administration}
+
+
+
+
+\chapter{Documentation du Web Service}
 
 
 

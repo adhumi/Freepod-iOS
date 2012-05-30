@@ -77,6 +77,8 @@ extern Episode *readingEpisode;
 	
 	_episode = readingEpisode;
 	
+	NSLog(@"http://webserv.freepod.net/get-img-episode.php?id=%d&nom=image&width=%d", [_episode idEpisode], 640);
+	
 	AsynchronousUIImage *image = [[AsynchronousUIImage alloc] init];
 	[image loadImageFromURL: [NSString stringWithFormat:@"http://webserv.freepod.net/get-img-episode.php?id=%d&nom=image&width=%d", [_episode idEpisode], 640] ];
 	image.tag = 2;
@@ -232,7 +234,6 @@ extern Episode *readingEpisode;
 
 -(void) imageDidLoad:(AsynchronousUIImage *)anImage {
 	if (anImage.tag == 2) {
-		NSLog(@"TO TO TO TO TO : %@", anImage);
 		_jacquette.image = (UIImage*) anImage;
 	}
 }
@@ -242,6 +243,8 @@ extern Episode *readingEpisode;
 	// Music completed
 	if (flag) {
 		[timer invalidate];
+		[self.play setHidden:NO];
+		[self.pause setHidden:YES];
 	}
 }
 

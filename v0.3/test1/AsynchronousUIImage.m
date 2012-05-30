@@ -28,7 +28,9 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)theConnection {
-  	[self.delegate imageDidLoad:[self initWithData:data]];
+  	if (data != nil) {
+		[self.delegate imageDidLoad:[self initWithData:data]];
+	}
 }
 
 @end

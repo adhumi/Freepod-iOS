@@ -11,8 +11,6 @@
 		A603C2CB1572DADA0067B1CD /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2C91572DADA0067B1CD /* pause.png */; };
 		A603C2CC1572DADA0067B1CD /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2CA1572DADA0067B1CD /* play.png */; };
 		A603C2DD157314B00067B1CD /* EpisodesRecentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603C2DB157314B00067B1CD /* EpisodesRecentsViewController.xib */; };
-		A603C2DF157315500067B1CD /* icon-recent.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2DE157315500067B1CD /* icon-recent.png */; };
-		A603C2E1157315600067B1CD /* icon-podcast.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2E01573155F0067B1CD /* icon-podcast.png */; };
 		A603C31715740BE70067B1CD /* logo_freepod_navbar_crop.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C31615740BE60067B1CD /* logo_freepod_navbar_crop.png */; };
 		A603C3261574C4E70067B1CD /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603C3251574C4E70067B1CD /* EpisodeCell.xib */; };
 		A603C32D1574DE550067B1CD /* jacquette_default_64.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C32C1574DE550067B1CD /* jacquette_default_64.png */; };
@@ -21,7 +19,6 @@
 		A603C34415751B540067B1CD /* LiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603C34215751B530067B1CD /* LiveViewController.xib */; };
 		A603C34715751EC20067B1CD /* off_air.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C34515751EC20067B1CD /* off_air.png */; };
 		A603C34815751EC20067B1CD /* on_air.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C34615751EC20067B1CD /* on_air.png */; };
-		A603C34A15751F9F0067B1CD /* icon_live.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C34915751F9F0067B1CD /* icon_live.png */; };
 		A607B370156AD9240033D45A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B36F156AD9240033D45A /* UIKit.framework */; };
 		A607B372156AD9240033D45A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B371156AD9240033D45A /* Foundation.framework */; };
 		A607B374156AD9240033D45A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B373156AD9240033D45A /* CoreGraphics.framework */; };
@@ -29,6 +26,11 @@
 		A607B389156AD9240033D45A /* MasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A607B387156AD9240033D45A /* MasterViewController_iPhone.xib */; };
 		A607B38F156AD9240033D45A /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A607B38D156AD9240033D45A /* DetailViewController_iPhone.xib */; };
 		A607B465156FEDCC0033D45A /* logo_freepod_navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */; };
+		A60B2C961576932E003C0255 /* 66-microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C941576932E003C0255 /* 66-microphone.png */; };
+		A60B2C9B157695E4003C0255 /* Chats.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C98157695E4003C0255 /* Chats.png */; };
+		A60B2C9C157695E4003C0255 /* Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C99157695E4003C0255 /* Clock.png */; };
+		A60B2C9D157695E4003C0255 /* Radio-Tower@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C9A157695E4003C0255 /* Radio-Tower@2x.png */; };
+		A60B2C9F1576963F003C0255 /* Radio-Tower.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C9E1576963F003C0255 /* Radio-Tower.png */; };
 		A680904815758DA3002FBE14 /* banner_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A680904715758DA3002FBE14 /* banner_default.png */; };
 		A68090571575A3B3002FBE14 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B42E156D76970033D45A /* NSObject+SBJson.m */; };
 		A68090581575A3B3002FBE14 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B431156D76970033D45A /* SBJsonParser.m */; };
@@ -76,8 +78,6 @@
 		A603C2D9157314B00067B1CD /* EpisodesRecentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodesRecentsViewController.h; sourceTree = "<group>"; };
 		A603C2DA157314B00067B1CD /* EpisodesRecentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodesRecentsViewController.m; sourceTree = "<group>"; };
 		A603C2DB157314B00067B1CD /* EpisodesRecentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodesRecentsViewController.xib; sourceTree = "<group>"; };
-		A603C2DE157315500067B1CD /* icon-recent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-recent.png"; sourceTree = "<group>"; };
-		A603C2E01573155F0067B1CD /* icon-podcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-podcast.png"; sourceTree = "<group>"; };
 		A603C31615740BE60067B1CD /* logo_freepod_navbar_crop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_freepod_navbar_crop.png; sourceTree = "<group>"; };
 		A603C3221574C4D20067B1CD /* EpisodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeCell.h; sourceTree = "<group>"; };
 		A603C3231574C4D20067B1CD /* EpisodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeCell.m; sourceTree = "<group>"; };
@@ -96,7 +96,6 @@
 		A603C34215751B530067B1CD /* LiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveViewController.xib; sourceTree = "<group>"; };
 		A603C34515751EC20067B1CD /* off_air.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off_air.png; sourceTree = "<group>"; };
 		A603C34615751EC20067B1CD /* on_air.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on_air.png; sourceTree = "<group>"; };
-		A603C34915751F9F0067B1CD /* icon_live.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_live.png; sourceTree = "<group>"; };
 		A607B36B156AD9240033D45A /* test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A607B36F156AD9240033D45A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A607B371156AD9240033D45A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,6 +139,11 @@
 		A607B457156DAE860033D45A /* Episode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
 		A607B458156DAE860033D45A /* Episode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
 		A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_freepod_navbar.png; sourceTree = "<group>"; };
+		A60B2C941576932E003C0255 /* 66-microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "66-microphone.png"; sourceTree = "<group>"; };
+		A60B2C98157695E4003C0255 /* Chats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chats.png; sourceTree = "<group>"; };
+		A60B2C99157695E4003C0255 /* Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock.png; sourceTree = "<group>"; };
+		A60B2C9A157695E4003C0255 /* Radio-Tower@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio-Tower@2x.png"; sourceTree = "<group>"; };
+		A60B2C9E1576963F003C0255 /* Radio-Tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio-Tower.png"; sourceTree = "<group>"; };
 		A680903F1575834D002FBE14 /* AsynchronousUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsynchronousUIImage.h; sourceTree = "<group>"; };
 		A68090401575834D002FBE14 /* AsynchronousUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsynchronousUIImage.m; sourceTree = "<group>"; };
 		A680904715758DA3002FBE14 /* banner_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_default.png; sourceTree = "<group>"; };
@@ -184,14 +188,16 @@
 		A603C31A1574B6350067B1CD /* img */ = {
 			isa = PBXGroup;
 			children = (
+				A60B2C98157695E4003C0255 /* Chats.png */,
+				A60B2C99157695E4003C0255 /* Clock.png */,
+				A60B2C9E1576963F003C0255 /* Radio-Tower.png */,
+				A60B2C9A157695E4003C0255 /* Radio-Tower@2x.png */,
+				A60B2C941576932E003C0255 /* 66-microphone.png */,
 				A680904715758DA3002FBE14 /* banner_default.png */,
-				A603C34915751F9F0067B1CD /* icon_live.png */,
 				A603C34515751EC20067B1CD /* off_air.png */,
 				A603C34615751EC20067B1CD /* on_air.png */,
 				A603C3391574FDAF0067B1CD /* jacquette_default_160.png */,
 				A603C32C1574DE550067B1CD /* jacquette_default_64.png */,
-				A603C2E01573155F0067B1CD /* icon-podcast.png */,
-				A603C2DE157315500067B1CD /* icon-recent.png */,
 				A6A2E0351571904A00EE3A0E /* jacquette_default.png */,
 				A603C31615740BE60067B1CD /* logo_freepod_navbar_crop.png */,
 				A603C2C91572DADA0067B1CD /* pause.png */,
@@ -405,8 +411,6 @@
 				A603C2CB1572DADA0067B1CD /* pause.png in Resources */,
 				A603C2CC1572DADA0067B1CD /* play.png in Resources */,
 				A603C2DD157314B00067B1CD /* EpisodesRecentsViewController.xib in Resources */,
-				A603C2DF157315500067B1CD /* icon-recent.png in Resources */,
-				A603C2E1157315600067B1CD /* icon-podcast.png in Resources */,
 				A603C31715740BE70067B1CD /* logo_freepod_navbar_crop.png in Resources */,
 				A603C3261574C4E70067B1CD /* EpisodeCell.xib in Resources */,
 				A603C32D1574DE550067B1CD /* jacquette_default_64.png in Resources */,
@@ -415,8 +419,12 @@
 				A603C34415751B540067B1CD /* LiveViewController.xib in Resources */,
 				A603C34715751EC20067B1CD /* off_air.png in Resources */,
 				A603C34815751EC20067B1CD /* on_air.png in Resources */,
-				A603C34A15751F9F0067B1CD /* icon_live.png in Resources */,
 				A680904815758DA3002FBE14 /* banner_default.png in Resources */,
+				A60B2C961576932E003C0255 /* 66-microphone.png in Resources */,
+				A60B2C9B157695E4003C0255 /* Chats.png in Resources */,
+				A60B2C9C157695E4003C0255 /* Clock.png in Resources */,
+				A60B2C9D157695E4003C0255 /* Radio-Tower@2x.png in Resources */,
+				A60B2C9F1576963F003C0255 /* Radio-Tower.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,7 +515,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -519,16 +527,16 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Adrien Humilière";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5099B549-2A37-44A7-96C4-EE6EA5768A5E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -574,7 +582,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

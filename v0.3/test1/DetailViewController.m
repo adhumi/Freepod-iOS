@@ -116,12 +116,10 @@ extern Episode *readingEpisode;
 	banner.contentMode = UIViewContentModeScaleAspectFill;
 	self.tableView.tableHeaderView = banner;
 	
-	if (! [[podcast logoBanner] isEqualToString:@""]) {
 		AsynchronousUIImage *image = [[AsynchronousUIImage alloc] init];
 		[image loadImageFromURL: [NSString stringWithFormat:@"http://webserv.freepod.net/get-img-podcast.php?id=%d&nom=logo_banner&width=%d", [podcast idPodcast], 640] ];
 		image.tag = 1;
 		image.delegate = self;
-	}
 		
 	self.tableView.rowHeight = 64;
 	

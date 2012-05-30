@@ -68,18 +68,18 @@ Episode *readingEpisode;
 	MasterViewController *masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController_iPhone" bundle:nil];
 	self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
 	self.navigationController.title = @"Podcasts";
-	self.navigationController.tabBarItem.image = [UIImage imageNamed:@"icon-podcast.png"];
+	self.navigationController.tabBarItem.image = [UIImage imageNamed:@"66-microphone.png"];
 	
 	// Vue secondaire (Liste des épisodes récents)
 	EpisodesRecentsViewController *episodesRecentsViewController = [[EpisodesRecentsViewController alloc] initWithNibName:@"EpisodesRecentsViewController" bundle:nil];
 	self.navigationControllerRecent = [[UINavigationController alloc] initWithRootViewController:episodesRecentsViewController];
 	self.navigationControllerRecent.title = @"Récents";
-	self.navigationControllerRecent.tabBarItem.image = [UIImage imageNamed:@"icon-recent.png"];
+	self.navigationControllerRecent.tabBarItem.image = [UIImage imageNamed:@"Clock.png"];
 	
 	// Vue secondaire (Live)
 	LiveViewController *liveViewController = [[LiveViewController alloc] initWithNibName:@"LiveViewController" bundle:nil];
 	liveViewController.title = @"Live";
-	liveViewController.tabBarItem.image = [UIImage imageNamed:@"icon_live.png"];
+	liveViewController.tabBarItem.image = [UIImage imageNamed:@"Radio-Tower.png"];
 	
 	tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, self.navigationControllerRecent, liveViewController, nil];
 	
