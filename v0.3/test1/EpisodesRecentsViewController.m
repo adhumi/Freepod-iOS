@@ -268,9 +268,9 @@ extern Episode *readingEpisode;
 }
 
 - (void)setupStrings{
-	textPull = [[NSString alloc] initWithString:@"Pull down to refresh..."];
-	textRelease = [[NSString alloc] initWithString:@"Release to refresh..."];
-	textLoading = [[NSString alloc] initWithString:@"Loading..."];
+	textPull = [[NSString alloc] initWithString:@"Tirer pour rafraîchir..."];
+	textRelease = [[NSString alloc] initWithString:@"Lacher pour rafraîchir..."];
+	textLoading = [[NSString alloc] initWithString:@"Chargement..."];
 }
 
 - (void)addPullToRefreshHeader {

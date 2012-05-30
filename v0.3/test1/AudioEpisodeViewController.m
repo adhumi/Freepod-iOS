@@ -10,6 +10,9 @@
 #import "Episode.h"
 #import "MasterViewController.h"
 
+#import <MediaPlayer/MPNowPlayingInfoCenter.h>
+#import <MediaPlayer/MPMediaItem.h>
+
 @interface AudioEpisodeViewController ()
 
 @end
@@ -66,8 +69,6 @@ extern Episode *readingEpisode;
 	
     [super viewDidLoad];
 	
-	
-	
 	if (_episode != readingEpisode) {
 		NSURL *urlFile = [NSURL URLWithString:[_episode urlSource]];
 		audioPlayer = [AVPlayer playerWithURL:urlFile];
@@ -75,7 +76,6 @@ extern Episode *readingEpisode;
 	}
 	
 	_episode = readingEpisode;
-		
 	
 	AsynchronousUIImage *image = [[AsynchronousUIImage alloc] init];
 	[image loadImageFromURL: [NSString stringWithFormat:@"http://webserv.freepod.net/get-img-episode.php?id=%d&nom=image&width=%d", [_episode idEpisode], 640] ];
@@ -123,6 +123,33 @@ extern Episode *readingEpisode;
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	// TODO : AJOUTER UNE ALERTE SI LE FICHIER N'EST PAS ACCESSIBLE
+	
+	[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+	[self becomeFirstResponder];
+}
+
+- (BOOL)canBecomeFirstResponder {
+	return YES;
+}
+
+- (void)remoteControlReceivedWithEvent:(UIEvent *)event {
+    switch (event.subtype) {
+        case UIEventSubtypeRemoteControlTogglePlayPause:
+            if (audioPlayer.rate == 0.0) {
+                [audioPlayer play];
+            } else {
+                [audioPlayer pause];
+            }
+            break;
+        case UIEventSubtypeRemoteControlPlay:
+            [audioPlayer play];
+            break;
+        case UIEventSubtypeRemoteControlPause:
+            [audioPlayer pause];
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)viewDidUnload

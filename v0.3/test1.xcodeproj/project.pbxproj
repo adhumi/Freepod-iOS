@@ -30,7 +30,6 @@
 		A607B38F156AD9240033D45A /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A607B38D156AD9240033D45A /* DetailViewController_iPhone.xib */; };
 		A607B465156FEDCC0033D45A /* logo_freepod_navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */; };
 		A680904815758DA3002FBE14 /* banner_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A680904715758DA3002FBE14 /* banner_default.png */; };
-		A68090561575A3B3002FBE14 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68090531575A0E1002FBE14 /* PullRefreshTableViewController.m */; };
 		A68090571575A3B3002FBE14 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B42E156D76970033D45A /* NSObject+SBJson.m */; };
 		A68090581575A3B3002FBE14 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B431156D76970033D45A /* SBJsonParser.m */; };
 		A68090591575A3B3002FBE14 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B433156D76970033D45A /* SBJsonStreamParser.m */; };
@@ -59,6 +58,7 @@
 		A68090701575A3B3002FBE14 /* AsynchronousUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A68090401575834D002FBE14 /* AsynchronousUIImage.m */; };
 		A68090711575A3C7002FBE14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B37B156AD9240033D45A /* main.m */; };
 		A68090731575A3DC002FBE14 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68090721575A3DC002FBE14 /* QuartzCore.framework */; };
+		A680907915762E2A002FBE14 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A680907815762E2A002FBE14 /* AudioToolbox.framework */; };
 		A6858C291570FDA8003CC243 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C281570FDA8003CC243 /* Default.png */; };
 		A6858C2C1570FDAC003CC243 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2B1570FDAC003CC243 /* Default@2x.png */; };
 		A6858C2E1570FDB0003CC243 /* ico_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2D1570FDB0003CC243 /* ico_ios.png */; };
@@ -66,6 +66,7 @@
 		A6A2E0321571854F00EE3A0E /* AudioEpisodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */; };
 		A6A2E0361571904A00EE3A0E /* jacquette_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A2E0351571904A00EE3A0E /* jacquette_default.png */; };
 		A6A2E0381572A7E900EE3A0E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A2E0371572A7E900EE3A0E /* AVFoundation.framework */; };
+		A6CFB8AB15763766009DB624 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6CFB8AA15763766009DB624 /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,7 +102,6 @@
 		A607B371156AD9240033D45A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A607B373156AD9240033D45A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A607B377156AD9240033D45A /* test1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "test1-Info.plist"; sourceTree = "<group>"; };
-		A607B379156AD9240033D45A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A607B37B156AD9240033D45A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A607B37D156AD9240033D45A /* test1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "test1-Prefix.pch"; sourceTree = "<group>"; };
 		A607B37E156AD9240033D45A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -110,8 +110,6 @@
 		A607B382156AD9240033D45A /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		A607B384156AD9240033D45A /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		A607B385156AD9240033D45A /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		A607B388156AD9240033D45A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController_iPhone.xib; sourceTree = "<group>"; };
-		A607B38E156AD9240033D45A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController_iPhone.xib; sourceTree = "<group>"; };
 		A607B427156D752D0033D45A /* Podcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Podcast.h; sourceTree = "<group>"; };
 		A607B428156D752D0033D45A /* Podcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Podcast.m; sourceTree = "<group>"; };
 		A607B42D156D76970033D45A /* NSObject+SBJson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -147,9 +145,8 @@
 		A680904715758DA3002FBE14 /* banner_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_default.png; sourceTree = "<group>"; };
 		A68090491575991B002FBE14 /* EpisodeRecentDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeRecentDownloader.h; sourceTree = "<group>"; };
 		A680904A1575991B002FBE14 /* EpisodeRecentDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeRecentDownloader.m; sourceTree = "<group>"; };
-		A68090521575A0E1002FBE14 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PullRefreshTableViewController.h; path = ../../../iOS/PullToRefresh/Classes/PullRefreshTableViewController.h; sourceTree = "<group>"; };
-		A68090531575A0E1002FBE14 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PullRefreshTableViewController.m; path = ../../../iOS/PullToRefresh/Classes/PullRefreshTableViewController.m; sourceTree = "<group>"; };
 		A68090721575A3DC002FBE14 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A680907815762E2A002FBE14 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A6858C281570FDA8003CC243 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A6858C2B1570FDAC003CC243 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A6858C2D1570FDB0003CC243 /* ico_ios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_ios.png; sourceTree = "<group>"; };
@@ -159,6 +156,10 @@
 		A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioEpisodeViewController.xib; sourceTree = "<group>"; };
 		A6A2E0351571904A00EE3A0E /* jacquette_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jacquette_default.png; sourceTree = "<group>"; };
 		A6A2E0371572A7E900EE3A0E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A6CFB8AA15763766009DB624 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		A6CFB8AD15764D95009DB624 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = "/Volumes/Macintosh HD 2/adhumi/Documents/Freepod-iOS/v0.3/test1/fr.lproj/DetailViewController_iPhone.xib"; sourceTree = "<absolute>"; };
+		A6CFB8AE15764D95009DB624 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "/Volumes/Macintosh HD 2/adhumi/Documents/Freepod-iOS/v0.3/test1/fr.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
+		A6CFB8AF15764D95009DB624 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = "/Volumes/Macintosh HD 2/adhumi/Documents/Freepod-iOS/v0.3/test1/fr.lproj/MasterViewController_iPhone.xib"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +167,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6CFB8AB15763766009DB624 /* MediaPlayer.framework in Frameworks */,
+				A680907915762E2A002FBE14 /* AudioToolbox.framework in Frameworks */,
 				A68090731575A3DC002FBE14 /* QuartzCore.framework in Frameworks */,
 				A603C2C71572BB7A0067B1CD /* CoreMedia.framework in Frameworks */,
 				A6A2E0381572A7E900EE3A0E /* AVFoundation.framework in Frameworks */,
@@ -246,6 +249,8 @@
 		A607B36E156AD9240033D45A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A6CFB8AA15763766009DB624 /* MediaPlayer.framework */,
+				A680907815762E2A002FBE14 /* AudioToolbox.framework */,
 				A68090721575A3DC002FBE14 /* QuartzCore.framework */,
 				A603C2C61572BB7A0067B1CD /* CoreMedia.framework */,
 				A6A2E0371572A7E900EE3A0E /* AVFoundation.framework */,
@@ -259,7 +264,6 @@
 		A607B375156AD9240033D45A /* test1 */ = {
 			isa = PBXGroup;
 			children = (
-				A68090541575A0E7002FBE14 /* PullToRefresh */,
 				A607B426156D74DE0033D45A /* SBJson */,
 				A607B37E156AD9240033D45A /* AppDelegate.h */,
 				A607B37F156AD9240033D45A /* AppDelegate.m */,
@@ -335,15 +339,6 @@
 				A607B445156D76970033D45A /* SBJsonWriter.m */,
 			);
 			name = SBJson;
-			sourceTree = "<group>";
-		};
-		A68090541575A0E7002FBE14 /* PullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				A68090521575A0E1002FBE14 /* PullRefreshTableViewController.h */,
-				A68090531575A0E1002FBE14 /* PullRefreshTableViewController.m */,
-			);
-			name = PullToRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,7 +428,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A68090711575A3C7002FBE14 /* main.m in Sources */,
-				A68090561575A3B3002FBE14 /* PullRefreshTableViewController.m in Sources */,
 				A68090571575A3B3002FBE14 /* NSObject+SBJson.m in Sources */,
 				A68090581575A3B3002FBE14 /* SBJsonParser.m in Sources */,
 				A68090591575A3B3002FBE14 /* SBJsonStreamParser.m in Sources */,
@@ -469,7 +463,7 @@
 		A607B378156AD9240033D45A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A607B379156AD9240033D45A /* en */,
+				A6CFB8AE15764D95009DB624 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -477,7 +471,7 @@
 		A607B387156AD9240033D45A /* MasterViewController_iPhone.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A607B388156AD9240033D45A /* en */,
+				A6CFB8AF15764D95009DB624 /* fr */,
 			);
 			name = MasterViewController_iPhone.xib;
 			sourceTree = "<group>";
@@ -485,7 +479,7 @@
 		A607B38D156AD9240033D45A /* DetailViewController_iPhone.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A607B38E156AD9240033D45A /* en */,
+				A6CFB8AD15764D95009DB624 /* fr */,
 			);
 			name = DetailViewController_iPhone.xib;
 			sourceTree = "<group>";
@@ -525,6 +519,54 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Adrien Humilière";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "5099B549-2A37-44A7-96C4-EE6EA5768A5E";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A607B396156AD9250033D45A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "test1/test1-Prefix.pch";
+				INFOPLIST_FILE = "test1/test1-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A607B397156AD9250033D45A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "test1/test1-Prefix.pch";
+				INFOPLIST_FILE = "test1/test1-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = freepod;
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A6CFB8B015764DF0009DB624 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -538,33 +580,20 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Distribution;
 		};
-		A607B396156AD9250033D45A /* Debug */ = {
+		A6CFB8B115764DF0009DB624 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "test1/test1-Prefix.pch";
 				INFOPLIST_FILE = "test1/test1-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
-			name = Debug;
-		};
-		A607B397156AD9250033D45A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "test1/test1-Prefix.pch";
-				INFOPLIST_FILE = "test1/test1-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
+			name = Distribution;
 		};
 /* End XCBuildConfiguration section */
 
@@ -574,6 +603,7 @@
 			buildConfigurations = (
 				A607B393156AD9250033D45A /* Debug */,
 				A607B394156AD9250033D45A /* Release */,
+				A6CFB8B015764DF0009DB624 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -583,6 +613,7 @@
 			buildConfigurations = (
 				A607B396156AD9250033D45A /* Debug */,
 				A607B397156AD9250033D45A /* Release */,
+				A6CFB8B115764DF0009DB624 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

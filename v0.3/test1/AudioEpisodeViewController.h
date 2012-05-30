@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MPMoviePlayerController.h>
+
 #import "AsynchronousUIImage.h"
 
 @interface AudioEpisodeViewController : UIViewController <AsynchronousUIImageDelegate> {

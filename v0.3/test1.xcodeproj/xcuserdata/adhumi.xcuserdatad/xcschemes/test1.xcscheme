@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A607B36A156AD9240033D45A"
-               BuildableName = "test1.app"
+               BuildableName = "freepod.app"
                BlueprintName = "test1"
                ReferencedContainer = "container:test1.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A607B36A156AD9240033D45A"
-            BuildableName = "test1.app"
+            BuildableName = "freepod.app"
             BlueprintName = "test1"
             ReferencedContainer = "container:test1.xcodeproj">
          </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A607B36A156AD9240033D45A"
-            BuildableName = "test1.app"
+            BuildableName = "freepod.app"
             BlueprintName = "test1"
             ReferencedContainer = "container:test1.xcodeproj">
          </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A607B36A156AD9240033D45A"
-            BuildableName = "test1.app"
+            BuildableName = "freepod.app"
             BlueprintName = "test1"
             ReferencedContainer = "container:test1.xcodeproj">
          </BuildableReference>

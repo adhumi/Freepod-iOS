@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "EpisodeControllerJacquetteDownloader.h"
 #import "AsynchronousUIImage.h"
-#import "PullRefreshTableViewController.h"
 
 @interface EpisodesRecentsViewController : UITableViewController <EpisodeControllerJacquetteDownloaderDelegate, AsynchronousUIImageDelegate> {
 	NSMutableDictionary *imageDownloadsInProgress;

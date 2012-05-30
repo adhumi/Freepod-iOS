@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "test1/AudioEpisodeViewController.h"
-         timestampString = "360036240.370326"
+         timestampString = "360069560.346765"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "57"
-         endingLineNumber = "57"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
          landmarkName = "@interface AudioEpisodeViewController"
          landmarkType = "2">
       </FileBreakpoint>
@@ -106,6 +106,19 @@
          endingLineNumber = "278"
          landmarkName = "-imageDidLoad:"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "test1/AudioEpisodeViewController.h"
+         timestampString = "360069647.928429"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
+         landmarkName = "@interface AudioEpisodeViewController"
+         landmarkType = "2">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

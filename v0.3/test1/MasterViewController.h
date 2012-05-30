@@ -10,7 +10,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import "JacquetteDownloader.h"
 
-#import "PullRefreshTableViewController.h"
 
 @class DetailViewController;
 
