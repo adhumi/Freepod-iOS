@@ -23,6 +23,8 @@
 	IBOutlet UILabel *date;
 	IBOutlet UINavigationBar *navBar;
 	NSTimer *timer;
+	IBOutlet UIView *freeze;
+	IBOutlet UIView *howTo;
 }
 
 @property AVPlayer *audioPlayer;
@@ -39,6 +41,8 @@
 @property (nonatomic, retain) IBOutlet UIScrollView *descriptionScrollView;
 @property (nonatomic, retain) IBOutlet UILabel *date;
 @property (nonatomic, retain) IBOutlet UINavigationBar *navBar;
+@property (strong, nonatomic) IBOutlet UIView *freeze;
+@property (strong, nonatomic) IBOutlet UIView *howTo;
 
 @property (strong, nonatomic) id episode;
 

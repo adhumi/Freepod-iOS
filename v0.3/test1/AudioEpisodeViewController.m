@@ -32,6 +32,8 @@
 @synthesize descriptionScrollView = _descriptionScrollView;
 @synthesize date = _date;
 @synthesize navBar = _navBar;
+@synthesize freeze = _freeze;
+@synthesize howTo = _howTo;
 
 extern AVPlayer *audioPlayer;
 extern Episode *readingEpisode;
@@ -80,6 +82,10 @@ extern Episode *readingEpisode;
 	image.tag = 2;
 	image.delegate = self;
 	
+	if (_episode != nil) {
+		_freeze.hidden = YES;
+		_howTo.hidden = YES;
+	}
 	
 	self.avancement.maximumValue = [_episode getDurationInSeconds];
 	
@@ -130,6 +136,10 @@ extern Episode *readingEpisode;
 	date = nil;
 	navBar = nil;
 	[timer invalidate];
+	freeze = nil;
+	[self setFreeze:nil];
+	howTo = nil;
+	[self setHowTo:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

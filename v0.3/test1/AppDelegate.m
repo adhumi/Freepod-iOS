@@ -32,6 +32,7 @@ Episode *readingEpisode;
 
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
+	readingEpisode = nil;
 	
 //	MasterViewController *masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController_iPhone" bundle:nil];
 //	self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];

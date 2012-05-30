@@ -10,20 +10,14 @@
 		A603C2C71572BB7A0067B1CD /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A603C2C61572BB7A0067B1CD /* CoreMedia.framework */; };
 		A603C2CB1572DADA0067B1CD /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2C91572DADA0067B1CD /* pause.png */; };
 		A603C2CC1572DADA0067B1CD /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2CA1572DADA0067B1CD /* play.png */; };
-		A603C2DC157314B00067B1CD /* EpisodesRecentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C2DA157314B00067B1CD /* EpisodesRecentsViewController.m */; };
 		A603C2DD157314B00067B1CD /* EpisodesRecentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603C2DB157314B00067B1CD /* EpisodesRecentsViewController.xib */; };
 		A603C2DF157315500067B1CD /* icon-recent.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2DE157315500067B1CD /* icon-recent.png */; };
 		A603C2E1157315600067B1CD /* icon-podcast.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C2E01573155F0067B1CD /* icon-podcast.png */; };
 		A603C31715740BE70067B1CD /* logo_freepod_navbar_crop.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C31615740BE60067B1CD /* logo_freepod_navbar_crop.png */; };
-		A603C3241574C4D30067B1CD /* EpisodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C3231574C4D20067B1CD /* EpisodeCell.m */; };
 		A603C3261574C4E70067B1CD /* EpisodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603C3251574C4E70067B1CD /* EpisodeCell.xib */; };
 		A603C32D1574DE550067B1CD /* jacquette_default_64.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C32C1574DE550067B1CD /* jacquette_default_64.png */; };
-		A603C3301574E7750067B1CD /* JacquetteDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C32F1574E7750067B1CD /* JacquetteDownloader.m */; };
 		A603C3351574FB800067B1CD /* PodcastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603C3341574FB7F0067B1CD /* PodcastCell.xib */; };
-		A603C3381574FBE10067B1CD /* PodcastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C3371574FBE10067B1CD /* PodcastCell.m */; };
 		A603C33A1574FDAF0067B1CD /* jacquette_default_160.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C3391574FDAF0067B1CD /* jacquette_default_160.png */; };
-		A603C33D157503F10067B1CD /* EpisodeControllerJacquetteDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C33C157503F00067B1CD /* EpisodeControllerJacquetteDownloader.m */; };
-		A603C34315751B540067B1CD /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C34115751B530067B1CD /* LiveViewController.m */; };
 		A603C34415751B540067B1CD /* LiveViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A603C34215751B530067B1CD /* LiveViewController.xib */; };
 		A603C34715751EC20067B1CD /* off_air.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C34515751EC20067B1CD /* off_air.png */; };
 		A603C34815751EC20067B1CD /* on_air.png in Resources */ = {isa = PBXBuildFile; fileRef = A603C34615751EC20067B1CD /* on_air.png */; };
@@ -32,35 +26,43 @@
 		A607B372156AD9240033D45A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B371156AD9240033D45A /* Foundation.framework */; };
 		A607B374156AD9240033D45A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B373156AD9240033D45A /* CoreGraphics.framework */; };
 		A607B37A156AD9240033D45A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A607B378156AD9240033D45A /* InfoPlist.strings */; };
-		A607B37C156AD9240033D45A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B37B156AD9240033D45A /* main.m */; };
-		A607B380156AD9240033D45A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B37F156AD9240033D45A /* AppDelegate.m */; };
-		A607B383156AD9240033D45A /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B382156AD9240033D45A /* MasterViewController.m */; };
-		A607B386156AD9240033D45A /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B385156AD9240033D45A /* DetailViewController.m */; };
 		A607B389156AD9240033D45A /* MasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A607B387156AD9240033D45A /* MasterViewController_iPhone.xib */; };
 		A607B38F156AD9240033D45A /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A607B38D156AD9240033D45A /* DetailViewController_iPhone.xib */; };
-		A607B429156D752D0033D45A /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B428156D752D0033D45A /* Podcast.m */; };
-		A607B446156D78C30033D45A /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B42E156D76970033D45A /* NSObject+SBJson.m */; };
-		A607B447156D78C30033D45A /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B431156D76970033D45A /* SBJsonParser.m */; };
-		A607B448156D78C30033D45A /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B433156D76970033D45A /* SBJsonStreamParser.m */; };
-		A607B449156D78C30033D45A /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B435156D76970033D45A /* SBJsonStreamParserAccumulator.m */; };
-		A607B44A156D78C30033D45A /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B437156D76970033D45A /* SBJsonStreamParserAdapter.m */; };
-		A607B44B156D78C30033D45A /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B439156D76970033D45A /* SBJsonStreamParserState.m */; };
-		A607B44C156D78C30033D45A /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B43B156D76970033D45A /* SBJsonStreamWriter.m */; };
-		A607B44D156D78C30033D45A /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B43D156D76970033D45A /* SBJsonStreamWriterAccumulator.m */; };
-		A607B44E156D78C30033D45A /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B43F156D76970033D45A /* SBJsonStreamWriterState.m */; };
-		A607B44F156D78C30033D45A /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B441156D76970033D45A /* SBJsonTokeniser.m */; };
-		A607B450156D78C30033D45A /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B443156D76970033D45A /* SBJsonUTF8Stream.m */; };
-		A607B451156D78C30033D45A /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B445156D76970033D45A /* SBJsonWriter.m */; };
-		A607B459156DAEA00033D45A /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B458156DAE860033D45A /* Episode.m */; };
 		A607B465156FEDCC0033D45A /* logo_freepod_navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */; };
-		A68090411575834D002FBE14 /* AsynchronousUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A68090401575834D002FBE14 /* AsynchronousUIImage.m */; };
 		A680904815758DA3002FBE14 /* banner_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A680904715758DA3002FBE14 /* banner_default.png */; };
-		A680904B1575991B002FBE14 /* EpisodeRecentDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A680904A1575991B002FBE14 /* EpisodeRecentDownloader.m */; };
+		A68090561575A3B3002FBE14 /* PullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A68090531575A0E1002FBE14 /* PullRefreshTableViewController.m */; };
+		A68090571575A3B3002FBE14 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B42E156D76970033D45A /* NSObject+SBJson.m */; };
+		A68090581575A3B3002FBE14 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B431156D76970033D45A /* SBJsonParser.m */; };
+		A68090591575A3B3002FBE14 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B433156D76970033D45A /* SBJsonStreamParser.m */; };
+		A680905A1575A3B3002FBE14 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B435156D76970033D45A /* SBJsonStreamParserAccumulator.m */; };
+		A680905B1575A3B3002FBE14 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B437156D76970033D45A /* SBJsonStreamParserAdapter.m */; };
+		A680905C1575A3B3002FBE14 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B439156D76970033D45A /* SBJsonStreamParserState.m */; };
+		A680905D1575A3B3002FBE14 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B43B156D76970033D45A /* SBJsonStreamWriter.m */; };
+		A680905E1575A3B3002FBE14 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B43D156D76970033D45A /* SBJsonStreamWriterAccumulator.m */; };
+		A680905F1575A3B3002FBE14 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B43F156D76970033D45A /* SBJsonStreamWriterState.m */; };
+		A68090601575A3B3002FBE14 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B441156D76970033D45A /* SBJsonTokeniser.m */; };
+		A68090611575A3B3002FBE14 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B443156D76970033D45A /* SBJsonUTF8Stream.m */; };
+		A68090621575A3B3002FBE14 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B445156D76970033D45A /* SBJsonWriter.m */; };
+		A68090631575A3B3002FBE14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B37F156AD9240033D45A /* AppDelegate.m */; };
+		A68090641575A3B3002FBE14 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B382156AD9240033D45A /* MasterViewController.m */; };
+		A68090651575A3B3002FBE14 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B385156AD9240033D45A /* DetailViewController.m */; };
+		A68090661575A3B3002FBE14 /* AudioEpisodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A2E02F1571854F00EE3A0E /* AudioEpisodeViewController.m */; };
+		A68090671575A3B3002FBE14 /* EpisodesRecentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C2DA157314B00067B1CD /* EpisodesRecentsViewController.m */; };
+		A68090681575A3B3002FBE14 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C34115751B530067B1CD /* LiveViewController.m */; };
+		A68090691575A3B3002FBE14 /* EpisodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C3231574C4D20067B1CD /* EpisodeCell.m */; };
+		A680906A1575A3B3002FBE14 /* PodcastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C3371574FBE10067B1CD /* PodcastCell.m */; };
+		A680906B1575A3B3002FBE14 /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B428156D752D0033D45A /* Podcast.m */; };
+		A680906C1575A3B3002FBE14 /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B458156DAE860033D45A /* Episode.m */; };
+		A680906D1575A3B3002FBE14 /* JacquetteDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C32F1574E7750067B1CD /* JacquetteDownloader.m */; };
+		A680906E1575A3B3002FBE14 /* EpisodeControllerJacquetteDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A603C33C157503F00067B1CD /* EpisodeControllerJacquetteDownloader.m */; };
+		A680906F1575A3B3002FBE14 /* EpisodeRecentDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = A680904A1575991B002FBE14 /* EpisodeRecentDownloader.m */; };
+		A68090701575A3B3002FBE14 /* AsynchronousUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A68090401575834D002FBE14 /* AsynchronousUIImage.m */; };
+		A68090711575A3C7002FBE14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B37B156AD9240033D45A /* main.m */; };
+		A68090731575A3DC002FBE14 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68090721575A3DC002FBE14 /* QuartzCore.framework */; };
 		A6858C291570FDA8003CC243 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C281570FDA8003CC243 /* Default.png */; };
 		A6858C2C1570FDAC003CC243 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2B1570FDAC003CC243 /* Default@2x.png */; };
 		A6858C2E1570FDB0003CC243 /* ico_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2D1570FDB0003CC243 /* ico_ios.png */; };
 		A6858C301570FDB3003CC243 /* ico_ios_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2F1570FDB3003CC243 /* ico_ios_retina.png */; };
-		A6A2E0311571854F00EE3A0E /* AudioEpisodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A2E02F1571854F00EE3A0E /* AudioEpisodeViewController.m */; };
 		A6A2E0321571854F00EE3A0E /* AudioEpisodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */; };
 		A6A2E0361571904A00EE3A0E /* jacquette_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A2E0351571904A00EE3A0E /* jacquette_default.png */; };
 		A6A2E0381572A7E900EE3A0E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A2E0371572A7E900EE3A0E /* AVFoundation.framework */; };
@@ -145,6 +147,9 @@
 		A680904715758DA3002FBE14 /* banner_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_default.png; sourceTree = "<group>"; };
 		A68090491575991B002FBE14 /* EpisodeRecentDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeRecentDownloader.h; sourceTree = "<group>"; };
 		A680904A1575991B002FBE14 /* EpisodeRecentDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeRecentDownloader.m; sourceTree = "<group>"; };
+		A68090521575A0E1002FBE14 /* PullRefreshTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PullRefreshTableViewController.h; path = ../../../iOS/PullToRefresh/Classes/PullRefreshTableViewController.h; sourceTree = "<group>"; };
+		A68090531575A0E1002FBE14 /* PullRefreshTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PullRefreshTableViewController.m; path = ../../../iOS/PullToRefresh/Classes/PullRefreshTableViewController.m; sourceTree = "<group>"; };
+		A68090721575A3DC002FBE14 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A6858C281570FDA8003CC243 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A6858C2B1570FDAC003CC243 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A6858C2D1570FDB0003CC243 /* ico_ios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_ios.png; sourceTree = "<group>"; };
@@ -161,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68090731575A3DC002FBE14 /* QuartzCore.framework in Frameworks */,
 				A603C2C71572BB7A0067B1CD /* CoreMedia.framework in Frameworks */,
 				A6A2E0381572A7E900EE3A0E /* AVFoundation.framework in Frameworks */,
 				A607B370156AD9240033D45A /* UIKit.framework in Frameworks */,
@@ -240,6 +246,7 @@
 		A607B36E156AD9240033D45A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A68090721575A3DC002FBE14 /* QuartzCore.framework */,
 				A603C2C61572BB7A0067B1CD /* CoreMedia.framework */,
 				A6A2E0371572A7E900EE3A0E /* AVFoundation.framework */,
 				A607B36F156AD9240033D45A /* UIKit.framework */,
@@ -252,6 +259,7 @@
 		A607B375156AD9240033D45A /* test1 */ = {
 			isa = PBXGroup;
 			children = (
+				A68090541575A0E7002FBE14 /* PullToRefresh */,
 				A607B426156D74DE0033D45A /* SBJson */,
 				A607B37E156AD9240033D45A /* AppDelegate.h */,
 				A607B37F156AD9240033D45A /* AppDelegate.m */,
@@ -327,6 +335,15 @@
 				A607B445156D76970033D45A /* SBJsonWriter.m */,
 			);
 			name = SBJson;
+			sourceTree = "<group>";
+		};
+		A68090541575A0E7002FBE14 /* PullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				A68090521575A0E1002FBE14 /* PullRefreshTableViewController.h */,
+				A68090531575A0E1002FBE14 /* PullRefreshTableViewController.m */,
+			);
+			name = PullToRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,33 +432,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A607B459156DAEA00033D45A /* Episode.m in Sources */,
-				A607B446156D78C30033D45A /* NSObject+SBJson.m in Sources */,
-				A607B447156D78C30033D45A /* SBJsonParser.m in Sources */,
-				A607B448156D78C30033D45A /* SBJsonStreamParser.m in Sources */,
-				A607B449156D78C30033D45A /* SBJsonStreamParserAccumulator.m in Sources */,
-				A607B44A156D78C30033D45A /* SBJsonStreamParserAdapter.m in Sources */,
-				A607B44B156D78C30033D45A /* SBJsonStreamParserState.m in Sources */,
-				A607B44C156D78C30033D45A /* SBJsonStreamWriter.m in Sources */,
-				A607B44D156D78C30033D45A /* SBJsonStreamWriterAccumulator.m in Sources */,
-				A607B44E156D78C30033D45A /* SBJsonStreamWriterState.m in Sources */,
-				A607B44F156D78C30033D45A /* SBJsonTokeniser.m in Sources */,
-				A607B450156D78C30033D45A /* SBJsonUTF8Stream.m in Sources */,
-				A607B451156D78C30033D45A /* SBJsonWriter.m in Sources */,
-				A607B37C156AD9240033D45A /* main.m in Sources */,
-				A607B380156AD9240033D45A /* AppDelegate.m in Sources */,
-				A607B383156AD9240033D45A /* MasterViewController.m in Sources */,
-				A607B386156AD9240033D45A /* DetailViewController.m in Sources */,
-				A607B429156D752D0033D45A /* Podcast.m in Sources */,
-				A6A2E0311571854F00EE3A0E /* AudioEpisodeViewController.m in Sources */,
-				A603C2DC157314B00067B1CD /* EpisodesRecentsViewController.m in Sources */,
-				A603C3241574C4D30067B1CD /* EpisodeCell.m in Sources */,
-				A603C3301574E7750067B1CD /* JacquetteDownloader.m in Sources */,
-				A603C3381574FBE10067B1CD /* PodcastCell.m in Sources */,
-				A603C33D157503F10067B1CD /* EpisodeControllerJacquetteDownloader.m in Sources */,
-				A603C34315751B540067B1CD /* LiveViewController.m in Sources */,
-				A68090411575834D002FBE14 /* AsynchronousUIImage.m in Sources */,
-				A680904B1575991B002FBE14 /* EpisodeRecentDownloader.m in Sources */,
+				A68090711575A3C7002FBE14 /* main.m in Sources */,
+				A68090561575A3B3002FBE14 /* PullRefreshTableViewController.m in Sources */,
+				A68090571575A3B3002FBE14 /* NSObject+SBJson.m in Sources */,
+				A68090581575A3B3002FBE14 /* SBJsonParser.m in Sources */,
+				A68090591575A3B3002FBE14 /* SBJsonStreamParser.m in Sources */,
+				A680905A1575A3B3002FBE14 /* SBJsonStreamParserAccumulator.m in Sources */,
+				A680905B1575A3B3002FBE14 /* SBJsonStreamParserAdapter.m in Sources */,
+				A680905C1575A3B3002FBE14 /* SBJsonStreamParserState.m in Sources */,
+				A680905D1575A3B3002FBE14 /* SBJsonStreamWriter.m in Sources */,
+				A680905E1575A3B3002FBE14 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				A680905F1575A3B3002FBE14 /* SBJsonStreamWriterState.m in Sources */,
+				A68090601575A3B3002FBE14 /* SBJsonTokeniser.m in Sources */,
+				A68090611575A3B3002FBE14 /* SBJsonUTF8Stream.m in Sources */,
+				A68090621575A3B3002FBE14 /* SBJsonWriter.m in Sources */,
+				A68090631575A3B3002FBE14 /* AppDelegate.m in Sources */,
+				A68090641575A3B3002FBE14 /* MasterViewController.m in Sources */,
+				A68090651575A3B3002FBE14 /* DetailViewController.m in Sources */,
+				A68090661575A3B3002FBE14 /* AudioEpisodeViewController.m in Sources */,
+				A68090671575A3B3002FBE14 /* EpisodesRecentsViewController.m in Sources */,
+				A68090681575A3B3002FBE14 /* LiveViewController.m in Sources */,
+				A68090691575A3B3002FBE14 /* EpisodeCell.m in Sources */,
+				A680906A1575A3B3002FBE14 /* PodcastCell.m in Sources */,
+				A680906B1575A3B3002FBE14 /* Podcast.m in Sources */,
+				A680906C1575A3B3002FBE14 /* Episode.m in Sources */,
+				A680906D1575A3B3002FBE14 /* JacquetteDownloader.m in Sources */,
+				A680906E1575A3B3002FBE14 /* EpisodeControllerJacquetteDownloader.m in Sources */,
+				A680906F1575A3B3002FBE14 /* EpisodeRecentDownloader.m in Sources */,
+				A68090701575A3B3002FBE14 /* AsynchronousUIImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

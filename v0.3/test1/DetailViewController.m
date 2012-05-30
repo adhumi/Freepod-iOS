@@ -242,6 +242,10 @@ extern Episode *readingEpisode;
     [self loadImagesForOnscreenRows];
 }
 
+- (void)refresh {
+    [self performSelector:@selector(displayPlayer:) withObject:nil afterDelay:2.0];
+}
+
 - (void)startJacquetteDownload:(Episode *)episode forIndexPath:(NSIndexPath *)indexPath andWith:(int) width{
     if ([_objects count] > indexPath.row) {
 	EpisodeControllerJacquetteDownloader *jacquetteDownloader = [imageDownloadsInProgress objectForKey:indexPath];
