@@ -15,8 +15,7 @@
 @implementation LiveViewController
 @synthesize onOffAir;
 @synthesize navBar;
-
-extern AVPlayer *audioPlayer;
+@synthesize livePlayer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,9 +38,9 @@ extern AVPlayer *audioPlayer;
 	[navBar addSubview:logo];
 	
 	NSString *radioURL = @"http://radio.podradio.fr:8000/adsl.m3u";
-	audioPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:radioURL]];
+	livePlayer = [AVPlayer playerWithURL:[NSURL URLWithString:radioURL]];
 	
-	if (audioPlayer.status != AVPlayerStatusFailed) {
+	if (livePlayer.status != AVPlayerStatusFailed) {
 		onOffAir.image = [UIImage imageNamed:@"on_air.png"];
 	}
 }
@@ -63,10 +62,10 @@ extern AVPlayer *audioPlayer;
 }
 
 - (IBAction)goLive:(id)sender {
-	if (audioPlayer.rate > 0.5) {
-		[audioPlayer pause];
+	if (livePlayer.rate > 0.5) {
+		[livePlayer pause];
 	} else {
-		[audioPlayer play];
+		[livePlayer play];
 	}
 }
 @end

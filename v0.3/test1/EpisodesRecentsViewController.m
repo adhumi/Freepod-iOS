@@ -9,34 +9,51 @@
 #import "EpisodesRecentsViewController.h"
 
 #import "SBJson.h"
+#import "Podcast.h"
 #import "Episode.h"
+
+#import "AudioEpisodeViewController.h"
+#import "EpisodeControllerJacquetteDownloader.h"
+#import "EpisodeCell.h"
 
 #import "AudioEpisodeViewController.h"
 
 @interface EpisodesRecentsViewController () {
     NSMutableArray *_objects;
 }
-
 @end
 
 @implementation EpisodesRecentsViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+@synthesize detailItem = _detailItem;
+@synthesize imageDownloadsInProgress;
+@synthesize banner;
+
+extern Episode *readingEpisode;
+
+- (void)configureView
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    // Update the user interface for the detail item.
+	if (self.detailItem) {
+		//self.navigationItem.title = [self.detailItem description];
+		UIImageView *tmpImgView = (UIImageView*) [self.navigationController.navigationBar viewWithTag:42];
+		if(tmpImgView) {
+			//tmpImgView.hidden = true;
+		}
+	}
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-
+	[super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+	self.tableView.rowHeight = 64;
+	
+	[super viewDidLoad];
+	
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Player" style:UIBarButtonItemStylePlain target:self action:@selector(displayPlayer:)];
@@ -84,16 +101,15 @@
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 	
-	
+	[self configureView];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-	
-	self.tableView.rowHeight = 60;
+	UIImageView *tmpImgView = (UIImageView*) [self.navigationController.navigationBar viewWithTag:42];
+	tmpImgView.hidden = false;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -101,93 +117,140 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Table view data source
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+		//self.title = NSLocalizedString(@"Detail", @"Detail");
+    }
+    return self;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+	return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return _objects.count;
+	return _objects.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    EpisodeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	
 	if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		
+		NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"EpisodeCell" owner:self options:nil];
+		cell = (EpisodeCell *)[nib objectAtIndex:0];
     }
 	
 	Episode *object = [_objects objectAtIndex:indexPath.row];
-	cell.textLabel.text = [object description];
-	cell.imageView.image = [object getJacquette:120];
+	cell.nom.text = [object description];
+	cell.date.text = [object formattedPubDate];
+	if (!object.jacquette) {
+		if (self.tableView.dragging == NO && self.tableView.decelerating == NO) {
+			[self startJacquetteDownload:object forIndexPath:indexPath andWith:128];
+		}
+		// if a download is deferred or in progress, return a placeholder image
+		cell.jacquette.image = [UIImage imageNamed:@"jacquette_default_64.png"];                
+	}
+	else
+	{
+		cell.jacquette.image = object.jacquette;
+	}
+	
+	cell.duration.text = [object duration];
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    return cell;
+	return cell;
 }
-
-- (CGFloat) tableView: (UITableView *) tableView heightForRowAtIndexPath: (NSIndexPath *) indexPath
-{
-	return 60;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
 	
 	Episode *episode = [_objects objectAtIndex:indexPath.row];
 	
 	audioViewController.episode = episode;
-    [self.navigationController pushViewController:audioViewController animated:YES];
+	
+	audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+	[self presentModalViewController:audioViewController animated:YES];
+}
+
+// AFFICHE LE PLAYER
+- (void)displayPlayer:(id)sender
+{
+	AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
+	
+	audioViewController.episode = readingEpisode;
+	audioViewController.precedentView = self.view;
+	
+	audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+	[self presentModalViewController:audioViewController animated:YES];
+}
+
+- (void)jacquetteEpisodeDidLoad:(NSIndexPath *)indexPath
+{
+    EpisodeControllerJacquetteDownloader *jacquetteDownloader = [imageDownloadsInProgress objectForKey:indexPath];
+    if (jacquetteDownloader != nil) {
+        EpisodeCell *cell = (EpisodeCell*) [self.tableView cellForRowAtIndexPath:jacquetteDownloader.indexPathInTableView];
+        
+        // Display the newly loaded image
+        cell.jacquette.image  = jacquetteDownloader.episode.jacquette;
+	}
+	
+	[self.tableView reloadData];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+	{
+        [self loadImagesForOnscreenRows];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOnscreenRows];
+}
+
+- (void)startJacquetteDownload:(Episode *)episode forIndexPath:(NSIndexPath *)indexPath andWith:(int) width{
+    if ([_objects count] > indexPath.row) {
+		EpisodeControllerJacquetteDownloader *jacquetteDownloader = [imageDownloadsInProgress objectForKey:indexPath];
+		if (jacquetteDownloader == nil) {
+			jacquetteDownloader = [[EpisodeControllerJacquetteDownloader alloc] init];
+			jacquetteDownloader.episode = episode;
+			jacquetteDownloader.indexPathInTableView = indexPath;
+			jacquetteDownloader.delegate = self;
+			[imageDownloadsInProgress setObject:jacquetteDownloader forKey:indexPath];
+			[jacquetteDownloader startDownload:width];
+		}
+	}
+}
+
+- (void)loadImagesForOnscreenRows {
+	if ([_objects count] > 0) {
+		NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+		for (NSIndexPath *indexPath in visiblePaths) {
+			if ([_objects count] > indexPath.row) {
+				Episode *episode = [_objects objectAtIndex:indexPath.row];
+				if (!episode.jacquette) {
+					[self startJacquetteDownload:episode forIndexPath:indexPath andWith:128];
+				}
+			}
+		}
+	}
+}
+
+-(void) imageDidLoad:(AsynchronousUIImage *)anImage {
+	if (anImage.tag == 1) {
+		banner.image = (UIImage*) anImage;
+	}
+	[self.tableView reloadData];
 }
 
 @end

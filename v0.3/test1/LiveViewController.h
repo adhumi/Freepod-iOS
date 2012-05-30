@@ -12,9 +12,11 @@
 @interface LiveViewController : UIViewController {
 	IBOutlet UIImageView *onOffAir;
 	IBOutlet UINavigationBar *navBar;
+	AVPlayer *livePlayer;
 }
 @property (strong, nonatomic) IBOutlet UIImageView *onOffAir;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (strong, nonatomic) AVPlayer *livePlayer;
 
 - (IBAction)goLive:(id)sender;
 

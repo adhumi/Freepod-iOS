@@ -1,18 +1,18 @@
 //
-//  EpisodeControllerJacquetteDownloader.m
+//  EpisodeRecentDownloader.m
 //  test1
 //
-//  Created by Adrien Humilière on 29/05/12.
+//  Created by Adrien Humilière on 30/05/12.
 //  Copyright (c) 2012 home. All rights reserved.
 //
 
-#import "EpisodeControllerJacquetteDownloader.h"
+#import "EpisodeRecentDownloader.h"
 #import "Episode.h"
 
 #define kAppIconHeight 80
 
 
-@implementation EpisodeControllerJacquetteDownloader
+@implementation EpisodeRecentDownloader
 
 @synthesize episode;
 @synthesize indexPathInTableView;

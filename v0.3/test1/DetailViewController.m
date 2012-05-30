@@ -245,7 +245,6 @@ extern Episode *readingEpisode;
 - (void)startJacquetteDownload:(Episode *)episode forIndexPath:(NSIndexPath *)indexPath andWith:(int) width{
     if ([_objects count] > indexPath.row) {
 	EpisodeControllerJacquetteDownloader *jacquetteDownloader = [imageDownloadsInProgress objectForKey:indexPath];
-		NSLog(@"Téléchargement en cours : %@", episode);
     if (jacquetteDownloader == nil) {
         jacquetteDownloader = [[EpisodeControllerJacquetteDownloader alloc] init];
         jacquetteDownloader.episode = episode;
