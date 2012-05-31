@@ -13,6 +13,7 @@
 #import "Episode.h"
 
 #import "AudioEpisodeViewController.h"
+#import "VideoEpisodeViewController.h"
 #import "EpisodeControllerJacquetteDownloader.h"
 #import "EpisodeCell.h"
 
@@ -116,10 +117,10 @@ extern Episode *readingEpisode;
 	banner.contentMode = UIViewContentModeScaleAspectFill;
 	self.tableView.tableHeaderView = banner;
 	
-		AsynchronousUIImage *image = [[AsynchronousUIImage alloc] init];
-		[image loadImageFromURL: [NSString stringWithFormat:@"http://webserv.freepod.net/get-img-podcast.php?id=%d&nom=logo_banner&width=%d", [podcast idPodcast], 640] ];
-		image.tag = 1;
-		image.delegate = self;
+	AsynchronousUIImage *image = [[AsynchronousUIImage alloc] init];
+	[image loadImageFromURL: [NSString stringWithFormat:@"http://webserv.freepod.net/get-img-podcast.php?id=%d&nom=logo_banner&width=%d", [podcast idPodcast], 640] ];
+	image.tag = 1;
+	image.delegate = self;
 		
 	self.tableView.rowHeight = 64;
 	
@@ -192,26 +193,48 @@ extern Episode *readingEpisode;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
-	
 	Episode *episode = [_objects objectAtIndex:indexPath.row];
 	
-	audioViewController.episode = episode;
+	if ([episode isVideo]) {
+		NSLog(@"VideoEpisodeViewController");
+		VideoEpisodeViewController *videoViewController = [[VideoEpisodeViewController alloc]initWithNibName:@"VideoEpisodeViewController" bundle:nil];
+		
+		videoViewController.episode = episode;
+		
+		videoViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+		[self presentModalViewController:videoViewController animated:YES];
+	} else {
+		NSLog(@"AudioEpisodeViewController");
+		AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
 	
-	audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-	[self presentModalViewController:audioViewController animated:YES];
+		audioViewController.episode = episode;
+	
+		audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+		[self presentModalViewController:audioViewController animated:YES];
+	}
 }
 
 // AFFICHE LE PLAYER
 - (void)displayPlayer:(id)sender
 {
-	AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
-	
-	audioViewController.episode = readingEpisode;
-	audioViewController.precedentView = self.view;
-	
-	audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-	[self presentModalViewController:audioViewController animated:YES];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	if ([readingEpisode isVideo]) {
+		NSLog(@"VideoEpisodeViewController");
+		VideoEpisodeViewController *videoViewController = [[VideoEpisodeViewController alloc]initWithNibName:@"VideoEpisodeViewController" bundle:nil];
+		
+		videoViewController.episode = readingEpisode;
+		
+		videoViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+		[self presentModalViewController:videoViewController animated:YES];
+	} else {
+		NSLog(@"AudioEpisodeViewController");
+		AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
+		
+		audioViewController.episode = readingEpisode;
+		
+		audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+		[self presentModalViewController:audioViewController animated:YES];
+	}
 }
 
 - (void)jacquetteEpisodeDidLoad:(NSIndexPath *)indexPath

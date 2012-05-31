@@ -67,5 +67,5 @@
 
 -(id) getJacquette:(NSInteger) width;
 - (int) getDurationInSeconds;
-
+- (BOOL) isVideo;
 @end

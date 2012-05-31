@@ -162,4 +162,12 @@
 	return nbSec;
 }
 
+- (BOOL) isVideo {
+	NSArray *split = [self->type componentsSeparatedByString:@"/"];
+	
+	NSString *typeString = [split objectAtIndex:0];
+	
+	return ([typeString isEqualToString:@"video"] == YES || [typeString isEqualToString:@"VIDEO"] == YES || [typeString isEqualToString:@"Video"] == YES );
+}
+
 @end

@@ -1,12 +1,13 @@
 //
-//  AudioEpisodeViewController.m
+//  VideoEpisodeViewController.m
 //  test1
 //
-//  Created by Adrien Humilière on 26/05/12.
+//  Created by Adrien Humilière on 31/05/12.
 //  Copyright (c) 2012 home. All rights reserved.
 //
 
-#import "AudioEpisodeViewController.h"
+#import "VideoEpisodeViewController.h"
+
 #import "Episode.h"
 #import "MasterViewController.h"
 
@@ -15,16 +16,15 @@
 
 #import "PlayerView.h"
 
-@interface AudioEpisodeViewController ()
+@interface VideoEpisodeViewController ()
 
 @end
 
-@implementation AudioEpisodeViewController
+@implementation VideoEpisodeViewController
 
 @synthesize episode = _episode;
 @synthesize precedentView = _precedentView;
 
-@synthesize jacquette = _jacquette;
 @synthesize nom = _nom;
 @synthesize play = _play;
 @synthesize pause = _pause;
@@ -37,8 +37,9 @@
 @synthesize descriptionScrollView = _descriptionScrollView;
 @synthesize date = _date;
 @synthesize navBar = _navBar;
-@synthesize freeze = _freeze;
-@synthesize howTo = _howTo;
+@synthesize playerView = _playerView;
+@synthesize infos = _infos;
+@synthesize isShowingLandscapeView;
 
 extern AVPlayer *audioPlayer;
 extern Episode *readingEpisode;
@@ -71,6 +72,8 @@ extern Episode *readingEpisode;
 	
     [super viewDidLoad];
 	
+	isShowingLandscapeView = NO;
+	
 	if (_episode != readingEpisode) {
 		NSURL *urlFile = [NSURL URLWithString:[_episode urlSource]];
 		audioPlayer = [AVPlayer playerWithURL:urlFile];
@@ -78,18 +81,6 @@ extern Episode *readingEpisode;
 	}
 	
 	_episode = readingEpisode;
-	
-	//NSLog(@"http://webserv.freepod.net/get-img-episode.php?id=%d&nom=image&width=%d", [_episode idEpisode], 640);
-	
-	AsynchronousUIImage *image = [[AsynchronousUIImage alloc] init];
-	[image loadImageFromURL: [NSString stringWithFormat:@"http://webserv.freepod.net/get-img-episode.php?id=%d&nom=image&width=%d", [_episode idEpisode], 640] ];
-	image.tag = 2;
-	image.delegate = self;
-	
-	if (_episode != nil) {
-		_freeze.hidden = YES;
-		_howTo.hidden = YES;
-	}
 	
 	self.avancement.maximumValue = [_episode getDurationInSeconds];
 	
@@ -130,6 +121,14 @@ extern Episode *readingEpisode;
 	
 	[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
 	[self becomeFirstResponder];
+	
+	playerView = [[PlayerView alloc] init];
+	
+	playerView.hidden = NO;
+	
+	NSLog(@"avant setPlayer");
+	NSLog(@"%@", [playerView class]);
+	[self.playerView setPlayer:audioPlayer];
 }
 
 - (BOOL)canBecomeFirstResponder {
@@ -158,7 +157,6 @@ extern Episode *readingEpisode;
 
 - (void)viewDidUnload
 {
-	jacquette = nil;
 	avancement = nil;
 	tpsEcoule = nil;
 	tpsRestant = nil;
@@ -167,10 +165,10 @@ extern Episode *readingEpisode;
 	date = nil;
 	navBar = nil;
 	[timer invalidate];
-	freeze = nil;
-	[self setFreeze:nil];
-	howTo = nil;
-	[self setHowTo:nil];
+	playerView = nil;
+	[self setPlayerView:nil];
+	infos = nil;
+	[self setInfos:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -179,7 +177,7 @@ extern Episode *readingEpisode;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return (interfaceOrientation != UIDeviceOrientationPortraitUpsideDown);
 }
 
 - (IBAction)playEpisode:(id)sender {
@@ -234,12 +232,6 @@ extern Episode *readingEpisode;
 	}
 }
 
--(void) imageDidLoad:(AsynchronousUIImage *)anImage {
-	if (anImage.tag == 2) {
-		_jacquette.image = (UIImage*) anImage;
-	}
-}
-
 //// Stop the timer when the music is finished (Need to implement the AVAudioPlayerDelegate in the Controller header)
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
 	// Music completed
@@ -249,6 +241,40 @@ extern Episode *readingEpisode;
 		[self.pause setHidden:YES];
 	}
 }
-
+- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+	NSLog(@"Changement d'orientation");
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    if (UIDeviceOrientationIsLandscape(deviceOrientation) && !isShowingLandscapeView) {
+        _nom.hidden = YES;
+		_play.hidden = YES;
+		_pause.hidden = YES;
+		_avancement.hidden = YES;
+		_tpsEcoule.hidden = YES;
+		_tpsRestant.hidden = YES;
+		_navBar.hidden = YES;
+		_infos.hidden = YES;
+		_playerView.frame = CGRectMake(0, 0, 480, 320);
+        isShowingLandscapeView = YES;
+		[[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    } else if (UIDeviceOrientationIsPortrait(deviceOrientation) && isShowingLandscapeView) {
+        _nom.hidden = NO;
+		
+		if (audioPlayer.rate > 0.5) {
+			_play.hidden = YES;
+			_pause.hidden = NO;
+		} else {
+			_play.hidden = NO;
+			_pause.hidden = YES;
+		}
+		_avancement.hidden = NO;
+		_tpsEcoule.hidden = NO;
+		_tpsRestant.hidden = NO;
+		_navBar.hidden = NO;
+		_infos.hidden = NO;
+		_playerView.frame = CGRectMake(0, 44, 320, 320);
+        isShowingLandscapeView = NO;
+		[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+    }
+}
 
 @end

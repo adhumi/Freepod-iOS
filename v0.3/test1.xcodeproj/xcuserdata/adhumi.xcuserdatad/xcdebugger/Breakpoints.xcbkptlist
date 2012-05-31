@@ -21,24 +21,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "test1/AudioEpisodeViewController.h"
-         timestampString = "360069560.346765"
+         timestampString = "360159742.913992"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "@interface AudioEpisodeViewController"
-         landmarkType = "2">
+         startingLineNumber = "67"
+         endingLineNumber = "67">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "test1/MasterViewController.m"
-         timestampString = "360033551.366891"
+         timestampString = "360157249.84084"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
          landmarkName = "@implementation MasterViewController"
          landmarkType = "3">
       </FileBreakpoint>
@@ -86,11 +84,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "test1/DetailViewController.m"
-         timestampString = "360091081.018727"
+         timestampString = "360157249.84084"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "277"
-         endingLineNumber = "277"
+         startingLineNumber = "300"
+         endingLineNumber = "300"
          landmarkName = "-imageDidLoad:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +97,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "test1/DetailViewController.m"
-         timestampString = "360091081.018727"
+         timestampString = "360157249.84084"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "276"
-         endingLineNumber = "276"
+         startingLineNumber = "299"
+         endingLineNumber = "299"
          landmarkName = "-imageDidLoad:"
          landmarkType = "5">
       </FileBreakpoint>

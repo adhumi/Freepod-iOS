@@ -31,6 +31,9 @@
 		A60B2C9C157695E4003C0255 /* Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C99157695E4003C0255 /* Clock.png */; };
 		A60B2C9D157695E4003C0255 /* Radio-Tower@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C9A157695E4003C0255 /* Radio-Tower@2x.png */; };
 		A60B2C9F1576963F003C0255 /* Radio-Tower.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C9E1576963F003C0255 /* Radio-Tower.png */; };
+		A60B2CA415777182003C0255 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B2CA315777182003C0255 /* PlayerView.m */; };
+		A60B2CA615778623003C0255 /* VideoEpisodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A60B2CA515778623003C0255 /* VideoEpisodeViewController.xib */; };
+		A60B2CAD15778704003C0255 /* VideoEpisodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B2CAC15778704003C0255 /* VideoEpisodeViewController.m */; };
 		A680904815758DA3002FBE14 /* banner_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A680904715758DA3002FBE14 /* banner_default.png */; };
 		A68090571575A3B3002FBE14 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B42E156D76970033D45A /* NSObject+SBJson.m */; };
 		A68090581575A3B3002FBE14 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B431156D76970033D45A /* SBJsonParser.m */; };
@@ -144,6 +147,11 @@
 		A60B2C99157695E4003C0255 /* Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock.png; sourceTree = "<group>"; };
 		A60B2C9A157695E4003C0255 /* Radio-Tower@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio-Tower@2x.png"; sourceTree = "<group>"; };
 		A60B2C9E1576963F003C0255 /* Radio-Tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio-Tower.png"; sourceTree = "<group>"; };
+		A60B2CA215777182003C0255 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		A60B2CA315777182003C0255 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
+		A60B2CA515778623003C0255 /* VideoEpisodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoEpisodeViewController.xib; sourceTree = "<group>"; };
+		A60B2CAB15778704003C0255 /* VideoEpisodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoEpisodeViewController.h; sourceTree = "<group>"; };
+		A60B2CAC15778704003C0255 /* VideoEpisodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoEpisodeViewController.m; sourceTree = "<group>"; };
 		A680903F1575834D002FBE14 /* AsynchronousUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsynchronousUIImage.h; sourceTree = "<group>"; };
 		A68090401575834D002FBE14 /* AsynchronousUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsynchronousUIImage.m; sourceTree = "<group>"; };
 		A680904715758DA3002FBE14 /* banner_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_default.png; sourceTree = "<group>"; };
@@ -207,7 +215,7 @@
 			name = img;
 			sourceTree = "<group>";
 		};
-		A603C33E15751B1B0067B1CD /* TableViewCells */ = {
+		A603C33E15751B1B0067B1CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				A603C3221574C4D20067B1CD /* EpisodeCell.h */,
@@ -216,8 +224,10 @@
 				A603C3361574FBE10067B1CD /* PodcastCell.h */,
 				A603C3371574FBE10067B1CD /* PodcastCell.m */,
 				A603C3341574FB7F0067B1CD /* PodcastCell.xib */,
+				A60B2CA215777182003C0255 /* PlayerView.h */,
+				A60B2CA315777182003C0255 /* PlayerView.m */,
 			);
-			name = TableViewCells;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		A603C33F15751B2D0067B1CD /* Classes */ = {
@@ -279,25 +289,21 @@
 				A607B385156AD9240033D45A /* DetailViewController.m */,
 				A6A2E02E1571854F00EE3A0E /* AudioEpisodeViewController.h */,
 				A6A2E02F1571854F00EE3A0E /* AudioEpisodeViewController.m */,
+				A60B2CAB15778704003C0255 /* VideoEpisodeViewController.h */,
+				A60B2CAC15778704003C0255 /* VideoEpisodeViewController.m */,
 				A603C2D9157314B00067B1CD /* EpisodesRecentsViewController.h */,
 				A603C2DA157314B00067B1CD /* EpisodesRecentsViewController.m */,
 				A607B387156AD9240033D45A /* MasterViewController_iPhone.xib */,
 				A607B38D156AD9240033D45A /* DetailViewController_iPhone.xib */,
 				A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */,
+				A60B2CA515778623003C0255 /* VideoEpisodeViewController.xib */,
 				A603C2DB157314B00067B1CD /* EpisodesRecentsViewController.xib */,
 				A603C34015751B530067B1CD /* LiveViewController.h */,
 				A603C34115751B530067B1CD /* LiveViewController.m */,
 				A603C34215751B530067B1CD /* LiveViewController.xib */,
-				A603C33E15751B1B0067B1CD /* TableViewCells */,
+				A603C33E15751B1B0067B1CD /* Views */,
 				A603C33F15751B2D0067B1CD /* Classes */,
-				A603C32E1574E7740067B1CD /* JacquetteDownloader.h */,
-				A603C32F1574E7750067B1CD /* JacquetteDownloader.m */,
-				A603C33B157503F00067B1CD /* EpisodeControllerJacquetteDownloader.h */,
-				A603C33C157503F00067B1CD /* EpisodeControllerJacquetteDownloader.m */,
-				A68090491575991B002FBE14 /* EpisodeRecentDownloader.h */,
-				A680904A1575991B002FBE14 /* EpisodeRecentDownloader.m */,
-				A680903F1575834D002FBE14 /* AsynchronousUIImage.h */,
-				A68090401575834D002FBE14 /* AsynchronousUIImage.m */,
+				A60B2CAE15778B17003C0255 /* Downloaders */,
 				A603C31A1574B6350067B1CD /* img */,
 				A607B376156AD9240033D45A /* Supporting Files */,
 			);
@@ -345,6 +351,21 @@
 				A607B445156D76970033D45A /* SBJsonWriter.m */,
 			);
 			name = SBJson;
+			sourceTree = "<group>";
+		};
+		A60B2CAE15778B17003C0255 /* Downloaders */ = {
+			isa = PBXGroup;
+			children = (
+				A603C32E1574E7740067B1CD /* JacquetteDownloader.h */,
+				A603C32F1574E7750067B1CD /* JacquetteDownloader.m */,
+				A603C33B157503F00067B1CD /* EpisodeControllerJacquetteDownloader.h */,
+				A603C33C157503F00067B1CD /* EpisodeControllerJacquetteDownloader.m */,
+				A68090491575991B002FBE14 /* EpisodeRecentDownloader.h */,
+				A680904A1575991B002FBE14 /* EpisodeRecentDownloader.m */,
+				A680903F1575834D002FBE14 /* AsynchronousUIImage.h */,
+				A68090401575834D002FBE14 /* AsynchronousUIImage.m */,
+			);
+			name = Downloaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,6 +446,7 @@
 				A60B2C9C157695E4003C0255 /* Clock.png in Resources */,
 				A60B2C9D157695E4003C0255 /* Radio-Tower@2x.png in Resources */,
 				A60B2C9F1576963F003C0255 /* Radio-Tower.png in Resources */,
+				A60B2CA615778623003C0255 /* VideoEpisodeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +484,8 @@
 				A680906E1575A3B3002FBE14 /* EpisodeControllerJacquetteDownloader.m in Sources */,
 				A680906F1575A3B3002FBE14 /* EpisodeRecentDownloader.m in Sources */,
 				A68090701575A3B3002FBE14 /* AsynchronousUIImage.m in Sources */,
+				A60B2CA415777182003C0255 /* PlayerView.m in Sources */,
+				A60B2CAD15778704003C0255 /* VideoEpisodeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

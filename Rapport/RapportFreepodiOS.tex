@@ -183,13 +183,25 @@ Ce Web Service aura pour mission de récolter les informations dans les flux RSS
 
 Il permettra également de répondre à certains besoins de Freepod pour partager son contenu avec des sites partenaires.
 
+\begin{figure}[!h]
+	\begin{center}
+	\includegraphics[width=8cm]{schema_webserv.png}
+	\caption{\small{Schéma explicatif du fonctionnement du Web Service. Il récupère le contenu des fichiers XML des différents podcasts et les applications se connectent à lui pour récupérer les données.}} \label{entiteAssoc}
+	\end{center}
+\end{figure}
+
 \subsubsection{Conception}
 
 Pour le Web Service, nous allons nous baser sur un modèle de conception relativement simple. Il s'agit de lister les podcasts, et pour chaque podcast de lister les épisodes. Un podcast a un essentiellement un nom et un flux RSS (référençant les épisodes), mais nous pourrons y ajouter d'autres informations (images, URLs, etc.). Un épisode a un titre, une durée, une url vers le fichier (audio ou vidéo), une image, etc.
 
 Parallèlement à ces tables "fondamentales", nous devrons gérer les logins et mots de passe des utilisateurs, ainsi que des statistiques de base (nombre de requêtes). Une telle base de données, selon le modèle entités/associations sera représentée comme indiqué dans le schéma ci-contre.
 
-\subsubsection{Fonctionnement}
+\begin{figure}[!h]
+	\begin{center}
+	\includegraphics[width=8cm]{schema_entite_assoc.png}
+	\caption{\small{Schéma Entités / Associations pour la base de données du Web Service Freepod}} \label{entiteAssoc}
+	\end{center}
+\end{figure}
 
 \subsection{Application iOS}
 

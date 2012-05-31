@@ -1,8 +1,8 @@
 //
-//  AudioEpisodeViewController.h
+//  VideoEpisodeViewController.h
 //  test1
 //
-//  Created by Adrien Humilière on 26/05/12.
+//  Created by Adrien Humilière on 31/05/12.
 //  Copyright (c) 2012 home. All rights reserved.
 //
 
@@ -13,8 +13,7 @@
 #import "AsynchronousUIImage.h"
 @class PlayerView;
 
-@interface AudioEpisodeViewController : UIViewController <AsynchronousUIImageDelegate> {
-	IBOutlet UIImageView *jacquette;
+@interface VideoEpisodeViewController : UIViewController <AsynchronousUIImageDelegate> {
 	IBOutlet UILabel *nom;
 	IBOutlet UIButton *play;
 	IBOutlet UIButton *pause;
@@ -27,14 +26,14 @@
 	IBOutlet UINavigationBar *navBar;
 	NSTimer *timer;
 	BOOL isShowingLandscapeView;
-	IBOutlet UIView *freeze;
-	IBOutlet UIView *howTo;
+	IBOutlet PlayerView *playerView;
+	IBOutlet UIButton *infos;
 }
 
 @property AVPlayer *audioPlayer;
 @property NSTimer *timer;
+@property BOOL isShowingLandscapeView;
 
-@property (nonatomic, retain) IBOutlet UIImageView *jacquette;
 @property (nonatomic, retain) IBOutlet UILabel *nom;
 @property (nonatomic, retain) IBOutlet UIButton *play;
 @property (nonatomic, retain) IBOutlet UIButton *pause;
@@ -45,8 +44,8 @@
 @property (nonatomic, retain) IBOutlet UIScrollView *descriptionScrollView;
 @property (nonatomic, retain) IBOutlet UILabel *date;
 @property (nonatomic, retain) IBOutlet UINavigationBar *navBar;
-@property (strong, nonatomic) IBOutlet UIView *freeze;
-@property (strong, nonatomic) IBOutlet UIView *howTo;
+@property (strong, nonatomic) IBOutlet PlayerView *playerView;
+@property (strong, nonatomic) IBOutlet UIButton *infos;
 
 @property (strong, nonatomic) id episode;
 

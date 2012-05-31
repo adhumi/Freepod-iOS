@@ -13,6 +13,7 @@
 #import "Episode.h"
 
 #import "AudioEpisodeViewController.h"
+#import "VideoEpisodeViewController.h"
 #import "EpisodeControllerJacquetteDownloader.h"
 #import "EpisodeCell.h"
 
@@ -191,13 +192,24 @@ extern Episode *readingEpisode;
 // AFFICHE LE PLAYER
 - (void)displayPlayer:(id)sender
 {
-	AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
-	
-	audioViewController.episode = readingEpisode;
-	audioViewController.precedentView = self.view;
-	
-	audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-	[self presentModalViewController:audioViewController animated:YES];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	if ([readingEpisode isVideo]) {
+		NSLog(@"VideoEpisodeViewController");
+		VideoEpisodeViewController *videoViewController = [[VideoEpisodeViewController alloc]initWithNibName:@"VideoEpisodeViewController" bundle:nil];
+		
+		videoViewController.episode = readingEpisode;
+		
+		videoViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+		[self presentModalViewController:videoViewController animated:YES];
+	} else {
+		NSLog(@"AudioEpisodeViewController");
+		AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
+		
+		audioViewController.episode = readingEpisode;
+		
+		audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+		[self presentModalViewController:audioViewController animated:YES];
+	}
 }
 
 - (void)jacquetteEpisodeDidLoad:(NSIndexPath *)indexPath

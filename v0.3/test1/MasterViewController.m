@@ -15,6 +15,7 @@
 #import "Episode.h"
 
 #import "AudioEpisodeViewController.h"
+#import "VideoEpisodeViewController.h"
 #import "EpisodesRecentsViewController.h"
 
 #import "JacquetteDownloader.h"
@@ -103,13 +104,6 @@ extern Episode *readingEpisode;
 		[self addPullToRefreshHeader];
 	}
 	
-//	if (!_objects) {
-//		_objects = [[NSMutableArray alloc] init];
-//	}
-//	[_objects insertObject:[[EpisodesRecentsViewController alloc] init] atIndex:0];
-//	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//	
 	self.tableView.rowHeight = 80;
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -129,13 +123,24 @@ extern Episode *readingEpisode;
 // AFFICHE LE PLAYER
 - (void)displayPlayer:(id)sender
 {
-	AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
-	
-	audioViewController.episode = readingEpisode;
-	audioViewController.precedentView = self.view;
-	
-	audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-	[self presentModalViewController:audioViewController animated:YES];
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	if ([readingEpisode isVideo]) {
+		NSLog(@"VideoEpisodeViewController");
+		VideoEpisodeViewController *videoViewController = [[VideoEpisodeViewController alloc]initWithNibName:@"VideoEpisodeViewController" bundle:nil];
+		
+		videoViewController.episode = readingEpisode;
+		
+		videoViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+		[self presentModalViewController:videoViewController animated:YES];
+	} else {
+		NSLog(@"AudioEpisodeViewController");
+		AudioEpisodeViewController *audioViewController = [[AudioEpisodeViewController alloc]initWithNibName:@"AudioEpisodeViewController" bundle:nil];
+		
+		audioViewController.episode = readingEpisode;
+		
+		audioViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+		[self presentModalViewController:audioViewController animated:YES];
+	}
 }
 
 #pragma mark - Table View
