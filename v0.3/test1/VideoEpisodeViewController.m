@@ -39,6 +39,7 @@
 @synthesize navBar = _navBar;
 @synthesize playerView = _playerView;
 @synthesize infos = _infos;
+@synthesize activity = _activity;
 @synthesize isShowingLandscapeView;
 
 extern AVPlayer *audioPlayer;
@@ -66,11 +67,8 @@ extern Episode *readingEpisode;
     return self;
 }
 
-- (void)viewDidLoad
-{
-	
-	
-    [super viewDidLoad];
+- (void)viewDidLoad {
+	[super viewDidLoad];
 	
 	isShowingLandscapeView = NO;
 	
@@ -89,13 +87,14 @@ extern Episode *readingEpisode;
 	self.tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesDef,secondsDef];
 	
 	self.descriptionLabel.text = [_episode getDescription];
-	
 	self.date.text = [_episode formattedPubDate];
+	
 	_nom.text = [_episode title];
 	
+	// Mise en place du timer
+	timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+	
 	if (audioPlayer.rate > 0.5) {
-		timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
-		
 		CMTime duration = audioPlayer.currentTime; 
 		float seconds = CMTimeGetSeconds(duration); 
 		int minutesDef = lroundf(seconds) / 60;
@@ -117,7 +116,6 @@ extern Episode *readingEpisode;
     [self.navBar addGestureRecognizer:recognizer];
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	// TODO : AJOUTER UNE ALERTE SI LE FICHIER N'EST PAS ACCESSIBLE
 	
 	[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
 	[self becomeFirstResponder];
@@ -129,6 +127,8 @@ extern Episode *readingEpisode;
 	NSLog(@"avant setPlayer");
 	NSLog(@"%@", [playerView class]);
 	[self.playerView setPlayer:audioPlayer];
+	
+	[self refreshPlayButton];
 }
 
 - (BOOL)canBecomeFirstResponder {
@@ -169,6 +169,8 @@ extern Episode *readingEpisode;
 	[self setPlayerView:nil];
 	infos = nil;
 	[self setInfos:nil];
+	activity = nil;
+	[self setActivity:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -183,11 +185,10 @@ extern Episode *readingEpisode;
 - (IBAction)playEpisode:(id)sender {
 	NSLog(@"Démarrage de la lecture de %@",[_episode urlSource]);
 	
-	timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+	timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
 	
 	[audioPlayer play];
-	[self.play setHidden:YES];
-	[self.pause setHidden:NO];
+	[self refreshPlayButton];
 }
 
 - (IBAction)pauseEpisode:(id)sender {
@@ -199,7 +200,9 @@ extern Episode *readingEpisode;
 
 - (IBAction)goToTime:(id)sender {
 	CMTime t = CMTimeMakeWithSeconds(self.avancement.value, 1);
-	[self.audioPlayer seekToTime:t]; 
+	[audioPlayer seekToTime:t]; 
+	[self updateSlider];
+	[self refreshPlayButton];
 }
 
 - (IBAction)getDetails:(id)sender {
@@ -211,7 +214,27 @@ extern Episode *readingEpisode;
 }
 
 - (IBAction)goBack:(id)sender {
+	[timer invalidate];
 	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (void) refreshPlayButton {
+	if (audioPlayer.status != AVPlayerStatusUnknown) {
+		if (audioPlayer.rate > 0) {
+			_play.hidden = YES;
+			_pause.hidden = NO;
+			_activity.hidden = YES;
+		} else {
+			_play.hidden = NO;
+			_pause.hidden = YES;
+			_activity.hidden = YES;
+			[timer invalidate];
+		}
+	} else {
+		_play.hidden = YES;
+		_pause.hidden = YES;
+		activity.hidden = NO;
+	}
 }
 
 - (void)updateSlider {
@@ -223,24 +246,29 @@ extern Episode *readingEpisode;
 	self.tpsEcoule.text = [NSString stringWithFormat:@"%02d:%02d",minutesDef,secondsDef];
 	
 	int secRest = [_episode getDurationInSeconds] - seconds;
-	if (secRest <= 0 || secRest == NAN || seconds == NAN) {
+	if (secRest < 0 || secRest == NAN || seconds == NAN) {
 		self.tpsRestant.text = @"";
 	} else {
 		int minutesRest = secRest / 60;
 		int secondsRest = secRest - (minutesRest * 60);
 		self.tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesRest,secondsRest];
 	}
+	
+	[self refreshPlayButton];
 }
 
 //// Stop the timer when the music is finished (Need to implement the AVAudioPlayerDelegate in the Controller header)
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
 	// Music completed
+	[self refreshPlayButton];
+	CMTime t = CMTimeMakeWithSeconds(0, 1);
+	[audioPlayer seekToTime:t]; 
+	[self updateSlider];
 	if (flag) {
 		[timer invalidate];
-		[self.play setHidden:NO];
-		[self.pause setHidden:YES];
 	}
 }
+
 - (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
 	NSLog(@"Changement d'orientation");
     UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;

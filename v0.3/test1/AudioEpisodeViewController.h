@@ -26,9 +26,9 @@
 	IBOutlet UILabel *date;
 	IBOutlet UINavigationBar *navBar;
 	NSTimer *timer;
-	BOOL isShowingLandscapeView;
 	IBOutlet UIView *freeze;
 	IBOutlet UIView *howTo;
+	IBOutlet UIActivityIndicatorView *activity;
 }
 
 @property AVPlayer *audioPlayer;
@@ -47,6 +47,7 @@
 @property (nonatomic, retain) IBOutlet UINavigationBar *navBar;
 @property (strong, nonatomic) IBOutlet UIView *freeze;
 @property (strong, nonatomic) IBOutlet UIView *howTo;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 
 @property (strong, nonatomic) id episode;
 

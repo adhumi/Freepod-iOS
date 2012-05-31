@@ -39,6 +39,7 @@
 @synthesize navBar = _navBar;
 @synthesize freeze = _freeze;
 @synthesize howTo = _howTo;
+@synthesize activity = _activity;
 
 extern AVPlayer *audioPlayer;
 extern Episode *readingEpisode;
@@ -67,44 +68,49 @@ extern Episode *readingEpisode;
 
 - (void)viewDidLoad
 {
-	
-	
     [super viewDidLoad];
 	
+	// Si l'épisode en cours de lecture n'est pas celui qu'on affiche
 	if (_episode != readingEpisode) {
 		NSURL *urlFile = [NSURL URLWithString:[_episode urlSource]];
 		audioPlayer = [AVPlayer playerWithURL:urlFile];
 		readingEpisode = _episode;
 	}
 	
+	// On récupère les données de l'épisode
 	_episode = readingEpisode;
 	
-	//NSLog(@"http://webserv.freepod.net/get-img-episode.php?id=%d&nom=image&width=%d", [_episode idEpisode], 640);
-	
+	// Récupération de la jacquette (asynchrone)
 	AsynchronousUIImage *image = [[AsynchronousUIImage alloc] init];
 	[image loadImageFromURL: [NSString stringWithFormat:@"http://webserv.freepod.net/get-img-episode.php?id=%d&nom=image&width=%d", [_episode idEpisode], 640] ];
 	image.tag = 2;
 	image.delegate = self;
 	
-	if (_episode != nil) {
-		_freeze.hidden = YES;
-		_howTo.hidden = YES;
-	}
-	
+	// Réglage du Slider
 	self.avancement.maximumValue = [_episode getDurationInSeconds];
 	
+	// Indication du temps de lecture restant
 	int minutesDef = [_episode getDurationInSeconds] / 60;
 	int secondsDef = [_episode getDurationInSeconds] - (minutesDef * 60);
 	self.tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesDef,secondsDef];
 	
+	// Remplissage de la description
 	self.descriptionLabel.text = [_episode getDescription];
-	
 	self.date.text = [_episode formattedPubDate];
+	
+	// Remplissage du nom de l'épisode
 	_nom.text = [_episode title];
 	
-	if (audioPlayer.rate > 0.5) {
-		timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+	// Masquer l'avertissement si le player est instancié
+	if (_episode != nil) {
+		_freeze.hidden = YES;
+		_howTo.hidden = YES;
 		
+		// Mise en place du timer
+		timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+	}
+	
+	if (audioPlayer.rate > 0.5) {
 		CMTime duration = audioPlayer.currentTime; 
 		float seconds = CMTimeGetSeconds(duration); 
 		int minutesDef = lroundf(seconds) / 60;
@@ -116,9 +122,6 @@ extern Episode *readingEpisode;
 		int minutesRest = secRest / 60;
 		int secondsRest = secRest - (minutesRest * 60);
 		self.tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesRest,secondsRest];
-		
-		[self.play setHidden:YES];
-		[self.pause setHidden:NO];
 	}
 	
 	UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBack:)];
@@ -126,7 +129,8 @@ extern Episode *readingEpisode;
     [self.navBar addGestureRecognizer:recognizer];
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	// TODO : AJOUTER UNE ALERTE SI LE FICHIER N'EST PAS ACCESSIBLE
+	
+	[self refreshPlayButton];
 	
 	[[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
 	[self becomeFirstResponder];
@@ -171,6 +175,8 @@ extern Episode *readingEpisode;
 	[self setFreeze:nil];
 	howTo = nil;
 	[self setHowTo:nil];
+	activity = nil;
+	[self setActivity:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -185,23 +191,43 @@ extern Episode *readingEpisode;
 - (IBAction)playEpisode:(id)sender {
 	NSLog(@"Démarrage de la lecture de %@",[_episode urlSource]);
 	
-	timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
+	timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
 	
 	[audioPlayer play];
-	[self.play setHidden:YES];
-	[self.pause setHidden:NO];
+	
+	[self refreshPlayButton];
 }
 
 - (IBAction)pauseEpisode:(id)sender {
 	[audioPlayer pause];
 	[timer invalidate];
-	[self.play setHidden:NO];
-	[self.pause setHidden:YES];
+	[self refreshPlayButton];
 }
 
 - (IBAction)goToTime:(id)sender {
 	CMTime t = CMTimeMakeWithSeconds(self.avancement.value, 1);
-	[self.audioPlayer seekToTime:t]; 
+	[audioPlayer seekToTime:t]; 
+	[self updateSlider];
+	[self refreshPlayButton];
+}
+
+- (void) refreshPlayButton {
+	if (audioPlayer.status != AVPlayerStatusUnknown) {
+		if (audioPlayer.rate > 0) {
+			_play.hidden = YES;
+			_pause.hidden = NO;
+			_activity.hidden = YES;
+		} else {
+			_play.hidden = NO;
+			_pause.hidden = YES;
+			_activity.hidden = YES;
+			[timer invalidate];
+		}
+	} else {
+		_play.hidden = YES;
+		_pause.hidden = YES;
+		activity.hidden = NO;
+	}
 }
 
 - (IBAction)getDetails:(id)sender {
@@ -213,6 +239,7 @@ extern Episode *readingEpisode;
 }
 
 - (IBAction)goBack:(id)sender {
+	[timer invalidate];
 	[self dismissModalViewControllerAnimated:YES];
 }
 
@@ -232,6 +259,8 @@ extern Episode *readingEpisode;
 		int secondsRest = secRest - (minutesRest * 60);
 		self.tpsRestant.text = [NSString stringWithFormat:@"- %02d:%02d",minutesRest,secondsRest];
 	}
+	
+	[self refreshPlayButton];
 }
 
 -(void) imageDidLoad:(AsynchronousUIImage *)anImage {
@@ -243,11 +272,13 @@ extern Episode *readingEpisode;
 //// Stop the timer when the music is finished (Need to implement the AVAudioPlayerDelegate in the Controller header)
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
 	// Music completed
+	[self refreshPlayButton];
+	CMTime t = CMTimeMakeWithSeconds(0, 1);
+	[audioPlayer seekToTime:t]; 
+	[self updateSlider];
 	if (flag) {
 		[timer invalidate];
-		[self.play setHidden:NO];
-		[self.pause setHidden:YES];
-	}
+	} 
 }
 
 

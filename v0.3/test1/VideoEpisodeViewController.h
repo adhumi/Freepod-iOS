@@ -28,6 +28,7 @@
 	BOOL isShowingLandscapeView;
 	IBOutlet PlayerView *playerView;
 	IBOutlet UIButton *infos;
+	IBOutlet UIActivityIndicatorView *activity;
 }
 
 @property AVPlayer *audioPlayer;
@@ -46,6 +47,7 @@
 @property (nonatomic, retain) IBOutlet UINavigationBar *navBar;
 @property (strong, nonatomic) IBOutlet PlayerView *playerView;
 @property (strong, nonatomic) IBOutlet UIButton *infos;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 
 @property (strong, nonatomic) id episode;
 

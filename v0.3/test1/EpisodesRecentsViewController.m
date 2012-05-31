@@ -76,7 +76,7 @@ extern Episode *readingEpisode;
 	
 	// Récupération de la liste des épisodes
 	SBJsonParser* parser = [[SBJsonParser alloc] init];
-	NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://webserv.freepod.net/get.php?episode_recent=15"]]];
+	NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://webserv.freepod.net/get.php?episode_recent=25"]]];
 	NSData* response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 	NSString* jsonString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
 	NSArray* episodes = [parser objectWithString:jsonString error:nil];

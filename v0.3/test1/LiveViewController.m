@@ -7,6 +7,7 @@
 //
 
 #import "LiveViewController.h"
+#import "Episode.h"
 
 @interface LiveViewController ()
 
@@ -15,7 +16,12 @@
 @implementation LiveViewController
 @synthesize onOffAir;
 @synthesize navBar;
-@synthesize livePlayer;
+@synthesize playPause;
+@synthesize timer;
+@synthesize audioPlayer = _audioPlayer;
+
+extern AVPlayer *audioPlayer;
+extern Episode *readingEpisode;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,12 +43,12 @@
 	logo.tag = 42;
 	[navBar addSubview:logo];
 	
-	NSString *radioURL = @"http://radio.podradio.fr:8000/adsl.m3u";
-	livePlayer = [AVPlayer playerWithURL:[NSURL URLWithString:radioURL]];
+	NSURL *urlFile = [NSURL URLWithString:@"http://radio.podradio.fr:8000/adsl.m3u"];
+	audioPlayer = [AVPlayer playerWithURL:urlFile];
 	
-	if (livePlayer.status != AVPlayerStatusFailed) {
-		onOffAir.image = [UIImage imageNamed:@"on_air.png"];
-	}
+	timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkStatus) userInfo:nil repeats:YES];
+	
+	readingEpisode = nil;
 }
 
 - (void)viewDidUnload
@@ -51,6 +57,8 @@
     onOffAir = nil;
     navBar = nil;
     [self setNavBar:nil];
+	playPause = nil;
+	[self setPlayPause:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -62,10 +70,21 @@
 }
 
 - (IBAction)goLive:(id)sender {
-	if (livePlayer.rate > 0.5) {
-		[livePlayer pause];
+	if (audioPlayer.rate > 0.5) {
+		[audioPlayer pause];
 	} else {
-		[livePlayer play];
+		[audioPlayer play];
+	}
+}
+
+- (void) checkStatus {
+	if (self.isViewLoaded && self.view.window) {
+		NSLog(@"LIVE ACTIVE");
+	}
+	
+	if (audioPlayer.status !=  AVPlayerStatusUnknown && audioPlayer.status !=  AVPlayerStatusFailed) {
+		onOffAir.image = [UIImage imageNamed:@"on_air.png"];
+		playPause.hidden = NO;
 	}
 }
 @end
