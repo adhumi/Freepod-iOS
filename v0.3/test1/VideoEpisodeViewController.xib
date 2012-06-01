@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1296</int>
+		<int key="IBDocument.SystemTarget">1280</int>
 		<string key="IBDocument.SystemVersion">11D50b</string>
 		<string key="IBDocument.InterfaceBuilderVersion">2182</string>
 		<string key="IBDocument.AppKitVersion">1138.32</string>
@@ -376,7 +376,7 @@
 							<object class="IBUINavigationItem" id="332395859">
 								<reference key="IBUINavigationBar" ref="255514716"/>
 								<string key="IBUITitle"/>
-								<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="608398990">
+								<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="53639236">
 									<int key="IBUITag">1</int>
 									<object class="NSCustomResource" key="IBUIImage">
 										<string key="NSClassName">NSImage</string>
@@ -546,7 +546,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">tweet</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="608398990"/>
+						<reference key="destination" ref="53639236"/>
 					</object>
 					<int key="connectionID">83</int>
 				</object>
@@ -558,6 +558,15 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">77</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">goToTime:</string>
+						<reference key="source" ref="916177639"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">13</int>
+					</object>
+					<int key="connectionID">85</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -605,7 +614,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">sendTweet:</string>
-						<reference key="source" ref="608398990"/>
+						<reference key="source" ref="53639236"/>
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">84</int>
@@ -715,7 +724,7 @@
 						<reference key="object" ref="332395859"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="73699295"/>
-							<reference ref="608398990"/>
+							<reference ref="53639236"/>
 						</array>
 						<reference key="parent" ref="255514716"/>
 					</object>
@@ -741,7 +750,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">81</int>
-						<reference key="object" ref="608398990"/>
+						<reference key="object" ref="53639236"/>
 						<reference key="parent" ref="332395859"/>
 					</object>
 				</array>
@@ -777,7 +786,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">84</int>
+			<int key="maxID">85</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -909,10 +918,6 @@
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1296" key="NS.object.0"/>
-		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">

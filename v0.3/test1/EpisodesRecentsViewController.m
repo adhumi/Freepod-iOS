@@ -80,10 +80,11 @@ extern Episode *readingEpisode;
 	NSData* response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 	NSString* jsonString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
 	NSArray* episodes = [parser objectWithString:jsonString error:nil];
+	int i = 0;
 	
 	for (NSDictionary* episode in episodes) {
 		Episode *newEpisode = [[Episode alloc] init];
-		NSLog(@"%@",[episode objectForKey:@"title"]);
+		NSLog(@"AtIndex:%d -- %@",i,[episode objectForKey:@"title"]);
 		
 		[newEpisode setIdEpisode:[[episode objectForKey:@"id"] intValue]];
 		[newEpisode setIdPodcast:[[episode objectForKey:@"id_podcast"] intValue]];
@@ -101,7 +102,8 @@ extern Episode *readingEpisode;
 		if (!_objects) {
 			_objects = [[NSMutableArray alloc] init];
 		}
-		[_objects addObject:newEpisode];
+		[_objects insertObject:newEpisode atIndex:i];
+		i++;
 	}
 	
 	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -384,40 +386,41 @@ extern Episode *readingEpisode;
 	//_objects = [[NSMutableArray alloc] init];
 	//[_objects removeAllObjects];
 	
-//	// Récupération de la liste des épisodes
-//	SBJsonParser* parser = [[SBJsonParser alloc] init];
-//	NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://webserv.freepod.net/get.php?episode_recent=15"]]];
-//	NSData* response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-//	NSString* jsonString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
-//	NSArray* episodes = [parser objectWithString:jsonString error:nil];
-//	
-//	for (NSDictionary* episode in episodes) {
-//		Episode *newEpisode = [[Episode alloc] init];
-//		NSLog(@"%@",[episode objectForKey:@"title"]);
-//		
-//		[newEpisode setIdEpisode:[[episode objectForKey:@"id"] intValue]];
-//		[newEpisode setIdPodcast:[[episode objectForKey:@"id_podcast"] intValue]];
-//		[newEpisode setTitle:[episode objectForKey:@"title"]];
-//		[newEpisode setURL:[episode objectForKey:@"url"]];
-//		[newEpisode setType:[episode objectForKey:@"type"]];
-//		[newEpisode setDescription:[episode objectForKey:@"description"]];
-//		[newEpisode setAuthor:[episode objectForKey:@"author"]];
-//		[newEpisode setExplicite:[episode objectForKey:@"explicite"]];
-//		[newEpisode setDuration:[episode objectForKey:@"duration"]];
-//		[newEpisode setImage:[episode objectForKey:@"newImage"]];
-//		[newEpisode setKeywords:[episode objectForKey:@"keywords"]];
-//		[newEpisode setLastUpdateFromString:[episode objectForKey:@"pubDate"]];
-//		
-//		if (!_objects) {
-//			_objects = [[NSMutableArray alloc] init];
-//		}
-//		[_objects addObject:newEpisode];
-//		
-//	}
-//	NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-//	
-//	//[self.tableView reloadData];
+	// Récupération de la liste des épisodes
+	SBJsonParser* parser = [[SBJsonParser alloc] init];
+	NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://webserv.freepod.net/get.php?episode_recent=25"]]];
+	NSData* response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+	NSString* jsonString = [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding];
+	NSArray* episodes = [parser objectWithString:jsonString error:nil];
+	
+	int i = 0;
+	
+	for (NSDictionary* episode in episodes) {
+		Episode *newEpisode = [[Episode alloc] init];
+		NSLog(@"AtIndex:%d -- %@",i,[episode objectForKey:@"title"]);
+	
+		[newEpisode setIdEpisode:[[episode objectForKey:@"id"] intValue]];
+		[newEpisode setIdPodcast:[[episode objectForKey:@"id_podcast"] intValue]];
+		[newEpisode setTitle:[episode objectForKey:@"title"]];
+		[newEpisode setURL:[episode objectForKey:@"url"]];
+		[newEpisode setType:[episode objectForKey:@"type"]];
+		[newEpisode setDescription:[episode objectForKey:@"description"]];
+		[newEpisode setAuthor:[episode objectForKey:@"author"]];
+		[newEpisode setExplicite:[episode objectForKey:@"explicite"]];
+		[newEpisode setDuration:[episode objectForKey:@"duration"]];
+		[newEpisode setImage:[episode objectForKey:@"newImage"]];
+		[newEpisode setKeywords:[episode objectForKey:@"keywords"]];
+		[newEpisode setLastUpdateFromString:[episode objectForKey:@"pubDate"]];
+		
+		if (!_objects) {
+			_objects = [[NSMutableArray alloc] init];
+		}
+		[_objects replaceObjectAtIndex:i withObject:newEpisode];
+		i++;
+	}
+	
+	
+	[self.tableView reloadData];
 }
 
 @end
