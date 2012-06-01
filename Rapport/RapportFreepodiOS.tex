@@ -186,7 +186,7 @@ Il permettra également de répondre à certains besoins de Freepod pour partage
 \begin{figure}[!h]
 	\begin{center}
 	\includegraphics[width=8cm]{schema_webserv.png}
-	\caption{\small{Schéma explicatif du fonctionnement du Web Service. Il récupère le contenu des fichiers XML des différents podcasts et les applications se connectent à lui pour récupérer les données.}} \label{entiteAssoc}
+	\caption{\small{Schéma explicatif du fonctionnement du Web Service. Il récupère le contenu des fichiers XML des différents podcasts et les applications se connectent à lui pour récupérer les données.}} \label{webserv}
 	\end{center}
 \end{figure}
 
@@ -205,11 +205,42 @@ Parallèlement à ces tables "fondamentales", nous devrons gérer les logins et 
 
 \subsection{Application iOS}
 
-Diagramme de classe
+Sur la plate-forme iOS, plus encore que sur d'autres systèmes, l'expérience utilisateur joue un rôle primordiale. La qualité du système conçu par Apple depuis 2007 et la très forte concurrence entre les applications sur l'App Store (500 000 applications disponibles, plus de 25 milliards d'applications téléchargées) font que les utilisateurs ne s'attardent pas sur une application mal conçue, lente, buggée ou dont l'ergonomie ne répond pas aux canons d'iOS.
 
-IHM
+\subsubsection{Conception}
 
-Fonctionnement 
+Comme indiqué plus haut, l'application Freepod pour iOS aura pour vocation essentielle l'écoute des émissions produites par l'association. Pour la première étape de développement de cette application que constitue ce projet, j'ai choisi de me concentrer sur cette fonctionnalité et de ne développer les autres que si le temps le permet.
+
+Une des premières étapes du projet a donc été de concevoir un diagramme de classe simplifié, qui serve de point d'appui pour le développement de l'application. De la même manière que l'architecture du web-service, celle de ce projet est relativement simple.
+
+\begin{figure}[!h]
+	\begin{center}
+	\includegraphics[width=8cm]{diag_class.png}
+	\caption{\small{Diagramme de classes pour l'application Freepod iOS. \textit{Elaboré avant le début du développement de l'application.}}} \label{classes}
+	\end{center}
+\end{figure}
+
+\subsubsection{Interfaces Homme-Machine}
+
+Les interfaces homme-machine sont une des clés du développement sur iOS. Apple apporte d'ailleurs une attention particulière à ce que les développeurs respectent ses \textit{iOS Human Interface Guidelines} puisqu'il s'agit de l'un des principaux critères de validation des applications avant publication sur l'App Store qui permet de les distribuer.
+
+J'ai donc dessiné une série de schémas de ma vision de l'application que j'ai pu soumettre aux membres de l'association pour obtenir leurs avis. En me basant sur ces retours, j'ai pu préparer les IHM présentées ci-contre, qui constituent les objectifs de design et d'interaction de l'application
+
+\begin{figure}[!h]
+	\begin{center}
+	\includegraphics[width=12cm]{ihm_tableviews.png}
+	\caption{\small{Interfaces homme-machine pour les principales vues de l'application Freepod. \textit{A gauche :} Interface pour la vue "Podcasts" qui liste l'ensemble des podcasts de l'application. \textit{A droite :} Interface pour la vue "Episodes" qui liste l'ensemble des épisodes pour un podcast donné.}} \label{classes}
+	\end{center}
+\end{figure}
+
+\begin{figure}[!h]
+	\begin{center}
+	\includegraphics[width=5.6cm]{ihm_player.png}
+	\caption{\small{Interfaces homme-machine pour les principales vues de l'application Freepod. \textit{Ici :} Interface pour la vue "Player" qui affiche l'illustration d'un épisode et permet de contrôler la lecture.}} \label{classes}
+	\end{center}
+\end{figure}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%			Le SDK iOS et Objective-C
