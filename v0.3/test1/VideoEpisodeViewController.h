@@ -29,6 +29,7 @@
 	IBOutlet PlayerView *playerView;
 	IBOutlet UIButton *infos;
 	IBOutlet UIActivityIndicatorView *activity;
+	IBOutlet UIBarButtonItem *tweet;
 }
 
 @property AVPlayer *audioPlayer;
@@ -48,6 +49,7 @@
 @property (strong, nonatomic) IBOutlet PlayerView *playerView;
 @property (strong, nonatomic) IBOutlet UIButton *infos;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activity;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *tweet;
 
 @property (strong, nonatomic) id episode;
 
@@ -58,5 +60,6 @@
 - (IBAction)goToTime:(id)sender;
 - (IBAction)getDetails:(id)sender;
 - (IBAction)goBack:(id)sender;
+- (IBAction)sendTweet:(id)sender;
 
 @end

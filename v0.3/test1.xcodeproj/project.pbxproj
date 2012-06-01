@@ -34,6 +34,9 @@
 		A60B2CA415777182003C0255 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B2CA315777182003C0255 /* PlayerView.m */; };
 		A60B2CA615778623003C0255 /* VideoEpisodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A60B2CA515778623003C0255 /* VideoEpisodeViewController.xib */; };
 		A60B2CAD15778704003C0255 /* VideoEpisodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B2CAC15778704003C0255 /* VideoEpisodeViewController.m */; };
+		A67297C91578100600855BB4 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67297C81578100600855BB4 /* Twitter.framework */; };
+		A67297CD157812DE00855BB4 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = A67297CB157812DE00855BB4 /* twitter.png */; };
+		A67297CE157812DE00855BB4 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67297CC157812DE00855BB4 /* twitter@2x.png */; };
 		A680904815758DA3002FBE14 /* banner_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A680904715758DA3002FBE14 /* banner_default.png */; };
 		A68090571575A3B3002FBE14 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B42E156D76970033D45A /* NSObject+SBJson.m */; };
 		A68090581575A3B3002FBE14 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A607B431156D76970033D45A /* SBJsonParser.m */; };
@@ -152,6 +155,9 @@
 		A60B2CA515778623003C0255 /* VideoEpisodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoEpisodeViewController.xib; sourceTree = "<group>"; };
 		A60B2CAB15778704003C0255 /* VideoEpisodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoEpisodeViewController.h; sourceTree = "<group>"; };
 		A60B2CAC15778704003C0255 /* VideoEpisodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoEpisodeViewController.m; sourceTree = "<group>"; };
+		A67297C81578100600855BB4 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		A67297CB157812DE00855BB4 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		A67297CC157812DE00855BB4 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
 		A680903F1575834D002FBE14 /* AsynchronousUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsynchronousUIImage.h; sourceTree = "<group>"; };
 		A68090401575834D002FBE14 /* AsynchronousUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsynchronousUIImage.m; sourceTree = "<group>"; };
 		A680904715758DA3002FBE14 /* banner_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_default.png; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A67297C91578100600855BB4 /* Twitter.framework in Frameworks */,
 				A6CFB8AB15763766009DB624 /* MediaPlayer.framework in Frameworks */,
 				A680907915762E2A002FBE14 /* AudioToolbox.framework in Frameworks */,
 				A68090731575A3DC002FBE14 /* QuartzCore.framework in Frameworks */,
@@ -196,6 +203,8 @@
 		A603C31A1574B6350067B1CD /* img */ = {
 			isa = PBXGroup;
 			children = (
+				A67297CB157812DE00855BB4 /* twitter.png */,
+				A67297CC157812DE00855BB4 /* twitter@2x.png */,
 				A60B2C98157695E4003C0255 /* Chats.png */,
 				A60B2C99157695E4003C0255 /* Clock.png */,
 				A60B2C9E1576963F003C0255 /* Radio-Tower.png */,
@@ -265,6 +274,7 @@
 		A607B36E156AD9240033D45A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A67297C81578100600855BB4 /* Twitter.framework */,
 				A6CFB8AA15763766009DB624 /* MediaPlayer.framework */,
 				A680907815762E2A002FBE14 /* AudioToolbox.framework */,
 				A68090721575A3DC002FBE14 /* QuartzCore.framework */,
@@ -447,6 +457,8 @@
 				A60B2C9D157695E4003C0255 /* Radio-Tower@2x.png in Resources */,
 				A60B2C9F1576963F003C0255 /* Radio-Tower.png in Resources */,
 				A60B2CA615778623003C0255 /* VideoEpisodeViewController.xib in Resources */,
+				A67297CD157812DE00855BB4 /* twitter.png in Resources */,
+				A67297CE157812DE00855BB4 /* twitter@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

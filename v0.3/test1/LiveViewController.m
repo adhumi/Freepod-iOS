@@ -8,6 +8,7 @@
 
 #import "LiveViewController.h"
 #import "Episode.h"
+#import <Twitter/Twitter.h>
 
 @interface LiveViewController ()
 
@@ -17,6 +18,7 @@
 @synthesize onOffAir;
 @synthesize navBar;
 @synthesize playPause;
+@synthesize tweet;
 @synthesize timer;
 @synthesize audioPlayer = _audioPlayer;
 
@@ -59,6 +61,8 @@ extern Episode *readingEpisode;
     [self setNavBar:nil];
 	playPause = nil;
 	[self setPlayPause:nil];
+    tweet = nil;
+    [self setTweet:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -75,6 +79,38 @@ extern Episode *readingEpisode;
 	} else {
 		[audioPlayer play];
 	}
+}
+
+- (IBAction)sendTweet:(id)sender {
+	// Create the view controller
+	TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
+	
+	// Optional: set an image, url and initial text
+	//[twitter addImage:[UIImage imageNamed:@"iOSDevTips.png"]];
+	[twitter addURL:[NSURL URLWithString:[NSString stringWithString:@"http://www.freepod.net"]]];
+	[twitter setInitialText:@"Merci de ne pas abuser de cette fonction avant publication officielle"];
+	
+	// Show the controller
+	[self presentModalViewController:twitter animated:YES];
+	
+	// Called when the tweet dialog has been closed
+	twitter.completionHandler = ^(TWTweetComposeViewControllerResult result) 
+	{
+		NSString *title = @"Twitter";
+		NSString *msg; 
+		
+		if (result == TWTweetComposeViewControllerResultCancelled)
+			msg = @"L'écriture du tweet a été annulée.";
+		else if (result == TWTweetComposeViewControllerResultDone)
+			msg = @"Tweet correctement publié !.";
+		
+		// Show alert to see how things went...
+		UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[alertView show];
+		
+		// Dismiss the controller
+		[self dismissModalViewControllerAnimated:YES];
+	};
 }
 
 - (void) checkStatus {

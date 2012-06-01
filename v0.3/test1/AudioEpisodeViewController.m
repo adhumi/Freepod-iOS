@@ -12,6 +12,7 @@
 
 #import <MediaPlayer/MPNowPlayingInfoCenter.h>
 #import <MediaPlayer/MPMediaItem.h>
+#import <Twitter/Twitter.h>
 
 #import "PlayerView.h"
 
@@ -40,6 +41,7 @@
 @synthesize freeze = _freeze;
 @synthesize howTo = _howTo;
 @synthesize activity = _activity;
+@synthesize tweet = _tweet;
 
 extern AVPlayer *audioPlayer;
 extern Episode *readingEpisode;
@@ -105,7 +107,7 @@ extern Episode *readingEpisode;
 	if (_episode != nil) {
 		_freeze.hidden = YES;
 		_howTo.hidden = YES;
-		
+		_tweet.enabled = YES;
 		// Mise en place du timer
 		timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateSlider) userInfo:nil repeats:YES];
 	}
@@ -177,6 +179,8 @@ extern Episode *readingEpisode;
 	[self setHowTo:nil];
 	activity = nil;
 	[self setActivity:nil];
+	tweet = nil;
+	[self setTweet:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -241,6 +245,44 @@ extern Episode *readingEpisode;
 - (IBAction)goBack:(id)sender {
 	[timer invalidate];
 	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)sendTweet:(id)sender {
+	if (NSClassFromString(@"TWTweetComposeViewController")) {
+	// Create the view controller
+	TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
+	
+	// Optional: set an image, url and initial text
+	//[twitter addImage:[UIImage imageNamed:@"iOSDevTips.png"]];
+	[twitter addURL:[NSURL URLWithString:[NSString stringWithString:@"http://www.freepod.net"]]];
+	[twitter setInitialText:@"Merci de ne pas abuser de cette fonction avant publication officielle"];
+	
+	// Show the controller
+	[self presentModalViewController:twitter animated:YES];
+	
+	// Called when the tweet dialog has been closed
+	twitter.completionHandler = ^(TWTweetComposeViewControllerResult result) 
+	{
+		NSString *title = @"Twitter";
+		NSString *msg; 
+		
+		if (result == TWTweetComposeViewControllerResultCancelled)
+			msg = @"L'écriture du tweet a été annulée.";
+		else if (result == TWTweetComposeViewControllerResultDone)
+			msg = @"Tweet correctement publié !.";
+		
+		// Show alert to see how things went...
+		UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[alertView show];
+		
+		// Dismiss the controller
+		[self dismissModalViewControllerAnimated:YES];
+	};
+	} else {
+		// Show alert to see how things went...
+		UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Erreur" message:@"Le partage sur Twitter n'est disponible qu'à partir d'iOS 5. Mettez à jour !" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[alertView show];
+	}
 }
 
 - (void)updateSlider {

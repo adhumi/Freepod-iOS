@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "test1/AudioEpisodeViewController.h"
-         timestampString = "360182523.377344"
+         timestampString = "360189981.486563"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68">
+         startingLineNumber = "71"
+         endingLineNumber = "71">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"

@@ -14,6 +14,7 @@
 	IBOutlet UINavigationBar *navBar;
 	IBOutlet UIButton *playPause;
 	NSTimer *timer;
+	IBOutlet UIBarButtonItem *tweet;
 }
 
 @property NSTimer *timer;
@@ -22,7 +23,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *onOffAir;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (strong, nonatomic) IBOutlet UIButton *playPause;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *tweet;
 
 - (IBAction)goLive:(id)sender;
+- (IBAction)sendTweet:(id)sender;
 
 @end

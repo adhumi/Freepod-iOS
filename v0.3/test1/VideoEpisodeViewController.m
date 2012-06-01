@@ -13,6 +13,7 @@
 
 #import <MediaPlayer/MPNowPlayingInfoCenter.h>
 #import <MediaPlayer/MPMediaItem.h>
+#import <Twitter/Twitter.h>
 
 #import "PlayerView.h"
 
@@ -40,6 +41,7 @@
 @synthesize playerView = _playerView;
 @synthesize infos = _infos;
 @synthesize activity = _activity;
+@synthesize tweet = _tweet;
 @synthesize isShowingLandscapeView;
 
 extern AVPlayer *audioPlayer;
@@ -171,6 +173,8 @@ extern Episode *readingEpisode;
 	[self setInfos:nil];
 	activity = nil;
 	[self setActivity:nil];
+    tweet = nil;
+    [self setTweet:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -216,6 +220,38 @@ extern Episode *readingEpisode;
 - (IBAction)goBack:(id)sender {
 	[timer invalidate];
 	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)sendTweet:(id)sender {
+	// Create the view controller
+	TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
+	
+	// Optional: set an image, url and initial text
+	//[twitter addImage:[UIImage imageNamed:@"iOSDevTips.png"]];
+	[twitter addURL:[NSURL URLWithString:[NSString stringWithString:@"http://www.freepod.net"]]];
+	[twitter setInitialText:@"Merci de ne pas abuser de cette fonction avant publication officielle"];
+	
+	// Show the controller
+	[self presentModalViewController:twitter animated:YES];
+	
+	// Called when the tweet dialog has been closed
+	twitter.completionHandler = ^(TWTweetComposeViewControllerResult result) 
+	{
+		NSString *title = @"Twitter";
+		NSString *msg; 
+		
+		if (result == TWTweetComposeViewControllerResultCancelled)
+			msg = @"L'écriture du tweet a été annulée.";
+		else if (result == TWTweetComposeViewControllerResultDone)
+			msg = @"Tweet correctement publié !.";
+		
+		// Show alert to see how things went...
+		UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[alertView show];
+		
+		// Dismiss the controller
+		[self dismissModalViewControllerAnimated:YES];
+	};
 }
 
 - (void) refreshPlayButton {

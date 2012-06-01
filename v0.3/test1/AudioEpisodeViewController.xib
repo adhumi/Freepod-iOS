@@ -70,6 +70,7 @@
 								<string key="NSFrame">{{20, 52}, {280, 248}}</string>
 								<reference key="NSSuperview" ref="501635756"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="199178155"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -150,7 +151,7 @@
 						<string key="NSFrame">{{-7, 354}, {334, 23}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="199178155"/>
+						<reference key="NSNextKeyView" ref="41916394"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -210,7 +211,7 @@
 						<string key="NSFrame">{{282, 62}, {18, 19}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="916177639"/>
+						<reference key="NSNextKeyView" ref="711439177"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -295,6 +296,7 @@
 						<string key="NSFrame">{{141, 212}, {37, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="916177639"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -364,6 +366,7 @@
 						<string key="NSFrame">{{0, 44}, {320, 416}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="938269141"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<reference key="IBUIBackgroundColor" ref="490937087"/>
 						<float key="IBUIAlpha">0.60000002384185791</float>
@@ -405,6 +408,7 @@
 								<string key="NSFrame">{{20, 74}, {280, 123}}</string>
 								<reference key="NSSuperview" ref="711439177"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="786542157"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -448,7 +452,7 @@
 						<string key="NSFrameSize">{320, 44}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="41916394"/>
+						<reference key="NSNextKeyView" ref="642065841"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -463,6 +467,16 @@
 							<object class="IBUINavigationItem" id="332395859">
 								<reference key="IBUINavigationBar" ref="255514716"/>
 								<string key="IBUITitle"/>
+								<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="1032227384">
+									<bool key="IBUIEnabled">NO</bool>
+									<object class="NSCustomResource" key="IBUIImage">
+										<string key="NSClassName">NSImage</string>
+										<string key="NSResourceName">twitter.png</string>
+									</object>
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+									<int key="IBUIStyle">1</int>
+									<reference key="IBUINavigationItem" ref="332395859"/>
+								</object>
 								<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="73699295">
 									<string key="IBUITitle">Masquer</string>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -628,6 +642,14 @@
 					<int key="connectionID">79</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">tweet</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1032227384"/>
+					</object>
+					<int key="connectionID">87</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">goToTime:</string>
 						<reference key="source" ref="916177639"/>
@@ -678,6 +700,14 @@
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">60</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">sendTweet:</string>
+						<reference key="source" ref="1032227384"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">85</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -791,6 +821,7 @@
 						<reference key="object" ref="332395859"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="73699295"/>
+							<reference ref="1032227384"/>
 						</array>
 						<reference key="parent" ref="255514716"/>
 					</object>
@@ -834,6 +865,11 @@
 						<reference key="object" ref="786542157"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">80</int>
+						<reference key="object" ref="1032227384"/>
+						<reference key="parent" ref="332395859"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -864,12 +900,13 @@
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="77.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="80.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">79</int>
+			<int key="maxID">87</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -882,6 +919,7 @@
 						<string key="goToTime:">id</string>
 						<string key="pauseEpisode:">id</string>
 						<string key="playEpisode:">id</string>
+						<string key="sendTweet:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="getDetails:">
@@ -904,6 +942,10 @@
 							<string key="name">playEpisode:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="sendTweet:">
+							<string key="name">sendTweet:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="activity">UIActivityIndicatorView</string>
@@ -920,6 +962,7 @@
 						<string key="play">UIButton</string>
 						<string key="tpsEcoule">UILabel</string>
 						<string key="tpsRestant">UILabel</string>
+						<string key="tweet">UIBarButtonItem</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="activity">
@@ -978,6 +1021,10 @@
 							<string key="name">tpsRestant</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="tweet">
+							<string key="name">tweet</string>
+							<string key="candidateClassName">UIBarButtonItem</string>
+						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
@@ -998,6 +1045,7 @@
 			<string key="jacquette_default.png">{640, 640}</string>
 			<string key="pause.png">{80, 80}</string>
 			<string key="play.png">{80, 80}</string>
+			<string key="twitter.png">{20, 20}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1179</string>
 	</data>
