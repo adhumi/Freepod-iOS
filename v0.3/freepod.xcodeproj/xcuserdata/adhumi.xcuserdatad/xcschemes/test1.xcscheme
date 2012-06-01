@@ -15,8 +15,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A607B36A156AD9240033D45A"
                BuildableName = "freepod.app"
-               BlueprintName = "test1"
-               ReferencedContainer = "container:test1.xcodeproj">
+               BlueprintName = "freepod"
+               ReferencedContainer = "container:freepod.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,8 +33,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A607B36A156AD9240033D45A"
             BuildableName = "freepod.app"
-            BlueprintName = "test1"
-            ReferencedContainer = "container:test1.xcodeproj">
+            BlueprintName = "freepod"
+            ReferencedContainer = "container:freepod.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,8 +52,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A607B36A156AD9240033D45A"
             BuildableName = "freepod.app"
-            BlueprintName = "test1"
-            ReferencedContainer = "container:test1.xcodeproj">
+            BlueprintName = "freepod"
+            ReferencedContainer = "container:freepod.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,8 +70,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A607B36A156AD9240033D45A"
             BuildableName = "freepod.app"
-            BlueprintName = "test1"
-            ReferencedContainer = "container:test1.xcodeproj">
+            BlueprintName = "freepod"
+            ReferencedContainer = "container:freepod.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

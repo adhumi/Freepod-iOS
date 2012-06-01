@@ -102,13 +102,13 @@
 		A603C34215751B530067B1CD /* LiveViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveViewController.xib; sourceTree = "<group>"; };
 		A603C34515751EC20067B1CD /* off_air.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = off_air.png; sourceTree = "<group>"; };
 		A603C34615751EC20067B1CD /* on_air.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = on_air.png; sourceTree = "<group>"; };
-		A607B36B156AD9240033D45A /* test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A607B36B156AD9240033D45A /* freepod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = freepod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A607B36F156AD9240033D45A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A607B371156AD9240033D45A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A607B373156AD9240033D45A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A607B377156AD9240033D45A /* test1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "test1-Info.plist"; sourceTree = "<group>"; };
+		A607B377156AD9240033D45A /* freepod-Info.plist */ = {isa = PBXFileReference; path = "freepod-Info.plist"; sourceTree = "<group>"; };
 		A607B37B156AD9240033D45A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A607B37D156AD9240033D45A /* test1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "test1-Prefix.pch"; sourceTree = "<group>"; };
+		A607B37D156AD9240033D45A /* freepod-Prefix.pch */ = {isa = PBXFileReference; path = "freepod-Prefix.pch"; sourceTree = "<group>"; };
 		A607B37E156AD9240033D45A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A607B37F156AD9240033D45A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A607B381156AD9240033D45A /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 				A6858C2D1570FDB0003CC243 /* ico_ios.png */,
 				A6858C2B1570FDAC003CC243 /* Default@2x.png */,
 				A6858C281570FDA8003CC243 /* Default.png */,
-				A607B375156AD9240033D45A /* test1 */,
+				A607B375156AD9240033D45A /* freepod */,
 				A607B36E156AD9240033D45A /* Frameworks */,
 				A607B36C156AD9240033D45A /* Products */,
 			);
@@ -266,7 +266,7 @@
 		A607B36C156AD9240033D45A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A607B36B156AD9240033D45A /* test1.app */,
+				A607B36B156AD9240033D45A /* freepod.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -287,7 +287,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A607B375156AD9240033D45A /* test1 */ = {
+		A607B375156AD9240033D45A /* freepod */ = {
 			isa = PBXGroup;
 			children = (
 				A607B426156D74DE0033D45A /* SBJson */,
@@ -317,16 +317,17 @@
 				A603C31A1574B6350067B1CD /* img */,
 				A607B376156AD9240033D45A /* Supporting Files */,
 			);
+			name = freepod;
 			path = test1;
 			sourceTree = "<group>";
 		};
 		A607B376156AD9240033D45A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A607B377156AD9240033D45A /* test1-Info.plist */,
+				A607B377156AD9240033D45A /* freepod-Info.plist */,
 				A607B378156AD9240033D45A /* InfoPlist.strings */,
 				A607B37B156AD9240033D45A /* main.m */,
-				A607B37D156AD9240033D45A /* test1-Prefix.pch */,
+				A607B37D156AD9240033D45A /* freepod-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -381,9 +382,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A607B36A156AD9240033D45A /* test1 */ = {
+		A607B36A156AD9240033D45A /* freepod */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A607B395156AD9250033D45A /* Build configuration list for PBXNativeTarget "test1" */;
+			buildConfigurationList = A607B395156AD9250033D45A /* Build configuration list for PBXNativeTarget "freepod" */;
 			buildPhases = (
 				A607B367156AD9240033D45A /* Sources */,
 				A607B368156AD9240033D45A /* Frameworks */,
@@ -393,9 +394,9 @@
 			);
 			dependencies = (
 			);
-			name = test1;
+			name = freepod;
 			productName = test1;
-			productReference = A607B36B156AD9240033D45A /* test1.app */;
+			productReference = A607B36B156AD9240033D45A /* freepod.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -407,7 +408,7 @@
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = home;
 			};
-			buildConfigurationList = A607B365156AD9240033D45A /* Build configuration list for PBXProject "test1" */;
+			buildConfigurationList = A607B365156AD9240033D45A /* Build configuration list for PBXProject "freepod" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -419,7 +420,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A607B36A156AD9240033D45A /* test1 */,
+				A607B36A156AD9240033D45A /* freepod */,
 			);
 		};
 /* End PBXProject section */
@@ -583,10 +584,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "test1/test1-Prefix.pch";
-				INFOPLIST_FILE = "test1/test1-Info.plist";
+				GCC_PREFIX_HEADER = "test1/freepod-Prefix.pch";
+				INFOPLIST_FILE = "test1/freepod-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = freepod;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -596,8 +597,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "test1/test1-Prefix.pch";
-				INFOPLIST_FILE = "test1/test1-Info.plist";
+				GCC_PREFIX_HEADER = "test1/freepod-Prefix.pch";
+				INFOPLIST_FILE = "test1/freepod-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = freepod;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -630,10 +631,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "test1/test1-Prefix.pch";
-				INFOPLIST_FILE = "test1/test1-Info.plist";
+				GCC_PREFIX_HEADER = "test1/freepod-Prefix.pch";
+				INFOPLIST_FILE = "test1/freepod-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = freepod;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -642,7 +643,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A607B365156AD9240033D45A /* Build configuration list for PBXProject "test1" */ = {
+		A607B365156AD9240033D45A /* Build configuration list for PBXProject "freepod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A607B393156AD9250033D45A /* Debug */,
@@ -652,7 +653,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A607B395156AD9250033D45A /* Build configuration list for PBXNativeTarget "test1" */ = {
+		A607B395156AD9250033D45A /* Build configuration list for PBXNativeTarget "freepod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A607B396156AD9250033D45A /* Debug */,
