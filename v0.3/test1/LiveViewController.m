@@ -45,7 +45,7 @@ extern Episode *readingEpisode;
 	logo.tag = 42;
 	[navBar addSubview:logo];
 	
-	NSURL *urlFile = [NSURL URLWithString:@"http://radio.podradio.fr:8000/adsl.m3u"];
+	NSURL *urlFile = [NSURL URLWithString:@"http://statslive.infomaniak.com/playlist/freepod/freepod-32.aac/playlist.m3u"];
 	audioPlayer = [AVPlayer playerWithURL:urlFile];
 	
 	timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkStatus) userInfo:nil repeats:YES];

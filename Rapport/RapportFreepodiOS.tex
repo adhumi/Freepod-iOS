@@ -255,25 +255,54 @@ Dans cette partie, nous allons présenter Objective-C, puis le SDK iOS, le frame
 
 \subsection{Historique}
 
+Le langage Objective-C est créé au début des années 80 par Brad Cox. L'inventeur le met au point en se basant sur le langage Smalltalk-80 et le destine à être une surcouche du C du C permettant la programmation orientée objet.
+
+En 1989, sort le système d'exploitation NeXTSTEP qui est le premier à utiliser Objective-C. NeXTSTEP est l'OS développé par la société NeXT qui fut fondée par Steve Jobs lors de son éviction d'Apple.
+
+Lors du rachat de NeXT par Apple en 1996, ses ingénieurs se servent de NeXTSTEP comme noyau de base pour ce qui deviendra quelques années plus tard Mac OS X. L'Objective-C est également utilisé dans iOS, lui même basé sur MAC OS X.
+
+La compilation de l'Objective-C se fait avec GCC (GNU Compiler Collection).
 
 \subsection{Spécificités du langage}
 
+Parce qu'Objective-C est dérivé du C, une grande partie des propriétés du langage en dépendent.
+
+Il présente cependant un certain nombre de spécificités, par exemple par rapport à d'autres langages orientés objet comme le C++ lui aussi directement dérivé du C :
+\begin{itemize}
+	\item La distribution dynamique des messages permet à chaque message de déclencher une partie de code différente à l'exécution en fonction du type du destinataire. Le langage décide dynamiquement de la manière de traiter un message à partir de la classe du destinataire.
+	\item Objective-C permet de choisir entre le typage statique ou dynamique. C'est-à-dire que le développeur peut choisir que le type de l'objet soit défini à la compilation ou à l'exécution.
+	\item Le langage dispose enfin d'un mécanisme de chargement dynamique. C'est à dire que les composants du langages utilisés dans un programme en Objective-C sont chargés au fur et à mesure des besoins pendant l'exécution.
+\end{itemize}
+
+Par ailleurs, l'héritage multiple est impossible en Objective-C et toutes les classes héritent (directement ou indirectement) de la classe racine \verb NSObject . On ne parle pas de méthodes, mais de messages, transmis à un objet, dont la syntaxe est la suivante : \verb [object  \verb message] .
 
 \section{Le SDK iOS}
 
-\subsection{iOS Developer Library}
+Comme la plupart des langages de programmation, les bibliothèques intégrées à Objective-C sont insuffisantes pour programmer efficacement. C'est pour cette raison que le langage est très fortement lié à Cocoa (API native pour le développement sur Mac OS X \& iOS) ou à son pendant libre GNUstep.\\
 
+Apple organise un réseau de développeurs baptisé \textit{Apple Developer}. Il est conçu pour rendre disponibles un certain nombre de ressources aux développeurs. Par ce programme, Apple met à disposition la documentation complète d'Objective-C, d'iOS et de Mac OS X, ainsi que les outils permettant de développer pour ces plateformes, comme Xcode 4.
 
-\subsection{La distribution des applications sur l’AppStore}
+Une partie de ces ressources est libre d'accès, mais le programme gratuit ne permet pas d'accéder aux pré-versions d'iOS, ni d'exécuter ses applications sur un appareil pour les tester.
 
+\subsection{Bibliothèques iOS}
 
-\section{Environnement de travail}
+Le SDK (Kit de Développement Logiciel) iOS contient un certain nombre d'outils permettant la conception et la publication d'application pour iPhone, iPod Touch et iPad. Il est divisé en quatre composants : Cocoa Touch, Media / Application Services, Core Services et Core OS / Mac OS X kernel.
 
-\subsection{xCode 4}
+Il requiert pour fonctionner au minimum un Macintosh avec un processeur Intel.
 
-et c’est tout
+\paragraph{Cocoa Touch} C'est le framework de plus haut niveau du SDK. C'est cette couche qui permet de gérer l'interface utilisateur. Elle permet également de gérer les fonctions multitâche et les contrôles tactiles de l'écran.
 
+\paragraph{Couche Media} Cette couche contient les composants permettant la gestion des images (redimensionnement, transformation, etc.), de l'audio, de la vidéo (lecture, enregistrement) et des animations 3D.
 
+\paragraph{Core Services} Permet la gestion du réseau et des threads. Cette couche contient aussi les outils de géolocalisation et une base de données locale de type SQLite.
+
+\paragraph{Kernel} C'est la couche de plus bas niveau du SDK. Elle permet aux développeurs d'utiliser le protocole TCP/IP, les  sockets et le système de fichiers.
+
+\subsection{Xcode 4}
+
+Xcode est l'Environnement de Développement (IDE) proposé par Apple pour le développement d'application Mac OS X et iOS. Il est distribué clé en main avec les différents SDK et le compilateur GCC.
+
+Il inclut tout ce qu'on peut attendre d'un éditeur de code, ainsi qu'une interface de type WYSIWYG pour la mise en place des interfaces Homme-Machine.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -283,24 +312,72 @@ et c’est tout
 
 \section{Le développement de l’application}
 
+Le développement du Web Service et de l'application s'est fait en deux vagues. Dans un premier temps, au mois de février, j'ai développé l'essentiel du Web Service, afin de pouvoir commencer par la suite le développement des applications : celle pour la plate-forme Windows Phone 7 réalisée par Michel Knoertzer et celle pour iOS réalisée par moi-même dans un second temps au mois de mai.
+
+\subsection{Le Web Service}
+
+Pour cette première phase de développement que constitue le Web Service, j'ai choisi de n'aborder que les quatre points qui me semblaient particulièrement intéressants à détailler.
+
+Le Web Service a été développé avec PHP et MySQL sur le serveur de l'association Freepod, un serveur dédié de type LAMP. Il est accessible à cette adresse : http://webserv.freepod.net (authentification nécessaire).
+
+\subsubsection{Synchronisation de la base de données avec les flux RSS}
+
+L'outil permettant de synchroniser la base de données avec les flux RSS des différents podcasts est le composant essentiel et le plus délicat de ce Web Service. C'est pour cette raison que j'ai choisi de m'y atteler en premier.\\
+
+\lstset{language=XML, basicstyle=\ttfamily, keywordstyle=\color{blue}\bfseries, commentstyle=\color{JungleGreen}}
+
+Comme indiqué précédemment, les flux RSS des podcasts (en fait un simple fichier XML) ne sont pas bien harmonisés chaque podcasteurs utilise ses propres outils pour les mettre en place. Certains utilisent des CMS les générants automatiquement, d'autres les génèrent à partir d'un logiciel dédié, d'autres encore éditent le code XML à la main. Cette diversité induit une diversité dans le code. L'inclusion d'une image pour un épisode se fait par exemple de deux manières différentes :
+\begin{lstlisting}
+<itunes:image href="http://url_image"/>
+<itunes:image>http://url_image</itunes:image>
+\end{lstlisting}
+D'autres épisodes ne spécifient tout simplement pas d'image et il faut alors remplacer dans la base de données par l'image par défaut du podcast. Cette partie use donc d'un grand renfort de boucles conditionnelles.\\
+
+Pour maintenir la synchronisation entre les flux RSS et la base de données (certains épisodes pouvant être supprimés ou modifiés), je me suis basé sur la comparaison de la date et l'heure de publication, ainsi que sur la chaine de cratères du nom. Un épisode ne dispose pas d'identifiant unique dans les flux, et cette méthode permet aux podcasteurs de modifier les informations de leurs podcasts dans la base de données simplement, en modifiant la date ou le nom d'un épisode.
+
+Pour maintenir cette synchronisation sans intervention humaine, une tache CRON a été mise en place sur le serveur qui exécute le script de synchronisation toutes les 10 minutes.
+
+\subsubsection{Les méthodes GET}
+
+La méthode GET, bien qu'étant un composant essentiel du Web Service est relativement simple. Elle récupère les paramètres donnés dans l'URL et renvoie les données présentes en base après les avoir formatées en JSON.\\
+
+Trois types de requêtes existent :
+\begin{itemize}
+	\item Récupération de la liste complète des podcasts
+	\item Récupération de la liste des épisodes pour un podcast donné en paramètre
+	\item Récupération de la liste des épisodes récents, dont le nombre est donné en paramètre
+\end{itemize}
+
+
+\subsubsection{La gestion des images}
+
+\subsubsection{Interface d'administration}
 
 
 
 
+\subsection{L'application pour iOS}
 
+\subsubsection{Classes métier et récupération des données du Web Service}
+
+\subsubsection{Navigation dans l'application}
+
+\subsubsection{Lecture Audio et Vidéo}
 
 \section{Limites}
 
+\subsection{Difficultés rencontrés}
 
 
 
-
+\subsection{Fonctionnalités non-implémentées}
 
 
 \section{Evolutions futures}
 
+\subsubsection{Développement d'un module de chat cross-plateformes}
 
-
+\subsubsection{Télécharger pour écouter plus tard}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%			CONCLUSION
