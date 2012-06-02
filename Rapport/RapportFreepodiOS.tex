@@ -102,26 +102,26 @@ Développeur d'Applications Nouvelles Technologies}%
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%			Glossaire
-     								
-\chapter*{Glossaire}
-\addcontentsline{toc}{chapter}{Glossaire}
 
-\paragraph{Podcast}
-
-Le terme Podcast (né de la contraction des mots iPod et broadcast) désigne une méthode de diffusion de contenus multimédias (audio ou vidéo) sur Internet. Les fichiers sont diffusés par le biais de flux RSS 2.0. Ils peuvent ensuite être récupérés sur un appareil au moyen d’un aggrégateur.
-La plupart des radios et certaines chaines de télévision diffusent leurs émissions en podcast. Existent également des émissions indépendantes, produites pour être diffusées sous forme de podcast (on parle ici de podcast indépendant).
-
-\paragraph{Podcasteur}
-
-Communément utilisé pour désigner une personne animant ou réalisant un podcast indépendant.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%			INTRODUCTION
      								
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
+
+Dans le cadre de la formation DANT, nous étions appelés à réaliser un projet donc l'objectif était de le mener de A à Z. Du cahier des charges jusqu'à la présentation d'un produit fini.\\
+
+Depuis longtemps passionné par les technologies Apple, je souhaitais depuis longtemps apprendre à développer pour ces plateformes qui présentent, de plus, avec la présence de plus en plus importante de l'iPhone, un intérêt professionnel important.
+
+Co-fondateur de l'association de podcasts Freepod, j'ai tout de suite imaginé développer une application native pour iOS permettant d'écouter nos podcasts.
+
+Au delà de l'intérêt intellectuel de l'apprentissage d'un nouveau langage et du projet en tant que tel, la satisfaction de savoir que son travail sera sans doute utilisé par plusieurs milliers de personnes est très importante !\\
+
+Ce projet n'est pas directement lié à ma mission professionnelle, mais il a été accepté par mon tuteur académique, Jean-Loup Guillaume et j'ai décidé de me plonger dedans.
+
+Ce rapport reviendra sur le travail effectué dans le cadre de ce projet, en présentant le contexte, les outils de travail et en détaillant la phase de développement avec ses limites.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%			Freepod et ses applications
@@ -460,8 +460,17 @@ L'usage du podcast fait qu'il est souvent consommé dans les transports en commu
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 
+A la fin de ces quelques mois de projet, les principaux objectifs sont atteints et l'application est prête à être mise en production.\\
 
+Ce projet n'était pas directement lié à ma mission professionnelle. La principale difficulté a donc été de jongler entre le travail universitaire, celui réalisé en entreprise et d'accorder du temps à l'avancement de ce projet.
 
+Pourtant, malgré les difficultés rencontrées pendant le développement, ce projet m'a aider sur plusieurs aspects.
+\begin{itemize}
+	\item Il m'a permis de prendre conscience de la difficulté et des contraintes qui existent dans le développement d'un projet "réel", réalisé de A à Z, de la conception à la mise en production.
+	\item Il m'a poussé à apprendre de nouvelles technologies qui me seront certainement utiles pour mon avenir professionnel.\\
+\end{itemize}
+
+Le développement de cette application continuera dans les mois qui viennent. Le 11 juin s'ouvre à San Francisco la conférence annuelle des développeurs Apple (WWDC). Lors de cette conférence devrait être présentée la prochaine mise à jour majeure d'iOS. Nul doute que je suivrais cet évènement avec attention pour tirer profit des nouveautés dans les développements futurs.
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -506,6 +515,113 @@ D’autres fonctionnalités pourront être ajoutées mais ne sont pas considér�
 
 \chapter{Documentation du Web Service}
 
+\section*{Méthodes GET}
+
+\subsection*{Récupération de la liste des podcasts}
+
+Permet de récupérer un json avec la liste des podcasts et leurs caractéristiques. Triés et identifiés par un nom.
+
+\begin{lstlisting}
+http://webserv.freepod.net/get.php?podcasts
+\end{lstlisting}
+
+\paragraph{récupère les champs suivants}
+\begin{itemize}
+\item id
+\item nom
+\item url\_flux
+\item description
+\item explicite
+\item url\_site
+\item url\_freepod
+\item lastUpdate
+\item lastSynch
+\item logo\_normal
+\item logo\_banner
+\item new
+\end{itemize}
+
+\subsection*{Récupération de la liste des épisodes récents}
+
+Permet de récupérer un json avec la liste des épisodes et leurs caractéristiques. Triés et identifiés par un date.
+
+\begin{lstlisting}
+http://webserv.freepod.net/get.php?podcast_recent=NB_EPISODES
+\end{lstlisting}
+
+\paragraph{récupère les champs suivants}
+\begin{itemize}
+\item id
+\item nom
+\item url\_flux
+\item description
+\item explicite
+\item url\_site
+\item url\_freepod
+\item lastUpdate
+\item lastSynch
+\item logo\_normal
+\item logo\_banner
+\item new
+\end{itemize}
+
+
+\subsection*{Récupération de la liste des émissions pour un podcast}
+Permet de récupérer un json avec la liste des épisodes du podcast ID\_PODCAST donné dans l'URL et leurs caractéristiques. Triés et identifiés par un id unique.
+
+\begin{lstlisting}
+http://webserv.freepod.net/get.php?episodes=ID_PODCAST
+\end{lstlisting}
+
+\paragraph{Récupère les champs suivants}
+
+\begin{itemize}
+\item id
+\item id\_podcast
+\item title
+\item url
+\item type
+\item description
+\item pubDate
+\item author
+\item explicite
+\item duration
+\item image
+\item keywords
+\end{itemize}
+
+\subsection*{Récupération d'une image d'un podcast}
+
+Permet de récupérer une image format PNG d'un podcast à la taille souhaitée en fonction de l'ID\_PODCAST, du titre du champ de l'image (dans la Base de Données) et de la largeur en pixels attendue pour l'image.
+
+\begin{lstlisting}
+http://webserv.freepod.net/get-img-podcast.php?id=ID_PODCAST
+&nom=NOM_DU_CHAMP&width=LARGEUR_EN_PIXELS
+\end{lstlisting}
+
+\subsection*{Récupération d'une image d'un épisode}
+
+Permet de récupérer une image format PNG d'un épisode à la taille souhaitée en fonction de l'ID\_EPISODE, du titre du champ de l'image (dans la Base de Données) et de la largeur en pixels attendue pour l'image.
+
+\begin{lstlisting}
+http://webserv.freepod.net/get-img-episode.php?id=ID_EPISODE
+&nom=NOM_DU_CHAMP&width=LARGEUR_EN_PIXELS
+\end{lstlisting}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%			Glossaire
+     								
+\chapter*{Glossaire}
+\addcontentsline{toc}{chapter}{Glossaire}
+
+\paragraph{Podcast}
+
+Le terme Podcast (né de la contraction des mots iPod et broadcast) désigne une méthode de diffusion de contenus multimédias (audio ou vidéo) sur Internet. Les fichiers sont diffusés par le biais de flux RSS 2.0. Ils peuvent ensuite être récupérés sur un appareil au moyen d’un aggrégateur.
+La plupart des radios et certaines chaines de télévision diffusent leurs émissions en podcast. Existent également des émissions indépendantes, produites pour être diffusées sous forme de podcast (on parle ici de podcast indépendant).
+
+\paragraph{Podcasteur}
+
+Communément utilisé pour désigner une personne animant ou réalisant un podcast indépendant.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
