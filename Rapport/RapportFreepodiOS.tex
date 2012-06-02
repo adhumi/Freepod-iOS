@@ -296,7 +296,9 @@ Il requiert pour fonctionner au minimum un Macintosh avec un processeur Intel.
 
 \paragraph{Core Services} Permet la gestion du réseau et des threads. Cette couche contient aussi les outils de géolocalisation et une base de données locale de type SQLite.
 
-\paragraph{Kernel} C'est la couche de plus bas niveau du SDK. Elle permet aux développeurs d'utiliser le protocole TCP/IP, les  sockets et le système de fichiers.
+\paragraph{Kernel} C'est la couche de plus bas niveau du SDK. Elle permet aux développeurs d'utiliser le protocole TCP/IP, les  sockets et le système de fichiers.\\
+
+Le SDK iOS intègre depuis octobre 2011 un ramasse-miette nommé ARC (Automatic Reference Counting). Les développeurs peuvent au choix l'activer sur tout un projet ou sur certaines classes seulement.
 
 \subsection{Xcode 4}
 
@@ -345,39 +347,112 @@ Trois types de requêtes existent :
 \begin{itemize}
 	\item Récupération de la liste complète des podcasts
 	\item Récupération de la liste des épisodes pour un podcast donné en paramètre
-	\item Récupération de la liste des épisodes récents, dont le nombre est donné en paramètre
+	\item Récupération de la liste des épisodes récents, dont le nombre est donné en paramètre\\
 \end{itemize}
 
+Les deux premières requêtes sont stockées avec un cache de 15 minutes, pour éviter une surcharge du serveur. La requête permettant la récupération des épisodes récents ne dispose que d'un cache d'1 minute, pour qu'elle reste toujours actuelle.
 
 \subsubsection{La gestion des images}
 
+La nécessité d'une gestion des images plus performante vient d'un besoin exprimé pendant le développement des applications mobiles par Michel Knoertzer et moi-même. En effet, faute d'optimisation de la taille des images à charger, une application pouvait mettre plusieurs minutes à se charger, voir ne pas se charger du tout !
+
+J'ai donc développé une solution utilisant la bibliothèque graphique de PHP, GD. Elle me permet de récupérer n'importe qu'elle image présente dans la base de données à la taille souhaitée (donnée en paramètre dans l'URL).
+
 \subsubsection{Interface d'administration}
 
+Pour simplifier l'usage du Web Service, j'ai développé une interface de gestion web. Elle présente une interface simple, utilisant le framework CSS Twitter Bootstrap.\\
 
+L'objectif de ce site web (accessible après authentification sur http://webserv.freepod.net) est d'offrir un accès simple au Web Service, pour visionner et vérifier les informations contenues dans la base de données, mais aussi pour ajouter de nouveaux podcasts ou les éditer.
 
+A terme, lorsque cette fonction sera implémentée dans les application mobiles, cette interface permettra également d'envoyer des notifications aux appareils connectés.
 
 \subsection{L'application pour iOS}
 
+Le développement de l'application iOS est survenu dans un second temps. Ici encore, j'ai choisi de détailler quatre points techniques qui me semblaient pertinents pour la compréhension du projet.
+
 \subsubsection{Classes métier et récupération des données du Web Service}
+
+La première étape du développement a été la création des classes métiers et la récupération des données du Web Service. Le SDK iOS n'offrant pas de solution simple pour parse des données au format JSON, je me suis servi du framework libre SBJson.
+
+Dans un premier temps, l'application chargeait et instanciait l'ensemble des données des podcasts et des épisodes à son ouverture, mais j'ai préféré modifier ce système en récupérant les données en ligne au fur et à mesure de leur affichage à l'écran, dans un soucis d'efficacité.
 
 \subsubsection{Navigation dans l'application}
 
+La navigation principale de l'application, celle qui permet de visualiser la liste des podcasts et pour chaque podcast la liste des épisodes, a été réalisée en utilisant deux classes particulières :
+\begin{itemize}
+	\item La classe UINavigationController propose une navigation simple et fluide à l'écran. Elle permet l'affichage de toute une arborescence par écrans successif, avec toujours la possibilité de revenir à l'écran précédent.
+	\item La classe UITableViewController permet d'afficher les données à l'écran sous la forme d'une liste de cellules pouvant être personnalisées à souhait.\\
+\end{itemize}
+
+J'ai implementé cette solution car elle me semblait la plus pertinente avec les IHM prévues pour l'application.
+
+Par ailleurs, pour naviguer entre les différentes sections de l'application, une navigation de type UITabBar a été mise en place. Elle permet simplement d'afficher une liste d'onglet dans une barre en bas de l'écran.
+
 \subsubsection{Lecture Audio et Vidéo}
+
+Il existe de multiples solutions techniques sur iOS pour implémenter un lecteur audio ou vidéo. Le cahier des charges de l'application impliquait la lecture en streaming des fichiers distants et cette demande a poussé mon choix vers la classe AVPlayer. AVPlayer permet en effet de répondre à ce besoin très simplement, pour le stream de fichier enregistrés et pour le streaming live, qui sera finalement implementé.
+
+Pour éviter toute concurrence de lecture dans l'application, celle ci ne contient qu'une seule instance d'AVPlayer.\\
+
+Pour l'affichage du lecteur à l'écran, j'ai créé moi-même une vue répondant aux critères des IHM. Pour un épisode audio, celle ci affiche l'image de l'épisode et les informations de contrôle, tandis que pour un épisode vidéo, elle affiche la vidéo à la place de l'image. La vue vidéo présente l'image en plein écran quand l'iPhone est en mode paysage.
+
+Pour ces vues, AVPlayer est synchronisé avec 3 indicateurs. Les deux premiers indiquent le temps écoulé et le temps restant pour l'épisode. Le suivant, sous forme de Slider, permet de faire défiler la tête de lecture à un moment voulu de l'épisode.
+
+Le lecteur supporte la lecture quand l'application est en arrière plan et est compatible avec les contrôles du casque et de l'écran verrouillé.
+
+\subsubsection{Le chargement des images}
+
+La nécessité d'un traitement spécifique du chargement des images est apparue en cours de développement. Nativement, iOS cherche à télécharger toutes les images avant d'afficher une nouvelle vue. Si les images ne sont pas particulièrement lourdes puisqu'adaptées à la taille de l'emplacement, le chargement était particulièrement lent.
+
+J'ai donc développé un outil permettant un chargement asynchrone des images. A l'affichage de la vue, le système lance le téléchargement de l'image et celle-ci ne s'affiche qu'une fois téléchargée complètement. Cette solution a fait gagner beaucoup à l'application en vitesse et en fluidité.
+
+\subsection{Mise en beta}
+
+Le développement de l'application ayant suffisamment avancé, j'ai pu soumettre une version beta au test de membres de l'association. En tout une quinzaine de personnes a participé à ce test, qui m'a aidé à dénicher les bugs et à les corriger pour pouvoir présenter et publier une application la plus stable possible.
 
 \section{Limites}
 
+Malgré la réussite de ce projet, il existe un certain nombre de limite qui seront soulevées ici, notamment au niveau des difficultés rencontrées et des fonctionnalités du cahier des charges qui n'ont pas été implementées.
+
 \subsection{Difficultés rencontrés}
 
+\subsubsection{Apprendre seul un nouveau langage}
 
+La principale difficulté rencontrée dans ce projet a été l'apprentissage d'un nouveau langage. En effet, je n'avais jamais utilisé le langage Objective-C et les technologies Apple avant le lancement de ce projet.
+
+Avec l'attrait qu'a aujourd'hui iOS, beaucoup de documentation existe, sur internet ou en livre, pour apprendre à programmer pour cette plateforme. Cependant, il est parfois difficile de faire le tri entre les documentations obsolètes (des premières versions du SDK), celles qui s'adressent aux personnes n'ayant jamais programmé, celles s'adressant aux développeurs Mac... et celles vraiment utiles pour moi !
+
+Arrivé au bout de ce projet, je ne pense pas avoir appréhendé la totalité des finesses du langage et du SDK, mais j'estime être capable d'utiliser ces technologies tant pour des projets personnels que dans le cadre professionnel.
+
+\subsubsection{Répondre aux besoins par un Web Service}
+
+Construire un Web Service qui sera utilisé par des développeurs différents et pour des plateformes différentes requiert une certaine réflexion... Le travail de conception a été particulièrement complexe sur cet outil pour garantir qu'il soit utile et maintennable sur une longue durée.
 
 \subsection{Fonctionnalités non-implémentées}
 
+Un certain nombre de fonctionnalités présentes dans le cahier des charges n'ont pas été implémentées. C'est un choix fait en début de développement de se concentrer sur certaines fonctionnalités pour arriver à un résultat rapidement utilisable par les utilisateurs.
+
+Les fonctionnalités non-implementées du cahier des charges sont la notification des utilisateurs en push et l'intégration d'un module de chat.
 
 \section{Evolutions futures}
 
+Si l'application sera soumise telle qu'elle à la validation d'Apple pour publication sur l'App Store, le développement de l'application va continuer dans les prochains mois. Voici une liste par ordre des priorité des fonctionnalités à ajouter par la suite.
+
+\subsubsection{Notifications push}
+
+C'est l'une des fonctionnalités les plus faciles à intégrer. Il sera nécessaire de développer un outil web capable de gérer et d'expédier les notifications et modifier l'application iOS pour qu'elle les prenne en charge.
+
 \subsubsection{Développement d'un module de chat cross-plateformes}
 
+Le module de chat est une fonctionnalité essentielle pour l'application puisqu'il joue un rôle important dans l'aspect "sympathique" des lives. Intégrer un module de chat à la seule application iOS n'aurait pas de sens, et il faudra développer une solution multiplateforme (web \& natif).
+
+\subsubsection{Interface adaptée à l'iPad}
+
+Le public de Freepod est très connecté et beaucoup possèdent un iPad. Il apparait donc comme important de développer une interface adaptée à ce support.
+
 \subsubsection{Télécharger pour écouter plus tard}
+
+L'usage du podcast fait qu'il est souvent consommé dans les transports en commun. Le téléchargement d'un podcast pour pouvoir l'écouter plus tard est donc un plus important, mais il implique de modifier en profondeur l'application.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%			CONCLUSION
@@ -395,7 +470,6 @@ Trois types de requêtes existent :
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \part*{Annexes}
-\addcontentsline{toc}{part}{Annexes}
 
 \appendix
 
@@ -429,11 +503,6 @@ D’autres fonctionnalités pourront être ajoutées mais ne sont pas considér�
 \item Affichage des photos concernant Freepod disponibles sur Flickr.
 \item Lien vers la boutique de l’association.
 \end{itemize}
-
-\chapter{Mode d'emploi du l'interface web d'administration}
-
-
-
 
 \chapter{Documentation du Web Service}
 
