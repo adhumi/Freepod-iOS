@@ -110,7 +110,7 @@ Développeur d'Applications Nouvelles Technologies}%
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-Dans le cadre de la formation DANT, nous étions appelés à réaliser un projet donc l'objectif était de le mener de A à Z. Du cahier des charges jusqu'à la présentation d'un produit fini.\\
+Dans le cadre de la formation DANT, nous étions appelés à réaliser un projet dont l'objectif était de le mener de A à Z. Du cahier des charges jusqu'à la présentation d'un produit fini.\\
 
 Depuis longtemps passionné par les technologies Apple, je souhaitais depuis longtemps apprendre à développer pour ces plateformes qui présentent, de plus, avec la présence de plus en plus importante de l'iPhone, un intérêt professionnel important.
 
@@ -118,7 +118,7 @@ Co-fondateur de l'association de podcasts Freepod, j'ai tout de suite imaginé d
 
 Au delà de l'intérêt intellectuel de l'apprentissage d'un nouveau langage et du projet en tant que tel, la satisfaction de savoir que son travail sera sans doute utilisé par plusieurs milliers de personnes est très importante !\\
 
-Ce projet n'est pas directement lié à ma mission professionnelle, mais il a été accepté par mon tuteur académique, Jean-Loup Guillaume et j'ai décidé de me plonger dedans.
+Ce projet n'est pas directement lié à ma mission professionnelle, mais il a été accepté par mon tuteur académique, Jean-Loup Guillaume et j'ai décidé de m'y atteler.
 
 Ce rapport reviendra sur le travail effectué dans le cadre de ce projet, en présentant le contexte, les outils de travail et en détaillant la phase de développement avec ses limites.
 
@@ -139,7 +139,7 @@ Deux étudiants de notre promotion de L3 DANT sont impliqués dans le développe
 
 \section{Fonctionnalités attendues}
 
-Un cahier des charges (fourni en annexe) a été défini entre l’association et les développeurs, pour fixer les fonctionnalités attendues de l’application, même si elles ne sont pas toutes considérées comme indispensables dans un premier temps.
+Un cahier des charges (fourni en annexe) a été défini entre l’association et les développeurs, pour fixer les fonctionnalités attendues, même si elles ne sont pas toutes considérées comme indispensables dans un premier temps.
 
 \paragraph{Écoute des podcasts audio et vidéo}
 
@@ -160,7 +160,9 @@ La discussion en direct est une plus value importante des enregistrements en dir
 \subsubsection{Autres fonctionnalités possibles}
 
 Les podcasts permettent une forte interaction entre les auditeurs et les animateurs. Elle passe notamment par les réactions aux émissions. L’application pourrait afficher pour chaque émission les commentaires laissés, voir proposer la publication de nouveaux commentaires.
+
 Pour aider à la propagation des émissions, l’application pourrait inclure un système de partage de liens sur les réseaux sociaux (Twitter, Facebook, Google+).
+
 Un onglet pourrait proposer une liste de tweets concernant l’association (via le hashtag \#freepod).
 Pour simplifier la consultation des contenus “texte”, l’application pourrait également proposer une version web mobile du forum, ainsi que le contenu du blog et les photos les plus récentes.
 
@@ -179,7 +181,7 @@ Basiquement, un Web Service est un outil informatique permettant l'échange de d
 
 Nous avons fait ici le choix de concevoir un Web Service sur lequel les applications pourront se connecter pour récupérer les données. 
 
-Ce Web Service aura pour mission de récolter les informations dans les flux RSS des podcasts et de les stocker dans une base de données avant de les redistribuer aux applications. Il est rendu particulièrement indispensable par la difficulté de traitement de ces flux RSS. Peu de normalisation à ce niveau et chaque podcasteur a ses pratiques pour l'écriture du fichier XML et pour un même élément, 2, voir 3, écritures différentes peuvent exister. Mieux vaut donc effectuer ce traitement une seule fois pour toutes les plateformes plutôt que de le répéter dans chaque application.
+Ce Web Service aura pour mission de récolter les informations dans les flux RSS des podcasts et de les stocker dans une base de données avant de les redistribuer aux applications. Il est rendu particulièrement indispensable par la difficulté de traitement de ces flux RSS. Peu de normalisation à ce niveau et chaque podcasteur a ses pratiques pour l'écriture du fichier XML et pour un même élément, 2 voir 3, écritures différentes peuvent exister. Mieux vaut donc effectuer ce traitement une seule fois pour toutes les plateformes plutôt que de le répéter dans chaque application.
 
 Il permettra également de répondre à certains besoins de Freepod pour partager son contenu avec des sites partenaires.
 
@@ -192,7 +194,7 @@ Il permettra également de répondre à certains besoins de Freepod pour partage
 
 \subsubsection{Conception}
 
-Pour le Web Service, nous allons nous baser sur un modèle de conception relativement simple. Il s'agit de lister les podcasts, et pour chaque podcast de lister les épisodes. Un podcast a un essentiellement un nom et un flux RSS (référençant les épisodes), mais nous pourrons y ajouter d'autres informations (images, URLs, etc.). Un épisode a un titre, une durée, une url vers le fichier (audio ou vidéo), une image, etc.
+Pour le Web Service, nous nous baserons sur un modèle de conception relativement simple. Il s'agit de lister les podcasts, et pour chaque podcast de lister les épisodes. Un podcast a un essentiellement un nom et un flux RSS (référençant les épisodes), mais nous pourrons y ajouter d'autres informations (images, URLs, etc.). Un épisode a un titre, une durée, une url vers le fichier (audio ou vidéo), une image, etc.
 
 Parallèlement à ces tables "fondamentales", nous devrons gérer les logins et mots de passe des utilisateurs, ainsi que des statistiques de base (nombre de requêtes). Une telle base de données, selon le modèle entités/associations sera représentée comme indiqué dans le schéma ci-contre.
 
@@ -255,7 +257,7 @@ Dans cette partie, nous allons présenter Objective-C, puis le SDK iOS, le frame
 
 \subsection{Historique}
 
-Le langage Objective-C est créé au début des années 80 par Brad Cox. L'inventeur le met au point en se basant sur le langage Smalltalk-80 et le destine à être une surcouche du C du C permettant la programmation orientée objet.
+Le langage Objective-C est créé au début des années 80 par Brad Cox. L'inventeur le met au point en se basant sur le langage Smalltalk-80 et le destine à être une surcouche du C permettant la programmation orientée objet.
 
 En 1989, sort le système d'exploitation NeXTSTEP qui est le premier à utiliser Objective-C. NeXTSTEP est l'OS développé par la société NeXT qui fut fondée par Steve Jobs lors de son éviction d'Apple.
 
@@ -290,7 +292,7 @@ Le SDK (Kit de Développement Logiciel) iOS contient un certain nombre d'outils 
 
 Il requiert pour fonctionner au minimum un Macintosh avec un processeur Intel.
 
-\paragraph{Cocoa Touch} C'est le framework de plus haut niveau du SDK. C'est cette couche qui permet de gérer l'interface utilisateur. Elle permet également de gérer les fonctions multitâche et les contrôles tactiles de l'écran.
+\paragraph{Cocoa Touch} C'est le framework de plus haut niveau du SDK. C'est cette couche qui permet de gérer l'interface utilisateur. Elle permet également de gérer les fonctions multitâches et les contrôles tactiles de l'écran.
 
 \paragraph{Couche Media} Cette couche contient les composants permettant la gestion des images (redimensionnement, transformation, etc.), de l'audio, de la vidéo (lecture, enregistrement) et des animations 3D.
 
@@ -328,12 +330,12 @@ L'outil permettant de synchroniser la base de données avec les flux RSS des dif
 
 \lstset{language=XML, basicstyle=\ttfamily, keywordstyle=\color{blue}\bfseries, commentstyle=\color{JungleGreen}}
 
-Comme indiqué précédemment, les flux RSS des podcasts (en fait un simple fichier XML) ne sont pas bien harmonisés chaque podcasteurs utilise ses propres outils pour les mettre en place. Certains utilisent des CMS les générants automatiquement, d'autres les génèrent à partir d'un logiciel dédié, d'autres encore éditent le code XML à la main. Cette diversité induit une diversité dans le code. L'inclusion d'une image pour un épisode se fait par exemple de deux manières différentes :
+Comme indiqué précédemment, les flux RSS des podcasts (en fait un simple fichier XML) ne sont pas bien harmonisés et chaque podcasteur utilise ses propres outils pour les mettre en place. Certains utilisent des CMS les générants automatiquement, d'autres les génèrent à partir d'un logiciel dédié, d'autres encore éditent le code XML à la main. Cette diversité induit une diversité dans le code. L'inclusion d'une image pour un épisode se fait par exemple de deux manières différentes :
 \begin{lstlisting}
 <itunes:image href="http://url_image"/>
 <itunes:image>http://url_image</itunes:image>
 \end{lstlisting}
-D'autres épisodes ne spécifient tout simplement pas d'image et il faut alors remplacer dans la base de données par l'image par défaut du podcast. Cette partie use donc d'un grand renfort de boucles conditionnelles.\\
+D'autres épisodes ne spécifient tout simplement pas d'image et il faut alors indiquer dans la base de données l'image par défaut du podcast. Cette partie use donc d'un grand renfort de boucles conditionnelles.\\
 
 Pour maintenir la synchronisation entre les flux RSS et la base de données (certains épisodes pouvant être supprimés ou modifiés), je me suis basé sur la comparaison de la date et l'heure de publication, ainsi que sur la chaine de cratères du nom. Un épisode ne dispose pas d'identifiant unique dans les flux, et cette méthode permet aux podcasteurs de modifier les informations de leurs podcasts dans la base de données simplement, en modifiant la date ou le nom d'un épisode.
 
@@ -354,7 +356,7 @@ Les deux premières requêtes sont stockées avec un cache de 15 minutes, pour �
 
 \subsubsection{La gestion des images}
 
-La nécessité d'une gestion des images plus performante vient d'un besoin exprimé pendant le développement des applications mobiles par Michel Knoertzer et moi-même. En effet, faute d'optimisation de la taille des images à charger, une application pouvait mettre plusieurs minutes à se charger, voir ne pas se charger du tout !
+La nécessité d'une gestion des images plus performante vient d'un besoin exprimé pendant le développement des applications mobiles par Michel Knoertzer et moi-même. En effet, faute d'optimisation de la taille des images à charger, une application pouvait mettre plusieurs minutes à se charger, voir ne pas se charger du tout.
 
 J'ai donc développé une solution utilisant la bibliothèque graphique de PHP, GD. Elle me permet de récupérer n'importe qu'elle image présente dans la base de données à la taille souhaitée (donnée en paramètre dans l'URL).
 
@@ -372,7 +374,7 @@ Le développement de l'application iOS est survenu dans un second temps. Ici enc
 
 \subsubsection{Classes métier et récupération des données du Web Service}
 
-La première étape du développement a été la création des classes métiers et la récupération des données du Web Service. Le SDK iOS n'offrant pas de solution simple pour parse des données au format JSON, je me suis servi du framework libre SBJson.
+La première étape du développement a été la création des classes métiers et la récupération des données du Web Service. Le SDK iOS n'offrant pas de solution simple pour parser des données au format JSON, je me suis servi du framework libre SBJson.
 
 Dans un premier temps, l'application chargeait et instanciait l'ensemble des données des podcasts et des épisodes à son ouverture, mais j'ai préféré modifier ce système en récupérant les données en ligne au fur et à mesure de leur affichage à l'écran, dans un soucis d'efficacité.
 
@@ -380,13 +382,13 @@ Dans un premier temps, l'application chargeait et instanciait l'ensemble des don
 
 La navigation principale de l'application, celle qui permet de visualiser la liste des podcasts et pour chaque podcast la liste des épisodes, a été réalisée en utilisant deux classes particulières :
 \begin{itemize}
-	\item La classe UINavigationController propose une navigation simple et fluide à l'écran. Elle permet l'affichage de toute une arborescence par écrans successif, avec toujours la possibilité de revenir à l'écran précédent.
+	\item La classe UINavigationController propose une navigation simple et fluide à l'écran. Elle permet l'affichage de toute une arborescence par écrans successifs, avec toujours la possibilité de revenir à l'écran précédent.
 	\item La classe UITableViewController permet d'afficher les données à l'écran sous la forme d'une liste de cellules pouvant être personnalisées à souhait.\\
 \end{itemize}
 
 J'ai implementé cette solution car elle me semblait la plus pertinente avec les IHM prévues pour l'application.
 
-Par ailleurs, pour naviguer entre les différentes sections de l'application, une navigation de type UITabBar a été mise en place. Elle permet simplement d'afficher une liste d'onglet dans une barre en bas de l'écran.
+Par ailleurs, pour naviguer entre les différentes sections de l'application, une navigation de type UITabBar a été mise en place. Elle permet simplement d'afficher une liste d'onglets dans une barre en bas de l'écran.
 
 \subsubsection{Lecture Audio et Vidéo}
 
@@ -412,7 +414,7 @@ Le développement de l'application ayant suffisamment avancé, j'ai pu soumettre
 
 \section{Limites}
 
-Malgré la réussite de ce projet, il existe un certain nombre de limite qui seront soulevées ici, notamment au niveau des difficultés rencontrées et des fonctionnalités du cahier des charges qui n'ont pas été implementées.
+Malgré la réussite de ce projet, il existe un certain nombre de limites qui seront soulevées ici, notamment au niveau des difficultés rencontrées et des fonctionnalités du cahier des charges qui n'ont pas été implementées.
 
 \subsection{Difficultés rencontrés}
 
@@ -426,7 +428,7 @@ Arrivé au bout de ce projet, je ne pense pas avoir appréhendé la totalité de
 
 \subsubsection{Répondre aux besoins par un Web Service}
 
-Construire un Web Service qui sera utilisé par des développeurs différents et pour des plateformes différentes requiert une certaine réflexion... Le travail de conception a été particulièrement complexe sur cet outil pour garantir qu'il soit utile et maintennable sur une longue durée.
+Construire un Web Service qui sera utilisé par des développeurs différents et pour des plateformes différentes requiert une certaine réflexion. Le travail de conception a été particulièrement complexe sur cet outil pour garantir qu'il soit utile et maintenable sur une longue durée.
 
 \subsection{Fonctionnalités non-implémentées}
 
@@ -464,7 +466,7 @@ A la fin de ces quelques mois de projet, les principaux objectifs sont atteints 
 
 Ce projet n'était pas directement lié à ma mission professionnelle. La principale difficulté a donc été de jongler entre le travail universitaire, celui réalisé en entreprise et d'accorder du temps à l'avancement de ce projet.
 
-Pourtant, malgré les difficultés rencontrées pendant le développement, ce projet m'a aider sur plusieurs aspects.
+Pourtant, malgré les difficultés rencontrées pendant le développement, ce projet m'a aidé sur plusieurs aspects.
 \begin{itemize}
 	\item Il m'a permis de prendre conscience de la difficulté et des contraintes qui existent dans le développement d'un projet "réel", réalisé de A à Z, de la conception à la mise en production.
 	\item Il m'a poussé à apprendre de nouvelles technologies qui me seront certainement utiles pour mon avenir professionnel.\\

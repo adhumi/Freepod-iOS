@@ -22,9 +22,6 @@
 		A607B370156AD9240033D45A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B36F156AD9240033D45A /* UIKit.framework */; };
 		A607B372156AD9240033D45A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B371156AD9240033D45A /* Foundation.framework */; };
 		A607B374156AD9240033D45A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A607B373156AD9240033D45A /* CoreGraphics.framework */; };
-		A607B37A156AD9240033D45A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A607B378156AD9240033D45A /* InfoPlist.strings */; };
-		A607B389156AD9240033D45A /* MasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A607B387156AD9240033D45A /* MasterViewController_iPhone.xib */; };
-		A607B38F156AD9240033D45A /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A607B38D156AD9240033D45A /* DetailViewController_iPhone.xib */; };
 		A607B465156FEDCC0033D45A /* logo_freepod_navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */; };
 		A60B2C961576932E003C0255 /* 66-microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C941576932E003C0255 /* 66-microphone.png */; };
 		A60B2C9B157695E4003C0255 /* Chats.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C98157695E4003C0255 /* Chats.png */; };
@@ -34,6 +31,8 @@
 		A60B2CA415777182003C0255 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B2CA315777182003C0255 /* PlayerView.m */; };
 		A60B2CA615778623003C0255 /* VideoEpisodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A60B2CA515778623003C0255 /* VideoEpisodeViewController.xib */; };
 		A60B2CAD15778704003C0255 /* VideoEpisodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B2CAC15778704003C0255 /* VideoEpisodeViewController.m */; };
+		A62CE7D6157B8BB400519193 /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62CE7D4157B8BB400519193 /* DetailViewController_iPhone.xib */; };
+		A62CE7D7157B8BB400519193 /* MasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62CE7D5157B8BB400519193 /* MasterViewController_iPhone.xib */; };
 		A67297C91578100600855BB4 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67297C81578100600855BB4 /* Twitter.framework */; };
 		A67297CD157812DE00855BB4 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = A67297CB157812DE00855BB4 /* twitter.png */; };
 		A67297CE157812DE00855BB4 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67297CC157812DE00855BB4 /* twitter@2x.png */; };
@@ -106,9 +105,9 @@
 		A607B36F156AD9240033D45A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A607B371156AD9240033D45A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A607B373156AD9240033D45A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A607B377156AD9240033D45A /* freepod-Info.plist */ = {isa = PBXFileReference; path = "freepod-Info.plist"; sourceTree = "<group>"; };
+		A607B377156AD9240033D45A /* freepod-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "freepod-Info.plist"; sourceTree = "<group>"; };
 		A607B37B156AD9240033D45A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A607B37D156AD9240033D45A /* freepod-Prefix.pch */ = {isa = PBXFileReference; path = "freepod-Prefix.pch"; sourceTree = "<group>"; };
+		A607B37D156AD9240033D45A /* freepod-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "freepod-Prefix.pch"; sourceTree = "<group>"; };
 		A607B37E156AD9240033D45A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A607B37F156AD9240033D45A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		A607B381156AD9240033D45A /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
@@ -155,6 +154,8 @@
 		A60B2CA515778623003C0255 /* VideoEpisodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoEpisodeViewController.xib; sourceTree = "<group>"; };
 		A60B2CAB15778704003C0255 /* VideoEpisodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoEpisodeViewController.h; sourceTree = "<group>"; };
 		A60B2CAC15778704003C0255 /* VideoEpisodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoEpisodeViewController.m; sourceTree = "<group>"; };
+		A62CE7D4157B8BB400519193 /* DetailViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		A62CE7D5157B8BB400519193 /* MasterViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MasterViewController_iPhone.xib; sourceTree = "<group>"; };
 		A67297C81578100600855BB4 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		A67297CB157812DE00855BB4 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		A67297CC157812DE00855BB4 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
@@ -175,9 +176,6 @@
 		A6A2E0351571904A00EE3A0E /* jacquette_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jacquette_default.png; sourceTree = "<group>"; };
 		A6A2E0371572A7E900EE3A0E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A6CFB8AA15763766009DB624 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		A6CFB8AD15764D95009DB624 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = "/Volumes/Macintosh HD 2/adhumi/Documents/Freepod-iOS/v0.3/test1/fr.lproj/DetailViewController_iPhone.xib"; sourceTree = "<absolute>"; };
-		A6CFB8AE15764D95009DB624 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "/Volumes/Macintosh HD 2/adhumi/Documents/Freepod-iOS/v0.3/test1/fr.lproj/InfoPlist.strings"; sourceTree = "<absolute>"; };
-		A6CFB8AF15764D95009DB624 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = "/Volumes/Macintosh HD 2/adhumi/Documents/Freepod-iOS/v0.3/test1/fr.lproj/MasterViewController_iPhone.xib"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,8 +301,8 @@
 				A60B2CAC15778704003C0255 /* VideoEpisodeViewController.m */,
 				A603C2D9157314B00067B1CD /* EpisodesRecentsViewController.h */,
 				A603C2DA157314B00067B1CD /* EpisodesRecentsViewController.m */,
-				A607B387156AD9240033D45A /* MasterViewController_iPhone.xib */,
-				A607B38D156AD9240033D45A /* DetailViewController_iPhone.xib */,
+				A62CE7D4157B8BB400519193 /* DetailViewController_iPhone.xib */,
+				A62CE7D5157B8BB400519193 /* MasterViewController_iPhone.xib */,
 				A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */,
 				A60B2CA515778623003C0255 /* VideoEpisodeViewController.xib */,
 				A603C2DB157314B00067B1CD /* EpisodesRecentsViewController.xib */,
@@ -325,7 +323,6 @@
 			isa = PBXGroup;
 			children = (
 				A607B377156AD9240033D45A /* freepod-Info.plist */,
-				A607B378156AD9240033D45A /* InfoPlist.strings */,
 				A607B37B156AD9240033D45A /* main.m */,
 				A607B37D156AD9240033D45A /* freepod-Prefix.pch */,
 			);
@@ -430,9 +427,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A607B37A156AD9240033D45A /* InfoPlist.strings in Resources */,
-				A607B389156AD9240033D45A /* MasterViewController_iPhone.xib in Resources */,
-				A607B38F156AD9240033D45A /* DetailViewController_iPhone.xib in Resources */,
 				A607B465156FEDCC0033D45A /* logo_freepod_navbar.png in Resources */,
 				A6858C291570FDA8003CC243 /* Default.png in Resources */,
 				A6858C2C1570FDAC003CC243 /* Default@2x.png in Resources */,
@@ -460,6 +454,8 @@
 				A60B2CA615778623003C0255 /* VideoEpisodeViewController.xib in Resources */,
 				A67297CD157812DE00855BB4 /* twitter.png in Resources */,
 				A67297CE157812DE00855BB4 /* twitter@2x.png in Resources */,
+				A62CE7D6157B8BB400519193 /* DetailViewController_iPhone.xib in Resources */,
+				A62CE7D7157B8BB400519193 /* MasterViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,33 +499,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		A607B378156AD9240033D45A /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6CFB8AE15764D95009DB624 /* fr */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A607B387156AD9240033D45A /* MasterViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6CFB8AF15764D95009DB624 /* fr */,
-			);
-			name = MasterViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		A607B38D156AD9240033D45A /* DetailViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6CFB8AD15764D95009DB624 /* fr */,
-			);
-			name = DetailViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A607B393156AD9250033D45A /* Debug */ = {

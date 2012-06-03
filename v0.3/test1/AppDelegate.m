@@ -43,7 +43,8 @@ Episode *readingEpisode;
 	/* Pick any one of them */
 	// 1. Overriding the output audio route
 	UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
-	AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audioRouteOverride), &audioRouteOverride);
+	AudioSessionSetProperty(kAudioSessionCategory_MediaPlayback, sizeof(audioRouteOverride), &audioRouteOverride);
+	
 	
 	// 2. Changing the default output audio route
 	//UInt32 doChangeDefaultRoute = 1;
