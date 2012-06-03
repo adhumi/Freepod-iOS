@@ -45,12 +45,14 @@ extern Episode *readingEpisode;
 	logo.tag = 42;
 	[navBar addSubview:logo];
 	
-	NSURL *urlFile = [NSURL URLWithString:@"http://statslive.infomaniak.com/playlist/freepod/freepod-32.aac/playlist.m3u"];
+	NSURL *urlFile = [NSURL URLWithString:@"http://radio.podradio.fr:8000/adsl.m3u"];
 	audioPlayer = [AVPlayer playerWithURL:urlFile];
 	
 	timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkStatus) userInfo:nil repeats:YES];
 	
 	readingEpisode = nil;
+	
+	[playPause setTitle:@"Lancer le live" forState:UIControlStateNormal];
 }
 
 - (void)viewDidUnload
@@ -76,8 +78,10 @@ extern Episode *readingEpisode;
 - (IBAction)goLive:(id)sender {
 	if (audioPlayer.rate > 0.5) {
 		[audioPlayer pause];
+		[playPause setTitle:@"Retablir le live" forState:UIControlStateNormal];
 	} else {
 		[audioPlayer play];
+		[playPause setTitle:@"Mettre en pause" forState:UIControlStateNormal];
 	}
 }
 
@@ -87,8 +91,8 @@ extern Episode *readingEpisode;
 	
 	// Optional: set an image, url and initial text
 	//[twitter addImage:[UIImage imageNamed:@"iOSDevTips.png"]];
-	[twitter addURL:[NSURL URLWithString:[NSString stringWithString:@"http://www.freepod.net"]]];
-	[twitter setInitialText:@"Merci de ne pas abuser de cette fonction avant publication officielle"];
+	[twitter addURL:[NSURL URLWithString:[NSString stringWithString:@"http://www.freepod.net/live"]]];
+	[twitter setInitialText:@"Freepod en live, en ce moment sur Freepod pour iOS"];
 	
 	// Show the controller
 	[self presentModalViewController:twitter animated:YES];

@@ -25,7 +25,6 @@
 		A607B465156FEDCC0033D45A /* logo_freepod_navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */; };
 		A60B2C961576932E003C0255 /* 66-microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C941576932E003C0255 /* 66-microphone.png */; };
 		A60B2C9B157695E4003C0255 /* Chats.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C98157695E4003C0255 /* Chats.png */; };
-		A60B2C9C157695E4003C0255 /* Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C99157695E4003C0255 /* Clock.png */; };
 		A60B2C9D157695E4003C0255 /* Radio-Tower@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C9A157695E4003C0255 /* Radio-Tower@2x.png */; };
 		A60B2C9F1576963F003C0255 /* Radio-Tower.png in Resources */ = {isa = PBXBuildFile; fileRef = A60B2C9E1576963F003C0255 /* Radio-Tower.png */; };
 		A60B2CA415777182003C0255 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B2CA315777182003C0255 /* PlayerView.m */; };
@@ -70,6 +69,10 @@
 		A6858C2C1570FDAC003CC243 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2B1570FDAC003CC243 /* Default@2x.png */; };
 		A6858C2E1570FDB0003CC243 /* ico_ios.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2D1570FDB0003CC243 /* ico_ios.png */; };
 		A6858C301570FDB3003CC243 /* ico_ios_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = A6858C2F1570FDB3003CC243 /* ico_ios_retina.png */; };
+		A6929596157BE64000B399B2 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = A6929594157BE64000B399B2 /* clock.png */; };
+		A6929597157BE64000B399B2 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6929595157BE64000B399B2 /* clock@2x.png */; };
+		A692959A157BE8EB00B399B2 /* pod.png in Resources */ = {isa = PBXBuildFile; fileRef = A6929598157BE8EB00B399B2 /* pod.png */; };
+		A692959B157BE8EB00B399B2 /* pod@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6929599157BE8EB00B399B2 /* pod@2x.png */; };
 		A6A2E0321571854F00EE3A0E /* AudioEpisodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */; };
 		A6A2E0361571904A00EE3A0E /* jacquette_default.png in Resources */ = {isa = PBXBuildFile; fileRef = A6A2E0351571904A00EE3A0E /* jacquette_default.png */; };
 		A6A2E0381572A7E900EE3A0E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6A2E0371572A7E900EE3A0E /* AVFoundation.framework */; };
@@ -146,7 +149,6 @@
 		A607B464156FEDCC0033D45A /* logo_freepod_navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_freepod_navbar.png; sourceTree = "<group>"; };
 		A60B2C941576932E003C0255 /* 66-microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "66-microphone.png"; sourceTree = "<group>"; };
 		A60B2C98157695E4003C0255 /* Chats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chats.png; sourceTree = "<group>"; };
-		A60B2C99157695E4003C0255 /* Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock.png; sourceTree = "<group>"; };
 		A60B2C9A157695E4003C0255 /* Radio-Tower@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio-Tower@2x.png"; sourceTree = "<group>"; };
 		A60B2C9E1576963F003C0255 /* Radio-Tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Radio-Tower.png"; sourceTree = "<group>"; };
 		A60B2CA215777182003C0255 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
@@ -170,6 +172,10 @@
 		A6858C2B1570FDAC003CC243 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A6858C2D1570FDB0003CC243 /* ico_ios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_ios.png; sourceTree = "<group>"; };
 		A6858C2F1570FDB3003CC243 /* ico_ios_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_ios_retina.png; sourceTree = "<group>"; };
+		A6929594157BE64000B399B2 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		A6929595157BE64000B399B2 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clock@2x.png"; sourceTree = "<group>"; };
+		A6929598157BE8EB00B399B2 /* pod.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pod.png; sourceTree = "<group>"; };
+		A6929599157BE8EB00B399B2 /* pod@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pod@2x.png"; sourceTree = "<group>"; };
 		A6A2E02E1571854F00EE3A0E /* AudioEpisodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioEpisodeViewController.h; sourceTree = "<group>"; };
 		A6A2E02F1571854F00EE3A0E /* AudioEpisodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioEpisodeViewController.m; sourceTree = "<group>"; };
 		A6A2E0301571854F00EE3A0E /* AudioEpisodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioEpisodeViewController.xib; sourceTree = "<group>"; };
@@ -201,10 +207,13 @@
 		A603C31A1574B6350067B1CD /* img */ = {
 			isa = PBXGroup;
 			children = (
+				A6929598157BE8EB00B399B2 /* pod.png */,
+				A6929599157BE8EB00B399B2 /* pod@2x.png */,
+				A6929594157BE64000B399B2 /* clock.png */,
+				A6929595157BE64000B399B2 /* clock@2x.png */,
 				A67297CB157812DE00855BB4 /* twitter.png */,
 				A67297CC157812DE00855BB4 /* twitter@2x.png */,
 				A60B2C98157695E4003C0255 /* Chats.png */,
-				A60B2C99157695E4003C0255 /* Clock.png */,
 				A60B2C9E1576963F003C0255 /* Radio-Tower.png */,
 				A60B2C9A157695E4003C0255 /* Radio-Tower@2x.png */,
 				A60B2C941576932E003C0255 /* 66-microphone.png */,
@@ -448,7 +457,6 @@
 				A680904815758DA3002FBE14 /* banner_default.png in Resources */,
 				A60B2C961576932E003C0255 /* 66-microphone.png in Resources */,
 				A60B2C9B157695E4003C0255 /* Chats.png in Resources */,
-				A60B2C9C157695E4003C0255 /* Clock.png in Resources */,
 				A60B2C9D157695E4003C0255 /* Radio-Tower@2x.png in Resources */,
 				A60B2C9F1576963F003C0255 /* Radio-Tower.png in Resources */,
 				A60B2CA615778623003C0255 /* VideoEpisodeViewController.xib in Resources */,
@@ -456,6 +464,10 @@
 				A67297CE157812DE00855BB4 /* twitter@2x.png in Resources */,
 				A62CE7D6157B8BB400519193 /* DetailViewController_iPhone.xib in Resources */,
 				A62CE7D7157B8BB400519193 /* MasterViewController_iPhone.xib in Resources */,
+				A6929596157BE64000B399B2 /* clock.png in Resources */,
+				A6929597157BE64000B399B2 /* clock@2x.png in Resources */,
+				A692959A157BE8EB00B399B2 /* pod.png in Resources */,
+				A692959B157BE8EB00B399B2 /* pod@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

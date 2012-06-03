@@ -69,13 +69,13 @@ Episode *readingEpisode;
 	MasterViewController *masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController_iPhone" bundle:nil];
 	self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
 	self.navigationController.title = @"Podcasts";
-	self.navigationController.tabBarItem.image = [UIImage imageNamed:@"66-microphone.png"];
+	self.navigationController.tabBarItem.image = [UIImage imageNamed:@"pod.png"];
 	
 	// Vue secondaire (Liste des épisodes récents)
 	EpisodesRecentsViewController *episodesRecentsViewController = [[EpisodesRecentsViewController alloc] initWithNibName:@"EpisodesRecentsViewController" bundle:nil];
 	self.navigationControllerRecent = [[UINavigationController alloc] initWithRootViewController:episodesRecentsViewController];
 	self.navigationControllerRecent.title = @"Récents";
-	self.navigationControllerRecent.tabBarItem.image = [UIImage imageNamed:@"Clock.png"];
+	self.navigationControllerRecent.tabBarItem.image = [UIImage imageNamed:@"clock.png"];
 	
 	// Vue secondaire (Live)
 	LiveViewController *liveViewController = [[LiveViewController alloc] initWithNibName:@"LiveViewController" bundle:nil];
