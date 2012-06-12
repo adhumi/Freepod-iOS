@@ -91,7 +91,7 @@ extern Episode *readingEpisode;
 	
 	// Optional: set an image, url and initial text
 	//[twitter addImage:[UIImage imageNamed:@"iOSDevTips.png"]];
-	[twitter addURL:[NSURL URLWithString:[NSString stringWithString:@"http://www.freepod.net/live"]]];
+	[twitter addURL:[NSURL URLWithString:@"http://www.freepod.net/live"]];
 	[twitter setInitialText:@"Freepod en live, en ce moment sur Freepod pour iOS"];
 	
 	// Show the controller

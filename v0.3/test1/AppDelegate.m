@@ -13,6 +13,7 @@
 #import "Episode.h"
 #import "EpisodesRecentsViewController.h"
 #import "LiveViewController.h"
+#import "ForumViewController.h"
 
 @implementation AppDelegate
 
@@ -42,13 +43,13 @@ Episode *readingEpisode;
 	
 	/* Pick any one of them */
 	// 1. Overriding the output audio route
-	UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
-	AudioSessionSetProperty(kAudioSessionCategory_MediaPlayback, sizeof(audioRouteOverride), &audioRouteOverride);
+	//UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+	//AudioSessionSetProperty(kAudioSessionCategory_MediaPlayback, sizeof(audioRouteOverride), &audioRouteOverride);
 	
 	
 	// 2. Changing the default output audio route
-	//UInt32 doChangeDefaultRoute = 1;
-	//AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
+	UInt32 doChangeDefaultRoute = 1;
+	AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryDefaultToSpeaker, sizeof(doChangeDefaultRoute), &doChangeDefaultRoute);
 	
 	
 	
@@ -82,7 +83,12 @@ Episode *readingEpisode;
 	liveViewController.title = @"Live";
 	liveViewController.tabBarItem.image = [UIImage imageNamed:@"Radio-Tower.png"];
 	
-	tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, self.navigationControllerRecent, liveViewController, nil];
+	// Vue secondaire (Forum)
+	ForumViewController *forumViewController = [[ForumViewController alloc] initWithNibName:@"ForumViewController" bundle:nil];
+	forumViewController.title = @"Forums";
+	forumViewController.tabBarItem.image = [UIImage imageNamed:@"speech_bubble_transparent.png"];
+	
+	tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, self.navigationControllerRecent, liveViewController, forumViewController, nil];
 	
 	self.window.rootViewController = tabBarController;
 	[self.window makeKeyAndVisible];

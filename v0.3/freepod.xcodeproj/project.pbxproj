@@ -32,6 +32,12 @@
 		A60B2CAD15778704003C0255 /* VideoEpisodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B2CAC15778704003C0255 /* VideoEpisodeViewController.m */; };
 		A62CE7D6157B8BB400519193 /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62CE7D4157B8BB400519193 /* DetailViewController_iPhone.xib */; };
 		A62CE7D7157B8BB400519193 /* MasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62CE7D5157B8BB400519193 /* MasterViewController_iPhone.xib */; };
+		A66849B5157E6A630005729A /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A66849B3157E6A630005729A /* ForumViewController.m */; };
+		A66849B6157E6A630005729A /* ForumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66849B4157E6A630005729A /* ForumViewController.xib */; };
+		A66849B9157FA4960005729A /* ico-back.png in Resources */ = {isa = PBXBuildFile; fileRef = A66849B7157FA4960005729A /* ico-back.png */; };
+		A66849BA157FA4960005729A /* ico-back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A66849B8157FA4960005729A /* ico-back@2x.png */; };
+		A66849BD157FB9CD0005729A /* speech_bubble_transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = A66849BB157FB9CD0005729A /* speech_bubble_transparent.png */; };
+		A66849BE157FB9CD0005729A /* speech_bubble_transparent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A66849BC157FB9CD0005729A /* speech_bubble_transparent@2x.png */; };
 		A67297C91578100600855BB4 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A67297C81578100600855BB4 /* Twitter.framework */; };
 		A67297CD157812DE00855BB4 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = A67297CB157812DE00855BB4 /* twitter.png */; };
 		A67297CE157812DE00855BB4 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A67297CC157812DE00855BB4 /* twitter@2x.png */; };
@@ -158,6 +164,13 @@
 		A60B2CAC15778704003C0255 /* VideoEpisodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoEpisodeViewController.m; sourceTree = "<group>"; };
 		A62CE7D4157B8BB400519193 /* DetailViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController_iPhone.xib; sourceTree = "<group>"; };
 		A62CE7D5157B8BB400519193 /* MasterViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		A66849B2157E6A630005729A /* ForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumViewController.h; sourceTree = "<group>"; };
+		A66849B3157E6A630005729A /* ForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewController.m; sourceTree = "<group>"; };
+		A66849B4157E6A630005729A /* ForumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForumViewController.xib; sourceTree = "<group>"; };
+		A66849B7157FA4960005729A /* ico-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico-back.png"; sourceTree = "<group>"; };
+		A66849B8157FA4960005729A /* ico-back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico-back@2x.png"; sourceTree = "<group>"; };
+		A66849BB157FB9CD0005729A /* speech_bubble_transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speech_bubble_transparent.png; sourceTree = "<group>"; };
+		A66849BC157FB9CD0005729A /* speech_bubble_transparent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "speech_bubble_transparent@2x.png"; sourceTree = "<group>"; };
 		A67297C81578100600855BB4 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		A67297CB157812DE00855BB4 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
 		A67297CC157812DE00855BB4 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
@@ -207,6 +220,10 @@
 		A603C31A1574B6350067B1CD /* img */ = {
 			isa = PBXGroup;
 			children = (
+				A66849BB157FB9CD0005729A /* speech_bubble_transparent.png */,
+				A66849BC157FB9CD0005729A /* speech_bubble_transparent@2x.png */,
+				A66849B7157FA4960005729A /* ico-back.png */,
+				A66849B8157FA4960005729A /* ico-back@2x.png */,
 				A6929598157BE8EB00B399B2 /* pod.png */,
 				A6929599157BE8EB00B399B2 /* pod@2x.png */,
 				A6929594157BE64000B399B2 /* clock.png */,
@@ -318,6 +335,9 @@
 				A603C34015751B530067B1CD /* LiveViewController.h */,
 				A603C34115751B530067B1CD /* LiveViewController.m */,
 				A603C34215751B530067B1CD /* LiveViewController.xib */,
+				A66849B2157E6A630005729A /* ForumViewController.h */,
+				A66849B3157E6A630005729A /* ForumViewController.m */,
+				A66849B4157E6A630005729A /* ForumViewController.xib */,
 				A603C33E15751B1B0067B1CD /* Views */,
 				A603C33F15751B2D0067B1CD /* Classes */,
 				A60B2CAE15778B17003C0255 /* Downloaders */,
@@ -468,6 +488,11 @@
 				A6929597157BE64000B399B2 /* clock@2x.png in Resources */,
 				A692959A157BE8EB00B399B2 /* pod.png in Resources */,
 				A692959B157BE8EB00B399B2 /* pod@2x.png in Resources */,
+				A66849B6157E6A630005729A /* ForumViewController.xib in Resources */,
+				A66849B9157FA4960005729A /* ico-back.png in Resources */,
+				A66849BA157FA4960005729A /* ico-back@2x.png in Resources */,
+				A66849BD157FB9CD0005729A /* speech_bubble_transparent.png in Resources */,
+				A66849BE157FB9CD0005729A /* speech_bubble_transparent@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +532,7 @@
 				A68090701575A3B3002FBE14 /* AsynchronousUIImage.m in Sources */,
 				A60B2CA415777182003C0255 /* PlayerView.m in Sources */,
 				A60B2CAD15778704003C0255 /* VideoEpisodeViewController.m in Sources */,
+				A66849B5157E6A630005729A /* ForumViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
