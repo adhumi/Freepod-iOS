@@ -15,10 +15,12 @@
 	IBOutlet UIButton *playPause;
 	NSTimer *timer;
 	IBOutlet UIBarButtonItem *tweet;
+	AVPlayerItem *playerItem;
 }
 
 @property NSTimer *timer;
 @property AVPlayer *audioPlayer;
+@property AVPlayerItem *playerItem;
 
 @property (strong, nonatomic) IBOutlet UIImageView *onOffAir;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navBar;

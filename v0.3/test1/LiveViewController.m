@@ -21,6 +21,7 @@
 @synthesize tweet;
 @synthesize timer;
 @synthesize audioPlayer = _audioPlayer;
+@synthesize playerItem;
 
 extern AVPlayer *audioPlayer;
 extern Episode *readingEpisode;
@@ -45,10 +46,11 @@ extern Episode *readingEpisode;
 	logo.tag = 42;
 	[navBar addSubview:logo];
 	
-	NSURL *urlFile = [NSURL URLWithString:@"http://radio.podradio.fr:8000/adsl.m3u"];
-	audioPlayer = [AVPlayer playerWithURL:urlFile];
+	NSURL *urlFile = [NSURL URLWithString:@"http://statslive.infomaniak.com/playlist/freepod/freepod-32.aac/playlist.m3u"];
+	playerItem = [AVPlayerItem playerItemWithURL:urlFile];
+	audioPlayer = [AVPlayer playerWithPlayerItem:playerItem];
 	
-	timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(checkStatus) userInfo:nil repeats:YES];
+	timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(checkStatus) userInfo:nil repeats:YES];
 	
 	readingEpisode = nil;
 	
@@ -118,13 +120,34 @@ extern Episode *readingEpisode;
 }
 
 - (void) checkStatus {
+	
+	
 	if (self.isViewLoaded && self.view.window) {
-		NSLog(@"LIVE ACTIVE");
+		if (readingEpisode != nil) {
+			NSURL *urlFile = [NSURL URLWithString:@"http://statslive.infomaniak.com/playlist/freepod/freepod-32.aac/playlist.m3u"];
+			playerItem = [AVPlayerItem playerItemWithURL:urlFile];
+			audioPlayer = [AVPlayer playerWithPlayerItem:playerItem];
+			
+			readingEpisode = nil;
+			
+			[playPause setTitle:@"Lancer le live" forState:UIControlStateNormal];
+		}
+		
+		NSLog(@"Status AVPlayer : %i", audioPlayer.status);
+		NSLog(@"Status AVPlayerItem : %i", playerItem.status);
+		
+		if (audioPlayer.status == AVPlayerItemStatusReadyToPlay	&& playerItem.status == AVPlayerItemStatusReadyToPlay) {
+			onOffAir.image = [UIImage imageNamed:@"on_air.png"];
+			playPause.hidden = NO;
+			NSLog(@"TOTO YES");
+		} else {
+			onOffAir.image = [UIImage imageNamed:@"off_air.png"];
+			playPause.hidden = YES;
+			NSLog(@"TOTO NO");
+		}
 	}
 	
-	if (audioPlayer.status !=  AVPlayerStatusUnknown && audioPlayer.status !=  AVPlayerStatusFailed) {
-		onOffAir.image = [UIImage imageNamed:@"on_air.png"];
-		playPause.hidden = NO;
-	}
+
 }
+
 @end
