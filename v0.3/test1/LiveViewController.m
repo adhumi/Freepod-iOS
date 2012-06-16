@@ -92,7 +92,7 @@ extern Episode *readingEpisode;
 	TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
 	
 	// Optional: set an image, url and initial text
-	//[twitter addImage:[UIImage imageNamed:@"iOSDevTips.png"]];
+	//[twitter addImage:[UIImage imageNamed:@""]];
 	[twitter addURL:[NSURL URLWithString:@"http://www.freepod.net/live"]];
 	[twitter setInitialText:@"Freepod en live, en ce moment sur Freepod pour iOS"];
 	
@@ -120,8 +120,6 @@ extern Episode *readingEpisode;
 }
 
 - (void) checkStatus {
-	
-	
 	if (self.isViewLoaded && self.view.window) {
 		if (readingEpisode != nil) {
 			NSURL *urlFile = [NSURL URLWithString:@"http://statslive.infomaniak.com/playlist/freepod/freepod-32.aac/playlist.m3u"];

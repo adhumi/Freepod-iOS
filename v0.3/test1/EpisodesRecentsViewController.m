@@ -173,7 +173,7 @@ extern Episode *readingEpisode;
 		cell.jacquette.image = object.jacquette;
 	}
 	
-	cell.duration.text = [object duration];
+	cell.duration.text = [object getFormatedDuration];
 	cell.selectionStyle = UITableViewCellSelectionStyleGray;
 	return cell;
 }

@@ -113,6 +113,35 @@
 	return self->duration;
 }
 
+-(NSString*) getFormatedDuration {
+	int nbSec = [self getDurationInSeconds];
+		
+	int hours = nbSec / 3600;
+	int min = (nbSec - (3600 * hours)) / 60;
+	int sec = nbSec - (3600 * hours) - (60 * min);
+	
+	if (nbSec == 0) {
+		return @"";
+	}
+	
+	return [NSString stringWithFormat:@"%02d:%02d:%02d", hours, min, sec];
+}
+
+-(NSString*) getFormatedDurationHhMm {
+	int nbSec = [self getDurationInSeconds];
+	
+	int hours = nbSec / 3600;
+	int min = (nbSec - (3600 * hours)) / 60;
+	int sec = nbSec - (3600 * hours) - (60 * min);
+	
+	if (nbSec == 0) {
+		return @"";
+	} else if (hours > 0) {
+		return [NSString stringWithFormat:@"%dh%02d", hours, min];
+	}
+	return [NSString stringWithFormat:@"%dmin%02d", min, sec];
+}
+
 -(NSString*) image {
 	return self->image;
 }

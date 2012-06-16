@@ -32,6 +32,10 @@
 		A60B2CAD15778704003C0255 /* VideoEpisodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A60B2CAC15778704003C0255 /* VideoEpisodeViewController.m */; };
 		A62CE7D6157B8BB400519193 /* DetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62CE7D4157B8BB400519193 /* DetailViewController_iPhone.xib */; };
 		A62CE7D7157B8BB400519193 /* MasterViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = A62CE7D5157B8BB400519193 /* MasterViewController_iPhone.xib */; };
+		A666A1D6158D182A00693FF6 /* headset.png in Resources */ = {isa = PBXBuildFile; fileRef = A666A1D4158D182A00693FF6 /* headset.png */; };
+		A666A1D7158D182A00693FF6 /* headset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A666A1D5158D182A00693FF6 /* headset@2x.png */; };
+		A666A1DB158D18F700693FF6 /* fofo.png in Resources */ = {isa = PBXBuildFile; fileRef = A666A1D9158D18F700693FF6 /* fofo.png */; };
+		A666A1DC158D18F700693FF6 /* fofo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A666A1DA158D18F700693FF6 /* fofo@2x.png */; };
 		A66849B5157E6A630005729A /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A66849B3157E6A630005729A /* ForumViewController.m */; };
 		A66849B6157E6A630005729A /* ForumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66849B4157E6A630005729A /* ForumViewController.xib */; };
 		A66849B9157FA4960005729A /* ico-back.png in Resources */ = {isa = PBXBuildFile; fileRef = A66849B7157FA4960005729A /* ico-back.png */; };
@@ -164,6 +168,10 @@
 		A60B2CAC15778704003C0255 /* VideoEpisodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoEpisodeViewController.m; sourceTree = "<group>"; };
 		A62CE7D4157B8BB400519193 /* DetailViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController_iPhone.xib; sourceTree = "<group>"; };
 		A62CE7D5157B8BB400519193 /* MasterViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MasterViewController_iPhone.xib; sourceTree = "<group>"; };
+		A666A1D4158D182A00693FF6 /* headset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headset.png; sourceTree = "<group>"; };
+		A666A1D5158D182A00693FF6 /* headset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "headset@2x.png"; sourceTree = "<group>"; };
+		A666A1D9158D18F700693FF6 /* fofo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fofo.png; sourceTree = "<group>"; };
+		A666A1DA158D18F700693FF6 /* fofo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fofo@2x.png"; sourceTree = "<group>"; };
 		A66849B2157E6A630005729A /* ForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumViewController.h; sourceTree = "<group>"; };
 		A66849B3157E6A630005729A /* ForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewController.m; sourceTree = "<group>"; };
 		A66849B4157E6A630005729A /* ForumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForumViewController.xib; sourceTree = "<group>"; };
@@ -220,6 +228,10 @@
 		A603C31A1574B6350067B1CD /* img */ = {
 			isa = PBXGroup;
 			children = (
+				A666A1D9158D18F700693FF6 /* fofo.png */,
+				A666A1DA158D18F700693FF6 /* fofo@2x.png */,
+				A666A1D4158D182A00693FF6 /* headset.png */,
+				A666A1D5158D182A00693FF6 /* headset@2x.png */,
 				A66849BB157FB9CD0005729A /* speech_bubble_transparent.png */,
 				A66849BC157FB9CD0005729A /* speech_bubble_transparent@2x.png */,
 				A66849B7157FA4960005729A /* ico-back.png */,
@@ -493,6 +505,10 @@
 				A66849BA157FA4960005729A /* ico-back@2x.png in Resources */,
 				A66849BD157FB9CD0005729A /* speech_bubble_transparent.png in Resources */,
 				A66849BE157FB9CD0005729A /* speech_bubble_transparent@2x.png in Resources */,
+				A666A1D6158D182A00693FF6 /* headset.png in Resources */,
+				A666A1D7158D182A00693FF6 /* headset@2x.png in Resources */,
+				A666A1DB158D18F700693FF6 /* fofo.png in Resources */,
+				A666A1DC158D18F700693FF6 /* fofo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

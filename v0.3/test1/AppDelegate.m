@@ -70,7 +70,7 @@ Episode *readingEpisode;
 	MasterViewController *masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController_iPhone" bundle:nil];
 	self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
 	self.navigationController.title = @"Podcasts";
-	self.navigationController.tabBarItem.image = [UIImage imageNamed:@"pod.png"];
+	self.navigationController.tabBarItem.image = [UIImage imageNamed:@"headset.png"];
 	
 	// Vue secondaire (Liste des épisodes récents)
 	EpisodesRecentsViewController *episodesRecentsViewController = [[EpisodesRecentsViewController alloc] initWithNibName:@"EpisodesRecentsViewController" bundle:nil];
@@ -86,7 +86,7 @@ Episode *readingEpisode;
 	// Vue secondaire (Forum)
 	ForumViewController *forumViewController = [[ForumViewController alloc] initWithNibName:@"ForumViewController" bundle:nil];
 	forumViewController.title = @"Forums";
-	forumViewController.tabBarItem.image = [UIImage imageNamed:@"speech_bubble_transparent.png"];
+	forumViewController.tabBarItem.image = [UIImage imageNamed:@"fofo.png"];
 	
 	tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, self.navigationControllerRecent, liveViewController, forumViewController, nil];
 	
