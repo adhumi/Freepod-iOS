@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A600AF9816725E9D0025BB33 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600AF9716725E9D0025BB33 /* UIKit.framework */; };
+		A600AF9A16725E9D0025BB33 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600AF9916725E9D0025BB33 /* Foundation.framework */; };
+		A600AF9C16725E9D0025BB33 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600AF9B16725E9D0025BB33 /* CoreGraphics.framework */; };
+		A600AFA216725E9D0025BB33 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A600AFA016725E9D0025BB33 /* InfoPlist.strings */; };
+		A600AFA416725E9D0025BB33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFA316725E9D0025BB33 /* main.m */; };
+		A600AFA816725E9D0025BB33 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFA716725E9D0025BB33 /* AppDelegate.m */; };
+		A600AFAA16725E9D0025BB33 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A600AFA916725E9D0025BB33 /* Default.png */; };
+		A600AFAC16725E9D0025BB33 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A600AFAB16725E9D0025BB33 /* Default@2x.png */; };
+		A600AFAE16725E9D0025BB33 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A600AFAD16725E9D0025BB33 /* Default-568h@2x.png */; };
+		A600AFB116725E9D0025BB33 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFB016725E9D0025BB33 /* MainViewController.m */; };
+		A600AFDC16726F2A0025BB33 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFC416726F290025BB33 /* NSObject+SBJson.m */; };
+		A600AFDD16726F2A0025BB33 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFC716726F290025BB33 /* SBJsonParser.m */; };
+		A600AFDE16726F2A0025BB33 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFC916726F290025BB33 /* SBJsonStreamParser.m */; };
+		A600AFDF16726F2A0025BB33 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFCB16726F290025BB33 /* SBJsonStreamParserAccumulator.m */; };
+		A600AFE016726F2A0025BB33 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFCD16726F290025BB33 /* SBJsonStreamParserAdapter.m */; };
+		A600AFE116726F2A0025BB33 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFCF16726F290025BB33 /* SBJsonStreamParserState.m */; };
+		A600AFE216726F2A0025BB33 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFD116726F290025BB33 /* SBJsonStreamWriter.m */; };
+		A600AFE316726F2A0025BB33 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFD316726F290025BB33 /* SBJsonStreamWriterAccumulator.m */; };
+		A600AFE416726F2A0025BB33 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFD516726F290025BB33 /* SBJsonStreamWriterState.m */; };
+		A600AFE516726F2A0025BB33 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFD716726F290025BB33 /* SBJsonTokeniser.m */; };
+		A600AFE616726F2A0025BB33 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFD916726F2A0025BB33 /* SBJsonUTF8Stream.m */; };
+		A600AFE716726F2A0025BB33 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFDB16726F2A0025BB33 /* SBJsonWriter.m */; };
+		A600AFEB16750B1E0025BB33 /* CoverButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFEA16750B1E0025BB33 /* CoverButton.m */; };
+		A600AFEE16751B610025BB33 /* PodcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFED16751B610025BB33 /* PodcastViewController.m */; };
+		A600AFF4167543990025BB33 /* PlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFF3167543990025BB33 /* PlayerManager.m */; };
+		A600AFFA167545040025BB33 /* EpisodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFF9167545040025BB33 /* EpisodeCell.m */; };
+		A600B0011677D9F80025BB33 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A600B0001677D9F80025BB33 /* PlayerViewController.m */; };
+		A600B0031677E11E0025BB33 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600B0021677E11E0025BB33 /* CoreMedia.framework */; };
+		A600B0051677E1240025BB33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600B0041677E1240025BB33 /* AVFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A600AF9316725E9D0025BB33 /* freepod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = freepod.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A600AF9716725E9D0025BB33 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A600AF9916725E9D0025BB33 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A600AF9B16725E9D0025BB33 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A600AF9F16725E9D0025BB33 /* freepod-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "freepod-Info.plist"; sourceTree = "<group>"; };
+		A600AFA116725E9D0025BB33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A600AFA316725E9D0025BB33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A600AFA516725E9D0025BB33 /* freepod-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "freepod-Prefix.pch"; sourceTree = "<group>"; };
+		A600AFA616725E9D0025BB33 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A600AFA716725E9D0025BB33 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A600AFA916725E9D0025BB33 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A600AFAB16725E9D0025BB33 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A600AFAD16725E9D0025BB33 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A600AFAF16725E9D0025BB33 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		A600AFB016725E9D0025BB33 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		A600AFC316726F280025BB33 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		A600AFC416726F290025BB33 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		A600AFC516726F290025BB33 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		A600AFC616726F290025BB33 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		A600AFC716726F290025BB33 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		A600AFC816726F290025BB33 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		A600AFC916726F290025BB33 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		A600AFCA16726F290025BB33 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		A600AFCB16726F290025BB33 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		A600AFCC16726F290025BB33 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		A600AFCD16726F290025BB33 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		A600AFCE16726F290025BB33 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		A600AFCF16726F290025BB33 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		A600AFD016726F290025BB33 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		A600AFD116726F290025BB33 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		A600AFD216726F290025BB33 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		A600AFD316726F290025BB33 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		A600AFD416726F290025BB33 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		A600AFD516726F290025BB33 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		A600AFD616726F290025BB33 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		A600AFD716726F290025BB33 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		A600AFD816726F2A0025BB33 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		A600AFD916726F2A0025BB33 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		A600AFDA16726F2A0025BB33 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		A600AFDB16726F2A0025BB33 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		A600AFE916750B1D0025BB33 /* CoverButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverButton.h; sourceTree = "<group>"; };
+		A600AFEA16750B1E0025BB33 /* CoverButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverButton.m; sourceTree = "<group>"; };
+		A600AFEC16751B610025BB33 /* PodcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodcastViewController.h; sourceTree = "<group>"; };
+		A600AFED16751B610025BB33 /* PodcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodcastViewController.m; sourceTree = "<group>"; };
+		A600AFF2167543990025BB33 /* PlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerManager.h; sourceTree = "<group>"; };
+		A600AFF3167543990025BB33 /* PlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerManager.m; sourceTree = "<group>"; };
+		A600AFF8167545040025BB33 /* EpisodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeCell.h; sourceTree = "<group>"; };
+		A600AFF9167545040025BB33 /* EpisodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeCell.m; sourceTree = "<group>"; };
+		A600AFFF1677D9F80025BB33 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		A600B0001677D9F80025BB33 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		A600B0021677E11E0025BB33 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A600B0041677E1240025BB33 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A600AF9016725E9D0025BB33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A600B0051677E1240025BB33 /* AVFoundation.framework in Frameworks */,
+				A600B0031677E11E0025BB33 /* CoreMedia.framework in Frameworks */,
+				A600AF9816725E9D0025BB33 /* UIKit.framework in Frameworks */,
+				A600AF9A16725E9D0025BB33 /* Foundation.framework in Frameworks */,
+				A600AF9C16725E9D0025BB33 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A600AF8816725E9D0025BB33 = {
+			isa = PBXGroup;
+			children = (
+				A600B0041677E1240025BB33 /* AVFoundation.framework */,
+				A600B0021677E11E0025BB33 /* CoreMedia.framework */,
+				A600AFE816726F350025BB33 /* SBJson */,
+				A600AF9D16725E9D0025BB33 /* freepod */,
+				A600AF9616725E9D0025BB33 /* Frameworks */,
+				A600AF9416725E9D0025BB33 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A600AF9416725E9D0025BB33 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A600AF9316725E9D0025BB33 /* freepod.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A600AF9616725E9D0025BB33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A600AF9716725E9D0025BB33 /* UIKit.framework */,
+				A600AF9916725E9D0025BB33 /* Foundation.framework */,
+				A600AF9B16725E9D0025BB33 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A600AF9D16725E9D0025BB33 /* freepod */ = {
+			isa = PBXGroup;
+			children = (
+				A600AFA616725E9D0025BB33 /* AppDelegate.h */,
+				A600AFA716725E9D0025BB33 /* AppDelegate.m */,
+				A600AFF5167543C40025BB33 /* View Controllers */,
+				A600AFF6167543D20025BB33 /* Views */,
+				A600AFF7167543DD0025BB33 /* Models */,
+				A600AF9E16725E9D0025BB33 /* Supporting Files */,
+			);
+			path = freepod;
+			sourceTree = "<group>";
+		};
+		A600AF9E16725E9D0025BB33 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A600AF9F16725E9D0025BB33 /* freepod-Info.plist */,
+				A600AFA016725E9D0025BB33 /* InfoPlist.strings */,
+				A600AFA316725E9D0025BB33 /* main.m */,
+				A600AFA516725E9D0025BB33 /* freepod-Prefix.pch */,
+				A600AFA916725E9D0025BB33 /* Default.png */,
+				A600AFAB16725E9D0025BB33 /* Default@2x.png */,
+				A600AFAD16725E9D0025BB33 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A600AFE816726F350025BB33 /* SBJson */ = {
+			isa = PBXGroup;
+			children = (
+				A600AFC316726F280025BB33 /* NSObject+SBJson.h */,
+				A600AFC416726F290025BB33 /* NSObject+SBJson.m */,
+				A600AFC516726F290025BB33 /* SBJson.h */,
+				A600AFC616726F290025BB33 /* SBJsonParser.h */,
+				A600AFC716726F290025BB33 /* SBJsonParser.m */,
+				A600AFC816726F290025BB33 /* SBJsonStreamParser.h */,
+				A600AFC916726F290025BB33 /* SBJsonStreamParser.m */,
+				A600AFCA16726F290025BB33 /* SBJsonStreamParserAccumulator.h */,
+				A600AFCB16726F290025BB33 /* SBJsonStreamParserAccumulator.m */,
+				A600AFCC16726F290025BB33 /* SBJsonStreamParserAdapter.h */,
+				A600AFCD16726F290025BB33 /* SBJsonStreamParserAdapter.m */,
+				A600AFCE16726F290025BB33 /* SBJsonStreamParserState.h */,
+				A600AFCF16726F290025BB33 /* SBJsonStreamParserState.m */,
+				A600AFD016726F290025BB33 /* SBJsonStreamWriter.h */,
+				A600AFD116726F290025BB33 /* SBJsonStreamWriter.m */,
+				A600AFD216726F290025BB33 /* SBJsonStreamWriterAccumulator.h */,
+				A600AFD316726F290025BB33 /* SBJsonStreamWriterAccumulator.m */,
+				A600AFD416726F290025BB33 /* SBJsonStreamWriterState.h */,
+				A600AFD516726F290025BB33 /* SBJsonStreamWriterState.m */,
+				A600AFD616726F290025BB33 /* SBJsonTokeniser.h */,
+				A600AFD716726F290025BB33 /* SBJsonTokeniser.m */,
+				A600AFD816726F2A0025BB33 /* SBJsonUTF8Stream.h */,
+				A600AFD916726F2A0025BB33 /* SBJsonUTF8Stream.m */,
+				A600AFDA16726F2A0025BB33 /* SBJsonWriter.h */,
+				A600AFDB16726F2A0025BB33 /* SBJsonWriter.m */,
+			);
+			name = SBJson;
+			path = freepod;
+			sourceTree = "<group>";
+		};
+		A600AFF5167543C40025BB33 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A600AFAF16725E9D0025BB33 /* MainViewController.h */,
+				A600AFB016725E9D0025BB33 /* MainViewController.m */,
+				A600AFEC16751B610025BB33 /* PodcastViewController.h */,
+				A600AFED16751B610025BB33 /* PodcastViewController.m */,
+				A600AFFF1677D9F80025BB33 /* PlayerViewController.h */,
+				A600B0001677D9F80025BB33 /* PlayerViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A600AFF6167543D20025BB33 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A600AFE916750B1D0025BB33 /* CoverButton.h */,
+				A600AFEA16750B1E0025BB33 /* CoverButton.m */,
+				A600AFF8167545040025BB33 /* EpisodeCell.h */,
+				A600AFF9167545040025BB33 /* EpisodeCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A600AFF7167543DD0025BB33 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A600AFF2167543990025BB33 /* PlayerManager.h */,
+				A600AFF3167543990025BB33 /* PlayerManager.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A600AF9216725E9D0025BB33 /* freepod */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A600AFBA16725E9D0025BB33 /* Build configuration list for PBXNativeTarget "freepod" */;
+			buildPhases = (
+				A600AF8F16725E9D0025BB33 /* Sources */,
+				A600AF9016725E9D0025BB33 /* Frameworks */,
+				A600AF9116725E9D0025BB33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = freepod;
+			productName = freepod;
+			productReference = A600AF9316725E9D0025BB33 /* freepod.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A600AF8A16725E9D0025BB33 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = Freepod;
+			};
+			buildConfigurationList = A600AF8D16725E9D0025BB33 /* Build configuration list for PBXProject "freepod" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A600AF8816725E9D0025BB33;
+			productRefGroup = A600AF9416725E9D0025BB33 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A600AF9216725E9D0025BB33 /* freepod */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A600AF9116725E9D0025BB33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A600AFA216725E9D0025BB33 /* InfoPlist.strings in Resources */,
+				A600AFAA16725E9D0025BB33 /* Default.png in Resources */,
+				A600AFAC16725E9D0025BB33 /* Default@2x.png in Resources */,
+				A600AFAE16725E9D0025BB33 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A600AF8F16725E9D0025BB33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A600AFA416725E9D0025BB33 /* main.m in Sources */,
+				A600AFA816725E9D0025BB33 /* AppDelegate.m in Sources */,
+				A600AFB116725E9D0025BB33 /* MainViewController.m in Sources */,
+				A600AFDC16726F2A0025BB33 /* NSObject+SBJson.m in Sources */,
+				A600AFDD16726F2A0025BB33 /* SBJsonParser.m in Sources */,
+				A600AFDE16726F2A0025BB33 /* SBJsonStreamParser.m in Sources */,
+				A600AFDF16726F2A0025BB33 /* SBJsonStreamParserAccumulator.m in Sources */,
+				A600AFE016726F2A0025BB33 /* SBJsonStreamParserAdapter.m in Sources */,
+				A600AFE116726F2A0025BB33 /* SBJsonStreamParserState.m in Sources */,
+				A600AFE216726F2A0025BB33 /* SBJsonStreamWriter.m in Sources */,
+				A600AFE316726F2A0025BB33 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				A600AFE416726F2A0025BB33 /* SBJsonStreamWriterState.m in Sources */,
+				A600AFE516726F2A0025BB33 /* SBJsonTokeniser.m in Sources */,
+				A600AFE616726F2A0025BB33 /* SBJsonUTF8Stream.m in Sources */,
+				A600AFE716726F2A0025BB33 /* SBJsonWriter.m in Sources */,
+				A600AFEB16750B1E0025BB33 /* CoverButton.m in Sources */,
+				A600AFEE16751B610025BB33 /* PodcastViewController.m in Sources */,
+				A600AFF4167543990025BB33 /* PlayerManager.m in Sources */,
+				A600AFFA167545040025BB33 /* EpisodeCell.m in Sources */,
+				A600B0011677D9F80025BB33 /* PlayerViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A600AFA016725E9D0025BB33 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A600AFA116725E9D0025BB33 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A600AFB816725E9D0025BB33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A600AFB916725E9D0025BB33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A600AFBB16725E9D0025BB33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "freepod/freepod-Prefix.pch";
+				INFOPLIST_FILE = "freepod/freepod-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A600AFBC16725E9D0025BB33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "freepod/freepod-Prefix.pch";
+				INFOPLIST_FILE = "freepod/freepod-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A600AF8D16725E9D0025BB33 /* Build configuration list for PBXProject "freepod" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A600AFB816725E9D0025BB33 /* Debug */,
+				A600AFB916725E9D0025BB33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A600AFBA16725E9D0025BB33 /* Build configuration list for PBXNativeTarget "freepod" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A600AFBB16725E9D0025BB33 /* Debug */,
+				A600AFBC16725E9D0025BB33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A600AF8A16725E9D0025BB33 /* Project object */;
+}
