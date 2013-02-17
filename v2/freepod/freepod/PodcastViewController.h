@@ -11,7 +11,7 @@
 
 @interface PodcastViewController : UITableViewController<NSURLConnectionDelegate, UITableViewDelegate> {
     NSMutableData*      _jsonData;
-    NSArray*       _episodes;
+    NSArray*			_episodes;
 }
 
 @property (nonatomic, assign) int       podcastId;

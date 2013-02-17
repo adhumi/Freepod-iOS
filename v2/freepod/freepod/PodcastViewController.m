@@ -93,7 +93,7 @@
     
 	NSString* jsonString = [[NSString alloc] initWithData:_jsonData encoding:NSUTF8StringEncoding];
 	_episodes = [parser objectWithString:jsonString error:nil];
-        
+	
     [self.tableView reloadData];
 }
 

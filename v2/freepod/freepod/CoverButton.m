@@ -13,16 +13,23 @@
 - (id) initWithFrame:(CGRect)frame andPodcastId:(int)podcast {
     self = [self initWithFrame:frame];
     if (self) {
-        _cover = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _cover = [UIButton buttonWithType:UIButtonTypeCustom];
         [_cover setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.width)],
+		[_cover setBackgroundColor:[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.]];
+        [[_cover layer] setBorderColor:[UIColor blackColor].CGColor];
+		[[_cover layer] setBorderWidth:1.];
+		[[_cover layer] setShadowColor:[UIColor blackColor].CGColor];
+		[[_cover layer] setShadowOffset:CGSizeMake(0, 0)];
+		[[_cover layer] setShadowRadius:3.];
+		[[_cover layer] setShadowOpacity:1.];
         [_cover addTarget:self action:@selector(onCoverTouch) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:_cover];
+		[self addSubview:_cover];
         
         _coverData = [[NSMutableData alloc] init];
         
         _podcast = podcast;
         
-        [NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://webserv.freepod.net/get-img-podcast.php?id=%d&nom=logo_normal&width=%f", _podcast, _cover.frame.size.width]]] delegate:self];
+		[NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://webserv.freepod.net/get-img-podcast.php?id=%d&nom=logo_normal&width=%f", _podcast, _cover.frame.size.width * [[UIScreen mainScreen] scale]]]] delegate:self];
     }
     return self;
 }
@@ -51,7 +58,6 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    NSLog(@"Receiving data");
     [_coverData appendData:data];
 }
 

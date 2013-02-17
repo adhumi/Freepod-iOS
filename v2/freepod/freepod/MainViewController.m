@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[self view] setBackgroundColor:[UIColor whiteColor]];
+    [[self view] setBackgroundColor:[UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1.]];
     
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.22 green:0.38 blue:0.47 alpha:1.];
         
@@ -93,7 +93,6 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    NSLog(@"Receiving data");
     [_jsonData appendData:data];
 }
 

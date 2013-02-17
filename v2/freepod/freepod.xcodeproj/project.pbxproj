@@ -36,6 +36,11 @@
 		A600B0011677D9F80025BB33 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A600B0001677D9F80025BB33 /* PlayerViewController.m */; };
 		A600B0031677E11E0025BB33 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600B0021677E11E0025BB33 /* CoreMedia.framework */; };
 		A600B0051677E1240025BB33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600B0041677E1240025BB33 /* AVFoundation.framework */; };
+		A67E2F0416D18343008AE598 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A67E2F0316D18343008AE598 /* icon.png */; };
+		A67E2F0616D18384008AE598 /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = A67E2F0516D18384008AE598 /* icon2.png */; };
+		A67E2F0A16D185EE008AE598 /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = A67E2F0916D185EE008AE598 /* Podcast.m */; };
+		A67E2F0D16D185FC008AE598 /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = A67E2F0C16D185FC008AE598 /* Episode.m */; };
+		A67E2F1016D18810008AE598 /* PodcastsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A67E2F0F16D18810008AE598 /* PodcastsManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,9 +54,9 @@
 		A600AFA516725E9D0025BB33 /* freepod-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "freepod-Prefix.pch"; sourceTree = "<group>"; };
 		A600AFA616725E9D0025BB33 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A600AFA716725E9D0025BB33 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A600AFA916725E9D0025BB33 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		A600AFAB16725E9D0025BB33 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		A600AFAD16725E9D0025BB33 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A600AFA916725E9D0025BB33 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = freepod/Default.png; sourceTree = "<group>"; };
+		A600AFAB16725E9D0025BB33 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "freepod/Default@2x.png"; sourceTree = "<group>"; };
+		A600AFAD16725E9D0025BB33 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "freepod/Default-568h@2x.png"; sourceTree = "<group>"; };
 		A600AFAF16725E9D0025BB33 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A600AFB016725E9D0025BB33 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A600AFC316726F280025BB33 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -91,6 +96,14 @@
 		A600B0001677D9F80025BB33 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		A600B0021677E11E0025BB33 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A600B0041677E1240025BB33 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A67E2F0316D18343008AE598 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		A67E2F0516D18384008AE598 /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
+		A67E2F0816D185EE008AE598 /* Podcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Podcast.h; sourceTree = "<group>"; };
+		A67E2F0916D185EE008AE598 /* Podcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Podcast.m; sourceTree = "<group>"; };
+		A67E2F0B16D185FC008AE598 /* Episode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Episode.h; sourceTree = "<group>"; };
+		A67E2F0C16D185FC008AE598 /* Episode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Episode.m; sourceTree = "<group>"; };
+		A67E2F0E16D18810008AE598 /* PodcastsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodcastsManager.h; sourceTree = "<group>"; };
+		A67E2F0F16D18810008AE598 /* PodcastsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodcastsManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +125,8 @@
 		A600AF8816725E9D0025BB33 = {
 			isa = PBXGroup;
 			children = (
-				A600B0041677E1240025BB33 /* AVFoundation.framework */,
-				A600B0021677E11E0025BB33 /* CoreMedia.framework */,
-				A600AFE816726F350025BB33 /* SBJson */,
+				A6C7746616D179D300224CEE /* SDK */,
+				A6C7746716D17A2300224CEE /* Ressources */,
 				A600AF9D16725E9D0025BB33 /* freepod */,
 				A600AF9616725E9D0025BB33 /* Frameworks */,
 				A600AF9416725E9D0025BB33 /* Products */,
@@ -132,6 +144,8 @@
 		A600AF9616725E9D0025BB33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A600B0041677E1240025BB33 /* AVFoundation.framework */,
+				A600B0021677E11E0025BB33 /* CoreMedia.framework */,
 				A600AF9716725E9D0025BB33 /* UIKit.framework */,
 				A600AF9916725E9D0025BB33 /* Foundation.framework */,
 				A600AF9B16725E9D0025BB33 /* CoreGraphics.framework */,
@@ -147,6 +161,7 @@
 				A600AFF5167543C40025BB33 /* View Controllers */,
 				A600AFF6167543D20025BB33 /* Views */,
 				A600AFF7167543DD0025BB33 /* Models */,
+				A67E2F0716D1858A008AE598 /* Managers */,
 				A600AF9E16725E9D0025BB33 /* Supporting Files */,
 			);
 			path = freepod;
@@ -159,9 +174,6 @@
 				A600AFA016725E9D0025BB33 /* InfoPlist.strings */,
 				A600AFA316725E9D0025BB33 /* main.m */,
 				A600AFA516725E9D0025BB33 /* freepod-Prefix.pch */,
-				A600AFA916725E9D0025BB33 /* Default.png */,
-				A600AFAB16725E9D0025BB33 /* Default@2x.png */,
-				A600AFAD16725E9D0025BB33 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -226,10 +238,43 @@
 		A600AFF7167543DD0025BB33 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A600AFF2167543990025BB33 /* PlayerManager.h */,
-				A600AFF3167543990025BB33 /* PlayerManager.m */,
+				A67E2F0816D185EE008AE598 /* Podcast.h */,
+				A67E2F0916D185EE008AE598 /* Podcast.m */,
+				A67E2F0B16D185FC008AE598 /* Episode.h */,
+				A67E2F0C16D185FC008AE598 /* Episode.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		A67E2F0716D1858A008AE598 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A600AFF2167543990025BB33 /* PlayerManager.h */,
+				A600AFF3167543990025BB33 /* PlayerManager.m */,
+				A67E2F0E16D18810008AE598 /* PodcastsManager.h */,
+				A67E2F0F16D18810008AE598 /* PodcastsManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		A6C7746616D179D300224CEE /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				A600AFE816726F350025BB33 /* SBJson */,
+			);
+			name = SDK;
+			sourceTree = "<group>";
+		};
+		A6C7746716D17A2300224CEE /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				A67E2F0516D18384008AE598 /* icon2.png */,
+				A67E2F0316D18343008AE598 /* icon.png */,
+				A600AFA916725E9D0025BB33 /* Default.png */,
+				A600AFAB16725E9D0025BB33 /* Default@2x.png */,
+				A600AFAD16725E9D0025BB33 /* Default-568h@2x.png */,
+			);
+			name = Ressources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +332,8 @@
 				A600AFAA16725E9D0025BB33 /* Default.png in Resources */,
 				A600AFAC16725E9D0025BB33 /* Default@2x.png in Resources */,
 				A600AFAE16725E9D0025BB33 /* Default-568h@2x.png in Resources */,
+				A67E2F0416D18343008AE598 /* icon.png in Resources */,
+				A67E2F0616D18384008AE598 /* icon2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +364,9 @@
 				A600AFF4167543990025BB33 /* PlayerManager.m in Sources */,
 				A600AFFA167545040025BB33 /* EpisodeCell.m in Sources */,
 				A600B0011677D9F80025BB33 /* PlayerViewController.m in Sources */,
+				A67E2F0A16D185EE008AE598 /* Podcast.m in Sources */,
+				A67E2F0D16D185FC008AE598 /* Episode.m in Sources */,
+				A67E2F1016D18810008AE598 /* PodcastsManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +479,7 @@
 				A600AFBC16725E9D0025BB33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
