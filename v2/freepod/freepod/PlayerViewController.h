@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "Episode.h"
 
 @interface PlayerViewController : UIViewController {
+	UIImageView *				_cover;
+	
     UIButton*                   _playPauseButton;
     UISlider*                   _progressBar;
     UILabel*                    _progressTime;
@@ -31,6 +34,10 @@
     UILabel*                    _podcastName;
 }
 
-+ (PlayerViewController*)getInstance;
+@property (nonatomic, retain, readonly) Episode *		activeEpisode;
+
++ (PlayerViewController*)instance;
+
+- (void)playEpisode:(Episode *)episode;
 
 @end

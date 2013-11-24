@@ -14,6 +14,8 @@
     self = [super init];
     if (self) {
 		if (dico != nil) {
+			_episodes = [NSMutableArray array];
+			
 			[self setPodcastId:[[dico objectForKey:@"id"] intValue]];
 			[self setName:[dico objectForKey:@"nom"]];
 			[self setResume:[dico objectForKey:@"description"]];
@@ -26,7 +28,7 @@
 			[self setLogoNormalURL:[dico objectForKey:@"logo_normal"]];
 			
 			NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-			[dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+			[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 			[self setLastSynch:[dateFormatter dateFromString:[dico objectForKey:@"lastSynch"]]];
 			[self setLastUpdate:[dateFormatter dateFromString:[dico objectForKey:@"lastUpdate"]]];
 		} else {
@@ -34,6 +36,14 @@
 		}
 	}
     return self;
+}
+
+- (NSString*)description {
+	return _name;
+}
+
+- (void)addEpisode:(Episode *)episode {
+	[_episodes addObject:episode];
 }
 
 @end

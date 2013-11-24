@@ -17,7 +17,7 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _jsonData = [[NSMutableData alloc] init];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPodcastsListUpdate) name:NOTIFICATION_PODCASTS_LIST_UPDATE object:nil];
 	}
     return self;
 }
@@ -27,40 +27,62 @@
     
     [[self view] setBackgroundColor:[UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1.]];
     
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.22 green:0.38 blue:0.47 alpha:1.];
+	[[[self navigationController] navigationBar] setOpaque:YES];
+    [[[self navigationController] navigationBar] setBarTintColor:[UIColor colorWithRed:0.22 green:0.38 blue:0.47 alpha:1.]];
         
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, [[UIScreen mainScreen] bounds].size.height - 44 - 20)];
     [_scrollView setContentSize:CGSizeMake(320, [[self view] bounds].size.height)];
+	
+	_refreshControl = [[UIRefreshControl alloc] init];
+    [_refreshControl addTarget:[PodcastsManager instance] action:@selector(update) forControlEvents:UIControlEventValueChanged];
+	[_refreshControl setTintColor:[UIColor colorWithRed:255/225.f green:186/255.f blue:2/255.f alpha:1]];
+    [_scrollView addSubview:_refreshControl];
+	
     [[self view] addSubview:_scrollView];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    [NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://webserv.freepod.net/get.php?podcasts"]] delegate:self];
-    NSLog(@"Request : get.php?podcasts");
     
     //[self displayPodcastsList];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+- (void)onPodcastsListUpdate {
+	[_refreshControl endRefreshing];
+	
+	[self displayPodcastsList];
+}
+
 - (void)displayPodcastsList {
-    if (_podcasts == nil) return;
-    if ([_podcasts count] == 0) return;
+	PodcastsManager * podManager = [PodcastsManager instance];
+	
+    if ([podManager podcasts] == nil) return;
+    if ([[podManager podcasts] count] == 0) return;
     
-    int scrollViewHeight = (ceil([_podcasts count] / 2.) * (10 + 145)) + 10;
+    int scrollViewHeight = (ceil([[podManager podcasts] count] / 2.) * (10 + 145)) + 10;
         
     if (scrollViewHeight > [[self view] bounds].size.height) {
         [_scrollView setContentSize:CGSizeMake(320, scrollViewHeight)];
     }
     
     int i = 0;
-    for (NSDictionary* podcast in _podcasts) {
+    for (Podcast* podcast in [podManager podcasts]) {
         int row = floor(i / 2); // de 0 à infinity
         int col = i % 2; // 0 ou 1
         
-        CoverButton* newCover = [[CoverButton alloc] initWithFrame:CGRectMake(10 + col * (145 + 10), 10 + row * (145 + 10), 145, 145) andPodcastId:[[podcast objectForKey:@"id"] intValue]];
+        CoverButton* newCover = [[CoverButton alloc] initWithFrame:CGRectMake(10 + col * (145 + 10), 10 + row * (145 + 10), 145, 145) andPodcast:podcast];
         [newCover setDelegate:self];
         [_scrollView addSubview:newCover];
         
         ++i;
     }
+}
+
+- (void)displayPlayer {
+    [self presentViewController:[PlayerMainViewController instance] animated:YES completion:^{
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,34 +92,14 @@
 
 #pragma mark - delegate CoverButton
 
-- (void)coverTouched:(int)podcastId {
+- (void)coverTouched:(Podcast *)podcast {
     // La cover a été touchée, afficher le détail du podcast
-    NSLog(@"Load podcast %d", podcastId);
+    NSLog(@"Load podcast %@", podcast);
     
-    PodcastViewController* podcastViewController = [[PodcastViewController alloc] initWithPodcastId:podcastId];
-    
+    PodcastViewController* podcastViewController = [[PodcastViewController alloc] initWithPodcast:podcast];
     [self.navigationController pushViewController:podcastViewController animated:YES];
 }
 
-#pragma mark - delegate NSURLConnection
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"Request : podcasts didFinishLoading");
-    SBJsonParser* parser = [[SBJsonParser alloc] init];
-    
-	NSString* jsonString = [[NSString alloc] initWithData:_jsonData encoding:NSUTF8StringEncoding];
-	_podcasts = [parser objectWithString:jsonString error:nil];
-    
-    [self displayPodcastsList];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [_jsonData appendData:data];
-}
-
-- (void)connectionDidFailWithError:(NSError *)error {
-    NSLog(@"Erreur de connexion");
-}
 
 @end

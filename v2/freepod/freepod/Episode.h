@@ -25,4 +25,6 @@
 @property (nonatomic, assign) float				duration;
 @property (nonatomic, retain) NSDate*			pubDate;
 
+- (id)initWithDictionnary:(NSDictionary*)dico;
+
 @end

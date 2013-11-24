@@ -14,19 +14,18 @@
 
 @implementation PodcastViewController
 
-- (id)initWithPodcastId:(int)podcastId {
+- (id)initWithPodcast:(Podcast *)podcast {
     self = [super init];
     if (self) {
-        // Custom initialization
-        _jsonData = [[NSMutableData alloc] init];
+        _podcast = podcast;
         
-        _episodes = [NSArray array];
-        
-        _podcastId = podcastId;
-        
-        [NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://webserv.freepod.net/get.php?episodes=%d", _podcastId]]] delegate:self];
-    }
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onEpisodesListUpdate) name:NOTIFICATION_EPISODES_LIST_UPDATE object:_podcast];
+		[[PodcastsManager instance] updatePodcast:podcast];
+	}
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
 }
 
 - (void)viewDidLoad
@@ -41,6 +40,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)onEpisodesListUpdate {
+	[self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -51,8 +54,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        if (_episodes == nil) return 0;
-        return [_episodes count];
+        return [[_podcast episodes] count];
     }
     return 0;
 }
@@ -65,9 +67,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    NSDictionary *episode = [_episodes objectAtIndex:indexPath.row];
+    Episode * episode = [[_podcast episodes] objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [episode objectForKey:@"title"];
+    cell.textLabel.text = [episode title];
     
     return cell;
 }
@@ -76,35 +78,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
-
-#pragma mark - delegate NSURLConnection
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"Request : podcasts didFinishLoading");
-    SBJsonParser* parser = [[SBJsonParser alloc] init];
-    
-	NSString* jsonString = [[NSString alloc] initWithData:_jsonData encoding:NSUTF8StringEncoding];
-	_episodes = [parser objectWithString:jsonString error:nil];
+    Episode * episode = [[_podcast episodes] objectAtIndex:indexPath.row];
 	
-    [self.tableView reloadData];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    NSLog(@"Receiving data");
-    [_jsonData appendData:data];
-}
-
-- (void)connectionDidFailWithError:(NSError *)error {
-    NSLog(@"Erreur de connexion");
+	[[PlayerViewController instance] playEpisode:episode];
+	[self presentViewController:[PlayerMainViewController instance] animated:YES completion:nil];
 }
 
 @end

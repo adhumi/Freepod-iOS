@@ -13,27 +13,23 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    NSLog(@"Application launching");
-    
+{    
+	[PodcastsManager instance];
+	
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	
+	[self.window setTintColor:[UIColor colorWithRed:255/225.f green:186/255.f blue:2/255.f alpha:1]];
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     // Override point for customization after application launch.
     MainViewController *mainViewController = [[MainViewController alloc] init];
+	
     _navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
-    _navigationController.navigationBar.topItem.title = @"Podcasts";
-    
-    _navigationController.navigationBar.topItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithTitle:@"Player" style:UIBarButtonItemStyleBordered target:self action:@selector(displayPlayer)];
+    _navigationController.navigationBar.topItem.rightBarButtonItem =  [[UIBarButtonItem alloc] initWithTitle:@"Player" style:UIBarButtonItemStyleBordered target:mainViewController action:@selector(displayPlayer)];
     
     self.window.rootViewController = _navigationController;
     [self.window makeKeyAndVisible];
     return YES;
-}
-
-- (void)displayPlayer {
-    [_navigationController presentViewController:[PlayerViewController getInstance] animated:YES completion:^{
-        
-    }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
