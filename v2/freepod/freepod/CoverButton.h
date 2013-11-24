@@ -8,21 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "Podcast.h"
 
 @protocol CoverButtonDelegate <NSObject>
 
-- (void)coverTouched:(int)podcastId;
+- (void)coverTouched:(Podcast *)podcast;
 
 @end
 
 @interface CoverButton : UIView <NSURLConnectionDelegate> {
-    UIButton*           _cover;
-    int                 _podcast;
-    NSMutableData*      _coverData;
+    UIButton *          _cover;
+    Podcast *           _podcast;
 }
 
-@property (nonatomic, retain) id    delegate;
+@property (nonatomic, retain) id delegate;
 
-- (id) initWithFrame:(CGRect)frame andPodcastId:(int)podcast;
+- (id)initWithFrame:(CGRect)frame andPodcast:(Podcast *)podcast;
 
 @end

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E8539102-5112-407F-BE76-1D7168B9BB9E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>freepod</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>848ADFE0-E5A4-403E-895E-083056A683DF</key>
+		<string>https://github.com/adhumi/Freepod-iOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>v2/freepod/freepod.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>848ADFE0-E5A4-403E-895E-083056A683DF</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/adhumi/Freepod-iOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>848ADFE0-E5A4-403E-895E-083056A683DF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>848ADFE0-E5A4-403E-895E-083056A683DF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Freepod-iOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>

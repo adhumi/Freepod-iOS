@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SBJson.h"
+#import "PodcastsManager.h"
+#import "UIImage+ImageEffects.h"
+#import "PlayerMainViewController.h"
 
 @interface PodcastViewController : UITableViewController<NSURLConnectionDelegate, UITableViewDelegate> {
-    NSMutableData*      _jsonData;
-    NSArray*			_episodes;
+
 }
 
-@property (nonatomic, assign) int       podcastId;
+@property (nonatomic, retain) Podcast *		podcast;
 
-- (id)initWithPodcastId:(int)podcastId;
+- (id)initWithPodcast:(Podcast *)podcast;
 
 @end

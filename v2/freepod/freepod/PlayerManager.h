@@ -7,7 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Episode.h"
 
-@interface PlayerManager : NSObject
+@protocol PlayerManagerDelegate <NSObject>
+
+- (void)prepareNewEpisode:(Episode *)episode;
+
+@end
+
+@interface PlayerManager : NSObject {
+	
+}
+
+@property (nonatomic, assign) id <PlayerManagerDelegate> delegate;
+
+@property (nonatomic, retain, readonly) Episode *		activeEpisode;
+
++ (PlayerManager *)instance;
+- (void)playEpisode:(Episode *)episode;
 
 @end

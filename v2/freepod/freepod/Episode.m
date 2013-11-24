@@ -38,13 +38,17 @@
 			[self setDuration:nbSec];
 			
 			NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-			[dateFormatter setDateFormat:@"yyyy-MM-dd hh:mm:ss"];
+			[dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 			[self setPubDate:[dateFormatter dateFromString:[dico objectForKey:@"pubDate"]]];
 		} else {
 			NSLog(@"Error initializing podcast : %@", dico);
 		}
 	}
     return self;
+}
+
+- (NSString *)description {
+	return _title;
 }
 
 @end

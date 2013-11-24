@@ -10,7 +10,7 @@
 
 @implementation CoverButton
 
-- (id) initWithFrame:(CGRect)frame andPodcastId:(int)podcast {
+- (id) initWithFrame:(CGRect)frame andPodcast:(Podcast *)podcast {
     self = [self initWithFrame:frame];
     if (self) {
         _cover = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -24,21 +24,10 @@
 		[[_cover layer] setShadowOpacity:1.];
         [_cover addTarget:self action:@selector(onCoverTouch) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:_cover];
-        
-        _coverData = [[NSMutableData alloc] init];
-        
+		
         _podcast = podcast;
         
-		[NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://webserv.freepod.net/get-img-podcast.php?id=%d&nom=logo_normal&width=%f", _podcast, _cover.frame.size.width * [[UIScreen mainScreen] scale]]]] delegate:self];
-    }
-    return self;
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+		[self updateCover];
     }
     return self;
 }
@@ -47,22 +36,16 @@
     [_delegate coverTouched:_podcast];
 }
 
-#pragma mark - delegate NSURLConnection
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"Request : podcasts didFinishLoading");
-    
-    UIImage *image = [[UIImage alloc] initWithData:_coverData];
-    [_cover setBackgroundImage:image forState:UIControlStateNormal];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [_coverData appendData:data];
-}
-
-- (void)connectionDidFailWithError:(NSError *)error {
-    NSLog(@"Erreur de connexion");
+- (void)updateCover {
+	NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.adhumi.fr/api/get-img-podcast.php?id=%d&nom=logo_normal&width=%f", [_podcast podcastId], _cover.frame.size.width * [[UIScreen mainScreen] scale]]]];
+	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+		if (connectionError) {
+			NSLog(@"Error loading cover");
+		} else {
+			UIImage *image = [[UIImage alloc] initWithData:data];
+			[_cover setBackgroundImage:image forState:UIControlStateNormal];
+		}
+	}];
 }
 
 

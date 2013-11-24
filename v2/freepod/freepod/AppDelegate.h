@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PlayerViewController.h"
-
-#define SERVER_URL @"http://webserv.freepod.net/"
+#import "PlayerMainViewController.h"
+#import "PodcastsManager.h"
 
 @class MainViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UINavigationController *navigationController;

@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SBJson.h"
 #import "CoverButton.h"
 #import "PodcastViewController.h"
+#import "PodcastsManager.h"
+#import "PlayerMainViewController.h"
 
-@interface MainViewController : UIViewController <NSURLConnectionDelegate, CoverButtonDelegate> {
-    NSMutableData*          _jsonData;
-    NSDictionary*           _podcasts;
-    UIScrollView*           _scrollView;
+@interface MainViewController : UIViewController <CoverButtonDelegate> {
+    UIScrollView *          _scrollView;
+	UIRefreshControl *		_refreshControl;
 }
 
 
