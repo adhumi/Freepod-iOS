@@ -173,16 +173,13 @@
 		A600AF9D16725E9D0025BB33 /* freepod */ = {
 			isa = PBXGroup;
 			children = (
-				A6AC817018415F2B002824D9 /* UIImage+ImageEffects.h */,
-				A6AC817118415F2B002824D9 /* UIImage+ImageEffects.m */,
-				A60EE9061841F0160010A385 /* UIColor+FreepodColor.h */,
-				A60EE9071841F0160010A385 /* UIColor+FreepodColor.m */,
 				A600AFA616725E9D0025BB33 /* AppDelegate.h */,
 				A600AFA716725E9D0025BB33 /* AppDelegate.m */,
 				A600AFF5167543C40025BB33 /* View Controllers */,
 				A600AFF6167543D20025BB33 /* Views */,
 				A600AFF7167543DD0025BB33 /* Models */,
 				A67E2F0716D1858A008AE598 /* Managers */,
+				A617AC51184271C500D1CCDA /* Utils */,
 				A600AF9E16725E9D0025BB33 /* Supporting Files */,
 			);
 			path = freepod;
@@ -272,6 +269,17 @@
 				A61786B31840E6E7009D98B6 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		A617AC51184271C500D1CCDA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A6AC817018415F2B002824D9 /* UIImage+ImageEffects.h */,
+				A6AC817118415F2B002824D9 /* UIImage+ImageEffects.m */,
+				A60EE9061841F0160010A385 /* UIColor+FreepodColor.h */,
+				A60EE9071841F0160010A385 /* UIColor+FreepodColor.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		A67E2F0716D1858A008AE598 /* Managers */ = {

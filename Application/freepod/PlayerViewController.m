@@ -48,55 +48,35 @@ static PlayerViewController* instance;
 	[_cover setFrame:CGRectMake(0, 0, 320, 320)];
 	[[self view] addSubview:_cover];
 	
-	UIView* titleBg = [[UIView alloc] initWithFrame:CGRectMake([_cover frame].origin.x, [_cover frame].origin.y + [_cover frame].size.height, 320, 60)];
-	[titleBg setBackgroundColor:[UIColor colorWithRed:0.22 green:0.38 blue:0.47 alpha:0.9]];
-	[[self view] addSubview:titleBg];
-		
-	_episodeTitle = [[UILabel alloc] initWithFrame:CGRectMake([titleBg frame].origin.x + 20, [titleBg frame].origin.y + 5, 280, 25)];
-	[_episodeTitle setBackgroundColor:[UIColor clearColor]];
-	[_episodeTitle setText:@"title"];
-	[_episodeTitle setTextColor:[UIColor whiteColor]];
-	[_episodeTitle setTextAlignment:NSTextAlignmentCenter];
-	[_episodeTitle setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
-	[_episodeTitle setNumberOfLines:1];
-	[[self view] addSubview:_episodeTitle];
 	
-	_podcastName = [[UILabel alloc] initWithFrame:CGRectMake([titleBg frame].origin.x + 20, [_episodeTitle frame].origin.y + [_episodeTitle frame].size.height, 280, 20)];
-	[_podcastName setBackgroundColor:[UIColor clearColor]];
-	[_podcastName setText:@"name"];
-	[_podcastName setTextColor:[UIColor whiteColor]];
-	[_podcastName setTextAlignment:NSTextAlignmentCenter];
-	[_podcastName setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:16]];
-	[_podcastName setNumberOfLines:1];
-	[[self view] addSubview:_podcastName];
 	
-	UIButton * info = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[info setFrame:CGRectMake([titleBg frame].origin.x + [titleBg frame].size.width - 40, [titleBg frame].origin.y + ([titleBg frame].size.height - 40) * 0.5f, 40, 40)];
-	[info setTitle:@"i" forState:UIControlStateNormal];
-	[info addTarget:self action:@selector(onInfoButton) forControlEvents:UIControlEventTouchUpInside];
-	[[self view] addSubview:info];
+	// Progress container
 	
-	UIView* playerContainer = [[UIView alloc] initWithFrame:CGRectMake([titleBg frame].origin.x, [titleBg frame].origin.y + [titleBg frame].size.height, 320, [UIScreen mainScreen].bounds.size.height - [_cover frame].size.height - [titleBg frame].size.height - 44 - 20)];
-	[playerContainer setBackgroundColor:[UIColor colorWithRed:0.22 green:0.38 blue:0.47 alpha:1.]];
-	[[self view] addSubview:playerContainer];
+	UIView* progressContainer = [[UIView alloc] initWithFrame:CGRectMake([_cover frame].origin.x, [_cover frame].origin.y + [_cover frame].size.height, 320, 60)];
+	[progressContainer setBackgroundColor:[UIColor whiteColor]];
+	[[progressContainer layer] setShadowColor:[UIColor blackColor].CGColor];
+	[[progressContainer layer] setShadowOffset:CGSizeMake(0, 0)];
+	[[progressContainer layer] setShadowRadius:3.];
+	[[progressContainer layer] setShadowOpacity:1.];
+	[[self view] addSubview:progressContainer];
 	
-	_progressTime = [[UILabel alloc] initWithFrame:CGRectMake([playerContainer frame].origin.x + 5, [playerContainer frame].origin.y + 15, 100, 15)];
+	_progressTime = [[UILabel alloc] initWithFrame:CGRectMake([progressContainer frame].origin.x + 5, [progressContainer frame].origin.y + 20, 100, 20)];
 	[_progressTime setBackgroundColor:[UIColor clearColor]];
 	[_progressTime setText:@"00:00"];
-	[_progressTime setTextColor:[UIColor whiteColor]];
+	[_progressTime setTextColor:[UIColor freepodLightBlueColor]];
 	[_progressTime setTextAlignment:NSTextAlignmentLeft];
 	[_progressTime setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:10]];
 	[[self view] addSubview:_progressTime];
 	
-	_remainingTime = [[UILabel alloc] initWithFrame:CGRectMake([playerContainer frame].origin.x + [playerContainer frame].size.width - 100 - 5, [playerContainer frame].origin.y + 15, 100, 15)];
+	_remainingTime = [[UILabel alloc] initWithFrame:CGRectMake([progressContainer frame].origin.x + [progressContainer frame].size.width - 100 - 5, [progressContainer frame].origin.y + 20, 100, 20)];
 	[_remainingTime setBackgroundColor:[UIColor clearColor]];
 	[_remainingTime setText:@"-00:00"];
-	[_remainingTime setTextColor:[UIColor whiteColor]];
+	[_remainingTime setTextColor:[UIColor freepodLightBlueColor]];
 	[_remainingTime setTextAlignment:NSTextAlignmentRight];
 	[_remainingTime setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:10]];
 	[[self view] addSubview:_remainingTime];
 	
-	_progressBar = [[ProgressSlider alloc] initWithFrame:CGRectMake([playerContainer frame].origin.x + 20, [playerContainer frame].origin.y + 15, 280, 15)];
+	_progressBar = [[ProgressSlider alloc] initWithFrame:CGRectMake([progressContainer frame].origin.x + 20, [progressContainer frame].origin.y + 20, 280, 20)];
 	[_progressBar setThumbImage:[UIImage imageNamed:@"PlayerThumb"] forState:UIControlStateNormal];
 	[_progressBar setMinimumValue:0.0];
 	[_progressBar setMaximumValue:1.0];
@@ -110,6 +90,36 @@ static PlayerViewController* instance;
 	[_progressBar addTarget:self action:@selector(isDragging) forControlEvents:UIControlStateHighlighted];
 	[_progressBar addTarget:_progressBar action:@selector(setNeedsDisplay) forControlEvents:UIControlEventValueChanged];
 	[[self view] addSubview:_progressBar];
+		
+//	_episodeTitle = [[UILabel alloc] initWithFrame:CGRectMake([titleBg frame].origin.x + 20, [titleBg frame].origin.y + 5, 280, 25)];
+//	[_episodeTitle setBackgroundColor:[UIColor clearColor]];
+//	[_episodeTitle setText:@"title"];
+//	[_episodeTitle setTextColor:[UIColor whiteColor]];
+//	[_episodeTitle setTextAlignment:NSTextAlignmentCenter];
+//	[_episodeTitle setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:20]];
+//	[_episodeTitle setNumberOfLines:1];
+//	[[self view] addSubview:_episodeTitle];
+//	
+//	_podcastName = [[UILabel alloc] initWithFrame:CGRectMake([titleBg frame].origin.x + 20, [_episodeTitle frame].origin.y + [_episodeTitle frame].size.height, 280, 20)];
+//	[_podcastName setBackgroundColor:[UIColor clearColor]];
+//	[_podcastName setText:@"name"];
+//	[_podcastName setTextColor:[UIColor whiteColor]];
+//	[_podcastName setTextAlignment:NSTextAlignmentCenter];
+//	[_podcastName setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:16]];
+//	[_podcastName setNumberOfLines:1];
+//	[[self view] addSubview:_podcastName];
+	
+	
+	
+	// Player container
+	
+	UIView* playerContainer = [[UIView alloc] initWithFrame:CGRectMake([progressContainer frame].origin.x, [progressContainer frame].origin.y + [progressContainer frame].size.height, 320, [UIScreen mainScreen].bounds.size.height - [_cover frame].size.height - [progressContainer frame].size.height - 44 - 20)];
+	[playerContainer setBackgroundColor:[UIColor whiteColor]];
+	[[self view] addSubview:playerContainer];
+	
+	UIView* separator = [[UIView alloc] initWithFrame:CGRectMake([progressContainer frame].origin.x, [progressContainer frame].origin.y + [progressContainer frame].size.height, 320, 1)];
+	[separator setBackgroundColor:[UIColor colorWithRed:0.f green:0.f blue:0.f alpha:0.1]];
+	[[self view] addSubview:separator];
 	
 	_playPauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	[_playPauseButton setBackgroundColor:[UIColor greenColor]];
@@ -125,6 +135,19 @@ static PlayerViewController* instance;
 	[_indicator startAnimating];
 	[_waitingView addSubview:_indicator];
 	[[self view] addSubview:_waitingView];
+	
+	
+	
+	
+	// Top shadow
+	
+	UIView * shadow = [[UIView alloc] initWithFrame:CGRectMake(0, -64, [UIScreen mainScreen].bounds.size.width, 64)];
+	[shadow setBackgroundColor:[UIColor whiteColor]];
+	[[shadow layer] setShadowColor:[UIColor blackColor].CGColor];
+	[[shadow layer] setShadowOffset:CGSizeMake(0, 0)];
+	[[shadow layer] setShadowRadius:3.];
+	[[shadow layer] setShadowOpacity:1.];
+	[[self view] addSubview:shadow];
 }
 
 - (void)onInfoButton {

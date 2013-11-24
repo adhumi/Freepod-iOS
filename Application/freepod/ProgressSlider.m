@@ -23,18 +23,18 @@
 - (void)drawRect:(CGRect)rect {
 	float progress = ((_progressValue - _minProgressValue) / (_maxProgressValue - _minProgressValue));
 	float valueRatio = (([self value] - [self minimumValue]) / ([self maximumValue] - [self minimumValue]));
-	float trackHeight = [self trackRectForBounds:rect].size.height;
-	float trackPosY = [self trackRectForBounds:rect].origin.y;
+	float trackHeight = [self trackRectForBounds:rect].size.height + 2;
+	float trackPosY = [self trackRectForBounds:rect].origin.y - 1;
 	float trackWidth = self.frame.size.width - 40;
 	
     CGContextRef c = UIGraphicsGetCurrentContext();
     [[UIColor grayColor] set];
     CGContextFillRect(c, CGRectMake(19, trackPosY, trackWidth, trackHeight));
 	
-    [[UIColor whiteColor] set];
+    [[UIColor lightGrayColor] set];
     CGContextFillRect(c, CGRectMake(19, trackPosY, trackWidth * progress, trackHeight));
 	
-    [[UIColor colorWithRed:255/225.f green:186/255.f blue:2/255.f alpha:1] set];
+    [[UIColor freepodYellowColor] set];
     CGContextFillRect(c, CGRectMake(19, trackPosY, trackWidth * valueRatio, trackHeight));
 }
 

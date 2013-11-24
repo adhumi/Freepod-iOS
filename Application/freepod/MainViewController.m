@@ -25,14 +25,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    [[self view] setBackgroundColor:[UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1.]];
+    [[self view] setBackgroundColor:[UIColor whiteColor]];
     
 	[[[self navigationController] navigationBar] setOpaque:YES];
     [[[self navigationController] navigationBar] setBarTintColor:[UIColor freepodLightBlueColor]];
         
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, [[UIScreen mainScreen] bounds].size.height - 44 - 20)];
-    [_scrollView setContentSize:CGSizeMake(320, [[self view] bounds].size.height)];
+    [_scrollView setContentSize:CGSizeMake(320, [[self view] bounds].size.height - 64)];
 	
 	_refreshControl = [[UIRefreshControl alloc] init];
     [_refreshControl addTarget:[PodcastsManager instance] action:@selector(update) forControlEvents:UIControlEventValueChanged];
@@ -40,8 +42,15 @@
     [_scrollView addSubview:_refreshControl];
 	
     [[self view] addSubview:_scrollView];
-	// Do any additional setup after loading the view, typically from a nib.
-    
+
+	UIView * shadow = [[UIView alloc] initWithFrame:CGRectMake(0, -64, [UIScreen mainScreen].bounds.size.width, 64)];
+	[shadow setBackgroundColor:[UIColor clearColor]];
+	[[shadow layer] setShadowColor:[UIColor blackColor].CGColor];
+	[[shadow layer] setShadowOffset:CGSizeMake(0, 0)];
+	[[shadow layer] setShadowRadius:3.];
+	[[shadow layer] setShadowOpacity:1.];
+	[[self view] addSubview:shadow];
+	
     //[self displayPodcastsList];
 }
 
@@ -56,12 +65,16 @@
 }
 
 - (void)displayPodcastsList {
+	for (UIView * subview in [_scrollView subviews]) {
+		[subview removeFromSuperview];
+	}
+	
 	PodcastsManager * podManager = [PodcastsManager instance];
 	
     if ([podManager podcasts] == nil) return;
     if ([[podManager podcasts] count] == 0) return;
     
-    int scrollViewHeight = (ceil([[podManager podcasts] count] / 2.) * (10 + 145)) + 10;
+    int scrollViewHeight = (ceil([[podManager podcasts] count] / 2.) * 160);
         
     if (scrollViewHeight > [[self view] bounds].size.height) {
         [_scrollView setContentSize:CGSizeMake(320, scrollViewHeight)];
@@ -72,7 +85,7 @@
         int row = floor(i / 2); // de 0 à infinity
         int col = i % 2; // 0 ou 1
         
-        CoverButton* newCover = [[CoverButton alloc] initWithFrame:CGRectMake(10 + col * (145 + 10), 10 + row * (145 + 10), 145, 145) andPodcast:podcast];
+        CoverButton* newCover = [[CoverButton alloc] initWithFrame:CGRectMake(col * 160, row * 160, 160, 160) andPodcast:podcast];
         [newCover setDelegate:self];
         [_scrollView addSubview:newCover];
         
@@ -82,7 +95,7 @@
 
 - (void)displayPlayer {
     [self presentViewController:[PlayerMainViewController instance] animated:YES completion:^{
-        
+        //
     }];
 }
 
