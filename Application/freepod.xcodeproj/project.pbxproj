@@ -23,6 +23,10 @@
 		A600AFFA167545040025BB33 /* EpisodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFF9167545040025BB33 /* EpisodeCell.m */; };
 		A600B0031677E11E0025BB33 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600B0021677E11E0025BB33 /* CoreMedia.framework */; };
 		A600B0051677E1240025BB33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600B0041677E1240025BB33 /* AVFoundation.framework */; };
+		A60EE8FF1841E1C80010A385 /* ProgressSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A60EE8FE1841E1C80010A385 /* ProgressSlider.m */; };
+		A60EE9011841E5B40010A385 /* void.png in Resources */ = {isa = PBXBuildFile; fileRef = A60EE9001841E5B40010A385 /* void.png */; };
+		A60EE9051841EF830010A385 /* PlayerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A60EE9041841EF830010A385 /* PlayerDetailsViewController.m */; };
+		A60EE9081841F0160010A385 /* UIColor+FreepodColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A60EE9071841F0160010A385 /* UIColor+FreepodColor.m */; };
 		A61786B41840E6E7009D98B6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A61786A21840E6E7009D98B6 /* AFHTTPRequestOperation.m */; };
 		A61786B51840E6E7009D98B6 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A61786A41840E6E7009D98B6 /* AFHTTPRequestOperationManager.m */; };
 		A61786B61840E6E7009D98B6 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A61786A61840E6E7009D98B6 /* AFHTTPSessionManager.m */; };
@@ -73,6 +77,13 @@
 		A600AFF9167545040025BB33 /* EpisodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeCell.m; sourceTree = "<group>"; };
 		A600B0021677E11E0025BB33 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A600B0041677E1240025BB33 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A60EE8FD1841E1C80010A385 /* ProgressSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressSlider.h; sourceTree = "<group>"; };
+		A60EE8FE1841E1C80010A385 /* ProgressSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressSlider.m; sourceTree = "<group>"; };
+		A60EE9001841E5B40010A385 /* void.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = void.png; sourceTree = "<group>"; };
+		A60EE9031841EF830010A385 /* PlayerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerDetailsViewController.h; sourceTree = "<group>"; };
+		A60EE9041841EF830010A385 /* PlayerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDetailsViewController.m; sourceTree = "<group>"; };
+		A60EE9061841F0160010A385 /* UIColor+FreepodColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FreepodColor.h"; sourceTree = "<group>"; };
+		A60EE9071841F0160010A385 /* UIColor+FreepodColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FreepodColor.m"; sourceTree = "<group>"; };
 		A61786A11840E6E7009D98B6 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		A61786A21840E6E7009D98B6 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		A61786A31840E6E7009D98B6 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -164,6 +175,8 @@
 			children = (
 				A6AC817018415F2B002824D9 /* UIImage+ImageEffects.h */,
 				A6AC817118415F2B002824D9 /* UIImage+ImageEffects.m */,
+				A60EE9061841F0160010A385 /* UIColor+FreepodColor.h */,
+				A60EE9071841F0160010A385 /* UIColor+FreepodColor.m */,
 				A600AFA616725E9D0025BB33 /* AppDelegate.h */,
 				A600AFA716725E9D0025BB33 /* AppDelegate.m */,
 				A600AFF5167543C40025BB33 /* View Controllers */,
@@ -193,10 +206,7 @@
 				A600AFB016725E9D0025BB33 /* MainViewController.m */,
 				A600AFEC16751B610025BB33 /* PodcastViewController.h */,
 				A600AFED16751B610025BB33 /* PodcastViewController.m */,
-				A6F3EAF01841494000105AFF /* PlayerMainViewController.h */,
-				A6F3EAF11841494000105AFF /* PlayerMainViewController.m */,
-				A6F3EAE81841476900105AFF /* PlayerViewController.h */,
-				A6F3EAE91841476900105AFF /* PlayerViewController.m */,
+				A60EE9021841EF680010A385 /* Player */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -206,6 +216,8 @@
 			children = (
 				A600AFE916750B1D0025BB33 /* CoverButton.h */,
 				A600AFEA16750B1E0025BB33 /* CoverButton.m */,
+				A60EE8FD1841E1C80010A385 /* ProgressSlider.h */,
+				A60EE8FE1841E1C80010A385 /* ProgressSlider.m */,
 				A600AFF8167545040025BB33 /* EpisodeCell.h */,
 				A600AFF9167545040025BB33 /* EpisodeCell.m */,
 			);
@@ -221,6 +233,19 @@
 				A67E2F0C16D185FC008AE598 /* Episode.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		A60EE9021841EF680010A385 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				A6F3EAF01841494000105AFF /* PlayerMainViewController.h */,
+				A6F3EAF11841494000105AFF /* PlayerMainViewController.m */,
+				A6F3EAE81841476900105AFF /* PlayerViewController.h */,
+				A6F3EAE91841476900105AFF /* PlayerViewController.m */,
+				A60EE9031841EF830010A385 /* PlayerDetailsViewController.h */,
+				A60EE9041841EF830010A385 /* PlayerDetailsViewController.m */,
+			);
+			name = Player;
 			sourceTree = "<group>";
 		};
 		A61786A01840E6E7009D98B6 /* AFNetworking */ = {
@@ -270,6 +295,7 @@
 				A600AFAD16725E9D0025BB33 /* Default-568h@2x.png */,
 				A6AC816C184150DD002824D9 /* cover.png */,
 				A6AC816E18415D29002824D9 /* PlayerThumb@2x.png */,
+				A60EE9001841E5B40010A385 /* void.png */,
 			);
 			name = Ressources;
 			sourceTree = "<group>";
@@ -347,6 +373,7 @@
 			files = (
 				A6AC816D184150DD002824D9 /* cover.png in Resources */,
 				A600AFA216725E9D0025BB33 /* InfoPlist.strings in Resources */,
+				A60EE9011841E5B40010A385 /* void.png in Resources */,
 				A600AFAA16725E9D0025BB33 /* Default.png in Resources */,
 				A600AFAC16725E9D0025BB33 /* Default@2x.png in Resources */,
 				A600AFAE16725E9D0025BB33 /* Default-568h@2x.png in Resources */,
@@ -365,6 +392,7 @@
 			files = (
 				A6F3EAF21841494000105AFF /* PlayerMainViewController.m in Sources */,
 				A61786B41840E6E7009D98B6 /* AFHTTPRequestOperation.m in Sources */,
+				A60EE9051841EF830010A385 /* PlayerDetailsViewController.m in Sources */,
 				A600AFA416725E9D0025BB33 /* main.m in Sources */,
 				A600AFA816725E9D0025BB33 /* AppDelegate.m in Sources */,
 				A6AC817218415F2B002824D9 /* UIImage+ImageEffects.m in Sources */,
@@ -377,6 +405,7 @@
 				A6F3EAEA1841476900105AFF /* PlayerViewController.m in Sources */,
 				A61786B71840E6E7009D98B6 /* AFNetworkReachabilityManager.m in Sources */,
 				A61786B61840E6E7009D98B6 /* AFHTTPSessionManager.m in Sources */,
+				A60EE9081841F0160010A385 /* UIColor+FreepodColor.m in Sources */,
 				A61786BA1840E6E7009D98B6 /* AFURLRequestSerialization.m in Sources */,
 				A600AFEB16750B1E0025BB33 /* CoverButton.m in Sources */,
 				A600AFEE16751B610025BB33 /* PodcastViewController.m in Sources */,
@@ -384,6 +413,7 @@
 				A600AFFA167545040025BB33 /* EpisodeCell.m in Sources */,
 				A67E2F0A16D185EE008AE598 /* Podcast.m in Sources */,
 				A67E2F0D16D185FC008AE598 /* Episode.m in Sources */,
+				A60EE8FF1841E1C80010A385 /* ProgressSlider.m in Sources */,
 				A67E2F1016D18810008AE598 /* PodcastsManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

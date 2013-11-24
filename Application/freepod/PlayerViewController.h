@@ -9,16 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Episode.h"
+#import "ProgressSlider.h"
+#import "PlayerDetailsViewController.h"
 
 @interface PlayerViewController : UIViewController {
 	UIImageView *				_cover;
 	
-    UIButton*                   _playPauseButton;
-    UISlider*                   _progressBar;
-    UILabel*                    _progressTime;
-    UILabel*                    _remainingTime;
-    UIView*                     _waitingView;
-    UIActivityIndicatorView*    _indicator;
+    UIButton *					_playPauseButton;
+    ProgressSlider *			_progressBar;
+    UILabel *					_progressTime;
+    UILabel *					_remainingTime;
+    UIView *					_waitingView;
+    UIActivityIndicatorView *	_indicator;
     
     AVPlayer*                   _audioPlayer;
     

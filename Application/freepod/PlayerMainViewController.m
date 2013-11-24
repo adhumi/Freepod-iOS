@@ -38,7 +38,7 @@ static PlayerMainViewController* instance;
     [super viewDidLoad];
     
 	[self.navigationBar setOpaque:YES];
-    [self.navigationBar setBarTintColor:[UIColor colorWithRed:0.22 green:0.38 blue:0.47 alpha:1.]];
+    [self.navigationBar setBarTintColor:[UIColor freepodLightBlueColor]];
 }
 
 - (void)didReceiveMemoryWarning {

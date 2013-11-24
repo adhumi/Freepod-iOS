@@ -73,6 +73,7 @@ static PlayerViewController* instance;
 	UIButton * info = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	[info setFrame:CGRectMake([titleBg frame].origin.x + [titleBg frame].size.width - 40, [titleBg frame].origin.y + ([titleBg frame].size.height - 40) * 0.5f, 40, 40)];
 	[info setTitle:@"i" forState:UIControlStateNormal];
+	[info addTarget:self action:@selector(onInfoButton) forControlEvents:UIControlEventTouchUpInside];
 	[[self view] addSubview:info];
 	
 	UIView* playerContainer = [[UIView alloc] initWithFrame:CGRectMake([titleBg frame].origin.x, [titleBg frame].origin.y + [titleBg frame].size.height, 320, [UIScreen mainScreen].bounds.size.height - [_cover frame].size.height - [titleBg frame].size.height - 44 - 20)];
@@ -95,19 +96,23 @@ static PlayerViewController* instance;
 	[_remainingTime setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:10]];
 	[[self view] addSubview:_remainingTime];
 	
-	_progressBar = [[UISlider alloc] initWithFrame:CGRectMake([playerContainer frame].origin.x + 40, [playerContainer frame].origin.y + 15, 240, 15)];
+	_progressBar = [[ProgressSlider alloc] initWithFrame:CGRectMake([playerContainer frame].origin.x + 20, [playerContainer frame].origin.y + 15, 280, 15)];
 	[_progressBar setThumbImage:[UIImage imageNamed:@"PlayerThumb"] forState:UIControlStateNormal];
 	[_progressBar setMinimumValue:0.0];
 	[_progressBar setMaximumValue:1.0];
-	[_progressBar setValue:0.5];
+	[_progressBar setMinProgressValue:0.0];
+	[_progressBar setMaxProgressValue:1.0];
+	[_progressBar setProgressValue:0.5];
+	[_progressBar setValue:0.0];
 	[_progressBar setContinuous:true];
 	[_progressBar addTarget:self action:@selector(goToPosition) forControlEvents:UIControlEventTouchUpInside];
 	[_progressBar addTarget:self action:@selector(goToPosition) forControlEvents:UIControlEventTouchUpOutside];
 	[_progressBar addTarget:self action:@selector(isDragging) forControlEvents:UIControlStateHighlighted];
+	[_progressBar addTarget:_progressBar action:@selector(setNeedsDisplay) forControlEvents:UIControlEventValueChanged];
 	[[self view] addSubview:_progressBar];
 	
 	_playPauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	[_waitingView setBackgroundColor:[UIColor blueColor]];
+	[_playPauseButton setBackgroundColor:[UIColor greenColor]];
 	[_playPauseButton setFrame:CGRectMake(([playerContainer frame].origin.x + [playerContainer frame].size.width - 40) * 0.5f, [playerContainer frame].origin.y + 35, 40, 40)];
 	[_playPauseButton addTarget:self action:@selector(playButton) forControlEvents:UIControlEventTouchUpInside];
 	[_playPauseButton setHidden:YES];
@@ -120,6 +125,11 @@ static PlayerViewController* instance;
 	[_indicator startAnimating];
 	[_waitingView addSubview:_indicator];
 	[[self view] addSubview:_waitingView];
+}
+
+- (void)onInfoButton {
+	PlayerDetailsViewController * details = [[PlayerDetailsViewController alloc] initWithEpisode:_activeEpisode];
+	[[self navigationController] pushViewController:details animated:YES];
 }
 
 - (void)onCloseButton {
@@ -198,15 +208,16 @@ static PlayerViewController* instance;
         CMTimeRange timeRange = [[timeRangeArray objectAtIndex:0] CMTimeRangeValue];
         loadedDuration = CMTimeGetSeconds(timeRange.duration);
         startDuration = CMTimeGetSeconds(timeRange.start);
+		[_progressBar setProgressValue:loadedDuration];
     }
     
     if ((!_isReady &&
          !_isPlaying &&
-         [[_audioPlayer currentItem] status] == AVPlayerItemStatusReadyToPlay &&
-         [[_audioPlayer currentItem] isPlaybackLikelyToKeepUp]) || (
+         [[_audioPlayer currentItem] status] == AVPlayerItemStatusReadyToPlay) || (
                                                                     !_isReady && loadedDuration > 5.0))
     {
         [_progressBar setMaximumValue:CMTimeGetSeconds([[_audioPlayer currentItem] duration])];
+		[_progressBar setMaxProgressValue:CMTimeGetSeconds([[_audioPlayer currentItem] duration])];
         
         _isReady = YES;
         
@@ -245,6 +256,8 @@ static PlayerViewController* instance;
     if (_isReady && CMTimeGetSeconds(duration) <= CMTimeGetSeconds(current)) {
         [self itemDidFinishPlaying];
     }
+	
+	[_progressBar setNeedsDisplay];
 }
 
 -(void)itemDidFinishPlaying {

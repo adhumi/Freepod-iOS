@@ -17,6 +17,7 @@
 - (id)init {
     self = [super init];
     if (self) {
+		[PlayerMainViewController instance];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onPodcastsListUpdate) name:NOTIFICATION_PODCASTS_LIST_UPDATE object:nil];
 	}
     return self;
@@ -28,7 +29,7 @@
     [[self view] setBackgroundColor:[UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1.]];
     
 	[[[self navigationController] navigationBar] setOpaque:YES];
-    [[[self navigationController] navigationBar] setBarTintColor:[UIColor colorWithRed:0.22 green:0.38 blue:0.47 alpha:1.]];
+    [[[self navigationController] navigationBar] setBarTintColor:[UIColor freepodLightBlueColor]];
         
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, [[UIScreen mainScreen] bounds].size.height - 44 - 20)];
     [_scrollView setContentSize:CGSizeMake(320, [[self view] bounds].size.height)];
