@@ -3,7 +3,7 @@ Application Freepod pour iPhone
 
 Le développement de cette application a repris il y a peu après une longue période d'inactivité. Son objectif est de proposer une application rapide et intuitive qui simplifie l'écoute et la découverte des podcasts Freepod, en évitant les éléments superflus de version 1.0 (et en apportant plus de stabilité).
 
-Objectifs pour la prochaine mise à jour (version 2.0)
+Objectifs pour la prochaine mise à jour (2.0)
 -----------------------------------------------------
 
 1. Amélioration en profondeur du fonctionnement de l'application (réécriture complète).
