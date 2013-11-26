@@ -19,7 +19,7 @@
     ProgressSlider *			_progressBar;
     UILabel *					_progressTime;
     UILabel *					_remainingTime;
-    UIView *					_waitingView;
+    UIImageView *					_waitingView;
     UIActivityIndicatorView *	_indicator;
     
     AVPlayer*                   _audioPlayer;
