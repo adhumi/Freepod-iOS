@@ -39,7 +39,10 @@ static PlayerViewController* instance;
 	
 	[[[self navigationController] navigationBar] setOpaque:YES];
 	
-	UIBarButtonItem * closeButton = [[UIBarButtonItem alloc] initWithTitle:@"Fermer" style:UIBarButtonItemStyleBordered target:self action:@selector(onCloseButton)];
+	UIBarButtonItem * infoButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"PlayerInfoButton"] style:UIBarButtonItemStyleBordered target:self action:@selector(onInfoButton)];
+	[self.navigationItem setLeftBarButtonItem:infoButton];
+	
+	UIBarButtonItem * closeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"PlayerCloseButton"] style:UIBarButtonItemStyleBordered target:self action:@selector(onCloseButton)];
 	[self.navigationItem setRightBarButtonItem:closeButton];
 	
 	self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -124,7 +127,7 @@ static PlayerViewController* instance;
 	_waitingView = [[UIImageView alloc] initWithFrame:[_playPauseButton frame]];
 	[_waitingView setImage:[UIImage imageNamed:@"PlayerButtonEmpty"]];
 	_indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-	[_indicator setFrame:[_waitingView frame]];
+	[_indicator setFrame:CGRectMake([_waitingView frame].origin.x + ([_waitingView frame].size.width - 20) / 2.f, [_waitingView frame].origin.y + ([_waitingView frame].size.height - 20) / 2.f, 20, 20)];
 	[_indicator startAnimating];
 	[_waitingView addSubview:_indicator];
 	[[self view] addSubview:_waitingView];
@@ -145,7 +148,7 @@ static PlayerViewController* instance;
 	
 	
 	
-	UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 80, 44)];
+	UIView * headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width - 100, 44)];
 	
 	_episodeTitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, headerView.frame.size.width, 20)];
 	[_episodeTitle setBackgroundColor:[UIColor clearColor]];
@@ -184,12 +187,12 @@ static PlayerViewController* instance;
 }
 
 - (void)preparePlayer {
-    NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.adhumi.fr/api/get-img-podcast.php?id=%d&nom=logo_normal&width=%f", [_activeEpisode podcastId], _cover.frame.size.width * [[UIScreen mainScreen] scale]]]];
+    NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.adhumi.fr/api/get-img-episode.php?id=%d&nom=image&width=%f", [_activeEpisode podcastId], _cover.frame.size.width * [[UIScreen mainScreen] scale]]]];
 	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
 		if (connectionError) {
 			NSLog(@"Error loading cover");
 		} else {
-			UIImage *image = [[UIImage alloc] initWithData:data];
+			UIImage *image = [[UIImage alloc] initWithData:data scale:[[UIScreen mainScreen] scale]];
 			[_cover setImage:image];
 		}
 	}];
@@ -198,6 +201,7 @@ static PlayerViewController* instance;
     _preTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updatePlayer) userInfo:nil repeats:YES];
 	
 	[_episodeTitle setText:[_activeEpisode title]];
+	[_podcastName setText:[_activeEpisode podcastName]];
 }
 
 

@@ -34,17 +34,16 @@
     [[[self navigationController] navigationBar] setBarTintColor:[UIColor freepodLightBlueColor]];
         
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, [[UIScreen mainScreen] bounds].size.height - 44 - 20)];
-    [_scrollView setContentSize:CGSizeMake(320, [[self view] bounds].size.height - 64)];
-	
-	_refreshControl = [[UIRefreshControl alloc] init];
-    [_refreshControl addTarget:[PodcastsManager instance] action:@selector(update) forControlEvents:UIControlEventValueChanged];
-	[_refreshControl setTintColor:[UIColor colorWithRed:255/225.f green:186/255.f blue:2/255.f alpha:1]];
-    [_scrollView addSubview:_refreshControl];
-	
+    [_scrollView setContentSize:CGSizeMake(320, [[self view] bounds].size.height)];
+	[_scrollView setShowsVerticalScrollIndicator:YES];
     [[self view] addSubview:_scrollView];
+	
+	UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+	[refreshControl addTarget:self action:@selector(onUpdateContent) forControlEvents:UIControlEventValueChanged];
+	[_scrollView addSubview:refreshControl];
 
 	UIView * shadow = [[UIView alloc] initWithFrame:CGRectMake(0, -64, [UIScreen mainScreen].bounds.size.width, 64)];
-	[shadow setBackgroundColor:[UIColor clearColor]];
+	[shadow setBackgroundColor:[UIColor whiteColor]];
 	[[shadow layer] setShadowColor:[UIColor blackColor].CGColor];
 	[[shadow layer] setShadowOffset:CGSizeMake(0, 0)];
 	[[shadow layer] setShadowRadius:3.];
@@ -52,6 +51,10 @@
 	[[self view] addSubview:shadow];
 	
     //[self displayPodcastsList];
+}
+
+- (void)onUpdateContent {
+	[[PodcastsManager instance] update];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -82,8 +85,8 @@
     
     int i = 0;
     for (Podcast* podcast in [podManager podcasts]) {
-        int row = floor(i / 2); // de 0 à infinity
-        int col = i % 2; // 0 ou 1
+        int row = floor(i / 2);
+        int col = i % 2;
         
         CoverButton* newCover = [[CoverButton alloc] initWithFrame:CGRectMake(col * 160, row * 160, 160, 160) andPodcast:podcast];
         [newCover setDelegate:self];
