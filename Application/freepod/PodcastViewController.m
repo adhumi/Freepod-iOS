@@ -31,7 +31,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+	UIRefreshControl * refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(onUpdateContent) forControlEvents:UIControlEventValueChanged];
+	[refreshControl setTintColor:[UIColor freepodLightBlueColor]];
+    self.refreshControl = refreshControl;
+}
+
+- (void)onUpdateContent {
+	[[PodcastsManager instance] updatePodcast:_podcast];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,6 +49,8 @@
 }
 
 - (void)onEpisodesListUpdate {
+	[self.refreshControl endRefreshing];
+	
 	[self.tableView reloadData];
 }
 
@@ -64,13 +74,30 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell;
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     Episode * episode = [[_podcast episodes] objectAtIndex:indexPath.row];
     
+	NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.adhumi.fr/api/get-img-episode.php?id=%d&nom=image&width=%f", [episode episodeId], [self tableView:tableView heightForRowAtIndexPath:indexPath] * [[UIScreen mainScreen] scale]]]];
+	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+		if (connectionError) {
+			NSLog(@"Error loading cover");
+		} else {
+			UIImage *image = [[UIImage alloc] initWithData:data scale:[[UIScreen mainScreen] scale]];
+			
+			[cell.imageView setImage:image];
+		}
+	}];
+	
     cell.textLabel.text = [episode title];
-    
+	
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"d MMMM yyyy"];
+	
+    [cell.detailTextLabel setText:[dateFormatter stringFromDate:[episode pubDate]]];
+	[cell.detailTextLabel setTextColor:[UIColor lightGrayColor]];
+	
     return cell;
 }
 

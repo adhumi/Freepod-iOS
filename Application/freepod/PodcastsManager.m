@@ -77,6 +77,10 @@ static PodcastsManager * instance;
 		
 	for (NSDictionary * episodeDic in array) {
 		Episode * episode = [[Episode alloc] initWithDictionnary:episodeDic];
+		[episode setPodcast:podcast];
+		[episode setPodcastId:[podcast podcastId]];
+		[episode setPodcastName:[podcast name]];
+		
 		[[podcast episodes] addObject:episode];
 	}
 	

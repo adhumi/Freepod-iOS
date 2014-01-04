@@ -39,13 +39,13 @@
 		A61786BC1840E6E7009D98B6 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A61786B31840E6E7009D98B6 /* AFURLSessionManager.m */; };
 		A61786BE1840E930009D98B6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A61786BD1840E930009D98B6 /* SystemConfiguration.framework */; };
 		A61786C01840E943009D98B6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A61786BF1840E943009D98B6 /* Security.framework */; };
+		A617AC591843FF9200D1CCDA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A617AC581843FF9200D1CCDA /* Images.xcassets */; };
 		A67E2F0416D18343008AE598 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A67E2F0316D18343008AE598 /* icon.png */; };
 		A67E2F0616D18384008AE598 /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = A67E2F0516D18384008AE598 /* icon2.png */; };
 		A67E2F0A16D185EE008AE598 /* Podcast.m in Sources */ = {isa = PBXBuildFile; fileRef = A67E2F0916D185EE008AE598 /* Podcast.m */; };
 		A67E2F0D16D185FC008AE598 /* Episode.m in Sources */ = {isa = PBXBuildFile; fileRef = A67E2F0C16D185FC008AE598 /* Episode.m */; };
 		A67E2F1016D18810008AE598 /* PodcastsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A67E2F0F16D18810008AE598 /* PodcastsManager.m */; };
 		A6AC816D184150DD002824D9 /* cover.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AC816C184150DD002824D9 /* cover.png */; };
-		A6AC816F18415D29002824D9 /* PlayerThumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AC816E18415D29002824D9 /* PlayerThumb@2x.png */; };
 		A6AC817218415F2B002824D9 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AC817118415F2B002824D9 /* UIImage+ImageEffects.m */; };
 		A6AC817418416081002824D9 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6AC817318416081002824D9 /* Accelerate.framework */; };
 		A6F3EAEA1841476900105AFF /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F3EAE91841476900105AFF /* PlayerViewController.m */; };
@@ -107,6 +107,7 @@
 		A61786B31840E6E7009D98B6 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		A61786BD1840E930009D98B6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A61786BF1840E943009D98B6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A617AC581843FF9200D1CCDA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A67E2F0316D18343008AE598 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		A67E2F0516D18384008AE598 /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
 		A67E2F0816D185EE008AE598 /* Podcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Podcast.h; sourceTree = "<group>"; };
@@ -116,7 +117,6 @@
 		A67E2F0E16D18810008AE598 /* PodcastsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodcastsManager.h; sourceTree = "<group>"; };
 		A67E2F0F16D18810008AE598 /* PodcastsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodcastsManager.m; sourceTree = "<group>"; };
 		A6AC816C184150DD002824D9 /* cover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cover.png; sourceTree = "<group>"; };
-		A6AC816E18415D29002824D9 /* PlayerThumb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlayerThumb@2x.png"; sourceTree = "<group>"; };
 		A6AC817018415F2B002824D9 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		A6AC817118415F2B002824D9 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		A6AC817318416081002824D9 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -175,16 +175,13 @@
 		A600AF9D16725E9D0025BB33 /* freepod */ = {
 			isa = PBXGroup;
 			children = (
-				A6AC817018415F2B002824D9 /* UIImage+ImageEffects.h */,
-				A6AC817118415F2B002824D9 /* UIImage+ImageEffects.m */,
-				A60EE9061841F0160010A385 /* UIColor+FreepodColor.h */,
-				A60EE9071841F0160010A385 /* UIColor+FreepodColor.m */,
 				A600AFA616725E9D0025BB33 /* AppDelegate.h */,
 				A600AFA716725E9D0025BB33 /* AppDelegate.m */,
 				A600AFF5167543C40025BB33 /* View Controllers */,
 				A600AFF6167543D20025BB33 /* Views */,
 				A600AFF7167543DD0025BB33 /* Models */,
 				A67E2F0716D1858A008AE598 /* Managers */,
+				A617AC51184271C500D1CCDA /* Utils */,
 				A600AF9E16725E9D0025BB33 /* Supporting Files */,
 			);
 			path = freepod;
@@ -276,6 +273,17 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		A617AC51184271C500D1CCDA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A6AC817018415F2B002824D9 /* UIImage+ImageEffects.h */,
+				A6AC817118415F2B002824D9 /* UIImage+ImageEffects.m */,
+				A60EE9061841F0160010A385 /* UIColor+FreepodColor.h */,
+				A60EE9071841F0160010A385 /* UIColor+FreepodColor.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		A67E2F0716D1858A008AE598 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,8 +305,8 @@
 				A600AFAB16725E9D0025BB33 /* Default@2x.png */,
 				A600AFAD16725E9D0025BB33 /* Default-568h@2x.png */,
 				A6AC816C184150DD002824D9 /* cover.png */,
-				A6AC816E18415D29002824D9 /* PlayerThumb@2x.png */,
 				A60EE9001841E5B40010A385 /* void.png */,
+				A617AC581843FF9200D1CCDA /* Images.xcassets */,
 			);
 			name = Ressources;
 			sourceTree = "<group>";
@@ -377,13 +385,13 @@
 				A6AC816D184150DD002824D9 /* cover.png in Resources */,
 				A6177F2A187313400063EBAF /* Images.xcassets in Resources */,
 				A600AFA216725E9D0025BB33 /* InfoPlist.strings in Resources */,
+				A617AC591843FF9200D1CCDA /* Images.xcassets in Resources */,
 				A60EE9011841E5B40010A385 /* void.png in Resources */,
 				A600AFAA16725E9D0025BB33 /* Default.png in Resources */,
 				A600AFAC16725E9D0025BB33 /* Default@2x.png in Resources */,
 				A600AFAE16725E9D0025BB33 /* Default-568h@2x.png in Resources */,
 				A67E2F0416D18343008AE598 /* icon.png in Resources */,
 				A67E2F0616D18384008AE598 /* icon2.png in Resources */,
-				A6AC816F18415D29002824D9 /* PlayerThumb@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
