@@ -19,7 +19,7 @@
 		A600AFB116725E9D0025BB33 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFB016725E9D0025BB33 /* MainViewController.m */; };
 		A600AFEB16750B1E0025BB33 /* CoverButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFEA16750B1E0025BB33 /* CoverButton.m */; };
 		A600AFEE16751B610025BB33 /* PodcastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFED16751B610025BB33 /* PodcastViewController.m */; };
-		A600AFF4167543990025BB33 /* PlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFF3167543990025BB33 /* PlayerManager.m */; };
+		A600AFF4167543990025BB33 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFF3167543990025BB33 /* Player.m */; };
 		A600AFFA167545040025BB33 /* EpisodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A600AFF9167545040025BB33 /* EpisodeCell.m */; };
 		A600B0031677E11E0025BB33 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600B0021677E11E0025BB33 /* CoreMedia.framework */; };
 		A600B0051677E1240025BB33 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A600B0041677E1240025BB33 /* AVFoundation.framework */; };
@@ -27,6 +27,7 @@
 		A60EE9011841E5B40010A385 /* void.png in Resources */ = {isa = PBXBuildFile; fileRef = A60EE9001841E5B40010A385 /* void.png */; };
 		A60EE9051841EF830010A385 /* PlayerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A60EE9041841EF830010A385 /* PlayerDetailsViewController.m */; };
 		A60EE9081841F0160010A385 /* UIColor+FreepodColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A60EE9071841F0160010A385 /* UIColor+FreepodColor.m */; };
+		A6177F2A187313400063EBAF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6177F29187313400063EBAF /* Images.xcassets */; };
 		A61786B41840E6E7009D98B6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A61786A21840E6E7009D98B6 /* AFHTTPRequestOperation.m */; };
 		A61786B51840E6E7009D98B6 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A61786A41840E6E7009D98B6 /* AFHTTPRequestOperationManager.m */; };
 		A61786B61840E6E7009D98B6 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A61786A61840E6E7009D98B6 /* AFHTTPSessionManager.m */; };
@@ -71,8 +72,8 @@
 		A600AFEA16750B1E0025BB33 /* CoverButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverButton.m; sourceTree = "<group>"; };
 		A600AFEC16751B610025BB33 /* PodcastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodcastViewController.h; sourceTree = "<group>"; };
 		A600AFED16751B610025BB33 /* PodcastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodcastViewController.m; sourceTree = "<group>"; };
-		A600AFF2167543990025BB33 /* PlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerManager.h; sourceTree = "<group>"; };
-		A600AFF3167543990025BB33 /* PlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerManager.m; sourceTree = "<group>"; };
+		A600AFF2167543990025BB33 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		A600AFF3167543990025BB33 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		A600AFF8167545040025BB33 /* EpisodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpisodeCell.h; sourceTree = "<group>"; };
 		A600AFF9167545040025BB33 /* EpisodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpisodeCell.m; sourceTree = "<group>"; };
 		A600B0021677E11E0025BB33 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -84,6 +85,7 @@
 		A60EE9041841EF830010A385 /* PlayerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerDetailsViewController.m; sourceTree = "<group>"; };
 		A60EE9061841F0160010A385 /* UIColor+FreepodColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FreepodColor.h"; sourceTree = "<group>"; };
 		A60EE9071841F0160010A385 /* UIColor+FreepodColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FreepodColor.m"; sourceTree = "<group>"; };
+		A6177F29187313400063EBAF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = freepod/Images.xcassets; sourceTree = "<group>"; };
 		A61786A11840E6E7009D98B6 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		A61786A21840E6E7009D98B6 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		A61786A31840E6E7009D98B6 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -277,8 +279,8 @@
 		A67E2F0716D1858A008AE598 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				A600AFF2167543990025BB33 /* PlayerManager.h */,
-				A600AFF3167543990025BB33 /* PlayerManager.m */,
+				A600AFF2167543990025BB33 /* Player.h */,
+				A600AFF3167543990025BB33 /* Player.m */,
 				A67E2F0E16D18810008AE598 /* PodcastsManager.h */,
 				A67E2F0F16D18810008AE598 /* PodcastsManager.m */,
 			);
@@ -288,6 +290,7 @@
 		A6C7746716D17A2300224CEE /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				A6177F29187313400063EBAF /* Images.xcassets */,
 				A67E2F0516D18384008AE598 /* icon2.png */,
 				A67E2F0316D18343008AE598 /* icon.png */,
 				A600AFA916725E9D0025BB33 /* Default.png */,
@@ -372,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6AC816D184150DD002824D9 /* cover.png in Resources */,
+				A6177F2A187313400063EBAF /* Images.xcassets in Resources */,
 				A600AFA216725E9D0025BB33 /* InfoPlist.strings in Resources */,
 				A60EE9011841E5B40010A385 /* void.png in Resources */,
 				A600AFAA16725E9D0025BB33 /* Default.png in Resources */,
@@ -409,7 +413,7 @@
 				A61786BA1840E6E7009D98B6 /* AFURLRequestSerialization.m in Sources */,
 				A600AFEB16750B1E0025BB33 /* CoverButton.m in Sources */,
 				A600AFEE16751B610025BB33 /* PodcastViewController.m in Sources */,
-				A600AFF4167543990025BB33 /* PlayerManager.m in Sources */,
+				A600AFF4167543990025BB33 /* Player.m in Sources */,
 				A600AFFA167545040025BB33 /* EpisodeCell.m in Sources */,
 				A67E2F0A16D185EE008AE598 /* Podcast.m in Sources */,
 				A67E2F0D16D185FC008AE598 /* Episode.m in Sources */,
@@ -487,6 +491,8 @@
 		A600AFBB16725E9D0025BB33 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "freepod/freepod-Prefix.pch";
@@ -501,6 +507,8 @@
 		A600AFBC16725E9D0025BB33 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "freepod/freepod-Prefix.pch";

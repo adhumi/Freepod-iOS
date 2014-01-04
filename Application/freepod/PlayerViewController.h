@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
-#import "Episode.h"
+#import "Player.h"
 #import "ProgressSlider.h"
 #import "PlayerDetailsViewController.h"
 
 @interface PlayerViewController : UIViewController {
+	Player *					_player;
+	
 	UIImageView *				_cover;
 	
     UIButton *					_playPauseButton;
@@ -21,25 +22,14 @@
     UILabel *					_remainingTime;
     UIView *					_waitingView;
     UIActivityIndicatorView *	_indicator;
-    
-    AVPlayer*                   _audioPlayer;
-    
-    BOOL                        _isPlaying;
-    BOOL                        _isReady;
+	
     BOOL                        _isDraggingSlider;
     BOOL                        _isClosed;
-    
-    NSTimer*                    _timer;
-    NSTimer*                    _preTimer;
     
     UILabel*                    _episodeTitle;
     UILabel*                    _podcastName;
 }
 
-@property (nonatomic, retain, readonly) Episode *		activeEpisode;
-
 + (PlayerViewController*)instance;
-
-- (void)playEpisode:(Episode *)episode;
 
 @end

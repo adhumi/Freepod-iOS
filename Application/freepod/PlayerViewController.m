@@ -29,7 +29,7 @@ static PlayerViewController* instance;
 - (id)init {
     self = [super init];
     if (self) {
-        //
+        _player = [Player instance];
     }
     return self;
 }
@@ -128,7 +128,7 @@ static PlayerViewController* instance;
 }
 
 - (void)onInfoButton {
-	PlayerDetailsViewController * details = [[PlayerDetailsViewController alloc] initWithEpisode:_activeEpisode];
+	PlayerDetailsViewController * details = [[PlayerDetailsViewController alloc] initWithEpisode:[_player episode]];
 	[[self navigationController] pushViewController:details animated:YES];
 }
 
@@ -136,14 +136,8 @@ static PlayerViewController* instance;
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)playEpisode:(Episode *)episode {
-	_activeEpisode = episode;
-	
-	[self preparePlayer];
-}
-
 - (void)preparePlayer {
-    NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.adhumi.fr/api/get-img-podcast.php?id=%d&nom=logo_normal&width=%f", [_activeEpisode podcastId], _cover.frame.size.width * [[UIScreen mainScreen] scale]]]];
+    NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.adhumi.fr/api/get-img-podcast.php?id=%d&nom=logo_normal&width=%f", [[_player episode] podcastId], _cover.frame.size.width * [[UIScreen mainScreen] scale]]]];
 	[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
 		if (connectionError) {
 			NSLog(@"Error loading cover");
@@ -153,122 +147,68 @@ static PlayerViewController* instance;
 		}
 	}];
 	
-    _audioPlayer = [AVPlayer playerWithURL:[NSURL URLWithString:[_activeEpisode fileURL]]];
-    _preTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updatePlayer) userInfo:nil repeats:YES];
-	
-	[_episodeTitle setText:[_activeEpisode title]];
+    [_episodeTitle setText:[[_player episode] title]];
 }
 
 
 - (void)goToPosition {
     _isDraggingSlider = NO;
-    CMTime t = CMTimeMakeWithSeconds(_progressBar.value, 1);
-	[_audioPlayer seekToTime:t];
-	[self updatePlayer];
+    [_player seek:_progressBar.value];
 }
 
 - (void)isDragging {
     _isDraggingSlider = YES;
 }
 
-- (void)interruptPlayer {
-    if(_isPlaying) {
-        [self playButton];
-    }
-    
-    if (_preTimer != nil) [_preTimer invalidate];
-    _preTimer = nil;
-}
-
 - (void)playButton {
-    if (_isPlaying) {
-        [_playPauseButton setSelected:NO];
-        [_audioPlayer pause];
-        _isPlaying = NO;
-        if (_timer != nil) [_timer invalidate];
-        _timer = nil;
+    if ([_player isPlaying]) {
+		[_player pause];
     } else {
-        [_playPauseButton setSelected:YES];
-        [_audioPlayer play];
-        _isPlaying = YES;
-        _timer = [NSTimer scheduledTimerWithTimeInterval:(1.0/25.0) target:self selector:@selector(updatePlayer) userInfo:nil repeats:YES];
+        [_player play];
     }
+	
+	[_playPauseButton setSelected:[_player isPlaying]];
 }
 
-- (void)updatePlayer {
-    
-    if(_isClosed)           return;
-    if(!_audioPlayer)       return;
-    
-    double loadedDuration = 0;
-    double startDuration = 0;
-    
-    if ([[_audioPlayer currentItem] status] == AVPlayerItemStatusReadyToPlay) {
-        NSArray * timeRangeArray = [_audioPlayer currentItem].loadedTimeRanges;
-        CMTimeRange timeRange = [[timeRangeArray objectAtIndex:0] CMTimeRangeValue];
-        loadedDuration = CMTimeGetSeconds(timeRange.duration);
-        startDuration = CMTimeGetSeconds(timeRange.start);
-		[_progressBar setProgressValue:loadedDuration];
-    }
-    
-    if ((!_isReady &&
-         !_isPlaying &&
-         [[_audioPlayer currentItem] status] == AVPlayerItemStatusReadyToPlay) || (
-                                                                    !_isReady && loadedDuration > 5.0))
-    {
-        [_progressBar setMaximumValue:CMTimeGetSeconds([[_audioPlayer currentItem] duration])];
-		[_progressBar setMaxProgressValue:CMTimeGetSeconds([[_audioPlayer currentItem] duration])];
-        
-        _isReady = YES;
-        
-        if (_preTimer != nil) [_preTimer invalidate];
-        _preTimer = nil;
-        
-        [_indicator stopAnimating];
+- (void)onStatusChange {
+	[_progressBar setMaximumValue:[_player duration]];
+	[_progressBar setMaxProgressValue:[_player duration]];
+	
+	if ([_player isReady]) {
+		[_indicator stopAnimating];
         [_waitingView setHidden:YES];
         [_playPauseButton setHidden:NO];
-        
-        [self playButton];
+	} else {
+		[_indicator startAnimating];
+        [_waitingView setHidden:NO];
+        [_playPauseButton setHidden:YES];
+	}
+}
+
+- (void)onProgressChange {
+    if(_isClosed) {
+		return;
     }
+	
+	[_progressBar setProgressValue:[_player loadedDuration]];
     
-    CMTime duration = [[_audioPlayer currentItem] duration];
-    float seconds = CMTimeGetSeconds(duration);
+    float seconds = [_player duration];
 	int minutesDef = lroundf(seconds) / 60;
 	int secondsDef = seconds - (minutesDef * 60);
     NSString* txt = [NSString stringWithFormat:@"%02d:%02d",minutesDef,secondsDef];
     [_remainingTime setText:txt];
     
-    CMTime current = [_audioPlayer currentTime];
-    seconds = CMTimeGetSeconds(current);
+    seconds = [_player readPosition];
 	minutesDef = lroundf(seconds) / 60;
 	secondsDef = seconds - (minutesDef * 60);
     txt = [NSString stringWithFormat:@"%02d:%02d",minutesDef,secondsDef];
     [_progressTime setText:txt];
     
-    if (_isReady && !_isDraggingSlider) {
-        [_progressBar setValue:seconds animated:NO];
-    }
-    
-    if (_isReady && ((loadedDuration + startDuration) <= (CMTimeGetSeconds(current) + 0.5)) && !(CMTimeGetSeconds(current) >= (CMTimeGetSeconds(duration) - 0.5))) {
-        [self playButton];
-    }
-    
-    if (_isReady && CMTimeGetSeconds(duration) <= CMTimeGetSeconds(current)) {
-        [self itemDidFinishPlaying];
+    if ([_player isReady] && !_isDraggingSlider) {
+        [_progressBar setValue:seconds animated:YES];
     }
 	
 	[_progressBar setNeedsDisplay];
-}
-
--(void)itemDidFinishPlaying {
-    if (_timer != nil) [_timer invalidate];
-    _timer = nil;
-    _isPlaying = NO;
-    [_playPauseButton setSelected:NO];
-	CMTime t = CMTimeMakeWithSeconds(0, 1);
-	[_audioPlayer pause];
-    [_audioPlayer seekToTime:t];
-	[self updatePlayer];
 }
 
 @end
